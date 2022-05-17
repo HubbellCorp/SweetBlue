@@ -26,8 +26,7 @@ jobs:
 
       # Run tests
       - name: Run Tests
-        # TODO - Change this back to just test after testing
-        run: ./gradlew rx:testDebugUnitTest
+        run: ./gradlew test
 
       # Store test results as an artifact, to be published by another workflow
       - uses: actions/upload-artifact@v2

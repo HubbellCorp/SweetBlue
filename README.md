@@ -2,9 +2,9 @@
 <b>|</b>&nbsp;<a href='#features'>Features</a>
 <b>|</b>&nbsp;<a href="https://sweetblue.io/docs">Docs</a>
 <b>|</b>&nbsp;<a href="https://play.google.com/store/apps/details?id=com.idevicesinc.sweetblue.toolbox">Toolbox</a>
-<p align="right">
-[![SweetBlue-CI](https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml)
-</p>
+<a href="https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml">
+ <img align="right" src="https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml/badge.svg" alt="SweetBlue-CI">
+</a>
 <img align="right" src="https://img.shields.io/badge/version-4.0.0-blue.svg" />
 
 <p align="center">

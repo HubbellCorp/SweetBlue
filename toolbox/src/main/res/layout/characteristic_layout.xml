@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingStart="@dimen/tiny"
+    android:paddingTop="@dimen/medium"
+    android:paddingEnd="@dimen/tiny"
+    android:paddingBottom="@dimen/medium"
+    tools:ignore="ContentDescription">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.idevicesinc.sweetblue.toolbox.view.NameEditView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            app:title="Characteristic Name" />
+
+        <TextView
+            android:id="@+id/detailsHeading"
+            style="@style/item_heading"
+            android:layout_marginStart="29dp"
+            android:text="@string/details" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp">
+
+            <TextView
+                android:id="@+id/uuidLabel"
+                style="@style/item_text"
+                android:text="@string/uuid_colon" />
+
+            <TextView
+                android:id="@+id/uuid"
+                style="@style/item_text"
+                android:layout_marginStart="@dimen/tiny"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp">
+
+            <TextView
+                style="@style/item_text"
+                android:text="@string/properties_colon" />
+
+            <TextView
+                android:id="@+id/properties"
+                style="@style/item_text"
+                android:layout_marginStart="@dimen/tiny" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/notificationLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:gravity="center"
+                android:text="@string/enable_notifications" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/notificationSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/small"
+                android:theme="@style/SwitchTheme" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/valueDisplayTypeLabel"
+                style="@style/item_heading"
+                android:text="@string/value" />
+
+            <TextView
+                android:id="@+id/valueReadTimeLabel"
+                style="@style/item_heading"
+                android:layout_marginStart="@dimen/tiny" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/value"
+            style="@style/item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:text="@string/write_value" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/fakeOverflowMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="5dp"
+        android:src="@drawable/ic_more_vert_black_24dp" />
+
+    <View
+        android:id="@+id/fakeOverflowMenuAnchor"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_alignTop="@id/fakeOverflowMenu"
+        android:layout_alignEnd="@id/fakeOverflowMenu"
+        android:background="@color/red"
+        android:visibility="invisible" />
+
+
+    <ImageView
+        android:id="@+id/expandArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_expand_more_black_24dp" />
+
+</RelativeLayout>

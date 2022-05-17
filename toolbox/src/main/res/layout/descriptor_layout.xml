@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/small">
+
+    <com.idevicesinc.sweetblue.toolbox.view.NameEditView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large"
+        app:title="Descriptor Name"/>
+
+    <TextView
+        android:id="@+id/detailsHeading"
+        style="@style/item_heading"
+        android:layout_below="@+id/name"
+        android:layout_marginStart="@dimen/large"
+        android:text="@string/details"/>
+
+    <TextView
+        android:id="@+id/uuidLabel"
+        style="@style/item_text"
+        android:layout_below="@+id/detailsHeading"
+        android:layout_marginBottom="@dimen/tiniest"
+        android:layout_marginStart="@dimen/large"
+        android:text="@string/uuid_colon"/>
+
+    <TextView
+        android:id="@+id/uuid"
+        style="@style/item_text"
+        android:layout_below="@+id/detailsHeading"
+        android:layout_marginStart="@dimen/tiny"
+        android:layout_toEndOf="@+id/uuidLabel"/>
+
+    <TextView
+        android:id="@+id/valueLabel"
+        style="@style/item_text"
+        android:layout_below="@+id/uuidLabel"
+        android:layout_marginStart="@dimen/large"
+        android:text="@string/value_colon"/>
+
+    <TextView
+        android:id="@+id/value"
+        style="@style/item_text"
+        android:layout_below="@+id/uuidLabel"
+        android:layout_marginStart="@dimen/tiny"
+        android:layout_toEndOf="@+id/valueLabel"/>
+
+</RelativeLayout>

@@ -1,0 +1,123 @@
+name: 'SweetBlue Release'
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+#  Build:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Build Library And Sample Apps
+#        run: ./gradlew assemble
+#
+#  Test:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      # Run tests
+#      - name: Run Tests
+#        run: ./gradlew testReleaseUnitTest
+#
+#      # Publish unit test results
+#      - uses: dorny/test-reporter@v1
+#        if: always()
+#        with:
+#          name: Publish Unit Test Results
+#          path: '**/build/test-results/**/*.xml'
+#          reporter: java-junit
+#
+#  StaticAnalysis:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      # Run static analysis
+#      - name: Android Lint
+#        run: ./gradlew lintRelease
+#
+#      # Publish lint results
+#      - uses: iDevicesInc/action-android-lint@prettier_lint_results
+#        if: always()
+#        with:
+#          report-path: '**/build/reports/*.xml'
+#        continue-on-error: false
+
+  PrepDeploy:
+    runs-on: ubuntu-latest
+
+  #    needs: [Build, Test, StaticAnalysis]
+    steps:
+      - uses: actions/checkout@v3
+
+      # This may be redundant, but we should make sure the documentation is up-to-date, just in case
+      - name: Update Documentation
+        run: ./gradlew bumpMarkdown
+
+      # Generate javadoc again to make sure it's current
+      - name: Generate javadoc
+        run: ./gradlew gendocs
+
+      # Have gradle write out the current version
+      - name: Write version file
+        run: ./gradlew writeVersionFile
+
+      # Read the current version file, and put it into an env variable, to be used in future jobs/steps
+      - name: Set version environment variable
+        run: echo "SWEETBLUE_VERSION=$(cat version.txt)" >> $GITHUB_ENV
+
+      # Commit any changes
+      - name: Commit documentation updates
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '-u'
+          message: Update documentation for release ${{ env.SWEETBLUE_VERSION }}
+
+  Deploy:
+    runs-on: ubuntu-latest
+
+    needs: PrepDeploy
+    steps:
+      - uses: actions/checkout@v3
+
+      # Create a tag for the release
+      - uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          customTag: v${{ env.SWEETBLUE_VERSION }}
+
+      # Now build the artifacts, and javadocs jars, and publish to Azure Artifacts
+      - name: Deploy to Azure
+        env:
+          AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: ${{ secrets.AZURE_ARTIFACTS_ENV_ACCESS_TOKEN }}
+        run: ./gradlew assemble sbjavadocJar publish
+# TODO - Get wiki working once on the public repo
+#      - name: Deploy markdown to wiki
+
+
+  PostDeployment:
+    runs-on: ubuntu-latest
+
+    needs: Deploy
+    steps:
+      - uses: actions/checkout@v3
+#      - name: Merge into master
+
+#      - name: Bump version
+#        run: ./gradlew bumpVersionName
+#
+#      - name: Update Documentation
+#        run: ./gradlew bumpMarkdown
+#
+#      - name: Commit
+#        uses: EndBug/add-and-commit@v9
+#        with:
+#          add: '-u'
+#          message: 'Bump version'
+

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/medium">
+
+        <TextView
+            style="@style/item_heading"
+            android:text="@string/native_name"/>
+
+        <TextView
+            android:id="@+id/nativeName"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"/>
+
+        <TextView
+            style="@style/item_heading"
+            android:text="@string/mac_address"/>
+
+
+        <TextView
+            android:id="@+id/macAddress"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"/>
+
+        <TextView
+            style="@style/item_heading"
+            android:text="@string/status"/>
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"
+            android:text=""/>
+
+        <TextView
+            android:id="@+id/advNameLabel"
+            style="@style/item_heading"
+            android:text="@string/adv_name"/>
+
+        <TextView
+            android:id="@+id/advName"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"/>
+
+        <TextView
+            android:id="@+id/serviceUuidLabel"
+            style="@style/item_heading"
+            android:text="@string/service_uuids"/>
+
+        <TextView
+            android:id="@+id/serviceUuids"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"/>
+
+        <TextView
+            android:id="@+id/manufacturerIdLabel"
+            style="@style/item_heading"
+            android:text="@string/manufacturer_id"/>
+
+        <TextView
+            android:id="@+id/manufacturerId"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"/>
+
+        <TextView
+            android:id="@+id/manufacturerDataLabel"
+            style="@style/item_heading"
+            android:text="@string/manufacturer_data"/>
+
+        <TextView
+            android:id="@+id/manufacturerData"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"/>
+
+        <TextView
+            android:id="@+id/advFlagsLabel"
+            style="@style/item_heading"
+            android:text="@string/adv_flags"/>
+
+        <TextView
+            android:id="@+id/advFlags"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"/>
+
+        <TextView
+            android:id="@+id/txPowerLabel"
+            style="@style/item_heading"
+            android:text="@string/tx_power"/>
+
+        <TextView
+            android:id="@+id/txPower"
+            style="@style/item_text"
+            android:layout_marginBottom="@dimen/medium"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

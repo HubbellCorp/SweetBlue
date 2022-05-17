@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingStart="@dimen/tiny"
+    android:paddingTop="@dimen/medium"
+    android:paddingEnd="@dimen/tiny"
+    android:paddingBottom="@dimen/medium"
+    tools:ignore="ContentDescription">
+
+    <TextView
+        android:id="@+id/valueNameLabel"
+        style="@style/item_title"
+        android:layout_marginStart="29dp"
+        android:text="@string/write_value_value_name" />
+
+    <TextView
+        android:id="@+id/valueTypeLabel"
+        style="@style/item_text"
+        android:layout_below="@+id/valueNameLabel"
+        android:layout_alignStart="@+id/valueNameLabel" />
+
+    <TextView
+        android:id="@+id/valueLabel"
+        style="@style/item_text"
+        android:layout_below="@+id/valueTypeLabel"
+        android:layout_alignStart="@+id/valueNameLabel" />
+
+    <ImageView
+        android:id="@+id/fakeOverflowMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="5dp"
+        android:src="@drawable/ic_more_vert_black_24dp" />
+
+    <View
+        android:id="@+id/fakeOverflowMenuAnchor"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_alignTop="@id/fakeOverflowMenu"
+        android:layout_alignEnd="@id/fakeOverflowMenu"
+        android:background="@color/red"
+        android:visibility="invisible" />
+
+</RelativeLayout>

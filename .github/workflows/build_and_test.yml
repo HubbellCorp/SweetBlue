@@ -1,0 +1,63 @@
+name: 'SweetBlue CI'
+
+on:
+  push:
+    branches: [ 4.0/dev ]
+  pull_request:
+    branches: [ 4.0/dev ]
+
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Library And Sample Apps
+        run: ./gradlew assemble
+
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Run tests
+      - name: Run Tests
+        # TODO - Change this back to just test after testing
+        run: ./gradlew rx:testDebugUnitTest
+
+      # Store test results as an artifact, to be published by another workflow
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: test-results
+          path: '**/build/test-results/**/*.xml'
+
+  StaticAnalysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Run static analysis
+      - name: Android Lint
+        run: ./gradlew lint
+
+      # Store lint results as an artifact, to be published by another workflow
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: lint-results
+          path: '**/build/reports/*.xml'
+
+      # Publish lint results to job summary
+      - uses: iDevicesInc/action-android-lint@prettier_lint_results
+        if: always()
+        with:
+#          artifact: lint-results
+          name: SweetBlue CI Lint Results
+          report-path: '**/build/reports/*.xml'
+        continue-on-error: false

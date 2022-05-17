@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ContentDescription">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/infoTitle"
+                style="@style/item_heading"
+                android:text="@string/device_information" />
+
+            <TableLayout
+                android:id="@+id/deviceTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/infoTitle"
+                android:layout_marginBottom="@dimen/medium"
+                android:stretchColumns="true">
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/android_os_version" />
+
+                    <TextView
+                        android:id="@+id/osVersion"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/os_api_level" />
+
+                    <TextView
+                        android:id="@+id/apiVersion"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/linux_kernel_version" />
+
+                    <TextView
+                        android:id="@+id/kernelVersion"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/device_name" />
+
+                    <TextView
+                        android:id="@+id/deviceName"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/bluetooth_name" />
+
+                    <TextView
+                        android:id="@+id/bluetoothName"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/brand" />
+
+                    <TextView
+                        android:id="@+id/brand"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/manufacturer" />
+
+                    <TextView
+                        android:id="@+id/manufacturer"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/model" />
+
+                    <TextView
+                        android:id="@+id/model"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/product" />
+
+                    <TextView
+                        android:id="@+id/product"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:text="@string/board" />
+
+                    <TextView
+                        android:id="@+id/board"
+                        style="@style/item_text"
+                        android:layout_weight="1"
+                        android:gravity="end" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/supportedTitle"
+                style="@style/item_heading"
+                android:layout_below="@+id/deviceTable"
+                android:layout_margin="0dp"
+                android:text="@string/supported_features" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/supportedTitle">
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text.no_spacing"
+                        android:text="@string/bluetooth_le_supported" />
+
+                    <FrameLayout android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/bleSupported"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:src="@drawable/icon_check" />
+
+                    </FrameLayout>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text.no_spacing"
+                        android:text="@string/lollipop_scan_api_supported" />
+
+                    <FrameLayout android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/lollipopScanSupported"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:src="@drawable/icon_x" />
+
+                    </FrameLayout>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text.no_spacing"
+                        android:text="@string/scan_batching_supported" />
+
+                    <FrameLayout android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/scanBatchingSupported"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:src="@drawable/icon_check" />
+
+                    </FrameLayout>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/item_text.no_spacing"
+                        android:text="@string/multiple_advertisement_supported" />
+
+                    <FrameLayout android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/multipleAdvertisementSupported"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:src="@drawable/icon_check" />
+
+                    </FrameLayout>
+
+                </TableRow>
+
+            </TableLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

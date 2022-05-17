@@ -1,0 +1,113 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+version = ext.appVersionName
+
+android {
+    compileSdkVersion 32
+
+    defaultConfig {
+        minSdkVersion 18
+        project.archivesBaseName = "SweetBlueRx"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled true
+        }
+        beta {
+            initWith buildTypes.release
+        }
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+        unitTests.returnDefaultValues = true
+    }
+    lint {
+        lintConfig file('../lint.xml')
+    }
+    namespace 'com.idevicesinc.sweetblue.rx'
+}
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "skipped", "passed", "failed"
+        showStandardStreams false
+    }
+}
+
+dependencies {
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
+    implementation project(':library')
+
+    testImplementation project(':sweetunit')
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.4'
+}
+
+// Generate javadocs
+task gendocs(type: Javadoc) {
+    failOnError false
+    String path = rootProject.projectDir.absolutePath + "/scripts/assets/v3_style.css"
+    options.stylesheetFile = new File(path)
+    options.windowTitle = "SweetBlueRx"
+    options.memberLevel = JavadocMemberLevel.PROTECTED
+    options.author = true
+    String home = android.getSdkDirectory().getAbsolutePath()
+    options.linksOffline('http://d.android.com/reference', home + '/docs/reference')
+    String v = "${SEMVER}"
+    version = v.replace("_", '.')
+    options.setDocTitle("SweetBlueRx " + version + " API")
+    destinationDir = file("${rootDir.absolutePath}/docs/sweetbluerx/api")
+    source = files(android.sourceSets.main.java.srcDirs)
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    group = "sweetbluerx"
+}
+
+// Create javadoc jar file
+task sbjavadocJar(type: Jar, dependsOn: gendocs) {
+    from gendocs.destinationDir
+    archiveFileName = getJavadocJarName("rx")
+    archiveClassifier = "javadoc"
+    destinationDirectory = new File(getJarDir())
+    group = "sweetbluerx"
+    description = "Generates the javadoc jar."
+}
+
+
+//////////////////////////////////////////////
+//          Publishing Task                 //
+//////////////////////////////////////////////
+publishing {
+    publications {
+        sweetBluePublication(MavenPublication) {
+            groupId 'com.idevicesinc'
+            artifactId 'sweetbluerx'
+            version "${version}"
+            artifact 'build/outputs/aar/SweetBlueRx-release.aar'
+            artifact sbjavadocJar.archiveFile
+        }
+    }
+
+    repositories {
+        maven {
+            url "https://pkgs.dev.azure.com/ideviceshub/SweetBlue/_packaging/sweetblue3/maven/v1"
+            credentials {
+                username "sweetblue"
+                password System.getenv("AZURE_ARTIFACTS_ENV_ACCESS_TOKEN")
+            }
+        }
+    }
+}

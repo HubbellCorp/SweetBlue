@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ApplySharedPref" severity="ignore" />
+    <issue id="ProtectedPermissions" severity="ignore" />
+    <issue id="MissingPermission" severity="informational" />
+    <issue id="StopShip" severity="fatal" />
+    <issue id="UnusedIds" severity="warning" />
+    <issue id="Registered" severity="warning" />
+    <issue id="GoogleAppIndexingWarning" severity="ignore" />
+    <issue id="AllowBackup" severity="ignore" />
+
+    <!--  The following entry is only shut off because of a couple of modules with implement junit directly (as opposed to just in the test/androidTest variants)  -->
+    <issue id="InvalidPackage" severity="ignore" />
+</lint>

@@ -1,0 +1,102 @@
+import org.gradle.plugins.signing.Sign
+
+
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 18
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue('string', 'sweetblue_version', version)
+        }
+        debug {
+            testCoverageEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue('string', 'sweetblue_version', version)
+        }
+        beta {
+            initWith buildTypes.release
+        }
+    }
+
+    lintOptions {
+        lintConfig file('../lint.xml')
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "skipped", "passed", "failed"
+        showStandardStreams false
+    }
+}
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+// Needed for the java utils dependencry so that we can copy it into the libs folder to later be included
+// in the resulting aar file (see copyLibs task)
+configurations {
+    sweetApi.extendsFrom api
+}
+
+dependencies {
+//    testImplementation project(':sweetunit')
+    testImplementation 'org.robolectric:robolectric:3.8'
+    testImplementation 'junit:junit:4.12'
+
+    implementation project(':api')
+    // These two are technically the same dependency. We have to do some gradle hacking to get it so that
+    // the java utils lib is available to anyone depending on SweetBlue
+    api fileTree(dir: 'libs', include: ['*.aar'])
+    sweet 'com.idevicesinc:java_utils:1.0.7@aar'
+}
+
+
+afterEvaluate {
+    tasks.preBuild.dependsOn copyLibs
+}
+
+//////////////////////////////////////
+//      General Gradle Hacks        //
+//////////////////////////////////////
+
+// Copies the aar into the libs folder, which then gets depended upon again (somehow this isn't a circular dependency)
+// This makes it so that the java utils contents get merged into the sweetblue aar file
+task copyLibs(type: Copy) {
+    from configurations.sweetApi
+    into 'libs'
+}
+

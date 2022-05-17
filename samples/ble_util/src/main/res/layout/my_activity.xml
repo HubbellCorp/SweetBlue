@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#33A21615"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:orientation="horizontal">
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
+					android:layout_marginTop="10dp"
+					android:text="@string/ble_options"
+					android:textSize="@dimen/default_font_size" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="5dp"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="@dimen/scan_button_height">
+
+						<Button
+							android:id="@+id/enableButton"
+							android:layout_width="@dimen/scan_button_width"
+							android:layout_height="@dimen/scan_button_height"
+							android:singleLine="true"
+							android:text="@string/ble_enable"
+							android:textSize="@dimen/button_font_size" />
+
+						<Button
+							android:id="@+id/disableButton"
+							android:layout_width="@dimen/scan_button_width"
+							android:layout_height="@dimen/scan_button_height"
+							android:singleLine="true"
+							android:text="@string/ble_disable"
+							android:textSize="@dimen/button_font_size" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<Button
+							android:id="@+id/unbondAllButton"
+							android:layout_width="@dimen/scan_button_width"
+							android:layout_height="@dimen/scan_button_height"
+							android:singleLine="true"
+							android:text="@string/ble_unbond_all"
+							android:textSize="@dimen/button_font_size" />
+
+						<Button
+							android:id="@+id/nukeButton"
+							android:layout_width="@dimen/scan_button_width"
+							android:layout_height="@dimen/scan_button_height"
+							android:singleLine="true"
+							android:text="@string/ble_nuke"
+							android:textSize="@dimen/button_font_size" />
+
+					</LinearLayout>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="end"
+				android:orientation="vertical">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginRight="10dp"
+					android:layout_marginTop="10dp"
+					android:text="@string/scan_options"
+					android:textSize="@dimen/default_font_size" />
+
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_marginRight="5dp"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content">
+
+						<Button
+							android:id="@+id/scanInfinitelyButton"
+							android:layout_width="@dimen/scan_button_width"
+							android:layout_height="@dimen/scan_button_height"
+							android:singleLine="true"
+							android:text="@string/scan_infinite"
+							android:textSize="@dimen/button_font_size" />
+
+						<Button
+							android:id="@+id/stopScanButton"
+							android:layout_width="@dimen/scan_button_width"
+							android:layout_height="@dimen/scan_button_height"
+							android:singleLine="true"
+							android:text="@string/stop_scanning"
+							android:textSize="@dimen/button_font_size" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<Button
+							android:id="@+id/scanForFiveSecondsButton"
+							android:layout_width="@dimen/scan_button_width"
+							android:layout_height="@dimen/scan_button_height"
+							android:singleLine="true"
+							android:text="@string/scan_for_x_sec"
+							android:textSize="@dimen/button_font_size" />
+
+						<Button
+							android:id="@+id/scanPeriodicallyButton"
+							android:layout_width="@dimen/scan_button_width"
+							android:layout_height="@dimen/scan_button_height"
+							android:singleLine="true"
+							android:text="@string/scan_for_x_sec_repeated"
+							android:textSize="@dimen/button_font_size" />
+					</LinearLayout>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/ble_status"
+				android:textSize="@dimen/default_font_size" />
+
+			<TextView
+				android:id="@+id/abstractedStatesTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:singleLine="false"
+				android:text="@string/off"
+				android:textSize="@dimen/status_font_size" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recyclerView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+		tools:listitem="@layout/device_cell" />
+
+</LinearLayout>

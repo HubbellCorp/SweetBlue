@@ -1,0 +1,11 @@
+include ':library'
+include ':rx'
+include ':sweetunit'
+include ':toolbox'
+
+include ':samples:ble_util'
+include ':samples:hello_ble'
+include ':samples:current_time_server'
+include ':samples:simple_ota'
+include ':samples:simple_service'
+include ':samples:simple_write'

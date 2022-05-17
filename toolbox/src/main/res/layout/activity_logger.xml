@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation="vertical"
+    tools:menu="@menu/logger"
+    tools:context="com.idevicesinc.sweetblue.toolbox.activity.LoggerActivity">
+
+	<include layout="@layout/toolbar" />
+
+	<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+		android:id="@+id/swipeLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
+				android:id="@+id/logTextView"
+				style="@style/item_text"
+				android:layout_gravity="top"
+				android:layout_marginStart="@dimen/medium"
+				android:layout_marginEnd="@dimen/small"
+				android:layout_marginTop="@dimen/small"
+				android:textIsSelectable="true"
+				android:text="@string/log_text_here" />
+
+		</ScrollView>
+
+	</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

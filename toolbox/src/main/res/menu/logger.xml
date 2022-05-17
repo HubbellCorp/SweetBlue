@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/filter"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/filter"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always"/>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/verbose"
+            android:title="@string/verbose"
+            android:checked="true" />
+
+        <item
+            android:id="@+id/debug"
+            android:title="@string/debug"/>
+
+        <item
+            android:id="@+id/info"
+            android:title="@string/info"/>
+
+        <item
+            android:id="@+id/warn"
+            android:title="@string/warn"/>
+
+        <item
+            android:id="@+id/error"
+            android:title="@string/error"/>
+
+    </group>
+
+
+</menu>

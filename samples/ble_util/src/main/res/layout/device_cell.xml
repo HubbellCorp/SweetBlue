@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:id="@+id/contentLinearLayout"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/dark_blue"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/nameTextView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="15dp"
+		android:layout_marginEnd="10dp"
+		android:layout_marginTop="10dp"
+		android:gravity="center|start"
+		android:text="@string/product_name_here"
+		android:textSize="@dimen/default_font_size" />
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="@dimen/scan_button_height"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="5dp">
+
+		<Button
+			android:id="@+id/connectButton"
+			android:layout_width="@dimen/scan_button_width"
+			android:layout_height="@dimen/scan_button_height"
+			android:singleLine="true"
+			android:text="@string/device_connect"
+			android:textSize="@dimen/button_font_size" />
+
+		<Button
+			android:id="@+id/disconnectButton"
+			android:layout_width="@dimen/scan_button_width"
+			android:layout_height="@dimen/scan_button_height"
+			android:singleLine="true"
+			android:text="@string/device_disconnect"
+			android:textSize="@dimen/button_font_size" />
+
+		<Button
+			android:id="@+id/bondButton"
+			android:layout_width="@dimen/scan_button_width"
+			android:layout_height="@dimen/scan_button_height"
+			android:singleLine="true"
+			android:text="@string/device_bond"
+			android:textSize="@dimen/button_font_size" />
+
+		<Button
+			android:id="@+id/unbondButton"
+			android:layout_width="@dimen/scan_button_width"
+			android:layout_height="@dimen/scan_button_height"
+			android:singleLine="true"
+			android:text="@string/device_unbond"
+			android:textSize="@dimen/button_font_size" />
+
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/statusTextView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginBottom="10dp"
+		android:layout_marginStart="15dp"
+		android:layout_marginEnd="10dp"
+		android:layout_marginTop="5dp"
+		android:ellipsize="marquee"
+		android:gravity="center|start"
+		android:singleLine="false"
+		android:text="@string/off"
+		android:textSize="@dimen/status_font_size" />
+
+</LinearLayout>

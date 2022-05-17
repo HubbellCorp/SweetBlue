@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.idevicesinc.sweetblue.toolbox.activity.DashboardActivity"
+    tools:menu="@menu/main">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar" />
+
+            <RelativeLayout style="@style/page_title_bar">
+
+                <TextView
+                    android:id="@+id/scanTextView"
+                    style="@style/page_title"
+                    android:text="@string/not_ready_to_scan" />
+
+                <LinearLayout
+                    android:id="@+id/scanLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:id="@+id/scanImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_alert"
+                        tools:ignore="ContentDescription" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <include
+            layout="@layout/nav_drawer"
+            android:layout_width="270dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</RelativeLayout>

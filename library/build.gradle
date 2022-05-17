@@ -1,0 +1,186 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+
+version = ext.appVersionName
+
+android {
+    compileSdkVersion 32
+
+    defaultConfig {
+        minSdkVersion 18
+        targetSdkVersion 32
+        project.archivesBaseName = "sweetblue"
+        testInstrumentationRunner "com.idevicesinc.atf.ScreenOnJunitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue('string', 'sweetblue_version', version)
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue('string', 'sweetblue_version', version)
+        }
+        beta {
+            initWith buildTypes.release
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lint {
+        lintConfig file('../lint.xml')
+    }
+    namespace 'com.idevicesinc.sweetblue'
+}
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "skipped", "passed", "failed"
+        showStandardStreams false
+    }
+}
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    // Instrumentation test dependencies
+    androidTestImplementation project(':sweetunit')
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+
+    // Unit test dependencies
+    testImplementation project(':sweetunit')
+    testImplementation 'org.robolectric:robolectric:4.4'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+
+//////////////////////////////////////////
+//      Task/Method Definitions         //
+//////////////////////////////////////////
+
+// Generate javadocs
+task gendocs(type: Javadoc) {
+    failOnError false
+    String path = project.projectDir.absolutePath + "/../scripts/assets/v3_style.css"
+    options.stylesheetFile = new File(path)
+    options.windowTitle = "SweetBlue"
+    options.memberLevel = JavadocMemberLevel.PROTECTED
+    options.author = true
+    options.links("https://d.android.com/reference")
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
+    String v = "${SEMVER}"
+    version = v.replace("_", '.')
+    options.setDocTitle("SweetBlue " + version + " API")
+    destinationDir = file("${rootDir.absolutePath}/docs/sweetblue/api")
+    source = android.sourceSets.main.java.srcDirs
+    classpath += files(android.getBootClasspath().join(File.pathSeparator))
+    group = "sweetblue"
+}
+
+// Create javadoc jar file
+task sbjavadocJar(type: Jar, dependsOn: gendocs) {
+    archiveFileName = getJavadocJarName("sweetblue")
+    archiveClassifier = 'javadoc'
+    from gendocs.destinationDir
+    destinationDirectory = new File(getJarDir())
+    group = "sweetblue"
+    description = "Generates the javadoc jar."
+}
+
+task setVersionVar() {
+    doLast {
+        System.property("SWEETBLUE_VERSION", version)
+    }
+}
+
+task bumpMarkdown() {
+    group = "sweetblue"
+    description = "Updates the markdown files and README.md with the latest version number."
+    doLast {
+        updateMarkdownFilesAndReadme()
+    }
+}
+
+def updateMarkdownFilesAndReadme() {
+    File markdownDir = new File(projectDir.absolutePath + "/../markdown")
+    List<File> files = markdownDir.listFiles().toList()
+    files.add(new File(projectDir.absolutePath + "/../README.md"))
+    files.each { file ->
+        String contents = file.getText('UTF-8')
+        if (contents =~ "sweetblue:") {
+            println("Updating file " + file.getName())
+            contents = contents.replaceAll("sweetblue:.*\"", "sweetblue:${version}\"")
+            // Account for the case where we end up using a single quote instead.
+            contents = contents.replaceAll("sweetblue:.*\'", "sweetblue:${version}\'")
+
+            contents = contents.replaceAll("sweetbluerx:.*\"", "sweetbluerx:${version}\"")
+            // Account for the case where we end up using a single quote instead.
+            contents = contents.replaceAll("sweetbluerx:.*\'", "sweetbluerx:${version}\'")
+
+            contents = contents.replaceAll("sweetunit:.*\"", "sweetunit:${version}\"")
+            // Account for the case where we end up using a single quote instead.
+            contents = contents.replaceAll("sweetunit:.*\'", "sweetunit:${version}\'")
+
+            file.write(contents, 'UTF-8')
+        }
+        if (contents =~ "https://img.shields.io/badge/") {
+            println("Updating file " + file.getName())
+            var ver = version.toString().replaceAll("-", "_");
+            contents = contents.replaceAll("version-.*-blue", "version-${ver}-blue")
+            file.write(contents, 'UTF-8')
+        }
+    }
+}
+
+task cleanFolders {
+    doLast {
+        delete "build"
+    }
+}
+
+
+//////////////////////////////////////////////
+//              Publishing Task             //
+//////////////////////////////////////////////
+publishing {
+    publications {
+        sweetBluePublication(MavenPublication) {
+            groupId 'com.idevicesinc'
+            artifactId 'sweetblue'
+            version "${version}"
+            artifact 'build/outputs/aar/sweetblue-release.aar'
+            artifact sbjavadocJar.archiveFile
+        }
+    }
+
+    repositories {
+        maven {
+            url "https://pkgs.dev.azure.com/ideviceshub/SweetBlue/_packaging/sweetblue3/maven/v1"
+            credentials {
+                username "sweetblue"
+                password System.getenv("AZURE_ARTIFACTS_ENV_ACCESS_TOKEN")
+            }
+        }
+    }
+}

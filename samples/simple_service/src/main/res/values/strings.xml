@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Simple Service</string>
+    <string name="clear_list">Clear List</string>
+    <string name="devicename">DeviceName</string>
+</resources>

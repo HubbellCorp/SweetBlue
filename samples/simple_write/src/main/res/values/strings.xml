@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+	<string name="app_name">Simple Write</string>
+	<string name="connect">Connect</string>
+	<string name="disconnect">Disconnect</string>
+	<string name="device_name">Device Name:</string>
+	<string name="none">[None]</string>
+	<string name="device_state">Device State:</string>
+	<string name="no_device">[No Device]</string>
+
+</resources>

@@ -1,0 +1,187 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+// ========================================= //
+//  Standard top-level stuff (plugins/deps)  //
+// ========================================= //
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.0'
+    }
+}
+
+
+allprojects {
+    ext.appVersionName = "4.0.0.5-SNAPSHOT"
+    repositories {
+        google()
+        mavenCentral()
+    }
+    // disable the crazy super-strict doclint tool in Java 8
+    if (JavaVersion.current().isJava8Compatible()) {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
+}
+
+
+// ========================================= //
+//   Variables and various config settings   //
+// ========================================= //
+version = appVersionName
+
+ext.SEMVER = version.replaceAll("\\.", "_")
+// List of all of the modules' build.gradle files
+ext.moduleFiles = files(rootDir.absolutePath + "/library/build.gradle") \
+        + files(rootDir.absolutePath + "/rx/build.gradle") \
+        + files(rootDir.absolutePath + "/sweetunit/build.gradle") \
+        + files(rootDir.absolutePath + "/samples/ble_util/build.gradle") \
+        + files(rootDir.absolutePath + "/samples/current_time_server/build.gradle") \
+        + files(rootDir.absolutePath + "/samples/hello_ble/build.gradle") \
+        + files(rootDir.absolutePath + "/samples/simple_ota/build.gradle") \
+        + files(rootDir.absolutePath + "/samples/simple_service/build.gradle") \
+        + files(rootDir.absolutePath + "/samples/simple_write/build.gradle") \
+        + files(rootDir.absolutePath + "/toolbox/build.gradle") \
+
+
+// ================================ //
+//         Task Definitions         //
+// ================================ //
+task clean(type: Delete) {
+    delete rootProject.buildDir
+    delete rootProject.file('reports')
+    delete rootProject.file('script_output')
+    delete rootProject.file('library/script_output')
+}
+
+task uploadCustomerDocs() {
+    group = "upload"
+    description = "Upload customer documentation to the SweetBlue web server."
+
+    doLast {
+        ssh.run {
+            session(remotes.webServer) {
+                new File(rootProject.projectDir.absolutePath + "/docs/").listFiles().each {
+                    put from: it, into: '/var/www/sweetblue/docs'
+                }
+            }
+        }
+    }
+}
+
+task bumpCompileSdkVersion() {
+    // Takes parameter compileSdkVersion (e.g. 25)
+    group = "sweetblue"
+    description = "Updates compileSdkVersion and targetSdkVersion in all inner project's build.gradle"
+    doLast {
+        def allFiles = moduleFiles
+
+        println allFiles.asFileTree.files
+
+        allFiles.each { File f ->
+            String contents = f.getText('UTF-8')
+            contents = contents.replaceAll("compileSdkVersion \\d+", "compileSdkVersion " + compileSdkVersion)  // Replace compileSdkVersion
+            contents = contents.replaceAll("targetSdkVersion \\d+", "targetSdkVersion " + compileSdkVersion)  // Replace targetSdkVersion
+            f.write(contents, 'UTF-8')
+        }
+    }
+}
+
+task writeVersionFile() {
+    group = "sweetblue"
+    description = "Writes the current version into the file version.txt"
+    doLast {
+        File versionFile = new File('version.txt')
+        versionFile.write(version, 'UTF-8')
+    }
+}
+
+task bumpVersionName() {
+    group = "sweetblue"
+    description = "Bumps up the release version of the current version, set in ext.appVersionName"
+    doLast {
+        // This will find a string of the form a.b.c.d..... where there can be any number of version extensions following the first number
+        String regex = "([0-9]+(\\.[0-9]+)*)"
+        String version = appVersionName
+        Pattern pattern = Pattern.compile(regex)
+        Matcher matcher = pattern.matcher(version)
+        String strippedVersion = ""
+        if (matcher.find()) {
+            // The longest match should be the first group (if there are multiple matches)
+            strippedVersion = matcher.group(0)
+        }
+
+        // Strip out the prefix and suffix if either are present in the version name
+        // This will produce an array consisting of the prefix and suffix.
+        String[] prefixSuffixSplit = version.split(regex)
+        String prefix = ""
+        String suffix = ""
+        if (prefixSuffixSplit.length > 0) {
+            // If a prefix is present, it will be the first element in the array (or the only element in the case where there is only a prefix and no suffix)
+            prefix = prefixSuffixSplit[0]
+
+            if (prefixSuffixSplit.length > 1) {
+                // If a suffix is present, it will be the last element in the array (in the case of having a suffix and no prefix, the first element will be blank - [, suffix])
+                suffix = prefixSuffixSplit[prefixSuffixSplit.length - 1]
+            }
+        }
+
+        // Split the version string by "." and increment the last number
+        String[] versionSplit = strippedVersion.split('\\.')
+        int release = Integer.parseInt(versionSplit[versionSplit.length - 1])
+        versionSplit[versionSplit.length - 1] = ++release
+
+        // Construct the new version, adding back on the prefix and suffix if either are present
+        String newVersion = prefix
+        for (int i = 0; i < versionSplit.length; i++) {
+            if (i == 0 || i == versionSplit.length)
+                newVersion += versionSplit[i]
+            else
+                newVersion += ".${versionSplit[i]}"
+        }
+        newVersion += suffix
+
+        File buildFile = new File(rootDir.absolutePath + "/build.gradle")
+        String contents = buildFile.getText('UTF-8')
+        contents = contents.replaceAll("appVersionName\\s=\\s\".*\"", "appVersionName = \"${newVersion}\"")
+
+        // Account for single quotes
+        contents = contents.replaceAll("appVersionName\\s=\\s\'.*\'", "appVersionName = \'${newVersion}\'")
+        buildFile.write(contents, 'UTF-8')
+    }
+}
+
+// ================================ //
+//         Method Definitions       //
+// ================================ //
+
+def getJarBaseName(String module) {
+    return "${module}_${SEMVER}"
+}
+
+def getJarName(String module) {
+    return getJarBaseName(module) + ".jar"
+}
+
+def getJavadocJarName(String module) {
+    return getJarBaseName(module) + "-javadoc.jar"
+}
+
+def getOutputFolder() {
+    return rootDir.absolutePath + File.separator + STAGE + File.separator + "sweetblue"
+}
+
+def getJarDir() {
+    return getOutputFolder() + "/jars"
+}
+
+def static checkDir(String dir) {
+    File f = new File(dir)
+    if (!f.exists())
+        f.mkdirs()
+}

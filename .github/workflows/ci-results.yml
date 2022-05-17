@@ -1,0 +1,20 @@
+name: SweetBlue CI Test Results
+
+on:
+  workflow_run:
+    workflows: ['SweetBlue CI']
+    types:
+      - completed
+
+jobs:
+  Reports:
+    runs-on: ubuntu-latest
+    steps:
+    # Publish unit test results
+    - uses: dorny/test-reporter@v1
+      with:
+        artifact: test-results
+        name: SweetBlue CI Unit Test Results
+        path: '**/build/test-results/**/*.xml'
+        reporter: java-junit
+        fail-on-error: false

@@ -1,0 +1,100 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+version = ext.appVersionName
+
+android {
+    compileSdkVersion 32
+
+    defaultConfig {
+        minSdkVersion 18
+        project.archivesBaseName = "SweetUnit"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        beta {
+            initWith buildTypes.release
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    lint {
+        lintConfig file('../lint.xml')
+    }
+    namespace 'com.idevicesinc.sweetblue.unit'
+}
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    implementation project(':library')
+    implementation 'junit:junit:4.13.2'
+    implementation 'androidx.test.ext:junit:1.1.3'
+    implementation 'androidx.test:rules:1.4.0'
+    implementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+}
+
+// Generate javadocs
+task gendocs(type: Javadoc) {
+    failOnError false
+    String path = rootProject.projectDir.absolutePath + "/scripts/assets/v3_style.css"
+    options.stylesheetFile = new File(path)
+    options.windowTitle = "SweetUnit"
+    options.memberLevel = JavadocMemberLevel.PROTECTED
+    options.author = true
+    String home = android.getSdkDirectory().getAbsolutePath()
+    options.linksOffline('http://d.android.com/reference', home + '/docs/reference')
+    String v = "${SEMVER}"
+    version = v.replace("_", '.')
+    options.setDocTitle("SweetUnit " + version + " API")
+    destinationDir = file("${rootDir.absolutePath}/docs/sweetunit/api")
+    source = files(android.sourceSets.main.java.srcDirs)
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    group = "sweetunit"
+}
+
+// Create javadoc jar file
+task sbjavadocJar(type: Jar, dependsOn: gendocs) {
+    from gendocs.destinationDir
+    archiveFileName = getJavadocJarName("sweetunit")
+    archiveClassifier = "javadoc"
+    destinationDirectory = new File(getJarDir())
+    group = "sweetunit"
+    description = "Generates the javadoc jar."
+}
+
+
+//////////////////////////////////////////////
+//              Upload Tasks                //
+//////////////////////////////////////////////
+publishing {
+    publications {
+        sweetBluePublication(MavenPublication) {
+            groupId 'com.idevicesinc'
+            artifactId 'sweetunit'
+            version "${version}"
+            artifact 'build/outputs/aar/SweetUnit-release.aar'
+            artifact sbjavadocJar.archiveFile
+        }
+    }
+
+    repositories {
+        maven {
+            url "https://pkgs.dev.azure.com/ideviceshub/SweetBlue/_packaging/sweetblue3/maven/v1"
+            credentials {
+                username "sweetblue"
+                password System.getenv("AZURE_ARTIFACTS_ENV_ACCESS_TOKEN")
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@
 <a href="https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml">
  <img align="right" src="https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml/badge.svg" alt="SweetBlue-CI">
 </a>
-<img align="right" src="https://img.shields.io/badge/version-4.0.0-blue.svg" />
+<img align="right" src="https://img.shields.io/badge/version-4.0.1-blue.svg" />
 
 <p align="center">
   <br>

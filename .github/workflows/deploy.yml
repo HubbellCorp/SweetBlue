@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Build Library And Sample Apps
-        run: ./gradlew assemble
+        run: ./gradlew assembleRelease
 
   Test:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
 
       # Run tests
       - name: Run Tests
-        run: ./gradlew test
+        run: ./gradlew testReleaseUnitTest
 
       # Publish unit test results
       - uses: dorny/test-reporter@v1
@@ -104,7 +104,7 @@ jobs:
       - name: Deploy to Azure
         env:
           AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: ${{ secrets.AZURE_ARTIFACTS_ENV_ACCESS_TOKEN }}
-        run: ./gradlew assemble sbjavadocJar publish
+        run: ./gradlew assembleRelease sbjavadocJar publish
 
       - name: Deploy markdown to wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1

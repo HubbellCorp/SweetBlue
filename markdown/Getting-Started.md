@@ -2,9 +2,9 @@
 
 **Recommended Step:**
 
-Download the SweetBlue Toolbox app [here](https://play.google.com/store/apps/details?id=com.idevicesinc.sweetblue.toolbox.v3). Use the Toolbox to find the settings that work best for the device you're trying to connect to. Once you find settings that work well for you, you can export them to a json file, with which you can then import into SweetBlue (Using `new BleManagerConfig(jsonData)`).
+Use the Toolbox to find the settings that work best for the device you're trying to connect to. Once you find settings that work well for you, you can export them to a json file, with which you can then import into SweetBlue (Using `new BleManagerConfig(jsonData)`).
 
-* Modify your app's build.gradle file to pull SweetBlue down from our maven server, and add the dependency to your project:
+* Modify your app's build.gradle file to pull SweetBlue down from our maven server, and add the dependency to your project:
 
 <pre>
 <code>
@@ -23,9 +23,8 @@ dependencies {
 </code>
 
 
-* Create a file called sweetblue_api_key.txt in your app's assets directory. Paste your API key into this new file. Without this file, you will not be able to use SweetBlue in your app. If you try to instantiate BleManager without it, a RuntimeException will be thrown.
 * SweetBlue provides a helper class to handle all the permissions, and turning things on for you. If you decide to use this class, you must use it in an Activity, as it shows dialogs.
-* The following example shows how to use the [BleSetupHelper](https://api.sweetblue.io/com/idevicesinc/sweetblue/utils/BleSetupHelper.html) class, along with starting a scan, connecting to the first device seen, then reading it's battery level.
+* The following example shows how to use the [BleSetupHelper](https://api.sweetblue.io/com/idevicesinc/sweetblue/utils/BleSetupHelper.html) class, along with starting a scan, connecting to the first device seen, then reading it's battery level.
 
 <pre>
 <code>

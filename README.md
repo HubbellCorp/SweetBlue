@@ -10,7 +10,7 @@
 <p align="center">
   <br>
   <a href="https://sweetblue.io">
-    <img src="https://idevicesinc.com/sweetblue/downloads/sweetblue_logo.png" />
+    <img src="https://github.com/HubbellCorp/SweetBlue/blob/main/scripts/assets/sweetblue_logo.png" />
   </a>
 </p>
 

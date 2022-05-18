@@ -7,6 +7,8 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
+    environment:
+      name: Release
 
     steps:
       - uses: actions/checkout@v3
@@ -16,6 +18,8 @@ jobs:
 
   Test:
     runs-on: ubuntu-latest
+    environment:
+      name: Release
 
     steps:
       - uses: actions/checkout@v3
@@ -34,6 +38,8 @@ jobs:
 
   StaticAnalysis:
     runs-on: ubuntu-latest
+    environment:
+      name: Release
 
     steps:
       - uses: actions/checkout@v3
@@ -52,6 +58,8 @@ jobs:
 
   PrepDeploy:
     runs-on: ubuntu-latest
+    environment:
+      name: Release
 
   #    needs: [Build, Test, StaticAnalysis]
     steps:
@@ -82,6 +90,8 @@ jobs:
 
   Deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: Release
 
     needs: PrepDeploy
     steps:
@@ -109,6 +119,8 @@ jobs:
 
   PostDeployment:
     runs-on: ubuntu-latest
+    environment:
+      name: Release
 
     needs: Deploy
     steps:

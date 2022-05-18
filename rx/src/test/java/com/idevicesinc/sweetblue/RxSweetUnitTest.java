@@ -154,7 +154,10 @@ public abstract class RxSweetUnitTest<A extends Activity> extends AbstractTestCl
         m_config.bluetoothDeviceFactory = this::getDeviceLayer;
         m_config.serverFactory = this::getServerLayer;
         m_config.logger = new UnitTestLogger();
-        m_config.blockingShutdown = true;
+        // TODO - For some reason, this is causing the tests to lock up after running (gradlew never exits)
+        // TODO - We should look into this, I think this is needed to avoid an intermittent failure
+        // TODO - happening in the connectMultiple test
+//        m_config.blockingShutdown = true;
         return m_config;
     }
 

@@ -1,9 +1,9 @@
 ## Contributing to this Repository
 
 ### Branching strategy
-* `master` - The master branch holds the code for the currently released version.
+* `main` - The main branch holds the code for the currently released version.
 * Minor version branch folders (eg `4.0/dev`, `4.2/dev`, etc) - Each minor version has its own dev branch.
-* Releases are tagged before being merged into the master branch (eg `v4.0.0`)
+* Releases are tagged before being merged into the main branch (eg `v4.0.0`)
 * Work branches should:
   * Be based on the current version's dev branch (eg `4.0/dev`)
   * Also be within the current versions's dev branch folder (eg `4.0/dev/my_new_feature`, `4.2/dev/a_bug_fix`)

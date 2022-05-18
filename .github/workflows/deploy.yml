@@ -94,6 +94,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # Have gradle write out the current version (it seems when using environments, env vars do not carry
+      # over from job to job, so we need to get it again here)
+      - name: Write version file
+        run: ./gradlew writeVersionFile
+
+      # Read the current version file, and put it into an env variable, to be used in future jobs/steps
+      - name: Set version environment variable
+        run: echo "SWEETBLUE_VERSION=$(cat version.txt)" >> $GITHUB_ENV
+
       # Create a tag for the release
       - uses: mathieudutour/github-tag-action@v6.0
         with:

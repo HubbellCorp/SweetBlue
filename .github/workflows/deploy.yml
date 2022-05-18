@@ -5,54 +5,60 @@ on:
   workflow_dispatch:
 
 jobs:
-#  Build:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Build Library And Sample Apps
-#        run: ./gradlew assemble
-#
-#  Test:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      # Run tests
-#      - name: Run Tests
-#        run: ./gradlew testReleaseUnitTest
-#
-#      # Publish unit test results
-#      - uses: dorny/test-reporter@v1
-#        if: always()
-#        with:
-#          name: Publish Unit Test Results
-#          path: '**/build/test-results/**/*.xml'
-#          reporter: java-junit
-#
-#  StaticAnalysis:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      # Run static analysis
-#      - name: Android Lint
-#        run: ./gradlew lintRelease
-#
-#      # Publish lint results
-#      - uses: iDevicesInc/action-android-lint@prettier_lint_results
-#        if: always()
-#        with:
-#          report-path: '**/build/reports/*.xml'
-#        continue-on-error: false
+  Build:
+    runs-on: ubuntu-latest
+    environment:
+      name: Release
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Library And Sample Apps
+        run: ./gradlew assembleRelease
+
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Run tests
+      - name: Run Tests
+        run: ./gradlew testReleaseUnitTest
+
+      # Publish unit test results
+      - uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Publish Unit Test Results
+          path: '**/build/test-results/**/*.xml'
+          reporter: java-junit
+
+  StaticAnalysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Run static analysis
+      - name: Android Lint
+        run: ./gradlew lintRelease
+
+      # Publish lint results to job summary
+      - uses: iDevicesInc/action-android-lint@prettier_lint_results
+        if: always()
+        with:
+          name: SweetBlue Release Lint Results
+          report-path: '**/build/reports/*.xml'
+        continue-on-error: false
 
   PrepDeploy:
     runs-on: ubuntu-latest
+    environment:
+      name: Release
 
-  #    needs: [Build, Test, StaticAnalysis]
+    needs: [Build, Test, StaticAnalysis]
+
     steps:
       - uses: actions/checkout@v3
 
@@ -81,6 +87,8 @@ jobs:
 
   Deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: Release
 
     needs: PrepDeploy
     steps:
@@ -96,9 +104,14 @@ jobs:
       - name: Deploy to Azure
         env:
           AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: ${{ secrets.AZURE_ARTIFACTS_ENV_ACCESS_TOKEN }}
-        run: ./gradlew assemble sbjavadocJar publish
-# TODO - Get wiki working once on the public repo
-#      - name: Deploy markdown to wiki
+        run: ./gradlew assembleRelease sbjavadocJar publish
+
+      - name: Deploy markdown to wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        with:
+          path: "markdown"
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
 
   PostDeployment:
@@ -107,17 +120,22 @@ jobs:
     needs: Deploy
     steps:
       - uses: actions/checkout@v3
-#      - name: Merge into master
 
-#      - name: Bump version
-#        run: ./gradlew bumpVersionName
-#
-#      - name: Update Documentation
-#        run: ./gradlew bumpMarkdown
-#
-#      - name: Commit
-#        uses: EndBug/add-and-commit@v9
-#        with:
-#          add: '-u'
-#          message: 'Bump version'
+      - name: Merge into master
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: main
+          github_token: ${{ github.token }}
 
+      - name: Bump version
+        run: ./gradlew bumpVersionName
+
+      - name: Update Documentation
+        run: ./gradlew bumpMarkdown
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '-u'
+          message: 'Bump version'

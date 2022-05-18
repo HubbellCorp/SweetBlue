@@ -27,7 +27,6 @@ dependencies {
 </pre></code>
 
 
-* Create a file called sweetblue_api_key.txt in your app's assets directory. Paste your API key into this new file. Without this file, you will not be able to use SweetBlue in your app. If you try to instantiate RxBleManager without it, a RuntimeException will be thrown.
 * SweetBlue provides a helper class to handle all the permissions, and turning things on for you. If you decide to use this class, you must use it in an Activity, as it shows dialogs.
 * The following example shows how to use the [BleSetupHelper](https://api.sweetblue.io/com/idevicesinc/sweetblue/utils/BleSetupHelper.html) class, along with starting a scan, connecting to the first device seen, then reading it's battery level.
 

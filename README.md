@@ -1,14 +1,15 @@
 <b>|</b>&nbsp;<a href='#why'>Why?</a>
 <b>|</b>&nbsp;<a href='#features'>Features</a>
-<b>|</b>&nbsp;<a href="https://sweetblue.io/docs">Docs</a>
-<b>|</b>&nbsp;<a href="https://play.google.com/store/apps/details?id=com.idevicesinc.sweetblue.toolbox">Toolbox</a>
-[![SweetBlue-CI](https://github.com/iDevicesInc/sbtestarea/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/iDevicesInc/sbtestarea/actions/workflows/build_and_test.yml)
-<img align="right" src="https://img.shields.io/badge/version-4.0.0.5-blue.svg" />
+<b>|</b>&nbsp;<a href="https://github.com/HubbellCorp/SweetBlue/wiki">Docs</a>
+<a href="https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml">
+ <img align="right" src="https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml/badge.svg" alt="SweetBlue-CI">
+</a>
+<img align="right" src="https://img.shields.io/badge/version-4.0.0-blue.svg" />
 
 <p align="center">
   <br>
   <a href="https://sweetblue.io">
-    <img src="https://idevicesinc.com/sweetblue/downloads/sweetblue_logo.png" />
+    <img src="https://github.com/HubbellCorp/SweetBlue/blob/main/scripts/assets/sweetblue_logo.png" />
   </a>
 </p>
 
@@ -17,7 +18,7 @@ Why?
 
 Android's BLE stack has some...issues...
 
-* [https://github.com/iDevicesInc/SweetBlue/wiki/Android-BLE-Issues](https://github.com/iDevicesInc/SweetBlue/wiki/Android-BLE-Issues)
+* [https://github.com/HubbellCorp/SweetBlue/wiki/Android-BLE-Issues](https://github.com/HubbellCorp/SweetBlue/wiki/Android-BLE-Issues)
 * [https://code.google.com/p/android/issues/detail?id=58381](https://code.google.com/p/android/issues/detail?id=58381)
 * [http://androidcommunity.com/nike-blames-ble-for-their-shunning-of-android-20131202/](http://androidcommunity.com/nike-blames-ble-for-their-shunning-of-android-20131202/)
 * [http://stackoverflow.com/questions/17870189/android-4-3-bluetooth-low-energy-unstable](http://stackoverflow.com/questions/17870189/android-4-3-bluetooth-low-energy-unstable)
@@ -37,7 +38,7 @@ workarounds to issues both annoying and fatal that it’s frankly impossible to 
 Features
 ========
 
-*	Full-coverage API documentation: [https://api.sweetblue.io](https://api.sweetblue.io)
+*	Full-coverage API documentation: Coming soon...
 *	Sample applications.
 *	Battle-tested in commercial apps.
 *	Plain old Java with zero API-level dependencies.
@@ -52,7 +53,7 @@ Features
 *	Undiscovery based on last time seen.
 *	Clean leakage of underlying native stack objects in case of emergency.
 *	Wraps Android API level checks that gate certain methods.
-*	Verbose [logging](https://github.com/iDevicesInc/SweetBlue/wiki/Logging) that outputs human-readable thread IDs, UUIDs, status codes and states instead of alphabet soup.
+*	Verbose [logging](https://github.com/HubbellCorp/SweetBlue/wiki/Logging) that outputs human-readable thread IDs, UUIDs, status codes and states instead of alphabet soup.
 *	Wrangles a big bowl of thread spaghetti behind a nice asynchronous API - make a call on main thread, get a callback on main thread a short time later.
 *	Internal priority job queue that ensures serialization of all operations so native stack doesn’t get overloaded and important stuff gets done first.
 *	Optimal coordination of the BLE stack when connected to multiple devices.

@@ -16,7 +16,7 @@ buildscript {
 
 
 allprojects {
-    ext.appVersionName = "4.0.0.5-SNAPSHOT"
+    ext.appVersionName = "4.0.0"
     repositories {
         google()
         mavenCentral()

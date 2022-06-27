@@ -129,6 +129,9 @@ jobs:
     needs: Deploy
     steps:
       - uses: actions/checkout@v3
+        # Make sure we get the latest on the branch, as a commit may have been made earlier
+        with:
+          ref: ${{ GITHUB_REF_NAME }}
 
       - name: Merge into master
         uses: devmasx/merge-branch@master

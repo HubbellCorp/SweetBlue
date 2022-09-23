@@ -13,8 +13,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../jquery/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="../../../../jquery/jquery-migrate-3.0.1.js"></script>
+<script type="text/javascript" src="../../../../jquery/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
 </head>
 <body>
@@ -120,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>java.lang.Object</li>
+<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li>com.idevicesinc.sweetblue.internal.ThreadHandler</li>
@@ -136,10 +135,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">ThreadHandler</span>
-extends java.lang.Object
+extends <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
 implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.sweetblue.internal">P_SweetHandler</a></pre>
-<div class="block">Class used by the library to post <code>Runnable</code>s. You shouldn't ever need to subclass this, as it's all implemented for you.
- However, if you want SweetBlue to run it's update logic on an already created <code>Thread</code> in your app (rather than creating a new Thread),
+<div class="block">Class used by the library to post <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a>s. You shouldn't ever need to subclass this, as it's all implemented for you.
+ However, if you want SweetBlue to run it's update logic on an already created <a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Thread</code></a> in your app (rather than creating a new Thread),
  then you will need to use this class. You <b>must</b> make sure to call <a href="#loop()"><code>loop()</code></a> within the existing Thread's runnable, otherwise
  the class won't execute it's commands.</div>
 </li>
@@ -163,7 +162,7 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected java.util.concurrent.atomic.AtomicBoolean</code></td>
+<td class="colFirst"><code>protected <a href="https://d.android.com/reference/java/util/concurrent/atomic/AtomicBoolean.html?is-external=true" title="class or interface in java.util.concurrent.atomic" class="externalLink">AtomicBoolean</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#m_running">m_running</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -209,7 +208,7 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.lang.Thread</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink">Thread</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getThread()">getThread</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -223,26 +222,26 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#post(java.lang.Runnable)">post</a></span>&#8203;(java.lang.Runnable&nbsp;action)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#post(java.lang.Runnable)">post</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;action)</code></th>
 <td class="colLast">
-<div class="block">Post a <code>Runnable</code> to be executed by the <code>Thread</code> backing this handler.</div>
+<div class="block">Post a <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a> to be executed by the <a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Thread</code></a> backing this handler.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#postDelayed(java.lang.Runnable,long)">postDelayed</a></span>&#8203;(java.lang.Runnable&nbsp;action,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#postDelayed(java.lang.Runnable,long)">postDelayed</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;action,
            long&nbsp;delay)</code></th>
 <td class="colLast">
-<div class="block">Post a <code>Runnable</code> to be executed by the <code>Thread</code> backing this handler, delayed by the amount given.</div>
+<div class="block">Post a <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a> to be executed by the <a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Thread</code></a> backing this handler, delayed by the amount given.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#postDelayed(java.lang.Runnable,long,java.lang.Object)">postDelayed</a></span>&#8203;(java.lang.Runnable&nbsp;action,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#postDelayed(java.lang.Runnable,long,java.lang.Object)">postDelayed</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;action,
            long&nbsp;delay,
-           java.lang.Object&nbsp;tag)</code></th>
+           <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;tag)</code></th>
 <td class="colLast">
-<div class="block">Post a <code>Runnable</code> to be executed by the <code>Thread</code> backing this handler, delayed by the amount given, with the given tag to identify this
+<div class="block">Post a <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a> to be executed by the <a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Thread</code></a> backing this handler, delayed by the amount given, with the given tag to identify this
  action.</div>
 </td>
 </tr>
@@ -253,14 +252,14 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCallbacks(java.lang.Object)">removeCallbacks</a></span>&#8203;(java.lang.Object&nbsp;tag)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCallbacks(java.lang.Object)">removeCallbacks</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;tag)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCallbacks(java.lang.Runnable)">removeCallbacks</a></span>&#8203;(java.lang.Runnable&nbsp;action)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCallbacks(java.lang.Runnable)">removeCallbacks</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;action)</code></th>
 <td class="colLast">
-<div class="block">Remove a <code>Runnable</code> from the handler.</div>
+<div class="block">Remove a <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a> from the handler.</div>
 </td>
 </tr>
 </table>
@@ -268,8 +267,8 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -293,7 +292,7 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <ul class="blockListLast">
 <li class="blockList">
 <h4>m_running</h4>
-<pre>protected final&nbsp;java.util.concurrent.atomic.AtomicBoolean m_running</pre>
+<pre>protected final&nbsp;<a href="https://d.android.com/reference/java/util/concurrent/atomic/AtomicBoolean.html?is-external=true" title="class or interface in java.util.concurrent.atomic" class="externalLink">AtomicBoolean</a> m_running</pre>
 </li>
 </ul>
 </li>
@@ -345,8 +344,8 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>post</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;post&#8203;(java.lang.Runnable&nbsp;action)</pre>
-<div class="block">Post a <code>Runnable</code> to be executed by the <code>Thread</code> backing this handler.</div>
+<pre class="methodSignature">public final&nbsp;void&nbsp;post&#8203;(<a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;action)</pre>
+<div class="block">Post a <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a> to be executed by the <a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Thread</code></a> backing this handler.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="P_SweetHandler.html#post(java.lang.Runnable)">post</a></code>&nbsp;in interface&nbsp;<code><a href="P_SweetHandler.html" title="interface in com.idevicesinc.sweetblue.internal">P_SweetHandler</a></code></dd>
@@ -359,9 +358,9 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>postDelayed</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;postDelayed&#8203;(java.lang.Runnable&nbsp;action,
+<pre class="methodSignature">public final&nbsp;void&nbsp;postDelayed&#8203;(<a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;action,
                               long&nbsp;delay)</pre>
-<div class="block">Post a <code>Runnable</code> to be executed by the <code>Thread</code> backing this handler, delayed by the amount given.</div>
+<div class="block">Post a <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a> to be executed by the <a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Thread</code></a> backing this handler, delayed by the amount given.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="P_SweetHandler.html#postDelayed(java.lang.Runnable,long)">postDelayed</a></code>&nbsp;in interface&nbsp;<code><a href="P_SweetHandler.html" title="interface in com.idevicesinc.sweetblue.internal">P_SweetHandler</a></code></dd>
@@ -374,10 +373,10 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>postDelayed</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;postDelayed&#8203;(java.lang.Runnable&nbsp;action,
+<pre class="methodSignature">public&nbsp;void&nbsp;postDelayed&#8203;(<a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;action,
                         long&nbsp;delay,
-                        java.lang.Object&nbsp;tag)</pre>
-<div class="block">Post a <code>Runnable</code> to be executed by the <code>Thread</code> backing this handler, delayed by the amount given, with the given tag to identify this
+                        <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;tag)</pre>
+<div class="block">Post a <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a> to be executed by the <a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Thread</code></a> backing this handler, delayed by the amount given, with the given tag to identify this
  action.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -393,8 +392,8 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>removeCallbacks</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;removeCallbacks&#8203;(java.lang.Runnable&nbsp;action)</pre>
-<div class="block">Remove a <code>Runnable</code> from the handler. If the runnable is currently executing, it will not be canceled.</div>
+<pre class="methodSignature">public final&nbsp;void&nbsp;removeCallbacks&#8203;(<a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;action)</pre>
+<div class="block">Remove a <a href="https://d.android.com/reference/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Runnable</code></a> from the handler. If the runnable is currently executing, it will not be canceled.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="P_SweetHandler.html#removeCallbacks(java.lang.Runnable)">removeCallbacks</a></code>&nbsp;in interface&nbsp;<code><a href="P_SweetHandler.html" title="interface in com.idevicesinc.sweetblue.internal">P_SweetHandler</a></code></dd>
@@ -407,7 +406,7 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>removeCallbacks</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;removeCallbacks&#8203;(java.lang.Object&nbsp;tag)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;removeCallbacks&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;tag)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="P_SweetHandler.html#removeCallbacks(java.lang.Object)">removeCallbacks</a></code>&nbsp;in interface&nbsp;<code><a href="P_SweetHandler.html" title="interface in com.idevicesinc.sweetblue.internal">P_SweetHandler</a></code></dd>
@@ -433,7 +432,7 @@ implements <a href="P_SweetHandler.html" title="interface in com.idevicesinc.swe
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getThread</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Thread&nbsp;getThread()</pre>
+<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/lang/Thread.html?is-external=true" title="class or interface in java.lang" class="externalLink">Thread</a>&nbsp;getThread()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="P_SweetHandler.html#getThread()">getThread</a></code>&nbsp;in interface&nbsp;<code><a href="P_SweetHandler.html" title="interface in com.idevicesinc.sweetblue.internal">P_SweetHandler</a></code></dd>

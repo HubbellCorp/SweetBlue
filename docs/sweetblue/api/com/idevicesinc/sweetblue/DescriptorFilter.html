@@ -13,8 +13,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../jquery/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="../../../jquery/jquery-migrate-3.0.1.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="../../../jquery/jquery-ui.js"></script>
 </head>
 <body>
@@ -125,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public interface <span class="typeNameLabel">DescriptorFilter</span></pre>
 <div class="block">Interface used when the Bluetooth device you're trying to connect to has multiple
- <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a>s with the same <code>UUID</code>, in the same
+ <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a>s with the same <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>, in the same
  <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattService.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattService</code></a>. You use this interface to decide which <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a>
  you want to perform an operation on using any of the read(), or write() methods which accept this
  Interface as an argument.</div>
@@ -184,10 +183,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.UUID</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#descriptorUuid()">descriptorUuid</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Return the <code>UUID</code> of the descriptor you want to read to distinguish which <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a> you would
+<div class="block">Return the <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> of the descriptor you want to read to distinguish which <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a> you would
  like to perform an op on.</div>
 </td>
 </tr>
@@ -231,8 +230,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockListLast">
 <li class="blockList">
 <h4>descriptorUuid</h4>
-<pre class="methodSignature">java.util.UUID&nbsp;descriptorUuid()</pre>
-<div class="block">Return the <code>UUID</code> of the descriptor you want to read to distinguish which <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a> you would
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descriptorUuid()</pre>
+<div class="block">Return the <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> of the descriptor you want to read to distinguish which <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a> you would
  like to perform an op on.</div>
 </li>
 </ul>

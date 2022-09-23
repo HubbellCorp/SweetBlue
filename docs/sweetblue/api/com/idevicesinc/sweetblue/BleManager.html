@@ -13,8 +13,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../jquery/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="../../../jquery/jquery-migrate-3.0.1.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="../../../jquery/jquery-ui.js"></script>
 </head>
 <body>
@@ -120,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>java.lang.Object</li>
+<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li>com.idevicesinc.sweetblue.BleManager</li>
@@ -132,7 +131,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <hr>
 <pre>public final class <span class="typeNameLabel">BleManager</span>
-extends java.lang.Object</pre>
+extends <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
 <div class="block">The entry point to the library. Get a singleton instance using <a href="#get(android.content.Context,com.idevicesinc.sweetblue.BleManagerConfig)"><code>get(android.content.Context, BleManagerConfig)</code></a> or its overloads. Make sure
  to hook up this manager to lifecycle events for your app as a whole: <a href="#onPause()"><code>onPause()</code></a> and <a href="#onResume()"><code>onResume()</code></a>.
  <br><br>
@@ -237,7 +236,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>java.lang.Object</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#appData">appData</a></span></code></th>
 <td class="colLast">
 <div class="block">Field for app to associate any data it wants with the singleton instance of this class
@@ -280,7 +279,7 @@ extends java.lang.Object</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ASSERT(boolean,java.lang.String)">ASSERT</a></span>&#8203;(boolean&nbsp;condition,
-      java.lang.String&nbsp;message)</code></th>
+      <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;message)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#ASSERT(boolean)"><code>ASSERT(boolean)</code></a> but with an added message.</div>
 </td>
@@ -308,7 +307,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearSharedPreferences(java.lang.String)">clearSharedPreferences</a></span>&#8203;(java.lang.String&nbsp;macAddress)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearSharedPreferences(java.lang.String)">clearSharedPreferences</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</code></th>
 <td class="colLast">
 <div class="block">Clears all data currently being held in <a href="https://d.android.com/reference/android/content/SharedPreferences.html?is-external=true" title="class or interface in android.content" class="externalLink"><code>SharedPreferences</code></a> for a particular device.</div>
 </td>
@@ -370,14 +369,14 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevice(java.lang.Object...)">getDevice</a></span>&#8203;(java.lang.Object...&nbsp;query)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevice(java.lang.Object...)">getDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</code></th>
 <td class="colLast">
 <div class="block">Returns the first device that matches the query, or <a href="BleDevice.html#NULL"><code>BleDevice.NULL</code></a> if no match is found.</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevice(java.lang.String)">getDevice</a></span>&#8203;(java.lang.String&nbsp;macAddress)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevice(java.lang.String)">getDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</code></th>
 <td class="colLast">
 <div class="block">Gets a known <a href="BleDeviceState.html#DISCOVERED"><code>BleDeviceState.DISCOVERED</code></a> device by MAC address, or <a href="BleDevice.html#NULL"><code>BleDevice.NULL</code></a> if there is no such device.</div>
 </td>
@@ -398,7 +397,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDeviceCount(java.lang.Object...)">getDeviceCount</a></span>&#8203;(java.lang.Object...&nbsp;query)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDeviceCount(java.lang.Object...)">getDeviceCount</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</code></th>
 <td class="colLast">
 <div class="block">Returns the number of devices that match the given query.</div>
 </td>
@@ -418,10 +417,10 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i22" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices(android.content.Intent)">getDevices</a></span>&#8203;(<a href="https://d.android.com/reference/android/content/Intent.html?is-external=true" title="class or interface in android.content" class="externalLink">Intent</a>&nbsp;intentFromScan)</code></th>
 <td class="colLast">
-<div class="block">This is a convenience method to get an <code>ArrayList</code> of <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a>s from the Intent
+<div class="block">This is a convenience method to get an <a href="https://d.android.com/reference/java/util/ArrayList.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>ArrayList</code></a> of <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a>s from the Intent
  which was delivered as a result of calling <a href="#startScan(com.idevicesinc.sweetblue.ScanOptions)"><code>startScan(ScanOptions)</code></a> when using a
  <a href="https://d.android.com/reference/android/app/PendingIntent.html?is-external=true" title="class or interface in android.app" class="externalLink"><code>PendingIntent</code></a>.</div>
 </td>
@@ -469,76 +468,76 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i28" class="altColor">
 <td class="colFirst"><code><a href="BleDeviceIterator.html" title="class in com.idevicesinc.sweetblue">BleDeviceIterator</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices(java.lang.Object...)">getDevices</a></span>&#8203;(java.lang.Object...&nbsp;query)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices(java.lang.Object...)">getDevices</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#getDevice(java.lang.Object...)"><code>getDevice(Object...)</code></a> except returns all matching devices.</div>
 </td>
 </tr>
 <tr id="i29" class="rowColor">
-<td class="colFirst"><code>java.util.Set&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_bonded()">getDevices_bonded</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Convenience method to return a <code>Set</code> of currently bonded devices.</div>
+<div class="block">Convenience method to return a <a href="https://d.android.com/reference/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Set</code></a> of currently bonded devices.</div>
 </td>
 </tr>
 <tr id="i30" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List()">getDevices_List</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Overload of <a href="#getDevices()"><code>getDevices()</code></a> that returns a <code>List</code> for you.</div>
+<div class="block">Overload of <a href="#getDevices()"><code>getDevices()</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
 </td>
 </tr>
 <tr id="i31" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List(int)">getDevices_List</a></span>&#8203;(int&nbsp;mask_BleDeviceState)</code></th>
 <td class="colLast">
-<div class="block">Overload of <a href="#getDevices(int)"><code>getDevices(int)</code></a> that returns a <code>List</code> for you.</div>
+<div class="block">Overload of <a href="#getDevices(int)"><code>getDevices(int)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
 </td>
 </tr>
 <tr id="i32" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List(com.idevicesinc.sweetblue.BleDeviceState)">getDevices_List</a></span>&#8203;(<a href="BleDeviceState.html" title="enum in com.idevicesinc.sweetblue">BleDeviceState</a>&nbsp;state)</code></th>
 <td class="colLast">
-<div class="block">Overload of <a href="#getDevices(com.idevicesinc.sweetblue.BleDeviceState)"><code>getDevices(BleDeviceState)</code></a> that returns a <code>List</code> for you.</div>
+<div class="block">Overload of <a href="#getDevices(com.idevicesinc.sweetblue.BleDeviceState)"><code>getDevices(BleDeviceState)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
 </td>
 </tr>
 <tr id="i33" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List(java.lang.Object...)">getDevices_List</a></span>&#8203;(java.lang.Object...&nbsp;query)</code></th>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List(java.lang.Object...)">getDevices_List</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</code></th>
 <td class="colLast">
-<div class="block">Overload of <a href="#getDevices(java.lang.Object...)"><code>getDevices(Object...)</code></a> that returns a <code>List</code> for you.</div>
+<div class="block">Overload of <a href="#getDevices(java.lang.Object...)"><code>getDevices(Object...)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
 </td>
 </tr>
 <tr id="i34" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List_sorted()">getDevices_List_sorted</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#getDevices_List()"><code>getDevices_List()</code></a>, but sorts the list using <a href="BleManagerConfig.html#defaultListComparator"><code>BleManagerConfig.defaultListComparator</code></a>.</div>
 </td>
 </tr>
 <tr id="i35" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List_sorted(int)">getDevices_List_sorted</a></span>&#8203;(int&nbsp;mask_BleDeviceState)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#getDevices_List(int)"><code>getDevices_List(int)</code></a> except the list is sorted using <a href="BleManagerConfig.html#defaultListComparator"><code>BleManagerConfig.defaultListComparator</code></a>.</div>
 </td>
 </tr>
 <tr id="i36" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List_sorted(com.idevicesinc.sweetblue.BleDeviceState)">getDevices_List_sorted</a></span>&#8203;(<a href="BleDeviceState.html" title="enum in com.idevicesinc.sweetblue">BleDeviceState</a>&nbsp;state)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#getDevices_List(com.idevicesinc.sweetblue.BleDeviceState)"><code>getDevices_List(BleDeviceState)</code></a> except the list is sorted using <a href="BleManagerConfig.html#defaultListComparator"><code>BleManagerConfig.defaultListComparator</code></a>.</div>
 </td>
 </tr>
 <tr id="i37" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List_sorted(java.lang.Object...)">getDevices_List_sorted</a></span>&#8203;(java.lang.Object...&nbsp;query)</code></th>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_List_sorted(java.lang.Object...)">getDevices_List_sorted</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#getDevices_List(java.lang.Object...)"><code>getDevices_List(Object...)</code></a> except the list is sorted using <a href="BleManagerConfig.html#defaultListComparator"><code>BleManagerConfig.defaultListComparator</code></a>.</div>
 </td>
 </tr>
 <tr id="i38" class="altColor">
-<td class="colFirst"><code>java.util.Iterator&lt;java.lang.String&gt;</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDevices_previouslyConnected()">getDevices_previouslyConnected</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the mac addresses of all devices that we know about from both current and previous
@@ -650,14 +649,14 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i53" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasDevice(java.lang.Object...)">hasDevice</a></span>&#8203;(java.lang.Object...&nbsp;query)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasDevice(java.lang.Object...)">hasDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</code></th>
 <td class="colLast">
 <div class="block">Returns true if we have a device that matches the given query.</div>
 </td>
 </tr>
 <tr id="i54" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasDevice(java.lang.String)">hasDevice</a></span>&#8203;(java.lang.String&nbsp;macAddress)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasDevice(java.lang.String)">hasDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</code></th>
 <td class="colLast">
 <div class="block">Shortcut for checking if <a href="#getDevice(java.lang.String)"><code>getDevice(String)</code></a> returns <a href="BleDevice.html#NULL"><code>BleDevice.NULL</code></a>.</div>
 </td>
@@ -832,7 +831,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i78" class="altColor">
 <td class="colFirst"><code><a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String)">newDevice</a></span>&#8203;(java.lang.String&nbsp;macAddress)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String)">newDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#newDevice(java.lang.String,java.lang.String,com.idevicesinc.sweetblue.BleDeviceConfig)"><code>newDevice(String, String, BleDeviceConfig)</code></a> but uses an empty string for the name
  and passes a <code>null</code> <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue"><code>BleDeviceConfig</code></a>, which results in inherited options from <a href="BleManagerConfig.html" title="class in com.idevicesinc.sweetblue"><code>BleManagerConfig</code></a>.</div>
@@ -840,7 +839,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i79" class="rowColor">
 <td class="colFirst"><code><a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String,com.idevicesinc.sweetblue.BleDeviceConfig)">newDevice</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String,com.idevicesinc.sweetblue.BleDeviceConfig)">newDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
          <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue">BleDeviceConfig</a>&nbsp;config)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#newDevice(java.lang.String)"><code>newDevice(String)</code></a> but passes a <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue"><code>BleDeviceConfig</code></a> to be used as well.</div>
@@ -848,16 +847,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i80" class="altColor">
 <td class="colFirst"><code><a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String,java.lang.String)">newDevice</a></span>&#8203;(java.lang.String&nbsp;macAddress,
-         java.lang.String&nbsp;name)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String,java.lang.String)">newDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+         <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#newDevice(java.lang.String)"><code>newDevice(String)</code></a> but allows a custom name also.</div>
 </td>
 </tr>
 <tr id="i81" class="rowColor">
 <td class="colFirst"><code><a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String,java.lang.String,byte%5B%5D,com.idevicesinc.sweetblue.BleDeviceConfig)">newDevice</a></span>&#8203;(java.lang.String&nbsp;macAddress,
-         java.lang.String&nbsp;name,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String,java.lang.String,byte%5B%5D,com.idevicesinc.sweetblue.BleDeviceConfig)">newDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+         <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
          byte[]&nbsp;scanRecord,
          <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue">BleDeviceConfig</a>&nbsp;config)</code></th>
 <td class="colLast">
@@ -866,8 +865,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i82" class="altColor">
 <td class="colFirst"><code><a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String,java.lang.String,com.idevicesinc.sweetblue.BleDeviceConfig)">newDevice</a></span>&#8203;(java.lang.String&nbsp;macAddress,
-         java.lang.String&nbsp;name,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newDevice(java.lang.String,java.lang.String,com.idevicesinc.sweetblue.BleDeviceConfig)">newDevice</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+         <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
          <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue">BleDeviceConfig</a>&nbsp;config)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#newDevice(java.lang.String,java.lang.String,byte%5B%5D,com.idevicesinc.sweetblue.BleDeviceConfig)"><code>newDevice(String, String, byte[], BleDeviceConfig)</code></a>.</div>
@@ -886,7 +885,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code><a href="utils/HistoricalData.html" title="class in com.idevicesinc.sweetblue.utils">HistoricalData</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newHistoricalData(byte%5B%5D,com.idevicesinc.sweetblue.utils.EpochTime,java.lang.String)">newHistoricalData</a></span>&#8203;(byte[]&nbsp;data,
                  <a href="utils/EpochTime.html" title="class in com.idevicesinc.sweetblue.utils">EpochTime</a>&nbsp;epochTime,
-                 java.lang.String&nbsp;macAddress)</code></th>
+                 <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#newHistoricalData(byte%5B%5D,com.idevicesinc.sweetblue.utils.EpochTime)"><code>newHistoricalData(byte[], EpochTime)</code></a> but tries to use
  <a href="BleNode.html#newHistoricalData(byte%5B%5D,com.idevicesinc.sweetblue.utils.EpochTime)"><code>BleNode.newHistoricalData(byte[], EpochTime)</code></a> if we have a device
@@ -1280,7 +1279,7 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i135" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -1365,8 +1364,8 @@ extends java.lang.Object</pre>
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -1390,7 +1389,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>appData</h4>
-<pre>public&nbsp;java.lang.Object appData</pre>
+<pre>public&nbsp;<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a> appData</pre>
 <div class="block">Field for app to associate any data it wants with the singleton instance of this class
  instead of having to subclass or manage associative hash maps or something.
  The library does not touch or interact with this data in any way.</div>
@@ -1892,7 +1891,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>startPeriodicScan</h4>
-<pre class="methodSignature">@Deprecated
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
 public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanActiveTime,
                                     <a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanPauseTime)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
@@ -1913,7 +1912,7 @@ public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>startPeriodicScan</h4>
-<pre class="methodSignature">@Deprecated
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
 public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanActiveTime,
                                     <a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanPauseTime,
                                     <a href="DiscoveryListener.html" title="interface in com.idevicesinc.sweetblue">DiscoveryListener</a>&nbsp;discoveryListener)</pre>
@@ -1935,7 +1934,7 @@ public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>startPeriodicScan</h4>
-<pre class="methodSignature">@Deprecated
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
 public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanActiveTime,
                                     <a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanPauseTime,
                                     <a href="ScanFilter.html" title="interface in com.idevicesinc.sweetblue">ScanFilter</a>&nbsp;filter)</pre>
@@ -1957,7 +1956,7 @@ public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>startPeriodicScan</h4>
-<pre class="methodSignature">@Deprecated
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
 public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanActiveTime,
                                     <a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanPauseTime,
                                     <a href="ScanFilter.html" title="interface in com.idevicesinc.sweetblue">ScanFilter</a>&nbsp;filter,
@@ -1980,7 +1979,7 @@ public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>startPeriodicScan</h4>
-<pre class="methodSignature">@Deprecated
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
 public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanActiveTime,
                                     <a href="utils/Interval.html" title="class in com.idevicesinc.sweetblue.utils">Interval</a>&nbsp;scanPauseTime,
                                     <a href="ScanFilter.html" title="interface in com.idevicesinc.sweetblue">ScanFilter</a>&nbsp;filter,
@@ -2004,7 +2003,7 @@ public final&nbsp;void&nbsp;startPeriodicScan&#8203;(<a href="utils/Interval.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>stopPeriodicScan</h4>
-<pre class="methodSignature">@Deprecated
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
 public final&nbsp;void&nbsp;stopPeriodicScan&#8203;(<a href="ScanFilter.html" title="interface in com.idevicesinc.sweetblue">ScanFilter</a>&nbsp;filter)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
 <div class="deprecationComment">use <a href="#stopScan()"><code>stopScan()</code></a> or <a href="#stopScan(com.idevicesinc.sweetblue.ScanFilter)"><code>stopScan(ScanFilter)</code></a> instead.
@@ -2021,7 +2020,7 @@ public final&nbsp;void&nbsp;stopPeriodicScan&#8203;(<a href="ScanFilter.html" ti
 <ul class="blockList">
 <li class="blockList">
 <h4>stopPeriodicScan</h4>
-<pre class="methodSignature">@Deprecated
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
 public final&nbsp;void&nbsp;stopPeriodicScan()</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
 <div class="deprecationComment">use <a href="#stopScan()"><code>stopScan()</code></a> or <a href="#stopScan(com.idevicesinc.sweetblue.ScanFilter)"><code>stopScan(ScanFilter)</code></a> instead.
@@ -2227,7 +2226,7 @@ public final&nbsp;void&nbsp;stopPeriodicScan()</pre>
 <li class="blockList">
 <h4>ASSERT</h4>
 <pre class="methodSignature">public final&nbsp;boolean&nbsp;ASSERT&#8203;(boolean&nbsp;condition,
-                            java.lang.String&nbsp;message)</pre>
+                            <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;message)</pre>
 <div class="block">Same as <a href="#ASSERT(boolean)"><code>ASSERT(boolean)</code></a> but with an added message.</div>
 </li>
 </ul>
@@ -2657,7 +2656,7 @@ public final&nbsp;void&nbsp;stopPeriodicScan()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>stopAllScanning</h4>
-<pre class="methodSignature">@Deprecated
+<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
 public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
 <div class="deprecationComment">use <a href="#stopScan()"><code>stopScan()</code></a> or <a href="#stopScan(com.idevicesinc.sweetblue.ScanFilter)"><code>stopScan(ScanFilter)</code></a> instead.
@@ -2709,7 +2708,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevice</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;getDevice&#8203;(java.lang.String&nbsp;macAddress)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;getDevice&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</pre>
 <div class="block">Gets a known <a href="BleDeviceState.html#DISCOVERED"><code>BleDeviceState.DISCOVERED</code></a> device by MAC address, or <a href="BleDevice.html#NULL"><code>BleDevice.NULL</code></a> if there is no such device.</div>
 </li>
 </ul>
@@ -2719,7 +2718,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>hasDevice</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;hasDevice&#8203;(java.lang.String&nbsp;macAddress)</pre>
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;hasDevice&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</pre>
 <div class="block">Shortcut for checking if <a href="#getDevice(java.lang.String)"><code>getDevice(String)</code></a> returns <a href="BleDevice.html#NULL"><code>BleDevice.NULL</code></a>.</div>
 </li>
 </ul>
@@ -2759,7 +2758,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevice</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;getDevice&#8203;(java.lang.Object...&nbsp;query)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;getDevice&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</pre>
 <div class="block">Returns the first device that matches the query, or <a href="BleDevice.html#NULL"><code>BleDevice.NULL</code></a> if no match is found.
  See <a href="BleDevice.html#is(java.lang.Object...)"><code>BleDevice.is(Object...)</code></a> for the query format.</div>
 </li>
@@ -2770,7 +2769,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>hasDevice</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;hasDevice&#8203;(java.lang.Object...&nbsp;query)</pre>
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;hasDevice&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</pre>
 <div class="block">Returns true if we have a device that matches the given query.
  See <a href="BleDevice.html#is(java.lang.Object...)"><code>BleDevice.is(Object...)</code></a> for the query format.</div>
 </li>
@@ -2801,8 +2800,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices&#8203;(<a href="https://d.android.com/reference/android/content/Intent.html?is-external=true" title="class or interface in android.content" class="externalLink">Intent</a>&nbsp;intentFromScan)</pre>
-<div class="block">This is a convenience method to get an <code>ArrayList</code> of <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a>s from the Intent
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices&#8203;(<a href="https://d.android.com/reference/android/content/Intent.html?is-external=true" title="class or interface in android.content" class="externalLink">Intent</a>&nbsp;intentFromScan)</pre>
+<div class="block">This is a convenience method to get an <a href="https://d.android.com/reference/java/util/ArrayList.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>ArrayList</code></a> of <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a>s from the Intent
  which was delivered as a result of calling <a href="#startScan(com.idevicesinc.sweetblue.ScanOptions)"><code>startScan(ScanOptions)</code></a> when using a
  <a href="https://d.android.com/reference/android/app/PendingIntent.html?is-external=true" title="class or interface in android.app" class="externalLink"><code>PendingIntent</code></a>.</div>
 </li>
@@ -2859,7 +2858,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_previouslyConnected</h4>
-<pre class="methodSignature">public final&nbsp;java.util.Iterator&lt;java.lang.String&gt;&nbsp;getDevices_previouslyConnected()</pre>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;getDevices_previouslyConnected()</pre>
 <div class="block">Returns the mac addresses of all devices that we know about from both current and previous
  app sessions.</div>
 </li>
@@ -2870,8 +2869,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_bonded</h4>
-<pre class="methodSignature">public final&nbsp;java.util.Set&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_bonded()</pre>
-<div class="block">Convenience method to return a <code>Set</code> of currently bonded devices. This simply calls
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_bonded()</pre>
+<div class="block">Convenience method to return a <a href="https://d.android.com/reference/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Set</code></a> of currently bonded devices. This simply calls
  <a href="https://d.android.com/reference/android/bluetooth/BluetoothAdapter.html?is-external=true#getBondedDevices()" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothAdapter.getBondedDevices()</code></a>, and wraps all bonded devices into separate
  <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> classes.
 
@@ -2907,8 +2906,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_List</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List()</pre>
-<div class="block">Overload of <a href="#getDevices()"><code>getDevices()</code></a> that returns a <code>List</code> for you.</div>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List()</pre>
+<div class="block">Overload of <a href="#getDevices()"><code>getDevices()</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
 </li>
 </ul>
 <a id="getDevices_List_sorted()">
@@ -2917,7 +2916,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_List_sorted</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List_sorted()</pre>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List_sorted()</pre>
 <div class="block">Same as <a href="#getDevices_List()"><code>getDevices_List()</code></a>, but sorts the list using <a href="BleManagerConfig.html#defaultListComparator"><code>BleManagerConfig.defaultListComparator</code></a>.</div>
 </li>
 </ul>
@@ -2948,7 +2947,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDeviceCount</h4>
-<pre class="methodSignature">public final&nbsp;int&nbsp;getDeviceCount&#8203;(java.lang.Object...&nbsp;query)</pre>
+<pre class="methodSignature">public final&nbsp;int&nbsp;getDeviceCount&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</pre>
 <div class="block">Returns the number of devices that match the given query.
  See <a href="BleDevice.html#is(java.lang.Object...)"><code>BleDevice.is(Object...)</code></a> for the query format.</div>
 </li>
@@ -2980,8 +2979,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_List</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List&#8203;(<a href="BleDeviceState.html" title="enum in com.idevicesinc.sweetblue">BleDeviceState</a>&nbsp;state)</pre>
-<div class="block">Overload of <a href="#getDevices(com.idevicesinc.sweetblue.BleDeviceState)"><code>getDevices(BleDeviceState)</code></a> that returns a <code>List</code> for you.</div>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List&#8203;(<a href="BleDeviceState.html" title="enum in com.idevicesinc.sweetblue">BleDeviceState</a>&nbsp;state)</pre>
+<div class="block">Overload of <a href="#getDevices(com.idevicesinc.sweetblue.BleDeviceState)"><code>getDevices(BleDeviceState)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
 </li>
 </ul>
 <a id="getDevices_List_sorted(com.idevicesinc.sweetblue.BleDeviceState)">
@@ -2990,7 +2989,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_List_sorted</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List_sorted&#8203;(<a href="BleDeviceState.html" title="enum in com.idevicesinc.sweetblue">BleDeviceState</a>&nbsp;state)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List_sorted&#8203;(<a href="BleDeviceState.html" title="enum in com.idevicesinc.sweetblue">BleDeviceState</a>&nbsp;state)</pre>
 <div class="block">Same as <a href="#getDevices_List(com.idevicesinc.sweetblue.BleDeviceState)"><code>getDevices_List(BleDeviceState)</code></a> except the list is sorted using <a href="BleManagerConfig.html#defaultListComparator"><code>BleManagerConfig.defaultListComparator</code></a>.</div>
 </li>
 </ul>
@@ -3000,7 +2999,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleDeviceIterator.html" title="class in com.idevicesinc.sweetblue">BleDeviceIterator</a>&nbsp;getDevices&#8203;(java.lang.Object...&nbsp;query)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleDeviceIterator.html" title="class in com.idevicesinc.sweetblue">BleDeviceIterator</a>&nbsp;getDevices&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</pre>
 <div class="block">Same as <a href="#getDevice(java.lang.Object...)"><code>getDevice(Object...)</code></a> except returns all matching devices.
  See <a href="BleDevice.html#is(java.lang.Object...)"><code>BleDevice.is(Object...)</code></a> for the query format.</div>
 </li>
@@ -3011,8 +3010,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_List</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List&#8203;(java.lang.Object...&nbsp;query)</pre>
-<div class="block">Overload of <a href="#getDevices(java.lang.Object...)"><code>getDevices(Object...)</code></a> that returns a <code>List</code> for you.</div>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</pre>
+<div class="block">Overload of <a href="#getDevices(java.lang.Object...)"><code>getDevices(Object...)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
 </li>
 </ul>
 <a id="getDevices_List_sorted(java.lang.Object...)">
@@ -3021,7 +3020,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_List_sorted</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List_sorted&#8203;(java.lang.Object...&nbsp;query)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List_sorted&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>...&nbsp;query)</pre>
 <div class="block">Same as <a href="#getDevices_List(java.lang.Object...)"><code>getDevices_List(Object...)</code></a> except the list is sorted using <a href="BleManagerConfig.html#defaultListComparator"><code>BleManagerConfig.defaultListComparator</code></a>.</div>
 </li>
 </ul>
@@ -3041,8 +3040,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_List</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List&#8203;(int&nbsp;mask_BleDeviceState)</pre>
-<div class="block">Overload of <a href="#getDevices(int)"><code>getDevices(int)</code></a> that returns a <code>List</code> for you.</div>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List&#8203;(int&nbsp;mask_BleDeviceState)</pre>
+<div class="block">Overload of <a href="#getDevices(int)"><code>getDevices(int)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
 </li>
 </ul>
 <a id="getDevices_List_sorted(int)">
@@ -3051,7 +3050,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDevices_List_sorted</h4>
-<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List_sorted&#8203;(int&nbsp;mask_BleDeviceState)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&gt;&nbsp;getDevices_List_sorted&#8203;(int&nbsp;mask_BleDeviceState)</pre>
 <div class="block">Same as <a href="#getDevices_List(int)"><code>getDevices_List(int)</code></a> except the list is sorted using <a href="BleManagerConfig.html#defaultListComparator"><code>BleManagerConfig.defaultListComparator</code></a>.</div>
 </li>
 </ul>
@@ -3097,7 +3096,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <h4>newHistoricalData</h4>
 <pre class="methodSignature">public final&nbsp;<a href="utils/HistoricalData.html" title="class in com.idevicesinc.sweetblue.utils">HistoricalData</a>&nbsp;newHistoricalData&#8203;(byte[]&nbsp;data,
                                               <a href="utils/EpochTime.html" title="class in com.idevicesinc.sweetblue.utils">EpochTime</a>&nbsp;epochTime,
-                                              java.lang.String&nbsp;macAddress)</pre>
+                                              <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</pre>
 <div class="block">Same as <a href="#newHistoricalData(byte%5B%5D,com.idevicesinc.sweetblue.utils.EpochTime)"><code>newHistoricalData(byte[], EpochTime)</code></a> but tries to use
  <a href="BleNode.html#newHistoricalData(byte%5B%5D,com.idevicesinc.sweetblue.utils.EpochTime)"><code>BleNode.newHistoricalData(byte[], EpochTime)</code></a> if we have a device
  matching the given mac address.</div>
@@ -3162,7 +3161,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>newDevice</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(java.lang.String&nbsp;macAddress)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</pre>
 <div class="block">Same as <a href="#newDevice(java.lang.String,java.lang.String,com.idevicesinc.sweetblue.BleDeviceConfig)"><code>newDevice(String, String, BleDeviceConfig)</code></a> but uses an empty string for the name
  and passes a <code>null</code> <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue"><code>BleDeviceConfig</code></a>, which results in inherited options from <a href="BleManagerConfig.html" title="class in com.idevicesinc.sweetblue"><code>BleManagerConfig</code></a>.</div>
 </li>
@@ -3195,8 +3194,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>newDevice</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(java.lang.String&nbsp;macAddress,
-                                 java.lang.String&nbsp;name)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+                                 <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</pre>
 <div class="block">Same as <a href="#newDevice(java.lang.String)"><code>newDevice(String)</code></a> but allows a custom name also.</div>
 </li>
 </ul>
@@ -3206,7 +3205,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>newDevice</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(java.lang.String&nbsp;macAddress,
+<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
                                  <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue">BleDeviceConfig</a>&nbsp;config)</pre>
 <div class="block">Same as <a href="#newDevice(java.lang.String)"><code>newDevice(String)</code></a> but passes a <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue"><code>BleDeviceConfig</code></a> to be used as well.</div>
 </li>
@@ -3217,8 +3216,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>newDevice</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(java.lang.String&nbsp;macAddress,
-                                 java.lang.String&nbsp;name,
+<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+                                 <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
                                  <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue">BleDeviceConfig</a>&nbsp;config)</pre>
 <div class="block">Overload of <a href="#newDevice(java.lang.String,java.lang.String,byte%5B%5D,com.idevicesinc.sweetblue.BleDeviceConfig)"><code>newDevice(String, String, byte[], BleDeviceConfig)</code></a>.</div>
 </li>
@@ -3229,8 +3228,8 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>newDevice</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(java.lang.String&nbsp;macAddress,
-                                 java.lang.String&nbsp;name,
+<pre class="methodSignature">public final&nbsp;<a href="BleDevice.html" title="class in com.idevicesinc.sweetblue">BleDevice</a>&nbsp;newDevice&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+                                 <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
                                  byte[]&nbsp;scanRecord,
                                  <a href="BleDeviceConfig.html" title="class in com.idevicesinc.sweetblue">BleDeviceConfig</a>&nbsp;config)</pre>
 <div class="block">Creates a new <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> or returns an existing one if the macAddress matches.
@@ -3290,7 +3289,7 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>clearSharedPreferences</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;clearSharedPreferences&#8203;(java.lang.String&nbsp;macAddress)</pre>
+<pre class="methodSignature">public final&nbsp;void&nbsp;clearSharedPreferences&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</pre>
 <div class="block">Clears all data currently being held in <a href="https://d.android.com/reference/android/content/SharedPreferences.html?is-external=true" title="class or interface in android.content" class="externalLink"><code>SharedPreferences</code></a> for a particular device.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -3334,10 +3333,10 @@ public final&nbsp;void&nbsp;stopAllScanning()</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toString</h4>
-<pre class="methodSignature">public final&nbsp;java.lang.String&nbsp;toString()</pre>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dd><code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
 </dl>
 </li>
 </ul>

@@ -13,8 +13,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../jquery/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="../../../jquery/jquery-migrate-3.0.1.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="../../../jquery/jquery-ui.js"></script>
 </head>
 <body>
@@ -120,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>java.lang.Object</li>
+<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li>com.idevicesinc.sweetblue.BleOp&lt;T&gt;</li>
@@ -136,7 +135,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">BleOp&lt;T extends BleOp&gt;</span>
-extends java.lang.Object</pre>
+extends <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
 <div class="block">Base class for basic BLE operations (read, write, notify).
 
  This class is parameterized so that the shared methods of this class get auto casted to the parent class (eg. BleWrite, BleRead, BleNotify), so when chaining,
@@ -165,12 +164,12 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID)">BleOp</a></span>&#8203;(java.util.UUID&nbsp;characteristicUuid)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID)">BleOp</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;characteristicUuid)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,java.util.UUID)">BleOp</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
-     java.util.UUID&nbsp;characteristicUuid)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,java.util.UUID)">BleOp</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+     <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;characteristicUuid)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -192,7 +191,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.UUID</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCharacteristicUuid()">getCharacteristicUuid</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the characteristic UUID of this operation.</div>
@@ -211,7 +210,7 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.util.UUID</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDescriptorUuid()">getDescriptorUuid</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the UUID of the descriptor for this operation.</div>
@@ -225,10 +224,10 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.util.UUID</code></td>
+<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getServiceUuid()">getServiceUuid</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns the <code>UUID</code> of the service for this operation.</div>
+<div class="block">Returns the <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> of the service for this operation.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -265,7 +264,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="BleOp.html" title="type parameter in BleOp">T</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCharacteristicUUID(java.util.UUID)">setCharacteristicUUID</a></span>&#8203;(java.util.UUID&nbsp;uuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCharacteristicUUID(java.util.UUID)">setCharacteristicUUID</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid)</code></th>
 <td class="colLast">
 <div class="block">Set the characteristic UUID.</div>
 </td>
@@ -279,7 +278,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code><a href="BleOp.html" title="type parameter in BleOp">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDescriptorFilter(com.idevicesinc.sweetblue.DescriptorFilter)">setDescriptorFilter</a></span>&#8203;(<a href="DescriptorFilter.html" title="interface in com.idevicesinc.sweetblue">DescriptorFilter</a>&nbsp;filter)</code></th>
 <td class="colLast">
-<div class="block">Set the <a href="DescriptorFilter.html" title="interface in com.idevicesinc.sweetblue"><code>DescriptorFilter</code></a> to determine which characteristic to operate on, if there are multiple with the same <code>UUID</code> in the same
+<div class="block">Set the <a href="DescriptorFilter.html" title="interface in com.idevicesinc.sweetblue"><code>DescriptorFilter</code></a> to determine which characteristic to operate on, if there are multiple with the same <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> in the same
  <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattService.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattService</code></a>.</div>
 </td>
 </tr>
@@ -292,7 +291,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="BleOp.html" title="type parameter in BleOp">T</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setServiceUUID(java.util.UUID)">setServiceUUID</a></span>&#8203;(java.util.UUID&nbsp;uuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setServiceUUID(java.util.UUID)">setServiceUUID</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid)</code></th>
 <td class="colLast">
 <div class="block">Set the service UUID for this operation.</div>
 </td>
@@ -302,8 +301,8 @@ extends java.lang.Object</pre>
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -336,8 +335,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>BleOp</h4>
-<pre>public&nbsp;BleOp&#8203;(java.util.UUID&nbsp;serviceUuid,
-             java.util.UUID&nbsp;characteristicUuid)</pre>
+<pre>public&nbsp;BleOp&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;characteristicUuid)</pre>
 </li>
 </ul>
 <a id="&lt;init&gt;(java.util.UUID)">
@@ -346,7 +345,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BleOp</h4>
-<pre>public&nbsp;BleOp&#8203;(java.util.UUID&nbsp;characteristicUuid)</pre>
+<pre>public&nbsp;BleOp&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;characteristicUuid)</pre>
 </li>
 </ul>
 </li>
@@ -375,7 +374,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setServiceUUID</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleOp.html" title="type parameter in BleOp">T</a>&nbsp;setServiceUUID&#8203;(java.util.UUID&nbsp;uuid)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleOp.html" title="type parameter in BleOp">T</a>&nbsp;setServiceUUID&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid)</pre>
 <div class="block">Set the service UUID for this operation. This is only needed when you have characteristics with identical uuids under different services.</div>
 </li>
 </ul>
@@ -385,8 +384,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getServiceUuid</h4>
-<pre class="methodSignature">public final&nbsp;java.util.UUID&nbsp;getServiceUuid()</pre>
-<div class="block">Returns the <code>UUID</code> of the service for this operation. This may return <code>null</code>.</div>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;getServiceUuid()</pre>
+<div class="block">Returns the <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> of the service for this operation. This may return <code>null</code>.</div>
 </li>
 </ul>
 <a id="setCharacteristicUUID(java.util.UUID)">
@@ -395,7 +394,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setCharacteristicUUID</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleOp.html" title="type parameter in BleOp">T</a>&nbsp;setCharacteristicUUID&#8203;(java.util.UUID&nbsp;uuid)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleOp.html" title="type parameter in BleOp">T</a>&nbsp;setCharacteristicUUID&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid)</pre>
 <div class="block">Set the characteristic UUID.</div>
 </li>
 </ul>
@@ -405,7 +404,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getCharacteristicUuid</h4>
-<pre class="methodSignature">public final&nbsp;java.util.UUID&nbsp;getCharacteristicUuid()</pre>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;getCharacteristicUuid()</pre>
 <div class="block">Returns the characteristic UUID of this operation.</div>
 </li>
 </ul>
@@ -438,7 +437,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setDescriptorFilter</h4>
 <pre class="methodSignature">public final&nbsp;<a href="BleOp.html" title="type parameter in BleOp">T</a>&nbsp;setDescriptorFilter&#8203;(<a href="DescriptorFilter.html" title="interface in com.idevicesinc.sweetblue">DescriptorFilter</a>&nbsp;filter)</pre>
-<div class="block">Set the <a href="DescriptorFilter.html" title="interface in com.idevicesinc.sweetblue"><code>DescriptorFilter</code></a> to determine which characteristic to operate on, if there are multiple with the same <code>UUID</code> in the same
+<div class="block">Set the <a href="DescriptorFilter.html" title="interface in com.idevicesinc.sweetblue"><code>DescriptorFilter</code></a> to determine which characteristic to operate on, if there are multiple with the same <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> in the same
  <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattService.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattService</code></a>.</div>
 </li>
 </ul>
@@ -521,7 +520,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getDescriptorUuid</h4>
-<pre class="methodSignature">public final&nbsp;java.util.UUID&nbsp;getDescriptorUuid()</pre>
+<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;getDescriptorUuid()</pre>
 <div class="block">Returns the UUID of the descriptor for this operation. This can be <code>null</code>.</div>
 </li>
 </ul>

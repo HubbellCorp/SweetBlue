@@ -13,8 +13,6 @@ permissions: write-all
 jobs:
   PublishPages:
     runs-on: ubuntu-latest
-    environment:
-      name: Release
 
     steps:
       - name: Checkout repository
@@ -30,15 +28,11 @@ jobs:
           rm -rf javadocs/
           mkdir javadocs/
           cp -r docs/* javadocs/
+          # TODO - This is for testing, remove before merge!
+          ls javadocs/
 
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
           add: '-u'
           message: 'Updated javadocs folder'
-
-      # Publish to github pages
-      - name: Publish to Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: docs

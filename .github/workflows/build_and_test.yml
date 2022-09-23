@@ -59,7 +59,7 @@ jobs:
 
       # Publish lint results to job summary
       - name: Publish lint results
-      - uses: iDevicesInc/action-android-lint@prettier_lint_results
+        uses: iDevicesInc/action-android-lint@prettier_lint_results
         if: always()
         with:
           #          artifact: lint-results

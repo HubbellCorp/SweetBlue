@@ -13,9 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
       - name: Build Library And Sample Apps
+        uses: actions/checkout@v3
         run: ./gradlew assemble
 
   Test:
@@ -29,7 +28,8 @@ jobs:
         run: ./gradlew test
 
       # Store test results as an artifact, to be published by another workflow
-      - uses: actions/upload-artifact@v2
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: test-results
@@ -45,14 +45,16 @@ jobs:
       - name: Android Lint
         run: ./gradlew lint
 
-      # Store lint results as an artifact, to be published by another workflow
-      - uses: actions/upload-artifact@v2
+      # Store lint results as an artifact
+      - name: Archive lint results
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: lint-results
           path: '**/build/reports/*.xml'
 
       # Publish lint results to job summary
+      - name: Publish lint results
       - uses: iDevicesInc/action-android-lint@prettier_lint_results
         if: always()
         with:

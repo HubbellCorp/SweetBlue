@@ -1,8 +1,10 @@
 name: 'SweetBlue Pages Deploy'
 
 on:
-
+  push:
+    branches: [ main ]
   workflow_dispatch:
+
 permissions: write-all
 
 jobs:
@@ -12,9 +14,8 @@ jobs:
       name: Release
 
     steps:
-      - uses: actions/checkout@v3
-
       - name: Build Library And Sample Apps
+        uses: actions/checkout@v3
         run: ./gradlew assembleRelease
 
       # Generate javadoc again to make sure it's current

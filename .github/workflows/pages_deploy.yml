@@ -9,13 +9,14 @@ on:
 permissions: write-all
 
 jobs:
-  Build:
+  PublishPages:
     runs-on: ubuntu-latest
     environment:
       name: Release
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       # Generate javadoc again to make sure it's current
       - name: Generate javadoc

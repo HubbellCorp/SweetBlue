@@ -3,6 +3,7 @@ name: 'SweetBlue Pages Deploy'
 on:
   push:
     branches: [ main ]
+
   workflow_dispatch:
 
 permissions: write-all
@@ -14,8 +15,7 @@ jobs:
       name: Release
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       # Generate javadoc again to make sure it's current
       - name: Generate javadoc

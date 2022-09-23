@@ -13,7 +13,7 @@ version.txt
 api_key_gen/libs
 **/proguard/
 **/doc
-**/docs
+**/javadocs
 **/scripts/script_output
 samples/hello_ble/.settings/org.eclipse.jdt.core.prefs
 samples/ble_util/.settings/org.eclipse.jdt.core.prefs

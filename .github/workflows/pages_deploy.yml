@@ -25,11 +25,9 @@ jobs:
       # Replace javadoc folder with the latest docs just generated
       - name: Replace javadocs
         run: |
-          rm -rf javadocs/
-          mkdir javadocs/
-          cp -r docs/* javadocs/
-          # TODO - This is for testing, remove before merge!
-          ls javadocs/
+          rm -rf docs/
+          mkdir docs/
+          cp -r javadocs/* docs/
 
       - name: Commit
         uses: EndBug/add-and-commit@v9

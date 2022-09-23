@@ -57,7 +57,7 @@ task gendocs(type: Javadoc) {
     String v = "${SEMVER}"
     version = v.replace("_", '.')
     options.setDocTitle("SweetUnit " + version + " API")
-    destinationDir = file("${rootDir.absolutePath}/docs/sweetunit/api")
+    destinationDir = file("${rootDir.absolutePath}/javadocs/sweetunit/api")
     source = files(android.sourceSets.main.java.srcDirs)
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     group = "sweetunit"

@@ -13,15 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build Library And Sample Apps
+      - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Build all the things
         run: ./gradlew assemble
 
   Test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       # Run tests
       - name: Run Tests
@@ -39,7 +42,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       # Run static analysis
       - name: Android Lint

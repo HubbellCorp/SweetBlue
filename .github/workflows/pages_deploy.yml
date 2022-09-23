@@ -18,6 +18,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Build
+        run: ./gradlew assembleRelease
+
       # Generate javadoc again to make sure it's current
       - name: Generate javadoc
         run: ./gradlew gendocs

@@ -119,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>com.idevicesinc.sweetblue.utils.BleScanRecord</li>
@@ -135,7 +135,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public final class <span class="typeNameLabel">BleScanRecord</span>
-extends <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+extends java.lang.Object
 implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.sweetblue.utils">UsesCustomNull</a></pre>
 <div class="block">Class used to store information from a BLE scan record. This class can also be used to create a scan record.</div>
 </li>
@@ -212,54 +212,54 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 </td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.idevicesinc.sweetblue.utils.Pointer,com.idevicesinc.sweetblue.utils.Pointer,java.util.List,boolean,short,byte%5B%5D,java.util.Map,java.lang.String,boolean)">BleScanRecord</a></span>&#8203;(<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;advFlags,
-             <a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;txPower,
-             <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&gt;&nbsp;serviceUuids,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.idevicesinc.sweetblue.utils.Pointer,com.idevicesinc.sweetblue.utils.Pointer,java.util.List,boolean,short,byte%5B%5D,java.util.Map,java.lang.String,boolean)">BleScanRecord</a></span>&#8203;(<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;advFlags,
+             <a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;txPower,
+             java.util.List&lt;java.util.UUID&gt;&nbsp;serviceUuids,
              boolean&nbsp;uuidCompleteList,
              short&nbsp;mfgId,
              byte[]&nbsp;mfgData,
-             <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>,&#8203;byte[]&gt;&nbsp;serviceData,
-             <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;localName,
+             java.util.Map&lt;java.util.UUID,&#8203;byte[]&gt;&nbsp;serviceData,
+             java.lang.String&nbsp;localName,
              boolean&nbsp;shortName)</code></th>
 <td class="colLast">
 <div class="block">Old Constructor used to be used internally when a <a href="../BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> is discovered.</div>
 </td>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.idevicesinc.sweetblue.utils.Pointer,com.idevicesinc.sweetblue.utils.Pointer,java.util.List,boolean,java.util.List,java.util.Map,java.lang.String,boolean)">BleScanRecord</a></span>&#8203;(<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;advFlags,
-             <a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;txPower,
-             <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&gt;&nbsp;serviceUuids,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.idevicesinc.sweetblue.utils.Pointer,com.idevicesinc.sweetblue.utils.Pointer,java.util.List,boolean,java.util.List,java.util.Map,java.lang.String,boolean)">BleScanRecord</a></span>&#8203;(<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;advFlags,
+             <a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;txPower,
+             java.util.List&lt;java.util.UUID&gt;&nbsp;serviceUuids,
              boolean&nbsp;uuidCompleteList,
-             <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;mfgData,
-             <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>,&#8203;byte[]&gt;&nbsp;serviceData,
-             <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;localName,
+             java.util.List&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;mfgData,
+             java.util.Map&lt;java.util.UUID,&#8203;byte[]&gt;&nbsp;serviceData,
+             java.lang.String&nbsp;localName,
              boolean&nbsp;shortName)</code></th>
 <td class="colLast">
 <div class="block">Constructor used internally when a <a href="../BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> is discovered.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID)">BleScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID)">BleScanRecord</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID%5B%5D,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">BleScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID%5B%5D,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">BleScanRecord</a></span>&#8203;(java.util.UUID[]&nbsp;serviceUuids,
              <a href="BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,byte%5B%5D)">BleScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,byte%5B%5D)">BleScanRecord</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
              byte[]&nbsp;serviceData)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">BleScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">BleScanRecord</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
              byte[]&nbsp;serviceData,
              <a href="BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">BleScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">BleScanRecord</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
              <a href="BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -286,27 +286,27 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addManufacturerData(short,byte%5B%5D)">addManufacturerData</a></span>&#8203;(short&nbsp;manId,
                    byte[]&nbsp;data)</code></th>
 <td class="colLast">
-<div class="block">Add some manufacturer data, along with the given manufacturer id to the backing <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a>.</div>
+<div class="block">Add some manufacturer data, along with the given manufacturer id to the backing <code>List</code>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceData(java.util.Map)">addServiceData</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>,&#8203;byte[]&gt;&nbsp;data)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceData(java.util.Map)">addServiceData</a></span>&#8203;(java.util.Map&lt;java.util.UUID,&#8203;byte[]&gt;&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Set the service data for this <a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils"><code>BleScanRecord</code></a> instance.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceData(java.util.UUID,byte%5B%5D)">addServiceData</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceData(java.util.UUID,byte%5B%5D)">addServiceData</a></span>&#8203;(java.util.UUID&nbsp;uuid,
               byte[]&nbsp;data)</code></th>
 <td class="colLast">
-<div class="block">Add the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> and data to this instance's service data map.</div>
+<div class="block">Add the given <code>UUID</code> and data to this instance's service data map.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceUuid(java.util.UUID)">addServiceUuid</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceUuid(java.util.UUID)">addServiceUuid</a></span>&#8203;(java.util.UUID&nbsp;uuid)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#addServiceUuid(java.util.UUID,com.idevicesinc.sweetblue.utils.BleUuid.UuidSize)"><code>addServiceUuid(UUID, BleUuid.UuidSize)</code></a>, which sets the size to <a href="BleUuid.UuidSize.html#SHORT"><code>BleUuid.UuidSize.SHORT</code></a>, if it can fit, otherwise it will
  default to <a href="BleUuid.UuidSize.html#FULL"><code>BleUuid.UuidSize.FULL</code></a></div>
@@ -314,17 +314,17 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceUuid(java.util.UUID,com.idevicesinc.sweetblue.utils.BleUuid.UuidSize)">addServiceUuid</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceUuid(java.util.UUID,com.idevicesinc.sweetblue.utils.BleUuid.UuidSize)">addServiceUuid</a></span>&#8203;(java.util.UUID&nbsp;uuid,
               <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils">BleUuid.UuidSize</a>&nbsp;size)</code></th>
 <td class="colLast">
-<div class="block">Add a <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> with the given <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils"><code>BleUuid.UuidSize</code></a> to this instance's <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> list.</div>
+<div class="block">Add a <code>UUID</code> with the given <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils"><code>BleUuid.UuidSize</code></a> to this instance's <code>UUID</code> list.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceUUIDs(java.util.List)">addServiceUUIDs</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&gt;&nbsp;uuids)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addServiceUUIDs(java.util.List)">addServiceUUIDs</a></span>&#8203;(java.util.List&lt;java.util.UUID&gt;&nbsp;uuids)</code></th>
 <td class="colLast">
-<div class="block">Add the given List of <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>s to this instance's UUID list.</div>
+<div class="block">Add the given List of <code>UUID</code>s to this instance's UUID list.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -349,7 +349,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;</code></td>
+<td class="colFirst"><code><a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdvFlags()">getAdvFlags</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Get the advertising flags for this instance.</div>
@@ -363,10 +363,10 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 </td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getManufacturerDataList()">getManufacturerDataList</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> of all manufacturer data parsed in the scan record.</div>
+<div class="block">Returns a <code>List</code> of all manufacturer data parsed in the scan record.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -377,28 +377,28 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 </td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the device name</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>,&#8203;byte[]&gt;</code></td>
+<td class="colFirst"><code>java.util.Map&lt;java.util.UUID,&#8203;byte[]&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getServiceData()">getServiceData</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns a <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Map</code></a> of the service data in this instance.</div>
+<div class="block">Returns a <code>Map</code> of the service data in this instance.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;java.util.UUID&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getServiceUUIDS()">getServiceUUIDS</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns a list of service <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>s.</div>
+<div class="block">Returns a list of service <code>UUID</code>s.</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
-<td class="colFirst"><code><a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;</code></td>
+<td class="colFirst"><code><a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTxPower()">getTxPower</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the Tx power</div>
@@ -406,7 +406,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasUuid(java.util.UUID)">hasUuid</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasUuid(java.util.UUID)">hasUuid</a></span>&#8203;(java.util.UUID&nbsp;uuid)</code></th>
 <td class="colLast">
 <div class="block">Returns true if this advertising packet contains the uuid given.</div>
 </td>
@@ -463,21 +463,21 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 </tr>
 <tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setManufacturerDataList(java.util.List)">setManufacturerDataList</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;list)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setManufacturerDataList(java.util.List)">setManufacturerDataList</a></span>&#8203;(java.util.List&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;list)</code></th>
 <td class="colLast">
 <div class="block">Sets this <a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils"><code>BleScanRecord</code></a>'s manufacturer data list.</div>
 </td>
 </tr>
 <tr id="i26" class="altColor">
 <td class="colFirst"><code><a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setName(java.lang.String)">setName</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setName(java.lang.String)">setName</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#setName(java.lang.String,boolean)"><code>setName(String, boolean)</code></a>, which defaults to a complete name (not short).</div>
 </td>
 </tr>
 <tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setName(java.lang.String,boolean)">setName</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setName(java.lang.String,boolean)">setName</a></span>&#8203;(java.lang.String&nbsp;name,
        boolean&nbsp;shortName)</code></th>
 <td class="colLast">
 <div class="block">Set the device name, and if it's a shortened name or not.</div>
@@ -502,8 +502,8 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -556,7 +556,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>BleScanRecord</h4>
-<pre>public&nbsp;BleScanRecord&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
+<pre>public&nbsp;BleScanRecord&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
 </li>
 </ul>
 <a id="&lt;init&gt;(java.util.UUID,byte[])">
@@ -565,7 +565,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>BleScanRecord</h4>
-<pre>public&nbsp;BleScanRecord&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre>public&nbsp;BleScanRecord&#8203;(java.util.UUID&nbsp;serviceUuid,
                      byte[]&nbsp;serviceData)</pre>
 </li>
 </ul>
@@ -575,7 +575,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>BleScanRecord</h4>
-<pre>public&nbsp;BleScanRecord&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre>public&nbsp;BleScanRecord&#8203;(java.util.UUID&nbsp;serviceUuid,
                      byte[]&nbsp;serviceData,
                      <a href="BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</pre>
 </li>
@@ -586,7 +586,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>BleScanRecord</h4>
-<pre>public&nbsp;BleScanRecord&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre>public&nbsp;BleScanRecord&#8203;(java.util.UUID&nbsp;serviceUuid,
                      <a href="BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</pre>
 </li>
 </ul>
@@ -596,7 +596,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>BleScanRecord</h4>
-<pre>public&nbsp;BleScanRecord&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids,
+<pre>public&nbsp;BleScanRecord&#8203;(java.util.UUID[]&nbsp;serviceUuids,
                      <a href="BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</pre>
 </li>
 </ul>
@@ -606,14 +606,14 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>BleScanRecord</h4>
-<pre>public&nbsp;BleScanRecord&#8203;(<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;advFlags,
-                     <a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;txPower,
-                     <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&gt;&nbsp;serviceUuids,
+<pre>public&nbsp;BleScanRecord&#8203;(<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;advFlags,
+                     <a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;txPower,
+                     java.util.List&lt;java.util.UUID&gt;&nbsp;serviceUuids,
                      boolean&nbsp;uuidCompleteList,
                      short&nbsp;mfgId,
                      byte[]&nbsp;mfgData,
-                     <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>,&#8203;byte[]&gt;&nbsp;serviceData,
-                     <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;localName,
+                     java.util.Map&lt;java.util.UUID,&#8203;byte[]&gt;&nbsp;serviceData,
+                     java.lang.String&nbsp;localName,
                      boolean&nbsp;shortName)</pre>
 <div class="block">Old Constructor used to be used internally when a <a href="../BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> is discovered. Now, <a href="#%3Cinit%3E(com.idevicesinc.sweetblue.utils.Pointer,com.idevicesinc.sweetblue.utils.Pointer,java.util.List,boolean,java.util.List,java.util.Map,java.lang.String,boolean)"><code>BleScanRecord(Pointer, Pointer, List, boolean, List, Map, String, boolean)</code></a> is
  used instead.</div>
@@ -625,13 +625,13 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BleScanRecord</h4>
-<pre>public&nbsp;BleScanRecord&#8203;(<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;advFlags,
-                     <a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;txPower,
-                     <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&gt;&nbsp;serviceUuids,
+<pre>public&nbsp;BleScanRecord&#8203;(<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;advFlags,
+                     <a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;txPower,
+                     java.util.List&lt;java.util.UUID&gt;&nbsp;serviceUuids,
                      boolean&nbsp;uuidCompleteList,
-                     <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;mfgData,
-                     <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>,&#8203;byte[]&gt;&nbsp;serviceData,
-                     <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;localName,
+                     java.util.List&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;mfgData,
+                     java.util.Map&lt;java.util.UUID,&#8203;byte[]&gt;&nbsp;serviceData,
+                     java.lang.String&nbsp;localName,
                      boolean&nbsp;shortName)</pre>
 <div class="block">Constructor used internally when a <a href="../BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> is discovered.</div>
 </li>
@@ -663,7 +663,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>addServiceData</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceData&#8203;(<a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>,&#8203;byte[]&gt;&nbsp;data)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceData&#8203;(java.util.Map&lt;java.util.UUID,&#8203;byte[]&gt;&nbsp;data)</pre>
 <div class="block">Set the service data for this <a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils"><code>BleScanRecord</code></a> instance.</div>
 </li>
 </ul>
@@ -727,8 +727,8 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>addServiceUUIDs</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceUUIDs&#8203;(<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&gt;&nbsp;uuids)</pre>
-<div class="block">Add the given List of <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>s to this instance's UUID list.</div>
+<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceUUIDs&#8203;(java.util.List&lt;java.util.UUID&gt;&nbsp;uuids)</pre>
+<div class="block">Add the given List of <code>UUID</code>s to this instance's UUID list.</div>
 </li>
 </ul>
 <a id="addServiceData(java.util.UUID,byte[])">
@@ -737,9 +737,9 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>addServiceData</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceData&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid,
+<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceData&#8203;(java.util.UUID&nbsp;uuid,
                                           byte[]&nbsp;data)</pre>
-<div class="block">Add the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> and data to this instance's service data map.</div>
+<div class="block">Add the given <code>UUID</code> and data to this instance's service data map.</div>
 </li>
 </ul>
 <a id="addServiceUuid(java.util.UUID,com.idevicesinc.sweetblue.utils.BleUuid.UuidSize)">
@@ -748,9 +748,9 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>addServiceUuid</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceUuid&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid,
+<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceUuid&#8203;(java.util.UUID&nbsp;uuid,
                                           <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils">BleUuid.UuidSize</a>&nbsp;size)</pre>
-<div class="block">Add a <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> with the given <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils"><code>BleUuid.UuidSize</code></a> to this instance's <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a> list.</div>
+<div class="block">Add a <code>UUID</code> with the given <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils"><code>BleUuid.UuidSize</code></a> to this instance's <code>UUID</code> list.</div>
 </li>
 </ul>
 <a id="addServiceUuid(java.util.UUID)">
@@ -759,7 +759,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>addServiceUuid</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceUuid&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addServiceUuid&#8203;(java.util.UUID&nbsp;uuid)</pre>
 <div class="block">Overload of <a href="#addServiceUuid(java.util.UUID,com.idevicesinc.sweetblue.utils.BleUuid.UuidSize)"><code>addServiceUuid(UUID, BleUuid.UuidSize)</code></a>, which sets the size to <a href="BleUuid.UuidSize.html#SHORT"><code>BleUuid.UuidSize.SHORT</code></a>, if it can fit, otherwise it will
  default to <a href="BleUuid.UuidSize.html#FULL"><code>BleUuid.UuidSize.FULL</code></a></div>
 </li>
@@ -772,7 +772,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <h4>addManufacturerData</h4>
 <pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;addManufacturerData&#8203;(short&nbsp;manId,
                                                byte[]&nbsp;data)</pre>
-<div class="block">Add some manufacturer data, along with the given manufacturer id to the backing <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a>.</div>
+<div class="block">Add some manufacturer data, along with the given manufacturer id to the backing <code>List</code>.</div>
 </li>
 </ul>
 <a id="setManufacturerDataList(java.util.List)">
@@ -781,7 +781,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>setManufacturerDataList</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;setManufacturerDataList&#8203;(<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;list)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;setManufacturerDataList&#8203;(java.util.List&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;list)</pre>
 <div class="block">Sets this <a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils"><code>BleScanRecord</code></a>'s manufacturer data list. This creates a new list from the one given.</div>
 </li>
 </ul>
@@ -791,7 +791,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>setName</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;setName&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;setName&#8203;(java.lang.String&nbsp;name)</pre>
 <div class="block">Overload of <a href="#setName(java.lang.String,boolean)"><code>setName(String, boolean)</code></a>, which defaults to a complete name (not short).</div>
 </li>
 </ul>
@@ -801,7 +801,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>setName</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;setName&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<pre class="methodSignature">public final&nbsp;<a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils">BleScanRecord</a>&nbsp;setName&#8203;(java.lang.String&nbsp;name,
                                    boolean&nbsp;shortName)</pre>
 <div class="block">Set the device name, and if it's a shortened name or not.</div>
 </li>
@@ -813,7 +813,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <li class="blockList">
 <h4>getManufacturerId</h4>
 <pre class="methodSignature">public final&nbsp;short&nbsp;getManufacturerId()</pre>
-<div class="block">Get the manufacturer Id from this <a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils"><code>BleScanRecord</code></a> instance. This is a convenience method. This simply returns the first item in the <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> holding
+<div class="block">Get the manufacturer Id from this <a href="BleScanRecord.html" title="class in com.idevicesinc.sweetblue.utils"><code>BleScanRecord</code></a> instance. This is a convenience method. This simply returns the first item in the <code>List</code> holding
  all manufacturer data.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -828,7 +828,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <li class="blockList">
 <h4>getManufacturerData</h4>
 <pre class="methodSignature">public final&nbsp;byte[]&nbsp;getManufacturerData()</pre>
-<div class="block">Get the manufacturer data from this instance. This is a convenience method. This simply returns the first item in the <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> holding
+<div class="block">Get the manufacturer data from this instance. This is a convenience method. This simply returns the first item in the <code>List</code> holding
  all manufacturer data.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -842,8 +842,8 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>getManufacturerDataList</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;getManufacturerDataList()</pre>
-<div class="block">Returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> of all manufacturer data parsed in the scan record.</div>
+<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;getManufacturerDataList()</pre>
+<div class="block">Returns a <code>List</code> of all manufacturer data parsed in the scan record.</div>
 </li>
 </ul>
 <a id="setAdvFlags(byte)">
@@ -873,7 +873,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>getAdvFlags</h4>
-<pre class="methodSignature">public final&nbsp;<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;getAdvFlags()</pre>
+<pre class="methodSignature">public final&nbsp;<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;getAdvFlags()</pre>
 <div class="block">Get the advertising flags for this instance.</div>
 </li>
 </ul>
@@ -893,7 +893,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>getTxPower</h4>
-<pre class="methodSignature">public final&nbsp;<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;<a href="https://d.android.com/reference/java/lang/Integer.html?is-external=true" title="class or interface in java.lang" class="externalLink">Integer</a>&gt;&nbsp;getTxPower()</pre>
+<pre class="methodSignature">public final&nbsp;<a href="Pointer.html" title="class in com.idevicesinc.sweetblue.utils">Pointer</a>&lt;java.lang.Integer&gt;&nbsp;getTxPower()</pre>
 <div class="block">Gets the Tx power</div>
 </li>
 </ul>
@@ -903,8 +903,8 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>getServiceUUIDS</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&gt;&nbsp;getServiceUUIDS()</pre>
-<div class="block">Returns a list of service <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>s. This ONLY includes <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>s that do NOT have any data associated with them.
+<pre class="methodSignature">public final&nbsp;java.util.List&lt;java.util.UUID&gt;&nbsp;getServiceUUIDS()</pre>
+<div class="block">Returns a list of service <code>UUID</code>s. This ONLY includes <code>UUID</code>s that do NOT have any data associated with them.
 
  See also <a href="#getServiceData()"><code>getServiceData()</code></a>.</div>
 </li>
@@ -915,8 +915,8 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>getServiceData</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>,&#8203;byte[]&gt;&nbsp;getServiceData()</pre>
-<div class="block">Returns a <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Map</code></a> of the service data in this instance.
+<pre class="methodSignature">public final&nbsp;java.util.Map&lt;java.util.UUID,&#8203;byte[]&gt;&nbsp;getServiceData()</pre>
+<div class="block">Returns a <code>Map</code> of the service data in this instance.
 
  See also <a href="#getServiceUUIDS()"><code>getServiceUUIDS()</code></a>.</div>
 </li>
@@ -927,7 +927,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;getName()</pre>
+<pre class="methodSignature">public final&nbsp;java.lang.String&nbsp;getName()</pre>
 <div class="block">Returns the device name</div>
 </li>
 </ul>
@@ -971,7 +971,7 @@ implements <a href="UsesCustomNull.html" title="interface in com.idevicesinc.swe
 <ul class="blockListLast">
 <li class="blockList">
 <h4>hasUuid</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;hasUuid&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;uuid)</pre>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;hasUuid&#8203;(java.util.UUID&nbsp;uuid)</pre>
 <div class="block">Returns true if this advertising packet contains the uuid given.</div>
 </li>
 </ul>

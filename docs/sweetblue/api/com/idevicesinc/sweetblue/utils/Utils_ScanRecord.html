@@ -119,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li><a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">com.idevicesinc.sweetblue.utils.Utils</a></li>
@@ -139,7 +139,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Utils</a></pre>
 <div class="block">Some utilities for dealing with raw byte array scan records.
  Most of the code herein is slightly modified from Android's 21-and-up scan record parsing API,
- with code copy/pasted from various static methods of <a href="https://d.android.com/reference/android/bluetooth/le/ScanRecord.html?is-external=true" title="class or interface in android.bluetooth.le" class="externalLink"><code>ScanRecord</code></a> and android.bluetooth.BluetoothUuid.
+ with code copy/pasted from various static methods of <code>ScanRecord</code> and android.bluetooth.BluetoothUuid.
 
  Why not use these classes directly? So that the same code can be used if you're targeting &lt; 21.</div>
 </li>
@@ -164,21 +164,21 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUuidBytes(java.util.UUID,com.idevicesinc.sweetblue.utils.BleUuid.UuidSize)">getUuidBytes</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;id,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUuidBytes(java.util.UUID,com.idevicesinc.sweetblue.utils.BleUuid.UuidSize)">getUuidBytes</a></span>&#8203;(java.util.UUID&nbsp;id,
             <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils">BleUuid.UuidSize</a>&nbsp;size)</code></th>
 <td class="colLast">
-<div class="block">Returns a byte[] from the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>, the size of which is controlled by <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils"><code>BleUuid.UuidSize</code></a>.</div>
+<div class="block">Returns a byte[] from the given <code>UUID</code>, the size of which is controlled by <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils"><code>BleUuid.UuidSize</code></a>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.Byte,java.util.Map,boolean,java.lang.String,boolean,java.lang.Byte,java.lang.Short,byte%5B%5D)">newScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;advFlags,
-             <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.Byte,java.util.Map,boolean,java.lang.String,boolean,java.lang.Byte,java.lang.Short,byte%5B%5D)">newScanRecord</a></span>&#8203;(java.lang.Byte&nbsp;advFlags,
+             java.util.Map&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
              boolean&nbsp;completeList,
-             <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+             java.lang.String&nbsp;name,
              boolean&nbsp;shortName,
-             <a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;txPowerLevel,
-             <a href="https://d.android.com/reference/java/lang/Short.html?is-external=true" title="class or interface in java.lang" class="externalLink">Short</a>&nbsp;manufacturerId,
+             java.lang.Byte&nbsp;txPowerLevel,
+             java.lang.Short&nbsp;manufacturerId,
              byte[]&nbsp;manufacturerData)</code></th>
 <td class="colLast">
 <div class="block">Create the byte[] scanRecord from the given advertising flags, serviceUuid, serviceData, device name, txPower level, manufacturerID, and manufacturerData</div>
@@ -186,23 +186,23 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.Byte,java.util.Map,boolean,java.lang.String,boolean,java.lang.Byte,java.util.List)">newScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;advFlags,
-             <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.Byte,java.util.Map,boolean,java.lang.String,boolean,java.lang.Byte,java.util.List)">newScanRecord</a></span>&#8203;(java.lang.Byte&nbsp;advFlags,
+             java.util.Map&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
              boolean&nbsp;completeList,
-             <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+             java.lang.String&nbsp;name,
              boolean&nbsp;shortName,
-             <a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;txPowerLevel,
-             <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;mfgData)</code></th>
+             java.lang.Byte&nbsp;txPowerLevel,
+             java.util.List&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;mfgData)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.Byte,java.util.Map,java.lang.String,boolean,java.lang.Byte,java.lang.Short,byte%5B%5D)">newScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;advFlags,
-             <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
-             <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.Byte,java.util.Map,java.lang.String,boolean,java.lang.Byte,java.lang.Short,byte%5B%5D)">newScanRecord</a></span>&#8203;(java.lang.Byte&nbsp;advFlags,
+             java.util.Map&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
+             java.lang.String&nbsp;name,
              boolean&nbsp;shortName,
-             <a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;txPowerLevel,
-             <a href="https://d.android.com/reference/java/lang/Short.html?is-external=true" title="class or interface in java.lang" class="externalLink">Short</a>&nbsp;manufacturerId,
+             java.lang.Byte&nbsp;txPowerLevel,
+             java.lang.Short&nbsp;manufacturerId,
              byte[]&nbsp;manufacturerData)</code></th>
 <td class="colLast">
 <div class="block">Create the byte[] scanRecord from the given advertising flags, serviceUuid, serviceData, device name, txPower level, manufacturerID, and manufacturerData</div>
@@ -210,23 +210,23 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.String)">newScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.String)">newScanRecord</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Create the byte[] scanRecord from the given name (the record will only contain the name you provide here).</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>static byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.String,java.util.UUID)">newScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.String,java.util.UUID)">newScanRecord</a></span>&#8203;(java.lang.String&nbsp;name,
+             java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
 <div class="block">Create the byte[] scanRecord from the given name, and serviceUuid.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>static byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.String,java.util.UUID,byte%5B%5D)">newScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.String,java.util.UUID,byte%5B%5D)">newScanRecord</a></span>&#8203;(java.lang.String&nbsp;name,
+             java.util.UUID&nbsp;serviceUuid,
              byte[]&nbsp;serviceData)</code></th>
 <td class="colLast">
 <div class="block">Create the byte[] scanRecord from the given name, serviceUuid, and serviceData.</div>
@@ -234,17 +234,17 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>static byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.String,java.util.UUID,byte%5B%5D,java.lang.Short,byte%5B%5D)">newScanRecord</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScanRecord(java.lang.String,java.util.UUID,byte%5B%5D,java.lang.Short,byte%5B%5D)">newScanRecord</a></span>&#8203;(java.lang.String&nbsp;name,
+             java.util.UUID&nbsp;serviceUuid,
              byte[]&nbsp;serviceData,
-             <a href="https://d.android.com/reference/java/lang/Short.html?is-external=true" title="class or interface in java.lang" class="externalLink">Short</a>&nbsp;manufacturerId,
+             java.lang.Short&nbsp;manufacturerId,
              byte[]&nbsp;manufacturerData)</code></th>
 <td class="colLast">
 <div class="block">Create the byte[] scanRecord from the given name, serviceUuid, serviceData, manufacturerId, and manufacturerData</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>static <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parseName(byte%5B%5D)">parseName</a></span>&#8203;(byte[]&nbsp;scanRecord)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -265,8 +265,8 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -299,7 +299,7 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockList">
 <li class="blockList">
 <h4>parseName</h4>
-<pre class="methodSignature">public static&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;parseName&#8203;(byte[]&nbsp;scanRecord)</pre>
+<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;parseName&#8203;(byte[]&nbsp;scanRecord)</pre>
 </li>
 </ul>
 <a id="newScanRecord(java.lang.String)">
@@ -308,7 +308,7 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockList">
 <li class="blockList">
 <h4>newScanRecord</h4>
-<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</pre>
+<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(java.lang.String&nbsp;name)</pre>
 <div class="block">Create the byte[] scanRecord from the given name (the record will only contain the name you provide here).</div>
 </li>
 </ul>
@@ -318,8 +318,8 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockList">
 <li class="blockList">
 <h4>newScanRecord</h4>
-<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-                                   <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
+<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(java.lang.String&nbsp;name,
+                                   java.util.UUID&nbsp;serviceUuid)</pre>
 <div class="block">Create the byte[] scanRecord from the given name, and serviceUuid.</div>
 </li>
 </ul>
@@ -329,8 +329,8 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockList">
 <li class="blockList">
 <h4>newScanRecord</h4>
-<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-                                   <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(java.lang.String&nbsp;name,
+                                   java.util.UUID&nbsp;serviceUuid,
                                    byte[]&nbsp;serviceData)</pre>
 <div class="block">Create the byte[] scanRecord from the given name, serviceUuid, and serviceData.</div>
 </li>
@@ -341,10 +341,10 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockList">
 <li class="blockList">
 <h4>newScanRecord</h4>
-<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-                                   <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(java.lang.String&nbsp;name,
+                                   java.util.UUID&nbsp;serviceUuid,
                                    byte[]&nbsp;serviceData,
-                                   <a href="https://d.android.com/reference/java/lang/Short.html?is-external=true" title="class or interface in java.lang" class="externalLink">Short</a>&nbsp;manufacturerId,
+                                   java.lang.Short&nbsp;manufacturerId,
                                    byte[]&nbsp;manufacturerData)</pre>
 <div class="block">Create the byte[] scanRecord from the given name, serviceUuid, serviceData, manufacturerId, and manufacturerData</div>
 </li>
@@ -355,12 +355,12 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockList">
 <li class="blockList">
 <h4>newScanRecord</h4>
-<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(<a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;advFlags,
-                                   <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
-                                   <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(java.lang.Byte&nbsp;advFlags,
+                                   java.util.Map&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
+                                   java.lang.String&nbsp;name,
                                    boolean&nbsp;shortName,
-                                   <a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;txPowerLevel,
-                                   <a href="https://d.android.com/reference/java/lang/Short.html?is-external=true" title="class or interface in java.lang" class="externalLink">Short</a>&nbsp;manufacturerId,
+                                   java.lang.Byte&nbsp;txPowerLevel,
+                                   java.lang.Short&nbsp;manufacturerId,
                                    byte[]&nbsp;manufacturerData)</pre>
 <div class="block">Create the byte[] scanRecord from the given advertising flags, serviceUuid, serviceData, device name, txPower level, manufacturerID, and manufacturerData</div>
 </li>
@@ -371,13 +371,13 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockList">
 <li class="blockList">
 <h4>newScanRecord</h4>
-<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(<a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;advFlags,
-                                   <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
+<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(java.lang.Byte&nbsp;advFlags,
+                                   java.util.Map&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
                                    boolean&nbsp;completeList,
-                                   <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+                                   java.lang.String&nbsp;name,
                                    boolean&nbsp;shortName,
-                                   <a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;txPowerLevel,
-                                   <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;mfgData)</pre>
+                                   java.lang.Byte&nbsp;txPowerLevel,
+                                   java.util.List&lt;<a href="ManufacturerData.html" title="class in com.idevicesinc.sweetblue.utils">ManufacturerData</a>&gt;&nbsp;mfgData)</pre>
 </li>
 </ul>
 <a id="newScanRecord(java.lang.Byte,java.util.Map,boolean,java.lang.String,boolean,java.lang.Byte,java.lang.Short,byte[])">
@@ -386,13 +386,13 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockList">
 <li class="blockList">
 <h4>newScanRecord</h4>
-<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(<a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;advFlags,
-                                   <a href="https://d.android.com/reference/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
+<pre class="methodSignature">public static&nbsp;byte[]&nbsp;newScanRecord&#8203;(java.lang.Byte&nbsp;advFlags,
+                                   java.util.Map&lt;<a href="BleUuid.html" title="class in com.idevicesinc.sweetblue.utils">BleUuid</a>,&#8203;byte[]&gt;&nbsp;serviceMap,
                                    boolean&nbsp;completeList,
-                                   <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+                                   java.lang.String&nbsp;name,
                                    boolean&nbsp;shortName,
-                                   <a href="https://d.android.com/reference/java/lang/Byte.html?is-external=true" title="class or interface in java.lang" class="externalLink">Byte</a>&nbsp;txPowerLevel,
-                                   <a href="https://d.android.com/reference/java/lang/Short.html?is-external=true" title="class or interface in java.lang" class="externalLink">Short</a>&nbsp;manufacturerId,
+                                   java.lang.Byte&nbsp;txPowerLevel,
+                                   java.lang.Short&nbsp;manufacturerId,
                                    byte[]&nbsp;manufacturerData)</pre>
 <div class="block">Create the byte[] scanRecord from the given advertising flags, serviceUuid, serviceData, device name, txPower level, manufacturerID, and manufacturerData</div>
 </li>
@@ -403,9 +403,9 @@ extends <a href="Utils.html" title="class in com.idevicesinc.sweetblue.utils">Ut
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getUuidBytes</h4>
-<pre class="methodSignature">public static&nbsp;byte[]&nbsp;getUuidBytes&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;id,
+<pre class="methodSignature">public static&nbsp;byte[]&nbsp;getUuidBytes&#8203;(java.util.UUID&nbsp;id,
                                   <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils">BleUuid.UuidSize</a>&nbsp;size)</pre>
-<div class="block">Returns a byte[] from the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>, the size of which is controlled by <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils"><code>BleUuid.UuidSize</code></a>.</div>
+<div class="block">Returns a byte[] from the given <code>UUID</code>, the size of which is controlled by <a href="BleUuid.UuidSize.html" title="enum in com.idevicesinc.sweetblue.utils"><code>BleUuid.UuidSize</code></a>.</div>
 </li>
 </ul>
 </li>

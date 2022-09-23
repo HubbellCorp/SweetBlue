@@ -127,7 +127,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">IBluetoothGatt</span></pre>
-<div class="block">Interface used to abstract away the android class <a href="https://d.android.com/reference/android/bluetooth/BluetoothGatt.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGatt</code></a>.</div>
+<div class="block">Interface used to abstract away the android class <code>BluetoothGatt</code>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="AndroidBluetoothGatt.html" title="class in com.idevicesinc.sweetblue.internal.android"><code>for the default implementation</code></a></dd>
@@ -211,7 +211,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#abortReliableWrite(android.bluetooth.BluetoothDevice)">abortReliableWrite</a></span>&#8203;(<a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothDevice</a>&nbsp;device)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#abortReliableWrite(android.bluetooth.BluetoothDevice)">abortReliableWrite</a></span>&#8203;(android.bluetooth.BluetoothDevice&nbsp;device)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -227,9 +227,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(com.idevicesinc.sweetblue.internal.android.IBluetoothDevice,android.content.Context,boolean,android.bluetooth.BluetoothGattCallback)">connect</a></span>&#8203;(<a href="IBluetoothDevice.html" title="interface in com.idevicesinc.sweetblue.internal.android">IBluetoothDevice</a>&nbsp;device,
-       <a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink">Context</a>&nbsp;context,
+       android.content.Context&nbsp;context,
        boolean&nbsp;useAutoConnect,
-       <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCallback.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothGattCallback</a>&nbsp;callback)</code></th>
+       android.bluetooth.BluetoothGattCallback&nbsp;callback)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
@@ -253,7 +253,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang" class="externalLink">Boolean</a></code></td>
+<td class="colFirst"><code>java.lang.Boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAuthRetryValue()">getAuthRetryValue</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -264,17 +264,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBleService(java.util.UUID,com.idevicesinc.sweetblue.utils.LogFunction)">getBleService</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBleService(java.util.UUID,com.idevicesinc.sweetblue.utils.LogFunction)">getBleService</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
              <a href="../../utils/LogFunction.html" title="interface in com.idevicesinc.sweetblue.utils">LogFunction</a>&nbsp;logger)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/android/bluetooth/BluetoothGatt.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothGatt</a></code></td>
+<td class="colFirst"><code>android.bluetooth.BluetoothGatt</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGatt()">getGatt</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="../../BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeServiceList(com.idevicesinc.sweetblue.utils.LogFunction)">getNativeServiceList</a></span>&#8203;(<a href="../../utils/LogFunction.html" title="interface in com.idevicesinc.sweetblue.utils">LogFunction</a>&nbsp;logger)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -338,7 +338,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGatt(android.bluetooth.BluetoothGatt)">setGatt</a></span>&#8203;(<a href="https://d.android.com/reference/android/bluetooth/BluetoothGatt.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothGatt</a>&nbsp;gatt)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGatt(android.bluetooth.BluetoothGatt)">setGatt</a></span>&#8203;(android.bluetooth.BluetoothGatt&nbsp;gatt)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i25" class="rowColor">
@@ -399,7 +399,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>setGatt</h4>
-<pre class="methodSignature">void&nbsp;setGatt&#8203;(<a href="https://d.android.com/reference/android/bluetooth/BluetoothGatt.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothGatt</a>&nbsp;gatt)</pre>
+<pre class="methodSignature">void&nbsp;setGatt&#8203;(android.bluetooth.BluetoothGatt&nbsp;gatt)</pre>
 </li>
 </ul>
 <a id="closeGatt()">
@@ -417,7 +417,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getGatt</h4>
-<pre class="methodSignature"><a href="https://d.android.com/reference/android/bluetooth/BluetoothGatt.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothGatt</a>&nbsp;getGatt()</pre>
+<pre class="methodSignature">android.bluetooth.BluetoothGatt&nbsp;getGatt()</pre>
 </li>
 </ul>
 <a id="getAuthRetryValue()">
@@ -426,7 +426,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getAuthRetryValue</h4>
-<pre class="methodSignature"><a href="https://d.android.com/reference/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang" class="externalLink">Boolean</a>&nbsp;getAuthRetryValue()</pre>
+<pre class="methodSignature">java.lang.Boolean&nbsp;getAuthRetryValue()</pre>
 </li>
 </ul>
 <a id="equals(com.idevicesinc.sweetblue.internal.android.P_GattHolder)">
@@ -444,7 +444,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeServiceList</h4>
-<pre class="methodSignature"><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;&nbsp;getNativeServiceList&#8203;(<a href="../../utils/LogFunction.html" title="interface in com.idevicesinc.sweetblue.utils">LogFunction</a>&nbsp;logger)</pre>
+<pre class="methodSignature">java.util.List&lt;<a href="../../BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;&nbsp;getNativeServiceList&#8203;(<a href="../../utils/LogFunction.html" title="interface in com.idevicesinc.sweetblue.utils">LogFunction</a>&nbsp;logger)</pre>
 </li>
 </ul>
 <a id="getBleService(java.util.UUID,com.idevicesinc.sweetblue.utils.LogFunction)">
@@ -453,7 +453,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getBleService</h4>
-<pre class="methodSignature"><a href="../../BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&nbsp;getBleService&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature"><a href="../../BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&nbsp;getBleService&#8203;(java.util.UUID&nbsp;serviceUuid,
                          <a href="../../utils/LogFunction.html" title="interface in com.idevicesinc.sweetblue.utils">LogFunction</a>&nbsp;logger)</pre>
 </li>
 </ul>
@@ -473,9 +473,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>connect</h4>
 <pre class="methodSignature">void&nbsp;connect&#8203;(<a href="IBluetoothDevice.html" title="interface in com.idevicesinc.sweetblue.internal.android">IBluetoothDevice</a>&nbsp;device,
-             <a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink">Context</a>&nbsp;context,
+             android.content.Context&nbsp;context,
              boolean&nbsp;useAutoConnect,
-             <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCallback.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothGattCallback</a>&nbsp;callback)</pre>
+             android.bluetooth.BluetoothGattCallback&nbsp;callback)</pre>
 </li>
 </ul>
 <a id="disconnect()">
@@ -631,7 +631,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>abortReliableWrite</h4>
-<pre class="methodSignature">void&nbsp;abortReliableWrite&#8203;(<a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothDevice</a>&nbsp;device)</pre>
+<pre class="methodSignature">void&nbsp;abortReliableWrite&#8203;(android.bluetooth.BluetoothDevice&nbsp;device)</pre>
 </li>
 </ul>
 <a id="readRemoteRssi()">

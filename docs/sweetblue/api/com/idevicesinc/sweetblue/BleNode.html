@@ -119,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>com.idevicesinc.sweetblue.BleNode</li>
@@ -139,7 +139,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">BleNode</span>
-extends <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+extends java.lang.Object
 implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesinc.sweetblue.utils">UsesCustomNull</a></pre>
 <div class="block">Abstract base class for <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> and <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a>, mostly just to statically tie their APIs together
  wherever possible. That is, not much actual shared implementation exists in this class as of this writing.</div>
@@ -164,7 +164,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<td class="colFirst"><code>java.lang.Object</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#appData">appData</a></span></code></th>
 <td class="colLast">
 <div class="block">Field for app to associate any data it wants with instances of this class
@@ -205,14 +205,14 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>&lt;T extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNode</a>&gt;<br>T</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cast(java.lang.Class)">cast</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;type)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cast(java.lang.Class)">cast</a></span>&#8203;(java.lang.Class&lt;T&gt;&nbsp;type)</code></th>
 <td class="colLast">
 <div class="block">Safer version of <a href="#cast()"><code>cast()</code></a> that will return <a href="BleDevice.html#NULL"><code>BleDevice.NULL</code></a> or <a href="BleServer.html#NULL"><code>BleServer.NULL</code></a>
  if the cast cannot be made.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>abstract <a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<td class="colFirst"><code>abstract java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMacAddress()">getMacAddress</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the MAC address of the remote <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> or local <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a>.</div>
@@ -227,75 +227,75 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleCharacteristic(java.util.UUID)">getNativeBleCharacteristic</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleCharacteristic(java.util.UUID)">getNativeBleCharacteristic</a></span>&#8203;(java.util.UUID&nbsp;charUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns the native characteristic for the given UUID in case you need lower-level access.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleCharacteristic(java.util.UUID,java.util.UUID)">getNativeBleCharacteristic</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                          <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleCharacteristic(java.util.UUID,java.util.UUID)">getNativeBleCharacteristic</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
+                          java.util.UUID&nbsp;charUuid)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeBleCharacteristic(java.util.UUID)"><code>getNativeBleCharacteristic(UUID)</code></a> for when you have characteristics with identical uuids under different services.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleDescriptor(java.util.UUID)">getNativeBleDescriptor</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleDescriptor(java.util.UUID)">getNativeBleDescriptor</a></span>&#8203;(java.util.UUID&nbsp;descUuid)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeBleDescriptor(java.util.UUID,java.util.UUID,java.util.UUID)"><code>getNativeBleDescriptor(UUID, UUID, UUID)</code></a> that will return the first descriptor we find
- matching the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.</div>
+ matching the given <code>UUID</code>.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleDescriptor(java.util.UUID,java.util.UUID,java.util.UUID)">getNativeBleDescriptor</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                      <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
-                      <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleDescriptor(java.util.UUID,java.util.UUID,java.util.UUID)">getNativeBleDescriptor</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
+                      java.util.UUID&nbsp;charUuid,
+                      java.util.UUID&nbsp;descUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns the <a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue"><code>BleDescriptor</code></a> for the given UUID in case you need lower-level access.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleDescriptor_inChar(java.util.UUID,java.util.UUID)">getNativeBleDescriptor_inChar</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
-                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleDescriptor_inChar(java.util.UUID,java.util.UUID)">getNativeBleDescriptor_inChar</a></span>&#8203;(java.util.UUID&nbsp;charUuid,
+                             java.util.UUID&nbsp;descUuid)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeBleDescriptor(java.util.UUID,java.util.UUID,java.util.UUID)"><code>getNativeBleDescriptor(UUID, UUID, UUID)</code></a> that will return the first descriptor we find
- inside the given characteristic matching the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.</div>
+ inside the given characteristic matching the given <code>UUID</code>.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleDescriptor_inService(java.util.UUID,java.util.UUID)">getNativeBleDescriptor_inService</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleDescriptor_inService(java.util.UUID,java.util.UUID)">getNativeBleDescriptor_inService</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                java.util.UUID&nbsp;descUuid)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeBleDescriptor(java.util.UUID,java.util.UUID,java.util.UUID)"><code>getNativeBleDescriptor(UUID, UUID, UUID)</code></a> that will return the first descriptor we find
- inside the given service matching the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.</div>
+ inside the given service matching the given <code>UUID</code>.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleService(java.util.UUID)">getNativeBleService</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeBleService(java.util.UUID)">getNativeBleService</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns the native service for the given UUID in case you need lower-level access.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristic(java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.DescriptorFilter)">getNativeCharacteristic</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                       <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristic(java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.DescriptorFilter)">getNativeCharacteristic</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
+                       java.util.UUID&nbsp;charUuid,
                        <a href="DescriptorFilter.html" title="interface in com.idevicesinc.sweetblue">DescriptorFilter</a>&nbsp;descriptorFilter)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeBleCharacteristic(java.util.UUID,java.util.UUID)"><code>getNativeBleCharacteristic(UUID, UUID)</code></a> for when you have characteristics with identical uuids within the same service.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics()">getNativeCharacteristics</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns all <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a> instances.</div>
+<div class="block">Returns all <code>BluetoothGattCharacteristic</code> instances.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
@@ -313,15 +313,15 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </td>
 </tr>
 <tr id="i16" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics(java.util.UUID)">getNativeCharacteristics</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics(java.util.UUID)">getNativeCharacteristics</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
-<div class="block">Same as <a href="#getNativeCharacteristics()"><code>getNativeCharacteristics()</code></a> but you can filter on the service <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.</div>
+<div class="block">Same as <a href="#getNativeCharacteristics()"><code>getNativeCharacteristics()</code></a> but you can filter on the service <code>UUID</code>.</div>
 </td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getNativeCharacteristics</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getNativeCharacteristics</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                         <a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeCharacteristics(java.util.UUID)"><code>getNativeCharacteristics(UUID)</code></a> that uses a for each construct instead of returning an iterator.</div>
@@ -329,28 +329,28 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Void)">getNativeCharacteristics</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Void)">getNativeCharacteristics</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                         <a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeCharacteristics(java.util.UUID)"><code>getNativeCharacteristics(UUID)</code></a> that uses a for each construct instead of returning an iterator.</div>
 </td>
 </tr>
 <tr id="i19" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics_List()">getNativeCharacteristics_List</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Convenience overload of <a href="#getNativeCharacteristics()"><code>getNativeCharacteristics()</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a>.</div>
+<div class="block">Convenience overload of <a href="#getNativeCharacteristics()"><code>getNativeCharacteristics()</code></a> that returns a <code>List</code>.</div>
 </td>
 </tr>
 <tr id="i20" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics_List(java.util.UUID)">getNativeCharacteristics_List</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<td class="colFirst"><code>java.util.List&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeCharacteristics_List(java.util.UUID)">getNativeCharacteristics_List</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
-<div class="block">Convenience overload of <a href="#getNativeCharacteristics(java.util.UUID)"><code>getNativeCharacteristics(UUID)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a>.</div>
+<div class="block">Convenience overload of <a href="#getNativeCharacteristics(java.util.UUID)"><code>getNativeCharacteristics(UUID)</code></a> that returns a <code>List</code>.</div>
 </td>
 </tr>
 <tr id="i21" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors()">getNativeDescriptors</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns all descriptors on this node.</div>
@@ -371,17 +371,17 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </td>
 </tr>
 <tr id="i24" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors(java.util.UUID,java.util.UUID)">getNativeDescriptors</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                    <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</code></th>
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors(java.util.UUID,java.util.UUID)">getNativeDescriptors</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
+                    java.util.UUID&nbsp;charUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns all descriptors on this node in the given characteristic.</div>
 </td>
 </tr>
 <tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors(java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getNativeDescriptors</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                    <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors(java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getNativeDescriptors</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
+                    java.util.UUID&nbsp;charUuid,
                     <a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeDescriptors(java.util.UUID,java.util.UUID)"><code>getNativeDescriptors(UUID, UUID)</code></a> using a for each construct.</div>
@@ -389,23 +389,23 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </tr>
 <tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors(java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Void)">getNativeDescriptors</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                    <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors(java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Void)">getNativeDescriptors</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
+                    java.util.UUID&nbsp;charUuid,
                     <a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeDescriptors(java.util.UUID,java.util.UUID)"><code>getNativeDescriptors(UUID, UUID)</code></a> using a for each construct.</div>
 </td>
 </tr>
 <tr id="i27" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inChar(java.util.UUID)">getNativeDescriptors_inChar</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</code></th>
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inChar(java.util.UUID)">getNativeDescriptors_inChar</a></span>&#8203;(java.util.UUID&nbsp;charUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns all descriptors on this node in the given characteristic.</div>
 </td>
 </tr>
 <tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inChar(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getNativeDescriptors_inChar</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inChar(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getNativeDescriptors_inChar</a></span>&#8203;(java.util.UUID&nbsp;charUuid,
                            <a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeDescriptors_inChar(java.util.UUID)"><code>getNativeDescriptors_inChar(UUID)</code></a> using a for each construct.</div>
@@ -413,29 +413,29 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </tr>
 <tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inChar(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Void)">getNativeDescriptors_inChar</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inChar(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Void)">getNativeDescriptors_inChar</a></span>&#8203;(java.util.UUID&nbsp;charUuid,
                            <a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeDescriptors_inChar(java.util.UUID)"><code>getNativeDescriptors_inChar(UUID)</code></a> using a for each construct.</div>
 </td>
 </tr>
 <tr id="i30" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inChar_List(java.util.UUID)">getNativeDescriptors_inChar_List</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</code></th>
+<td class="colFirst"><code>java.util.List&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inChar_List(java.util.UUID)">getNativeDescriptors_inChar_List</a></span>&#8203;(java.util.UUID&nbsp;charUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns all descriptors on this node in the given characteristic as a list.</div>
 </td>
 </tr>
 <tr id="i31" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inService(java.util.UUID)">getNativeDescriptors_inService</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inService(java.util.UUID)">getNativeDescriptors_inService</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns all descriptors on this node in the given service.</div>
 </td>
 </tr>
 <tr id="i32" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inService(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getNativeDescriptors_inService</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inService(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getNativeDescriptors_inService</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                               <a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeDescriptors_inService(java.util.UUID)"><code>getNativeDescriptors_inService(UUID)</code></a> using a for each construct.</div>
@@ -443,39 +443,39 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </tr>
 <tr id="i33" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inService(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Void)">getNativeDescriptors_inService</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inService(java.util.UUID,com.idevicesinc.sweetblue.utils.ForEach_Void)">getNativeDescriptors_inService</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                               <a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getNativeDescriptors_inService(java.util.UUID)"><code>getNativeDescriptors_inService(UUID)</code></a> using a for each construct.</div>
 </td>
 </tr>
 <tr id="i34" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inService_List(java.util.UUID)">getNativeDescriptors_inService_List</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<td class="colFirst"><code>java.util.List&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_inService_List(java.util.UUID)">getNativeDescriptors_inService_List</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns all descriptors on this node in the given service as a list.</div>
 </td>
 </tr>
 <tr id="i35" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_List()">getNativeDescriptors_List</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns all descriptors on this node as a list.</div>
 </td>
 </tr>
 <tr id="i36" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_List(java.util.UUID,java.util.UUID)">getNativeDescriptors_List</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                         <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</code></th>
+<td class="colFirst"><code>java.util.List&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeDescriptors_List(java.util.UUID,java.util.UUID)">getNativeDescriptors_List</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
+                         java.util.UUID&nbsp;charUuid)</code></th>
 <td class="colLast">
 <div class="block">Returns all descriptors on this node in the given characteristic as a list.</div>
 </td>
 </tr>
 <tr id="i37" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeServices()">getNativeServices</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns all <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattService.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattService</code></a> instances.</div>
+<div class="block">Returns all <code>BluetoothGattService</code> instances.</div>
 </td>
 </tr>
 <tr id="i38" class="altColor">
@@ -493,10 +493,10 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </td>
 </tr>
 <tr id="i40" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNativeServices_List()">getNativeServices_List</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Convenience overload of <a href="#getNativeServices()"><code>getNativeServices()</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a>.</div>
+<div class="block">Convenience overload of <a href="#getNativeServices()"><code>getNativeServices()</code></a> that returns a <code>List</code>.</div>
 </td>
 </tr>
 <tr id="i41" class="rowColor">
@@ -510,14 +510,14 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 </tr>
 <tr id="i42" class="altColor">
 <td class="colFirst"><code><a href="HistoricalDataQueryListener.HistoricalDataQueryEvent.html" title="class in com.idevicesinc.sweetblue">HistoricalDataQueryListener.HistoricalDataQueryEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricalData(java.lang.String)">queryHistoricalData</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;query)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricalData(java.lang.String)">queryHistoricalData</a></span>&#8203;(java.lang.String&nbsp;query)</code></th>
 <td class="colLast">
 <div class="block">Provides a means to perform a raw SQL query on the database storing the historical data for this node.</div>
 </td>
 </tr>
 <tr id="i43" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricalData(java.lang.String,com.idevicesinc.sweetblue.HistoricalDataQueryListener)">queryHistoricalData</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;query,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricalData(java.lang.String,com.idevicesinc.sweetblue.HistoricalDataQueryListener)">queryHistoricalData</a></span>&#8203;(java.lang.String&nbsp;query,
                    <a href="HistoricalDataQueryListener.html" title="interface in com.idevicesinc.sweetblue">HistoricalDataQueryListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#queryHistoricalData(java.lang.String)"><code>queryHistoricalData(String)</code></a> but performs the query on a background thread and returns the result back on the main thread
@@ -536,8 +536,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.com.idevicesinc.sweetblue.utils.UsesCustomNull">
@@ -568,7 +568,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockListLast">
 <li class="blockList">
 <h4>appData</h4>
-<pre>public&nbsp;<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a> appData</pre>
+<pre>public&nbsp;java.lang.Object appData</pre>
 <div class="block">Field for app to associate any data it wants with instances of this class
  instead of having to subclass or manage associative hash maps or something.
  The library does not touch or interact with this data in any way.</div>
@@ -595,11 +595,11 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeBleDescriptor</h4>
-<pre class="methodSignature">public&nbsp;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&nbsp;getNativeBleDescriptor&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descUuid)</pre>
+<pre class="methodSignature">public&nbsp;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&nbsp;getNativeBleDescriptor&#8203;(java.util.UUID&nbsp;descUuid)</pre>
 <div class="block">Overload of <a href="#getNativeBleDescriptor(java.util.UUID,java.util.UUID,java.util.UUID)"><code>getNativeBleDescriptor(UUID, UUID, UUID)</code></a> that will return the first descriptor we find
- matching the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.
+ matching the given <code>UUID</code>.
  <p>
- Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattDescriptor</code></a>
+ Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <code>BluetoothGattDescriptor</code>
  actually exists (in other words, it will return <code>true</code> if we were unable to find the requested descriptor).</div>
 </li>
 </ul>
@@ -609,12 +609,12 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeBleDescriptor_inChar</h4>
-<pre class="methodSignature">public&nbsp;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&nbsp;getNativeBleDescriptor_inChar&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
-                                                   <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descUuid)</pre>
+<pre class="methodSignature">public&nbsp;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&nbsp;getNativeBleDescriptor_inChar&#8203;(java.util.UUID&nbsp;charUuid,
+                                                   java.util.UUID&nbsp;descUuid)</pre>
 <div class="block">Overload of <a href="#getNativeBleDescriptor(java.util.UUID,java.util.UUID,java.util.UUID)"><code>getNativeBleDescriptor(UUID, UUID, UUID)</code></a> that will return the first descriptor we find
- inside the given characteristic matching the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.
+ inside the given characteristic matching the given <code>UUID</code>.
  <p>
- Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattDescriptor</code></a>
+ Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <code>BluetoothGattDescriptor</code>
  actually exists (in other words, it will return <code>true</code> if we were unable to find the requested descriptor).</div>
 </li>
 </ul>
@@ -624,12 +624,12 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeBleDescriptor_inService</h4>
-<pre class="methodSignature">public&nbsp;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&nbsp;getNativeBleDescriptor_inService&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                      <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descUuid)</pre>
+<pre class="methodSignature">public&nbsp;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&nbsp;getNativeBleDescriptor_inService&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                                      java.util.UUID&nbsp;descUuid)</pre>
 <div class="block">Overload of <a href="#getNativeBleDescriptor(java.util.UUID,java.util.UUID,java.util.UUID)"><code>getNativeBleDescriptor(UUID, UUID, UUID)</code></a> that will return the first descriptor we find
- inside the given service matching the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.
+ inside the given service matching the given <code>UUID</code>.
  <p>
- Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattDescriptor</code></a>
+ Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <code>BluetoothGattDescriptor</code>
  actually exists (in other words, it will return <code>true</code> if we were unable to find the requested descriptor).</div>
 </li>
 </ul>
@@ -639,12 +639,12 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeBleDescriptor</h4>
-<pre class="methodSignature">public&nbsp;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&nbsp;getNativeBleDescriptor&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                            <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
-                                            <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;descUuid)</pre>
+<pre class="methodSignature">public&nbsp;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&nbsp;getNativeBleDescriptor&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                            java.util.UUID&nbsp;charUuid,
+                                            java.util.UUID&nbsp;descUuid)</pre>
 <div class="block">Returns the <a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue"><code>BleDescriptor</code></a> for the given UUID in case you need lower-level access.
  <p>
- Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattDescriptor</code></a>
+ Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <code>BluetoothGattDescriptor</code>
  actually exists (in other words, it will return <code>true</code> if we were unable to find the requested descriptor).</div>
 </li>
 </ul>
@@ -654,10 +654,10 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeBleCharacteristic</h4>
-<pre class="methodSignature">public&nbsp;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&nbsp;getNativeBleCharacteristic&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</pre>
+<pre class="methodSignature">public&nbsp;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&nbsp;getNativeBleCharacteristic&#8203;(java.util.UUID&nbsp;charUuid)</pre>
 <div class="block">Returns the native characteristic for the given UUID in case you need lower-level access.
  <p>
- Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a>
+ Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <code>BluetoothGattCharacteristic</code>
  actually exists (in other words, it will return <code>true</code> if we were unable to find the requested characteristic).</div>
 </li>
 </ul>
@@ -667,11 +667,11 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeBleCharacteristic</h4>
-<pre class="methodSignature">public&nbsp;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&nbsp;getNativeBleCharacteristic&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                    <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</pre>
+<pre class="methodSignature">public&nbsp;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&nbsp;getNativeBleCharacteristic&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                                    java.util.UUID&nbsp;charUuid)</pre>
 <div class="block">Overload of <a href="#getNativeBleCharacteristic(java.util.UUID)"><code>getNativeBleCharacteristic(UUID)</code></a> for when you have characteristics with identical uuids under different services.
  <p>
- Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a>
+ Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <code>BluetoothGattCharacteristic</code>
  actually exists (in other words, it will return <code>true</code> if we were unable to find the requested characteristic).</div>
 </li>
 </ul>
@@ -681,8 +681,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeCharacteristic</h4>
-<pre class="methodSignature">public&nbsp;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&nbsp;getNativeCharacteristic&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                 <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public&nbsp;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&nbsp;getNativeCharacteristic&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                                 java.util.UUID&nbsp;charUuid,
                                                  <a href="DescriptorFilter.html" title="interface in com.idevicesinc.sweetblue">DescriptorFilter</a>&nbsp;descriptorFilter)</pre>
 <div class="block">Overload of <a href="#getNativeBleCharacteristic(java.util.UUID,java.util.UUID)"><code>getNativeBleCharacteristic(UUID, UUID)</code></a> for when you have characteristics with identical uuids within the same service.</div>
 </li>
@@ -693,10 +693,10 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeBleService</h4>
-<pre class="methodSignature">public&nbsp;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&nbsp;getNativeBleService&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
+<pre class="methodSignature">public&nbsp;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&nbsp;getNativeBleService&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
 <div class="block">Returns the native service for the given UUID in case you need lower-level access.
  <p>
- Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattService.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattService</code></a>
+ Note that this will never return a <code>null</code> instance. You need to call <a href="internal/P_NativeGattObject.html#isNull()"><code>P_NativeGattObject.isNull()</code></a> to check if the <code>BluetoothGattService</code>
  actually exists (in other words, it will return <code>true</code> if we were unable to find the requested service).</div>
 </li>
 </ul>
@@ -706,8 +706,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeServices</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;&nbsp;getNativeServices()</pre>
-<div class="block">Returns all <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattService.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattService</code></a> instances.</div>
+<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;&nbsp;getNativeServices()</pre>
+<div class="block">Returns all <code>BluetoothGattService</code> instances.</div>
 </li>
 </ul>
 <a id="getNativeServices_List()">
@@ -716,8 +716,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeServices_List</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;&nbsp;getNativeServices_List()</pre>
-<div class="block">Convenience overload of <a href="#getNativeServices()"><code>getNativeServices()</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a>.</div>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&gt;&nbsp;getNativeServices_List()</pre>
+<div class="block">Convenience overload of <a href="#getNativeServices()"><code>getNativeServices()</code></a> that returns a <code>List</code>.</div>
 </li>
 </ul>
 <a id="getNativeServices(com.idevicesinc.sweetblue.utils.ForEach_Void)">
@@ -766,7 +766,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeCharacteristics</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;getNativeCharacteristics&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public&nbsp;void&nbsp;getNativeCharacteristics&#8203;(java.util.UUID&nbsp;serviceUuid,
                                      <a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getNativeCharacteristics(java.util.UUID)"><code>getNativeCharacteristics(UUID)</code></a> that uses a for each construct instead of returning an iterator.</div>
 </li>
@@ -777,7 +777,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeCharacteristics</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;getNativeCharacteristics&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public&nbsp;void&nbsp;getNativeCharacteristics&#8203;(java.util.UUID&nbsp;serviceUuid,
                                      <a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getNativeCharacteristics(java.util.UUID)"><code>getNativeCharacteristics(UUID)</code></a> that uses a for each construct instead of returning an iterator.</div>
 </li>
@@ -788,8 +788,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeCharacteristics</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;getNativeCharacteristics()</pre>
-<div class="block">Returns all <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattCharacteristic</code></a> instances.</div>
+<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;getNativeCharacteristics()</pre>
+<div class="block">Returns all <code>BluetoothGattCharacteristic</code> instances.</div>
 </li>
 </ul>
 <a id="getNativeCharacteristics_List()">
@@ -798,8 +798,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeCharacteristics_List</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;getNativeCharacteristics_List()</pre>
-<div class="block">Convenience overload of <a href="#getNativeCharacteristics()"><code>getNativeCharacteristics()</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a>.</div>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;getNativeCharacteristics_List()</pre>
+<div class="block">Convenience overload of <a href="#getNativeCharacteristics()"><code>getNativeCharacteristics()</code></a> that returns a <code>List</code>.</div>
 </li>
 </ul>
 <a id="getNativeCharacteristics(java.util.UUID)">
@@ -808,8 +808,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeCharacteristics</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;getNativeCharacteristics&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
-<div class="block">Same as <a href="#getNativeCharacteristics()"><code>getNativeCharacteristics()</code></a> but you can filter on the service <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.</div>
+<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;getNativeCharacteristics&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
+<div class="block">Same as <a href="#getNativeCharacteristics()"><code>getNativeCharacteristics()</code></a> but you can filter on the service <code>UUID</code>.</div>
 </li>
 </ul>
 <a id="getNativeCharacteristics_List(java.util.UUID)">
@@ -818,8 +818,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeCharacteristics_List</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;getNativeCharacteristics_List&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
-<div class="block">Convenience overload of <a href="#getNativeCharacteristics(java.util.UUID)"><code>getNativeCharacteristics(UUID)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a>.</div>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="BleCharacteristic.html" title="class in com.idevicesinc.sweetblue">BleCharacteristic</a>&gt;&nbsp;getNativeCharacteristics_List&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
+<div class="block">Convenience overload of <a href="#getNativeCharacteristics(java.util.UUID)"><code>getNativeCharacteristics(UUID)</code></a> that returns a <code>List</code>.</div>
 </li>
 </ul>
 <a id="getNativeDescriptors()">
@@ -828,7 +828,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors()</pre>
+<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors()</pre>
 <div class="block">Returns all descriptors on this node.</div>
 </li>
 </ul>
@@ -838,7 +838,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_List</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_List()</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_List()</pre>
 <div class="block">Returns all descriptors on this node as a list.</div>
 </li>
 </ul>
@@ -848,7 +848,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_inService</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_inService&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
+<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_inService&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
 <div class="block">Returns all descriptors on this node in the given service.</div>
 </li>
 </ul>
@@ -858,7 +858,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_inService_List</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_inService_List&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_inService_List&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
 <div class="block">Returns all descriptors on this node in the given service as a list.</div>
 </li>
 </ul>
@@ -868,7 +868,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_inChar</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_inChar&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</pre>
+<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_inChar&#8203;(java.util.UUID&nbsp;charUuid)</pre>
 <div class="block">Returns all descriptors on this node in the given characteristic.</div>
 </li>
 </ul>
@@ -878,7 +878,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_inChar_List</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_inChar_List&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_inChar_List&#8203;(java.util.UUID&nbsp;charUuid)</pre>
 <div class="block">Returns all descriptors on this node in the given characteristic as a list.</div>
 </li>
 </ul>
@@ -888,8 +888,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                    <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</pre>
+<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                                              java.util.UUID&nbsp;charUuid)</pre>
 <div class="block">Returns all descriptors on this node in the given characteristic.</div>
 </li>
 </ul>
@@ -899,8 +899,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_List</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_List&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                     <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid)</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;getNativeDescriptors_List&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                                               java.util.UUID&nbsp;charUuid)</pre>
 <div class="block">Returns all descriptors on this node in the given characteristic as a list.</div>
 </li>
 </ul>
@@ -930,7 +930,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_inService</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors_inService&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors_inService&#8203;(java.util.UUID&nbsp;serviceUuid,
                                            <a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getNativeDescriptors_inService(java.util.UUID)"><code>getNativeDescriptors_inService(UUID)</code></a> using a for each construct.</div>
 </li>
@@ -941,7 +941,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_inService</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors_inService&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors_inService&#8203;(java.util.UUID&nbsp;serviceUuid,
                                            <a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getNativeDescriptors_inService(java.util.UUID)"><code>getNativeDescriptors_inService(UUID)</code></a> using a for each construct.</div>
 </li>
@@ -952,7 +952,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_inChar</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors_inChar&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors_inChar&#8203;(java.util.UUID&nbsp;charUuid,
                                         <a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getNativeDescriptors_inChar(java.util.UUID)"><code>getNativeDescriptors_inChar(UUID)</code></a> using a for each construct.</div>
 </li>
@@ -963,7 +963,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors_inChar</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors_inChar&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors_inChar&#8203;(java.util.UUID&nbsp;charUuid,
                                         <a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getNativeDescriptors_inChar(java.util.UUID)"><code>getNativeDescriptors_inChar(UUID)</code></a> using a for each construct.</div>
 </li>
@@ -974,8 +974,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                 <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                 java.util.UUID&nbsp;charUuid,
                                  <a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getNativeDescriptors(java.util.UUID,java.util.UUID)"><code>getNativeDescriptors(UUID, UUID)</code></a> using a for each construct.</div>
 </li>
@@ -986,8 +986,8 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>getNativeDescriptors</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                 <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public&nbsp;void&nbsp;getNativeDescriptors&#8203;(java.util.UUID&nbsp;serviceUuid,
+                                 java.util.UUID&nbsp;charUuid,
                                  <a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="BleDescriptor.html" title="class in com.idevicesinc.sweetblue">BleDescriptor</a>&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getNativeDescriptors(java.util.UUID,java.util.UUID)"><code>getNativeDescriptors(UUID, UUID)</code></a> using a for each construct.</div>
 </li>
@@ -1030,7 +1030,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>queryHistoricalData</h4>
-<pre class="methodSignature">public&nbsp;<a href="HistoricalDataQueryListener.HistoricalDataQueryEvent.html" title="class in com.idevicesinc.sweetblue">HistoricalDataQueryListener.HistoricalDataQueryEvent</a>&nbsp;queryHistoricalData&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;query)</pre>
+<pre class="methodSignature">public&nbsp;<a href="HistoricalDataQueryListener.HistoricalDataQueryEvent.html" title="class in com.idevicesinc.sweetblue">HistoricalDataQueryListener.HistoricalDataQueryEvent</a>&nbsp;queryHistoricalData&#8203;(java.lang.String&nbsp;query)</pre>
 <div class="block">Provides a means to perform a raw SQL query on the database storing the historical data for this node. Use <a href="BleDevice.html#getHistoricalDataTableName(java.util.UUID)"><code>BleDevice.getHistoricalDataTableName(UUID)</code></a>
  to generate table names and <a href="utils/HistoricalDataColumn.html" title="enum in com.idevicesinc.sweetblue.utils"><code>HistoricalDataColumn</code></a> to get column names.</div>
 </li>
@@ -1041,7 +1041,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>queryHistoricalData</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;queryHistoricalData&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;query,
+<pre class="methodSignature">public&nbsp;void&nbsp;queryHistoricalData&#8203;(java.lang.String&nbsp;query,
                                 <a href="HistoricalDataQueryListener.html" title="interface in com.idevicesinc.sweetblue">HistoricalDataQueryListener</a>&nbsp;listener)</pre>
 <div class="block">Same as <a href="#queryHistoricalData(java.lang.String)"><code>queryHistoricalData(String)</code></a> but performs the query on a background thread and returns the result back on the main thread
  through the provided <a href="HistoricalDataQueryListener.html" title="interface in com.idevicesinc.sweetblue"><code>HistoricalDataQueryListener</code></a>.</div>
@@ -1073,7 +1073,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockList">
 <li class="blockList">
 <h4>cast</h4>
-<pre class="methodSignature">public&nbsp;&lt;T extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNode</a>&gt;&nbsp;T&nbsp;cast&#8203;(<a href="https://d.android.com/reference/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;type)</pre>
+<pre class="methodSignature">public&nbsp;&lt;T extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNode</a>&gt;&nbsp;T&nbsp;cast&#8203;(java.lang.Class&lt;T&gt;&nbsp;type)</pre>
 <div class="block">Safer version of <a href="#cast()"><code>cast()</code></a> that will return <a href="BleDevice.html#NULL"><code>BleDevice.NULL</code></a> or <a href="BleServer.html#NULL"><code>BleServer.NULL</code></a>
  if the cast cannot be made.</div>
 </li>
@@ -1084,7 +1084,7 @@ implements <a href="utils/UsesCustomNull.html" title="interface in com.idevicesi
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getMacAddress</h4>
-<pre class="methodSignature">public abstract&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;getMacAddress()</pre>
+<pre class="methodSignature">public abstract&nbsp;java.lang.String&nbsp;getMacAddress()</pre>
 <div class="block">Returns the MAC address of the remote <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> or local <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a>.</div>
 </li>
 </ul>

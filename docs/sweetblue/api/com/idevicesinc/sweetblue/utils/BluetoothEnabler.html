@@ -119,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>com.idevicesinc.sweetblue.utils.BluetoothEnabler</li>
@@ -130,14 +130,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <hr>
-<pre><a href="https://d.android.com/reference/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+<pre>@Deprecated
 public final class <span class="typeNameLabel">BluetoothEnabler</span>
-extends <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+extends java.lang.Object</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
 <div class="deprecationComment">Use <a href="BleSetupHelper.html" title="class in com.idevicesinc.sweetblue.utils"><code>BleSetupHelper</code></a> instead. This class will be removed in v3.1</div>
 </div>
-<div class="block">This class is used to handle the new hairy logic for getting bluetooth low-energy scan results that is introduced with <a href="https://d.android.com/reference/android/os/Build.VERSION_CODES.html?is-external=true#M" title="class or interface in android.os" class="externalLink"><code>Build.VERSION_CODES.M</code></a>.
- With <a href="https://d.android.com/reference/android/os/Build.VERSION_CODES.html?is-external=true#M" title="class or interface in android.os" class="externalLink"><code>Build.VERSION_CODES.M</code></a> you need to have <a href="https://d.android.com/reference/android/Manifest.permission.html?is-external=true#ACCESS_COARSE_LOCATION" title="class or interface in android" class="externalLink"><code>Manifest.permission.ACCESS_COARSE_LOCATION</code></a> or <a href="https://d.android.com/reference/android/Manifest.permission.html?is-external=true#ACCESS_FINE_LOCATION" title="class or interface in android" class="externalLink"><code>Manifest.permission.ACCESS_FINE_LOCATION</code></a>
+<div class="block">This class is used to handle the new hairy logic for getting bluetooth low-energy scan results that is introduced with <code>Build.VERSION_CODES.M</code>.
+ With <code>Build.VERSION_CODES.M</code> you need to have <code>Manifest.permission.ACCESS_COARSE_LOCATION</code> or <code>Manifest.permission.ACCESS_FINE_LOCATION</code>
  in your AndroidManifest.xml, and also enable them at runtime, AND also make sure location services are on.
  <br><br>
  See more information at <a target="_blank" href="https://github.com/iDevicesInc/SweetBlue/wiki/Android-BLE-Issues#android-m-issues">https://github.com/iDevicesInc/SweetBlue/wiki/Android-BLE-Issues#android-m-issues</a>
@@ -247,7 +247,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onActivityOrPermissionResult(int)">onActivityOrPermissionResult</a></span>&#8203;(int&nbsp;requestCode)</code></th>
 <td class="colLast">
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">A potentially-required method to be placed in your activity's <a href="https://d.android.com/reference/android/app/Activity.html?is-external=true#onRequestPermissionsResult(int,java.lang.String%5B%5D,int%5B%5D)" title="class or interface in android.app" class="externalLink"><code>Activity.onRequestPermissionsResult(int, String[], int[])</code></a> and <a href="https://d.android.com/reference/android/app/Activity.html?is-external=true#onActivityResult(int,int,android.content.Intent)" title="class or interface in android.app" class="externalLink"><code>Activity.onActivityResult(int, int, Intent)</code></a> methods.</div>
+<div class="block">A potentially-required method to be placed in your activity's <code>Activity.onRequestPermissionsResult(int, String[], int[])</code> and <code>Activity.onActivityResult(int, int, Intent)</code> methods.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -278,7 +278,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>static <a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start(android.app.Activity)">start</a></span>&#8203;(<a href="https://d.android.com/reference/android/app/Activity.html?is-external=true" title="class or interface in android.app" class="externalLink">Activity</a>&nbsp;activity)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start(android.app.Activity)">start</a></span>&#8203;(android.app.Activity&nbsp;activity)</code></th>
 <td class="colLast">
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Overload of <a href="#start(android.app.Activity,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)"><code>start(Activity, BluetoothEnablerFilter)</code></a> that uses an instance of <a href="BluetoothEnabler.DefaultBluetoothEnablerFilter.html" title="class in com.idevicesinc.sweetblue.utils"><code>BluetoothEnabler.DefaultBluetoothEnablerFilter</code></a>.</div>
@@ -286,28 +286,28 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start(android.app.Activity,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)">start</a></span>&#8203;(<a href="https://d.android.com/reference/android/app/Activity.html?is-external=true" title="class or interface in android.app" class="externalLink">Activity</a>&nbsp;activity,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start(android.app.Activity,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)">start</a></span>&#8203;(android.app.Activity&nbsp;activity,
      <a href="BluetoothEnabler.BluetoothEnablerFilter.html" title="interface in com.idevicesinc.sweetblue.utils">BluetoothEnabler.BluetoothEnablerFilter</a>&nbsp;filter)</code></th>
 <td class="colLast">
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Kicks off the complex flow needed to fully enable Bluetooth on Build versions greater than or equal to <a href="https://d.android.com/reference/android/os/Build.VERSION_CODES.html?is-external=true#M" title="class or interface in android.os" class="externalLink"><code>Build.VERSION_CODES.M</code></a>.</div>
+<div class="block">Kicks off the complex flow needed to fully enable Bluetooth on Build versions greater than or equal to <code>Build.VERSION_CODES.M</code>.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start(android.content.Context)">start</a></span>&#8203;(<a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink">Context</a>&nbsp;context)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start(android.content.Context)">start</a></span>&#8203;(android.content.Context&nbsp;context)</code></th>
 <td class="colLast">
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Overload of <a href="#start(android.app.Activity)"><code>start(Activity)</code></a> but given <a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink"><code>Context</code></a> must be an <a href="https://d.android.com/reference/android/app/Activity.html?is-external=true" title="class or interface in android.app" class="externalLink"><code>Activity</code></a>.</div>
+<div class="block">Overload of <a href="#start(android.app.Activity)"><code>start(Activity)</code></a> but given <code>Context</code> must be an <code>Activity</code>.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>static <a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start(android.content.Context,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)">start</a></span>&#8203;(<a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink">Context</a>&nbsp;context,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start(android.content.Context,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)">start</a></span>&#8203;(android.content.Context&nbsp;context,
      <a href="BluetoothEnabler.BluetoothEnablerFilter.html" title="interface in com.idevicesinc.sweetblue.utils">BluetoothEnabler.BluetoothEnablerFilter</a>&nbsp;filter)</code></th>
 <td class="colLast">
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Overload of <a href="#start(android.app.Activity,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)"><code>start(Activity, BluetoothEnablerFilter)</code></a> but given <a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink"><code>Context</code></a> must be an <a href="https://d.android.com/reference/android/app/Activity.html?is-external=true" title="class or interface in android.app" class="externalLink"><code>Activity</code></a>.</div>
+<div class="block">Overload of <a href="#start(android.app.Activity,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)"><code>start(Activity, BluetoothEnablerFilter)</code></a> but given <code>Context</code> must be an <code>Activity</code>.</div>
 </td>
 </tr>
 </table>
@@ -315,8 +315,8 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -340,9 +340,9 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <ul class="blockList">
 <li class="blockList">
 <h4>start</h4>
-<pre class="methodSignature">public static&nbsp;<a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a>&nbsp;start&#8203;(<a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink">Context</a>&nbsp;context)</pre>
+<pre class="methodSignature">public static&nbsp;<a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a>&nbsp;start&#8203;(android.content.Context&nbsp;context)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Overload of <a href="#start(android.app.Activity)"><code>start(Activity)</code></a> but given <a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink"><code>Context</code></a> must be an <a href="https://d.android.com/reference/android/app/Activity.html?is-external=true" title="class or interface in android.app" class="externalLink"><code>Activity</code></a>.</div>
+<div class="block">Overload of <a href="#start(android.app.Activity)"><code>start(Activity)</code></a> but given <code>Context</code> must be an <code>Activity</code>.</div>
 </li>
 </ul>
 <a id="start(android.content.Context,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)">
@@ -351,10 +351,10 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <ul class="blockList">
 <li class="blockList">
 <h4>start</h4>
-<pre class="methodSignature">public static&nbsp;<a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a>&nbsp;start&#8203;(<a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink">Context</a>&nbsp;context,
+<pre class="methodSignature">public static&nbsp;<a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a>&nbsp;start&#8203;(android.content.Context&nbsp;context,
                                      <a href="BluetoothEnabler.BluetoothEnablerFilter.html" title="interface in com.idevicesinc.sweetblue.utils">BluetoothEnabler.BluetoothEnablerFilter</a>&nbsp;filter)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Overload of <a href="#start(android.app.Activity,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)"><code>start(Activity, BluetoothEnablerFilter)</code></a> but given <a href="https://d.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content" class="externalLink"><code>Context</code></a> must be an <a href="https://d.android.com/reference/android/app/Activity.html?is-external=true" title="class or interface in android.app" class="externalLink"><code>Activity</code></a>.</div>
+<div class="block">Overload of <a href="#start(android.app.Activity,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)"><code>start(Activity, BluetoothEnablerFilter)</code></a> but given <code>Context</code> must be an <code>Activity</code>.</div>
 </li>
 </ul>
 <a id="resume_static(com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter.Please)">
@@ -387,7 +387,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <ul class="blockList">
 <li class="blockList">
 <h4>start</h4>
-<pre class="methodSignature">public static&nbsp;<a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a>&nbsp;start&#8203;(<a href="https://d.android.com/reference/android/app/Activity.html?is-external=true" title="class or interface in android.app" class="externalLink">Activity</a>&nbsp;activity)</pre>
+<pre class="methodSignature">public static&nbsp;<a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a>&nbsp;start&#8203;(android.app.Activity&nbsp;activity)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Overload of <a href="#start(android.app.Activity,com.idevicesinc.sweetblue.utils.BluetoothEnabler.BluetoothEnablerFilter)"><code>start(Activity, BluetoothEnablerFilter)</code></a> that uses an instance of <a href="BluetoothEnabler.DefaultBluetoothEnablerFilter.html" title="class in com.idevicesinc.sweetblue.utils"><code>BluetoothEnabler.DefaultBluetoothEnablerFilter</code></a>.</div>
 </li>
@@ -398,10 +398,10 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <ul class="blockList">
 <li class="blockList">
 <h4>start</h4>
-<pre class="methodSignature">public static&nbsp;<a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a>&nbsp;start&#8203;(<a href="https://d.android.com/reference/android/app/Activity.html?is-external=true" title="class or interface in android.app" class="externalLink">Activity</a>&nbsp;activity,
+<pre class="methodSignature">public static&nbsp;<a href="BluetoothEnabler.html" title="class in com.idevicesinc.sweetblue.utils">BluetoothEnabler</a>&nbsp;start&#8203;(android.app.Activity&nbsp;activity,
                                      <a href="BluetoothEnabler.BluetoothEnablerFilter.html" title="interface in com.idevicesinc.sweetblue.utils">BluetoothEnabler.BluetoothEnablerFilter</a>&nbsp;filter)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Kicks off the complex flow needed to fully enable Bluetooth on Build versions greater than or equal to <a href="https://d.android.com/reference/android/os/Build.VERSION_CODES.html?is-external=true#M" title="class or interface in android.os" class="externalLink"><code>Build.VERSION_CODES.M</code></a>.</div>
+<div class="block">Kicks off the complex flow needed to fully enable Bluetooth on Build versions greater than or equal to <code>Build.VERSION_CODES.M</code>.</div>
 </li>
 </ul>
 <a id="onActivityOrPermissionResult(int)">
@@ -412,7 +412,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>onActivityOrPermissionResult</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;onActivityOrPermissionResult&#8203;(int&nbsp;requestCode)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">A potentially-required method to be placed in your activity's <a href="https://d.android.com/reference/android/app/Activity.html?is-external=true#onRequestPermissionsResult(int,java.lang.String%5B%5D,int%5B%5D)" title="class or interface in android.app" class="externalLink"><code>Activity.onRequestPermissionsResult(int, String[], int[])</code></a> and <a href="https://d.android.com/reference/android/app/Activity.html?is-external=true#onActivityResult(int,int,android.content.Intent)" title="class or interface in android.app" class="externalLink"><code>Activity.onActivityResult(int, int, Intent)</code></a> methods.
+<div class="block">A potentially-required method to be placed in your activity's <code>Activity.onRequestPermissionsResult(int, String[], int[])</code> and <code>Activity.onActivityResult(int, int, Intent)</code> methods.
  This method will re-connect the enabler after the app is re-entered. Otherwise, the enabler won't continue unless <a href="BluetoothEnabler.BluetoothEnablerFilter.Please.html#withImplicitActivityResultHandling()"><code>BluetoothEnabler.BluetoothEnablerFilter.Please.withImplicitActivityResultHandling()</code></a> is called.</div>
 </li>
 </ul>

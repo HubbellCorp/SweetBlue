@@ -135,7 +135,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  Providing these hints lets the library handle things in a more deterministic and optimized fashion, but is not required.
  <br><br>
  The second is that some android devices have issues when it comes to bonding. So far the worst culprits
- are certain Sony and Motorola phones, so if it looks like <a href="https://d.android.com/reference/android/os/Build.html?is-external=true#MANUFACTURER" title="class or interface in android.os" class="externalLink"><code>Build.MANUFACTURER</code></a>
+ are certain Sony and Motorola phones, so if it looks like <code>Build.MANUFACTURER</code>
  is either one of those, <a href="BleDeviceConfig.DefaultBondFilter.html" title="class in com.idevicesinc.sweetblue"><code>BleDeviceConfig.DefaultBondFilter</code></a> is set to unbond upon discoveries and disconnects.
  Please look at the source of <a href="BleDeviceConfig.DefaultBondFilter.html" title="class in com.idevicesinc.sweetblue"><code>BleDeviceConfig.DefaultBondFilter</code></a> for the most up-to-date spec.
  The problem seems to be associated with mismanagement of pairing keys by the OS and

@@ -119,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>com.idevicesinc.sweetblue.utils.EmptyCursor</li>
@@ -131,13 +131,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code>, <code><a href="https://d.android.com/reference/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code>, <code><a href="https://d.android.com/reference/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+<dd><code>android.database.Cursor</code>, <code>java.io.Closeable</code>, <code>java.lang.AutoCloseable</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">EmptyCursor</span>
-extends <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
-implements <a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></pre>
-<div class="block">An implementation of <a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink"><code>Cursor</code></a> used for error conditions and things like that where we don't want to return null.</div>
+extends java.lang.Object
+implements android.database.Cursor</pre>
+<div class="block">An implementation of <code>Cursor</code> used for error conditions and things like that where we don't want to return null.</div>
 </li>
 </ul>
 </div>
@@ -170,8 +170,8 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <li class="blockList"><a id="fields.inherited.from.class.android.database.Cursor">
 <!--   -->
 </a>
-<h3>Fields inherited from interface&nbsp;android.database.<a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></h3>
-<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#FIELD_TYPE_BLOB" title="class or interface in android.database" class="externalLink">FIELD_TYPE_BLOB</a>, <a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#FIELD_TYPE_FLOAT" title="class or interface in android.database" class="externalLink">FIELD_TYPE_FLOAT</a>, <a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#FIELD_TYPE_INTEGER" title="class or interface in android.database" class="externalLink">FIELD_TYPE_INTEGER</a>, <a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#FIELD_TYPE_NULL" title="class or interface in android.database" class="externalLink">FIELD_TYPE_NULL</a>, <a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#FIELD_TYPE_STRING" title="class or interface in android.database" class="externalLink">FIELD_TYPE_STRING</a></code></li>
+<h3>Fields inherited from interface&nbsp;android.database.Cursor</h3>
+<code>FIELD_TYPE_BLOB, FIELD_TYPE_FLOAT, FIELD_TYPE_INTEGER, FIELD_TYPE_NULL, FIELD_TYPE_STRING</code></li>
 </ul>
 </li>
 </ul>
@@ -219,7 +219,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyStringToBuffer(int,android.database.CharArrayBuffer)">copyStringToBuffer</a></span>&#8203;(int&nbsp;columnIndex,
-                  <a href="https://d.android.com/reference/android/database/CharArrayBuffer.html?is-external=true" title="class or interface in android.database" class="externalLink">CharArrayBuffer</a>&nbsp;buffer)</code></th>
+                  android.database.CharArrayBuffer&nbsp;buffer)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
@@ -239,21 +239,21 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getColumnIndex(java.lang.String)">getColumnIndex</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;columnName)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getColumnIndex(java.lang.String)">getColumnIndex</a></span>&#8203;(java.lang.String&nbsp;columnName)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getColumnIndexOrThrow(java.lang.String)">getColumnIndexOrThrow</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;columnName)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getColumnIndexOrThrow(java.lang.String)">getColumnIndexOrThrow</a></span>&#8203;(java.lang.String&nbsp;columnName)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getColumnName(int)">getColumnName</a></span>&#8203;(int&nbsp;columnIndex)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</code></td>
+<td class="colFirst"><code>java.lang.String[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getColumnNames()">getColumnNames</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -268,7 +268,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a></code></td>
+<td class="colFirst"><code>android.os.Bundle</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExtras()">getExtras</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -288,7 +288,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/android/net/Uri.html?is-external=true" title="class or interface in android.net" class="externalLink">Uri</a></code></td>
+<td class="colFirst"><code>android.net.Uri</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNotificationUri()">getNotificationUri</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -303,7 +303,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i18" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getString(int)">getString</a></span>&#8203;(int&nbsp;columnIndex)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -379,12 +379,12 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 </tr>
 <tr id="i33" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerContentObserver(android.database.ContentObserver)">registerContentObserver</a></span>&#8203;(<a href="https://d.android.com/reference/android/database/ContentObserver.html?is-external=true" title="class or interface in android.database" class="externalLink">ContentObserver</a>&nbsp;observer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerContentObserver(android.database.ContentObserver)">registerContentObserver</a></span>&#8203;(android.database.ContentObserver&nbsp;observer)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i34" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver</a></span>&#8203;(<a href="https://d.android.com/reference/android/database/DataSetObserver.html?is-external=true" title="class or interface in android.database" class="externalLink">DataSetObserver</a>&nbsp;observer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver</a></span>&#8203;(android.database.DataSetObserver&nbsp;observer)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i35" class="rowColor">
@@ -393,29 +393,29 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i36" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#respond(android.os.Bundle)">respond</a></span>&#8203;(<a href="https://d.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;extras)</code></th>
+<td class="colFirst"><code>android.os.Bundle</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#respond(android.os.Bundle)">respond</a></span>&#8203;(android.os.Bundle&nbsp;extras)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i37" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExtras(android.os.Bundle)">setExtras</a></span>&#8203;(<a href="https://d.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;extras)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExtras(android.os.Bundle)">setExtras</a></span>&#8203;(android.os.Bundle&nbsp;extras)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i38" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNotificationUri(android.content.ContentResolver,android.net.Uri)">setNotificationUri</a></span>&#8203;(<a href="https://d.android.com/reference/android/content/ContentResolver.html?is-external=true" title="class or interface in android.content" class="externalLink">ContentResolver</a>&nbsp;cr,
-                  <a href="https://d.android.com/reference/android/net/Uri.html?is-external=true" title="class or interface in android.net" class="externalLink">Uri</a>&nbsp;uri)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNotificationUri(android.content.ContentResolver,android.net.Uri)">setNotificationUri</a></span>&#8203;(android.content.ContentResolver&nbsp;cr,
+                  android.net.Uri&nbsp;uri)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i39" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unregisterContentObserver(android.database.ContentObserver)">unregisterContentObserver</a></span>&#8203;(<a href="https://d.android.com/reference/android/database/ContentObserver.html?is-external=true" title="class or interface in android.database" class="externalLink">ContentObserver</a>&nbsp;observer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unregisterContentObserver(android.database.ContentObserver)">unregisterContentObserver</a></span>&#8203;(android.database.ContentObserver&nbsp;observer)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i40" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unregisterDataSetObserver(android.database.DataSetObserver)">unregisterDataSetObserver</a></span>&#8203;(<a href="https://d.android.com/reference/android/database/DataSetObserver.html?is-external=true" title="class or interface in android.database" class="externalLink">DataSetObserver</a>&nbsp;observer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unregisterDataSetObserver(android.database.DataSetObserver)">unregisterDataSetObserver</a></span>&#8203;(android.database.DataSetObserver&nbsp;observer)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -423,15 +423,15 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.android.database.Cursor">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;android.database.<a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></h3>
-<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getNotificationUris()" title="class or interface in android.database" class="externalLink">getNotificationUris</a>, <a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#setNotificationUris(android.content.ContentResolver,java.util.List)" title="class or interface in android.database" class="externalLink">setNotificationUris</a></code></li>
+<h3>Methods inherited from interface&nbsp;android.database.Cursor</h3>
+<code>getNotificationUris, setNotificationUris</code></li>
 </ul>
 </li>
 </ul>
@@ -497,7 +497,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;int&nbsp;getCount()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getCount()" title="class or interface in android.database" class="externalLink">getCount</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getCount</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -510,7 +510,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;int&nbsp;getPosition()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getPosition()" title="class or interface in android.database" class="externalLink">getPosition</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getPosition</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -523,7 +523,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;move&#8203;(int&nbsp;offset)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#move(int)" title="class or interface in android.database" class="externalLink">move</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>move</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -536,7 +536,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;moveToPosition&#8203;(int&nbsp;position)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#moveToPosition(int)" title="class or interface in android.database" class="externalLink">moveToPosition</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>moveToPosition</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -549,7 +549,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;moveToFirst()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#moveToFirst()" title="class or interface in android.database" class="externalLink">moveToFirst</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>moveToFirst</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -562,7 +562,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;moveToLast()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#moveToLast()" title="class or interface in android.database" class="externalLink">moveToLast</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>moveToLast</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -575,7 +575,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;moveToNext()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#moveToNext()" title="class or interface in android.database" class="externalLink">moveToNext</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>moveToNext</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -588,7 +588,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;moveToPrevious()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#moveToPrevious()" title="class or interface in android.database" class="externalLink">moveToPrevious</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>moveToPrevious</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -601,7 +601,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isFirst()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#isFirst()" title="class or interface in android.database" class="externalLink">isFirst</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>isFirst</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -614,7 +614,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isLast()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#isLast()" title="class or interface in android.database" class="externalLink">isLast</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>isLast</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -627,7 +627,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isBeforeFirst()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#isBeforeFirst()" title="class or interface in android.database" class="externalLink">isBeforeFirst</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>isBeforeFirst</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -640,7 +640,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isAfterLast()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#isAfterLast()" title="class or interface in android.database" class="externalLink">isAfterLast</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>isAfterLast</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -650,10 +650,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getColumnIndex</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getColumnIndex&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;columnName)</pre>
+<pre class="methodSignature">public&nbsp;int&nbsp;getColumnIndex&#8203;(java.lang.String&nbsp;columnName)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getColumnIndex(java.lang.String)" title="class or interface in android.database" class="externalLink">getColumnIndex</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getColumnIndex</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -663,13 +663,13 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getColumnIndexOrThrow</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getColumnIndexOrThrow&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;columnName)
-                          throws <a href="https://d.android.com/reference/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></pre>
+<pre class="methodSignature">public&nbsp;int&nbsp;getColumnIndexOrThrow&#8203;(java.lang.String&nbsp;columnName)
+                          throws java.lang.IllegalArgumentException</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getColumnIndexOrThrow(java.lang.String)" title="class or interface in android.database" class="externalLink">getColumnIndexOrThrow</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getColumnIndexOrThrow</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://d.android.com/reference/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+<dd><code>java.lang.IllegalArgumentException</code></dd>
 </dl>
 </li>
 </ul>
@@ -679,10 +679,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getColumnName</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;getColumnName&#8203;(int&nbsp;columnIndex)</pre>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getColumnName&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getColumnName(int)" title="class or interface in android.database" class="externalLink">getColumnName</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getColumnName</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -692,10 +692,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getColumnNames</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;getColumnNames()</pre>
+<pre class="methodSignature">public&nbsp;java.lang.String[]&nbsp;getColumnNames()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getColumnNames()" title="class or interface in android.database" class="externalLink">getColumnNames</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getColumnNames</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -708,7 +708,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;int&nbsp;getColumnCount()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getColumnCount()" title="class or interface in android.database" class="externalLink">getColumnCount</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getColumnCount</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -721,7 +721,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;byte[]&nbsp;getBlob&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getBlob(int)" title="class or interface in android.database" class="externalLink">getBlob</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getBlob</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -731,10 +731,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getString</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;getString&#8203;(int&nbsp;columnIndex)</pre>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getString&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getString(int)" title="class or interface in android.database" class="externalLink">getString</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getString</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -745,10 +745,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <li class="blockList">
 <h4>copyStringToBuffer</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;copyStringToBuffer&#8203;(int&nbsp;columnIndex,
-                               <a href="https://d.android.com/reference/android/database/CharArrayBuffer.html?is-external=true" title="class or interface in android.database" class="externalLink">CharArrayBuffer</a>&nbsp;buffer)</pre>
+                               android.database.CharArrayBuffer&nbsp;buffer)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#copyStringToBuffer(int,android.database.CharArrayBuffer)" title="class or interface in android.database" class="externalLink">copyStringToBuffer</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>copyStringToBuffer</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -761,7 +761,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;short&nbsp;getShort&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getShort(int)" title="class or interface in android.database" class="externalLink">getShort</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getShort</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -774,7 +774,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;int&nbsp;getInt&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getInt(int)" title="class or interface in android.database" class="externalLink">getInt</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getInt</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -787,7 +787,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;long&nbsp;getLong&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getLong(int)" title="class or interface in android.database" class="externalLink">getLong</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getLong</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -800,7 +800,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;float&nbsp;getFloat&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getFloat(int)" title="class or interface in android.database" class="externalLink">getFloat</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getFloat</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -813,7 +813,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;double&nbsp;getDouble&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getDouble(int)" title="class or interface in android.database" class="externalLink">getDouble</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getDouble</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -826,7 +826,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;int&nbsp;getType&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getType(int)" title="class or interface in android.database" class="externalLink">getType</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getType</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -839,7 +839,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isNull&#8203;(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#isNull(int)" title="class or interface in android.database" class="externalLink">isNull</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>isNull</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -852,7 +852,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;void&nbsp;deactivate()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#deactivate()" title="class or interface in android.database" class="externalLink">deactivate</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>deactivate</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -865,7 +865,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;requery()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#requery()" title="class or interface in android.database" class="externalLink">requery</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>requery</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -878,11 +878,11 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;void&nbsp;close()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+<dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/java/io/Closeable.html?is-external=true#close()" title="class or interface in java.io" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code></dd>
+<dd><code>close</code>&nbsp;in interface&nbsp;<code>java.io.Closeable</code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#close()" title="class or interface in android.database" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>close</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -895,7 +895,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isClosed()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#isClosed()" title="class or interface in android.database" class="externalLink">isClosed</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>isClosed</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -905,10 +905,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>registerContentObserver</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;registerContentObserver&#8203;(<a href="https://d.android.com/reference/android/database/ContentObserver.html?is-external=true" title="class or interface in android.database" class="externalLink">ContentObserver</a>&nbsp;observer)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;registerContentObserver&#8203;(android.database.ContentObserver&nbsp;observer)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#registerContentObserver(android.database.ContentObserver)" title="class or interface in android.database" class="externalLink">registerContentObserver</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>registerContentObserver</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -918,10 +918,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>unregisterContentObserver</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;unregisterContentObserver&#8203;(<a href="https://d.android.com/reference/android/database/ContentObserver.html?is-external=true" title="class or interface in android.database" class="externalLink">ContentObserver</a>&nbsp;observer)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;unregisterContentObserver&#8203;(android.database.ContentObserver&nbsp;observer)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#unregisterContentObserver(android.database.ContentObserver)" title="class or interface in android.database" class="externalLink">unregisterContentObserver</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>unregisterContentObserver</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -931,10 +931,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>registerDataSetObserver</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;registerDataSetObserver&#8203;(<a href="https://d.android.com/reference/android/database/DataSetObserver.html?is-external=true" title="class or interface in android.database" class="externalLink">DataSetObserver</a>&nbsp;observer)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;registerDataSetObserver&#8203;(android.database.DataSetObserver&nbsp;observer)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#registerDataSetObserver(android.database.DataSetObserver)" title="class or interface in android.database" class="externalLink">registerDataSetObserver</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>registerDataSetObserver</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -944,10 +944,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>unregisterDataSetObserver</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;unregisterDataSetObserver&#8203;(<a href="https://d.android.com/reference/android/database/DataSetObserver.html?is-external=true" title="class or interface in android.database" class="externalLink">DataSetObserver</a>&nbsp;observer)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;unregisterDataSetObserver&#8203;(android.database.DataSetObserver&nbsp;observer)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#unregisterDataSetObserver(android.database.DataSetObserver)" title="class or interface in android.database" class="externalLink">unregisterDataSetObserver</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>unregisterDataSetObserver</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -957,11 +957,11 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>setNotificationUri</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setNotificationUri&#8203;(<a href="https://d.android.com/reference/android/content/ContentResolver.html?is-external=true" title="class or interface in android.content" class="externalLink">ContentResolver</a>&nbsp;cr,
-                               <a href="https://d.android.com/reference/android/net/Uri.html?is-external=true" title="class or interface in android.net" class="externalLink">Uri</a>&nbsp;uri)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setNotificationUri&#8203;(android.content.ContentResolver&nbsp;cr,
+                               android.net.Uri&nbsp;uri)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#setNotificationUri(android.content.ContentResolver,android.net.Uri)" title="class or interface in android.database" class="externalLink">setNotificationUri</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>setNotificationUri</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -971,10 +971,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getNotificationUri</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/android/net/Uri.html?is-external=true" title="class or interface in android.net" class="externalLink">Uri</a>&nbsp;getNotificationUri()</pre>
+<pre class="methodSignature">public&nbsp;android.net.Uri&nbsp;getNotificationUri()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getNotificationUri()" title="class or interface in android.database" class="externalLink">getNotificationUri</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getNotificationUri</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -987,7 +987,7 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <pre class="methodSignature">public&nbsp;boolean&nbsp;getWantsAllOnMoveCalls()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getWantsAllOnMoveCalls()" title="class or interface in android.database" class="externalLink">getWantsAllOnMoveCalls</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getWantsAllOnMoveCalls</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -997,10 +997,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>setExtras</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setExtras&#8203;(<a href="https://d.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;extras)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setExtras&#8203;(android.os.Bundle&nbsp;extras)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#setExtras(android.os.Bundle)" title="class or interface in android.database" class="externalLink">setExtras</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>setExtras</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -1010,10 +1010,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getExtras</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;getExtras()</pre>
+<pre class="methodSignature">public&nbsp;android.os.Bundle&nbsp;getExtras()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#getExtras()" title="class or interface in android.database" class="externalLink">getExtras</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>getExtras</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>
@@ -1023,10 +1023,10 @@ implements <a href="https://d.android.com/reference/android/database/Cursor.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>respond</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://d.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;respond&#8203;(<a href="https://d.android.com/reference/android/os/Bundle.html?is-external=true" title="class or interface in android.os" class="externalLink">Bundle</a>&nbsp;extras)</pre>
+<pre class="methodSignature">public&nbsp;android.os.Bundle&nbsp;respond&#8203;(android.os.Bundle&nbsp;extras)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true#respond(android.os.Bundle)" title="class or interface in android.database" class="externalLink">respond</a></code>&nbsp;in interface&nbsp;<code><a href="https://d.android.com/reference/android/database/Cursor.html?is-external=true" title="class or interface in android.database" class="externalLink">Cursor</a></code></dd>
+<dd><code>respond</code>&nbsp;in interface&nbsp;<code>android.database.Cursor</code></dd>
 </dl>
 </li>
 </ul>

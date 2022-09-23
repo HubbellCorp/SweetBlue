@@ -1,6 +1,8 @@
 <b>|</b>&nbsp;<a href='#why'>Why?</a>
 <b>|</b>&nbsp;<a href='#features'>Features</a>
-<b>|</b>&nbsp;<a href="https://github.com/HubbellCorp/SweetBlue/wiki">Docs</a>
+<b>|</b>&nbsp;<a href="https://github.com/HubbellCorp/SweetBlue/wiki">Documentation</a>
+<b>|</b>&nbsp;<a href="https://hubbellcorp.github.io/SweetBlue/sweetblue/api/">Core API Reference Docs</a>
+<b>|</b>&nbsp;<a href="https://hubbellcorp.github.io/SweetBlue/sweetbluerx/api/">Rx API Reference Docs</a>
 <a href="https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml">
  <img align="right" src="https://github.com/HubbellCorp/SweetBlue/actions/workflows/build_and_test.yml/badge.svg" alt="SweetBlue-CI">
 </a>

@@ -1,0 +1,28 @@
+name: 'SweetBlue Pages Deploy'
+
+on:
+
+  workflow_dispatch:
+permissions: write-all
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    environment:
+      name: Release
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Library And Sample Apps
+        run: ./gradlew assembleRelease
+
+      # Generate javadoc again to make sure it's current
+      - name: Generate javadoc
+        run: ./gradlew gendocs
+
+      # Publish to github pages
+      - name: Publish to Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs

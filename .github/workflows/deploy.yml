@@ -133,7 +133,7 @@ jobs:
         with:
           ref: ${{ GITHUB_REF_NAME }}
 
-      - name: Merge into master
+      - name: Merge into main
         uses: devmasx/merge-branch@master
         with:
           type: now

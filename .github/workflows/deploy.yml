@@ -7,6 +7,8 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
+    # Using the release environment for this step will force a manual approval in github
+    # before it can proceed
     environment:
       name: Release
 
@@ -54,6 +56,8 @@ jobs:
 
   PrepDeploy:
     runs-on: ubuntu-latest
+    # Using the release environment for this step will force a manual approval in github
+    # before it can proceed
     environment:
       name: Release
 
@@ -87,6 +91,8 @@ jobs:
 
   Deploy:
     runs-on: ubuntu-latest
+    # Using the release environment for this step will force a manual approval in github
+    # before it can proceed
     environment:
       name: Release
 

@@ -28,6 +28,7 @@ jobs:
       - name: Replace javadocs
         run: |
           rm -rf javadocs/
+          mkdir javadocs/
           cp -r docs/* javadocs/
 
       - name: Commit

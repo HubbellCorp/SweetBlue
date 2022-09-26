@@ -11,6 +11,9 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Update Documentation
         run: ./gradlew bumpMarkdown
 

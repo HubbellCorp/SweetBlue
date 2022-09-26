@@ -18,12 +18,11 @@
 package com.idevicesinc.sweetblue.internal;
 
 import android.Manifest.permission;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.util.Log;
-
-import com.idevicesinc.sweetblue.BleManager;
 import com.idevicesinc.sweetblue.utils.Utils;
 
 final class P_WakeLockManager
@@ -69,6 +68,7 @@ final class P_WakeLockManager
 		m_count = 0;
 	}
 	
+	@SuppressLint("WakelockTimeout")
 	public void push()
 	{
 		m_count++;

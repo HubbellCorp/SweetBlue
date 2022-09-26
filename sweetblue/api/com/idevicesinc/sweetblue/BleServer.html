@@ -119,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li><a href="BleNode.html" title="class in com.idevicesinc.sweetblue">com.idevicesinc.sweetblue.BleNode</a></li>
@@ -141,7 +141,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public final class <span class="typeNameLabel">BleServer</span>
 extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNode</a></pre>
-<div class="block">Get an instance from <a href="BleManager.html#getServer()"><code>BleManager.getServer()</code></a>. Wrapper for functionality exposed by <a href="https://d.android.com/reference/android/bluetooth/BluetoothGattServer.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGattServer</code></a>. For OS levels less than 5.0, this
+<div class="block">Get an instance from <a href="BleManager.html#getServer()"><code>BleManager.getServer()</code></a>. Wrapper for functionality exposed by <code>BluetoothGattServer</code>. For OS levels less than 5.0, this
  is only useful by piggybacking on an existing <a href="BleDevice.html" title="class in com.idevicesinc.sweetblue"><code>BleDevice</code></a> that is currently <a href="BleDeviceState.html#BLE_CONNECTED"><code>BleDeviceState.BLE_CONNECTED</code></a>.
  For OS levels 5.0 and up a <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a> is capable of acting as an independent peripheral.</div>
 </li>
@@ -213,14 +213,14 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(java.lang.String)">connect</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(java.lang.String)">connect</a></span>&#8203;(java.lang.String&nbsp;macAddress)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener,com.idevicesinc.sweetblue.ServerReconnectFilter)"><code>connect(String, ServerConnectListener, ServerReconnectFilter)</code></a> with no listeners.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener)">connect</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener)">connect</a></span>&#8203;(java.lang.String&nbsp;macAddress,
        <a href="ServerConnectListener.html" title="interface in com.idevicesinc.sweetblue">ServerConnectListener</a>&nbsp;connectListener)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener,com.idevicesinc.sweetblue.ServerReconnectFilter)"><code>connect(String, ServerConnectListener, ServerReconnectFilter)</code></a> with only one listener.</div>
@@ -228,7 +228,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener,com.idevicesinc.sweetblue.ServerReconnectFilter)">connect</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener,com.idevicesinc.sweetblue.ServerReconnectFilter)">connect</a></span>&#8203;(java.lang.String&nbsp;macAddress,
        <a href="ServerConnectListener.html" title="interface in com.idevicesinc.sweetblue">ServerConnectListener</a>&nbsp;connectListener,
        <a href="ServerReconnectFilter.html" title="interface in com.idevicesinc.sweetblue">ServerReconnectFilter</a>&nbsp;connectionFailListener)</code></th>
 <td class="colLast">
@@ -238,7 +238,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerReconnectFilter)">connect</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerReconnectFilter)">connect</a></span>&#8203;(java.lang.String&nbsp;macAddress,
        <a href="ServerReconnectFilter.html" title="interface in com.idevicesinc.sweetblue">ServerReconnectFilter</a>&nbsp;connectionFailListener)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener,com.idevicesinc.sweetblue.ServerReconnectFilter)"><code>connect(String, ServerConnectListener, ServerReconnectFilter)</code></a> with only one listener.</div>
@@ -253,7 +253,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disconnect(java.lang.String)">disconnect</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disconnect(java.lang.String)">disconnect</a></span>&#8203;(java.lang.String&nbsp;macAddress)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
@@ -265,7 +265,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;object_nullable)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;object_nullable)</code></th>
 <td class="colLast">
 <div class="block">Returns <a href="#equals(com.idevicesinc.sweetblue.BleServer)"><code>equals(BleServer)</code></a> if object is an instance of <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a>.</div>
 </td>
@@ -292,21 +292,21 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Iterator&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients()">getClients</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns all the clients connected or connecting (or previously so) to this server.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Iterator&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.BleServerState)">getClients</a></span>&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</code></th>
 <td class="colLast">
 <div class="block">Returns all the clients connected or connecting (or previously so) to this server.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Iterator&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.BleServerState...)">getClients</a></span>&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</code></th>
 <td class="colLast">
 <div class="block">Returns all the clients connected or connecting (or previously so) to this server.</div>
@@ -314,7 +314,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getClients</a></span>&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Breakable)">getClients</a></span>&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;java.lang.String&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void)"><code>getClients(ForEach_Void)</code></a>
  if you need to break out of the iteration at any point.</div>
@@ -322,7 +322,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Breakable,com.idevicesinc.sweetblue.BleServerState)">getClients</a></span>&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Breakable,com.idevicesinc.sweetblue.BleServerState)">getClients</a></span>&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;java.lang.String&gt;&nbsp;forEach,
           <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void,com.idevicesinc.sweetblue.BleServerState)"><code>getClients(ForEach_Void, BleServerState)</code></a>
@@ -331,7 +331,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Breakable,com.idevicesinc.sweetblue.BleServerState...)">getClients</a></span>&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Breakable,com.idevicesinc.sweetblue.BleServerState...)">getClients</a></span>&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;java.lang.String&gt;&nbsp;forEach,
           <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Breakable)"><code>getClients(ForEach_Breakable)</code></a> but will only return clients
@@ -340,7 +340,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void)">getClients</a></span>&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void)">getClients</a></span>&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;java.lang.String&gt;&nbsp;forEach)</code></th>
 <td class="colLast">
 <div class="block">Offers a more "functional" means of iterating through the internal list of clients instead of
  using <a href="#getClients()"><code>getClients()</code></a> or <a href="#getClients_List()"><code>getClients_List()</code></a>.</div>
@@ -348,7 +348,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void,com.idevicesinc.sweetblue.BleServerState)">getClients</a></span>&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void,com.idevicesinc.sweetblue.BleServerState)">getClients</a></span>&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;java.lang.String&gt;&nbsp;forEach,
           <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void)"><code>getClients(ForEach_Void)</code></a> but will only return clients
@@ -357,7 +357,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void,com.idevicesinc.sweetblue.BleServerState...)">getClients</a></span>&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void,com.idevicesinc.sweetblue.BleServerState...)">getClients</a></span>&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;java.lang.String&gt;&nbsp;forEach,
           <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</code></th>
 <td class="colLast">
 <div class="block">Same as <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void)"><code>getClients(ForEach_Void)</code></a> but will only return clients
@@ -365,24 +365,24 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </td>
 </tr>
 <tr id="i22" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients_List()">getClients_List</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Overload of <a href="#getClients()"><code>getClients()</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
+<div class="block">Overload of <a href="#getClients()"><code>getClients()</code></a> that returns a <code>List</code> for you.</div>
 </td>
 </tr>
 <tr id="i23" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients_List(com.idevicesinc.sweetblue.BleServerState)">getClients_List</a></span>&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</code></th>
 <td class="colLast">
-<div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.BleServerState)"><code>getClients(BleServerState)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
+<div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.BleServerState)"><code>getClients(BleServerState)</code></a> that returns a <code>List</code> for you.</div>
 </td>
 </tr>
 <tr id="i24" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClients_List(com.idevicesinc.sweetblue.BleServerState...)">getClients_List</a></span>&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</code></th>
 <td class="colLast">
-<div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.BleServerState...)"><code>getClients(BleServerState[])</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
+<div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.BleServerState...)"><code>getClients(BleServerState[])</code></a> that returns a <code>List</code> for you.</div>
 </td>
 </tr>
 <tr id="i25" class="rowColor">
@@ -398,21 +398,21 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </td>
 </tr>
 <tr id="i27" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMacAddress()">getMacAddress</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns the local mac address provided by <a href="https://d.android.com/reference/android/bluetooth/BluetoothAdapter.html?is-external=true#getAddress()" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothAdapter.getAddress()</code></a>.</div>
+<div class="block">Returns the local mac address provided by <code>BluetoothAdapter.getAddress()</code>.</div>
 </td>
 </tr>
 <tr id="i28" class="altColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the name this <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a> is using (and will be advertised as, if applicable).</div>
 </td>
 </tr>
 <tr id="i29" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/android/bluetooth/BluetoothGattServer.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothGattServer</a></code></td>
+<td class="colFirst"><code>android.bluetooth.BluetoothGattServer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNative()">getNative</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Provides just-in-case lower-level access to the native server instance.</div>
@@ -427,7 +427,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i31" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStateMask(java.lang.String)">getStateMask</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStateMask(java.lang.String)">getStateMask</a></span>&#8203;(java.lang.String&nbsp;macAddress)</code></th>
 <td class="colLast">
 <div class="block">Returns the bitwise state mask representation of <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue"><code>BleServerState</code></a> for the given client mac address.</div>
 </td>
@@ -455,7 +455,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i35" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#is(java.lang.String,com.idevicesinc.sweetblue.BleServerState)">is</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#is(java.lang.String,com.idevicesinc.sweetblue.BleServerState)">is</a></span>&#8203;(java.lang.String&nbsp;macAddress,
   <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</code></th>
 <td class="colLast">
 <div class="block">Returns true if the given client is in the state provided.</div>
@@ -470,9 +470,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i37" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAdvertising(java.util.UUID)">isAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAdvertising(java.util.UUID)">isAdvertising</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
-<div class="block">Checks to see if the device is currently advertising the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.</div>
+<div class="block">Checks to see if the device is currently advertising the given <code>UUID</code>.</div>
 </td>
 </tr>
 <tr id="i38" class="altColor">
@@ -499,7 +499,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i41" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAll(java.lang.String,int)">isAll</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAll(java.lang.String,int)">isAll</a></span>&#8203;(java.lang.String&nbsp;macAddress,
      int&nbsp;mask_BleServerState)</code></th>
 <td class="colLast">
 <div class="block">Returns <code>true</code> if there is complete bitwise overlap between the provided value and <a href="#getStateMask(java.lang.String)"><code>getStateMask(String)</code></a>.</div>
@@ -507,7 +507,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i42" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAny(java.lang.String,int)">isAny</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAny(java.lang.String,int)">isAny</a></span>&#8203;(java.lang.String&nbsp;macAddress,
      int&nbsp;mask_BleServerState)</code></th>
 <td class="colLast">
 <div class="block">Returns <code>true</code> if there is any bitwise overlap between the provided value and <a href="#getStateMask(java.lang.String)"><code>getStateMask(String)</code></a>.</div>
@@ -515,7 +515,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i43" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAny(java.lang.String,com.idevicesinc.sweetblue.BleServerState...)">isAny</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAny(java.lang.String,com.idevicesinc.sweetblue.BleServerState...)">isAny</a></span>&#8203;(java.lang.String&nbsp;macAddress,
      <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</code></th>
 <td class="colLast">
 <div class="block">Returns true if the given client is in any of the states provided.</div>
@@ -537,15 +537,15 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i46" class="altColor">
 <td class="colFirst"><code><a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeService(java.util.UUID)">removeService</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeService(java.util.UUID)">removeService</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
 <div class="block">Remove any service previously provided to <a href="#addService(com.idevicesinc.sweetblue.BleService,com.idevicesinc.sweetblue.AddServiceListener)"><code>addService(BleService, AddServiceListener)</code></a> or overloads.</div>
 </td>
 </tr>
 <tr id="i47" class="rowColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,byte%5B%5D)">sendIndication</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,byte%5B%5D)">sendIndication</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+              java.util.UUID&nbsp;charUuid,
               byte[]&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -553,8 +553,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i48" class="altColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.OutgoingListener)">sendIndication</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.OutgoingListener)">sendIndication</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+              java.util.UUID&nbsp;charUuid,
               byte[]&nbsp;data,
               <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -563,8 +563,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i49" class="rowColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData)">sendIndication</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData)">sendIndication</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+              java.util.UUID&nbsp;charUuid,
               <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -572,8 +572,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i50" class="altColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)">sendIndication</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)">sendIndication</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+              java.util.UUID&nbsp;charUuid,
               <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData,
               <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -582,9 +582,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i51" class="rowColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,byte%5B%5D)">sendIndication</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,byte%5B%5D)">sendIndication</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+              java.util.UUID&nbsp;serviceUuid,
+              java.util.UUID&nbsp;charUuid,
               byte[]&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -592,9 +592,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i52" class="altColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.OutgoingListener)">sendIndication</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.OutgoingListener)">sendIndication</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+              java.util.UUID&nbsp;serviceUuid,
+              java.util.UUID&nbsp;charUuid,
               byte[]&nbsp;data,
               <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -603,9 +603,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i53" class="rowColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData)">sendIndication</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData)">sendIndication</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+              java.util.UUID&nbsp;serviceUuid,
+              java.util.UUID&nbsp;charUuid,
               <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -613,9 +613,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i54" class="altColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)">sendIndication</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-              <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)">sendIndication</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+              java.util.UUID&nbsp;serviceUuid,
+              java.util.UUID&nbsp;charUuid,
               <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData,
               <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -624,8 +624,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i55" class="rowColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,byte%5B%5D)">sendNotification</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,byte%5B%5D)">sendNotification</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+                java.util.UUID&nbsp;charUuid,
                 byte[]&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -633,8 +633,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i56" class="altColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.OutgoingListener)">sendNotification</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.OutgoingListener)">sendNotification</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+                java.util.UUID&nbsp;charUuid,
                 byte[]&nbsp;data,
                 <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -643,8 +643,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i57" class="rowColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData)">sendNotification</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData)">sendNotification</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+                java.util.UUID&nbsp;charUuid,
                 <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -652,8 +652,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i58" class="altColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)">sendNotification</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)">sendNotification</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+                java.util.UUID&nbsp;charUuid,
                 <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData,
                 <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -662,9 +662,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i59" class="rowColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,byte%5B%5D)">sendNotification</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,byte%5B%5D)">sendNotification</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+                java.util.UUID&nbsp;serviceUuid,
+                java.util.UUID&nbsp;charUuid,
                 byte[]&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -672,9 +672,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i60" class="altColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.OutgoingListener)">sendNotification</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.OutgoingListener)">sendNotification</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+                java.util.UUID&nbsp;serviceUuid,
+                java.util.UUID&nbsp;charUuid,
                 byte[]&nbsp;data,
                 <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -683,9 +683,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i61" class="rowColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData)">sendNotification</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData)">sendNotification</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+                java.util.UUID&nbsp;serviceUuid,
+                java.util.UUID&nbsp;charUuid,
                 <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -693,13 +693,13 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i62" class="altColor">
 <td class="colFirst"><code><a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)">sendNotification</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)">sendNotification</a></span>&#8203;(java.lang.String&nbsp;macAddress,
+                java.util.UUID&nbsp;serviceUuid,
+                java.util.UUID&nbsp;charUuid,
                 <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData,
                 <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
-<div class="block">Use this method to send a notification to the client device with the given mac address to the given characteristic <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.</div>
+<div class="block">Use this method to send a notification to the client device with the given mac address to the given characteristic <code>UUID</code>.</div>
 </td>
 </tr>
 <tr id="i63" class="rowColor">
@@ -754,7 +754,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i70" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setName(java.lang.String)">setName</a></span>&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setName(java.lang.String)">setName</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Set the name you wish this <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a> to be known as.</div>
 </td>
@@ -785,21 +785,21 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i74" class="altColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID)">startAdvertising</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
 </td>
 </tr>
 <tr id="i75" class="rowColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID%5B%5D)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID%5B%5D)">startAdvertising</a></span>&#8203;(java.util.UUID[]&nbsp;serviceUuids)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
 </td>
 </tr>
 <tr id="i76" class="altColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID%5B%5D,com.idevicesinc.sweetblue.AdvertisingListener)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID%5B%5D,com.idevicesinc.sweetblue.AdvertisingListener)">startAdvertising</a></span>&#8203;(java.util.UUID[]&nbsp;serviceUuids,
                 <a href="AdvertisingListener.html" title="interface in com.idevicesinc.sweetblue">AdvertisingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord,com.idevicesinc.sweetblue.AdvertisingListener)"><code>startAdvertising(BleScanRecord, AdvertisingListener)</code></a>.</div>
@@ -807,7 +807,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i77" class="rowColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID%5B%5D,com.idevicesinc.sweetblue.BleAdvertisingSettings,com.idevicesinc.sweetblue.AdvertisingListener)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID%5B%5D,com.idevicesinc.sweetblue.BleAdvertisingSettings,com.idevicesinc.sweetblue.AdvertisingListener)">startAdvertising</a></span>&#8203;(java.util.UUID[]&nbsp;serviceUuids,
                 <a href="BleAdvertisingSettings.html" title="class in com.idevicesinc.sweetblue">BleAdvertisingSettings</a>&nbsp;settings,
                 <a href="AdvertisingListener.html" title="interface in com.idevicesinc.sweetblue">AdvertisingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -816,7 +816,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i78" class="altColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID%5B%5D,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID%5B%5D,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">startAdvertising</a></span>&#8203;(java.util.UUID[]&nbsp;serviceUuids,
                 <a href="utils/BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
@@ -824,7 +824,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i79" class="rowColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,byte%5B%5D)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,byte%5B%5D)">startAdvertising</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                 byte[]&nbsp;serviceData)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
@@ -832,7 +832,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i80" class="altColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,byte%5B%5D,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">startAdvertising</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                 byte[]&nbsp;serviceData,
                 <a href="utils/BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</code></th>
 <td class="colLast">
@@ -841,7 +841,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i81" class="rowColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,com.idevicesinc.sweetblue.AdvertisingListener)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,com.idevicesinc.sweetblue.AdvertisingListener)">startAdvertising</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                 <a href="AdvertisingListener.html" title="interface in com.idevicesinc.sweetblue">AdvertisingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord,com.idevicesinc.sweetblue.AdvertisingListener)"><code>startAdvertising(BleScanRecord, AdvertisingListener)</code></a>.</div>
@@ -849,7 +849,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i82" class="altColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,com.idevicesinc.sweetblue.BleAdvertisingSettings,com.idevicesinc.sweetblue.AdvertisingListener)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,com.idevicesinc.sweetblue.BleAdvertisingSettings,com.idevicesinc.sweetblue.AdvertisingListener)">startAdvertising</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                 <a href="BleAdvertisingSettings.html" title="class in com.idevicesinc.sweetblue">BleAdvertisingSettings</a>&nbsp;settings,
                 <a href="AdvertisingListener.html" title="interface in com.idevicesinc.sweetblue">AdvertisingListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
@@ -858,7 +858,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </tr>
 <tr id="i83" class="rowColor">
 <td class="colFirst"><code><a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">startAdvertising</a></span>&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAdvertising(java.util.UUID,com.idevicesinc.sweetblue.utils.BleScanRecord.Option...)">startAdvertising</a></span>&#8203;(java.util.UUID&nbsp;serviceUuid,
                 <a href="utils/BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</code></th>
 <td class="colLast">
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
@@ -872,7 +872,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 </td>
 </tr>
 <tr id="i85" class="rowColor">
-<td class="colFirst"><code><a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Pretty-prints the list of connecting or connected clients.</div>
@@ -890,8 +890,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -1030,8 +1030,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendIndication</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(java.lang.String&nbsp;macAddress,
+                                                           java.util.UUID&nbsp;charUuid,
                                                            byte[]&nbsp;data)</pre>
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
 </li>
@@ -1042,8 +1042,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendIndication</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(java.lang.String&nbsp;macAddress,
+                                                           java.util.UUID&nbsp;charUuid,
                                                            byte[]&nbsp;data,
                                                            <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -1055,9 +1055,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendIndication</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(java.lang.String&nbsp;macAddress,
+                                                           java.util.UUID&nbsp;serviceUuid,
+                                                           java.util.UUID&nbsp;charUuid,
                                                            byte[]&nbsp;data)</pre>
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
 </li>
@@ -1068,9 +1068,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendIndication</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(java.lang.String&nbsp;macAddress,
+                                                           java.util.UUID&nbsp;serviceUuid,
+                                                           java.util.UUID&nbsp;charUuid,
                                                            byte[]&nbsp;data,
                                                            <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -1082,8 +1082,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendIndication</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(java.lang.String&nbsp;macAddress,
+                                                           java.util.UUID&nbsp;charUuid,
                                                            <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData)</pre>
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
 </li>
@@ -1094,8 +1094,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendIndication</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(java.lang.String&nbsp;macAddress,
+                                                           java.util.UUID&nbsp;charUuid,
                                                            <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData,
                                                            <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -1107,9 +1107,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendIndication</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(java.lang.String&nbsp;macAddress,
+                                                           java.util.UUID&nbsp;serviceUuid,
+                                                           java.util.UUID&nbsp;charUuid,
                                                            <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData)</pre>
 <div class="block">Overload of <a href="#sendIndication(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendIndication(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
 </li>
@@ -1120,9 +1120,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendIndication</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                           <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendIndication&#8203;(java.lang.String&nbsp;macAddress,
+                                                           java.util.UUID&nbsp;serviceUuid,
+                                                           java.util.UUID&nbsp;charUuid,
                                                            <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData,
                                                            <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</pre>
 <div class="block">Same as <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a> but sends an indication instead.</div>
@@ -1134,8 +1134,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendNotification</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(java.lang.String&nbsp;macAddress,
+                                                             java.util.UUID&nbsp;charUuid,
                                                              byte[]&nbsp;data)</pre>
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
 </li>
@@ -1146,8 +1146,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendNotification</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(java.lang.String&nbsp;macAddress,
+                                                             java.util.UUID&nbsp;charUuid,
                                                              byte[]&nbsp;data,
                                                              <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -1159,9 +1159,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendNotification</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(java.lang.String&nbsp;macAddress,
+                                                             java.util.UUID&nbsp;serviceUuid,
+                                                             java.util.UUID&nbsp;charUuid,
                                                              byte[]&nbsp;data)</pre>
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
 </li>
@@ -1172,9 +1172,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendNotification</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(java.lang.String&nbsp;macAddress,
+                                                             java.util.UUID&nbsp;serviceUuid,
+                                                             java.util.UUID&nbsp;charUuid,
                                                              byte[]&nbsp;data,
                                                              <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -1186,8 +1186,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendNotification</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(java.lang.String&nbsp;macAddress,
+                                                             java.util.UUID&nbsp;charUuid,
                                                              <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData)</pre>
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
 </li>
@@ -1198,8 +1198,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendNotification</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(java.lang.String&nbsp;macAddress,
+                                                             java.util.UUID&nbsp;charUuid,
                                                              <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData,
                                                              <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
@@ -1211,9 +1211,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendNotification</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(java.lang.String&nbsp;macAddress,
+                                                             java.util.UUID&nbsp;serviceUuid,
+                                                             java.util.UUID&nbsp;charUuid,
                                                              <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData)</pre>
 <div class="block">Overload of <a href="#sendNotification(java.lang.String,java.util.UUID,java.util.UUID,com.idevicesinc.sweetblue.utils.FutureData,com.idevicesinc.sweetblue.OutgoingListener)"><code>sendNotification(String, UUID, UUID, FutureData, OutgoingListener)</code></a>.</div>
 </li>
@@ -1224,12 +1224,12 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>sendNotification</h4>
-<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
-                                                             <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;charUuid,
+<pre class="methodSignature">public final&nbsp;<a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue">OutgoingListener.OutgoingEvent</a>&nbsp;sendNotification&#8203;(java.lang.String&nbsp;macAddress,
+                                                             java.util.UUID&nbsp;serviceUuid,
+                                                             java.util.UUID&nbsp;charUuid,
                                                              <a href="utils/FutureData.html" title="interface in com.idevicesinc.sweetblue.utils">FutureData</a>&nbsp;futureData,
                                                              <a href="OutgoingListener.html" title="interface in com.idevicesinc.sweetblue">OutgoingListener</a>&nbsp;listener)</pre>
-<div class="block">Use this method to send a notification to the client device with the given mac address to the given characteristic <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.
+<div class="block">Use this method to send a notification to the client device with the given mac address to the given characteristic <code>UUID</code>.
  If there is any kind of "early-out" issue then this method will return a <a href="OutgoingListener.OutgoingEvent.html" title="class in com.idevicesinc.sweetblue"><code>OutgoingListener.OutgoingEvent</code></a> in addition
  to passing it through the listener. Otherwise this method will return an instance with <a href="OutgoingListener.OutgoingEvent.html#isNull()"><code>OutgoingListener.OutgoingEvent.isNull()</code></a> being
  <code>true</code>.</div>
@@ -1282,8 +1282,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>isAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;isAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
-<div class="block">Checks to see if the device is currently advertising the given <a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>UUID</code></a>.</div>
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;isAdvertising&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
+<div class="block">Checks to see if the device is currently advertising the given <code>UUID</code>.</div>
 </li>
 </ul>
 <a id="startAdvertising(java.util.UUID)">
@@ -1292,7 +1292,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
 </li>
 </ul>
@@ -1302,7 +1302,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID&nbsp;serviceUuid,
                                                                    <a href="AdvertisingListener.html" title="interface in com.idevicesinc.sweetblue">AdvertisingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord,com.idevicesinc.sweetblue.AdvertisingListener)"><code>startAdvertising(BleScanRecord, AdvertisingListener)</code></a>.</div>
 </li>
@@ -1313,7 +1313,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID[]&nbsp;serviceUuids)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
 </li>
 </ul>
@@ -1323,7 +1323,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids,
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID[]&nbsp;serviceUuids,
                                                                    <a href="AdvertisingListener.html" title="interface in com.idevicesinc.sweetblue">AdvertisingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord,com.idevicesinc.sweetblue.AdvertisingListener)"><code>startAdvertising(BleScanRecord, AdvertisingListener)</code></a>.</div>
 </li>
@@ -1334,7 +1334,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID&nbsp;serviceUuid,
                                                                    byte[]&nbsp;serviceData)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
 </li>
@@ -1345,7 +1345,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID&nbsp;serviceUuid,
                                                                    byte[]&nbsp;serviceData,
                                                                    <a href="utils/BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
@@ -1357,7 +1357,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID&nbsp;serviceUuid,
                                                                    <a href="utils/BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
 </li>
@@ -1368,7 +1368,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids,
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID[]&nbsp;serviceUuids,
                                                                    <a href="utils/BleScanRecord.Option.html" title="enum in com.idevicesinc.sweetblue.utils">BleScanRecord.Option</a>...&nbsp;options)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord)"><code>startAdvertising(BleScanRecord)</code></a>.</div>
 </li>
@@ -1379,7 +1379,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid,
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID&nbsp;serviceUuid,
                                                                    <a href="BleAdvertisingSettings.html" title="class in com.idevicesinc.sweetblue">BleAdvertisingSettings</a>&nbsp;settings,
                                                                    <a href="AdvertisingListener.html" title="interface in com.idevicesinc.sweetblue">AdvertisingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord,com.idevicesinc.sweetblue.BleAdvertisingSettings,com.idevicesinc.sweetblue.AdvertisingListener)"><code>startAdvertising(BleScanRecord, BleAdvertisingSettings, AdvertisingListener)</code></a>.</div>
@@ -1391,7 +1391,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>startAdvertising</h4>
-<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>[]&nbsp;serviceUuids,
+<pre class="methodSignature">public final&nbsp;<a href="AdvertisingListener.AdvertisingEvent.html" title="class in com.idevicesinc.sweetblue">AdvertisingListener.AdvertisingEvent</a>&nbsp;startAdvertising&#8203;(java.util.UUID[]&nbsp;serviceUuids,
                                                                    <a href="BleAdvertisingSettings.html" title="class in com.idevicesinc.sweetblue">BleAdvertisingSettings</a>&nbsp;settings,
                                                                    <a href="AdvertisingListener.html" title="interface in com.idevicesinc.sweetblue">AdvertisingListener</a>&nbsp;listener)</pre>
 <div class="block">Overload of <a href="#startAdvertising(com.idevicesinc.sweetblue.utils.BleScanRecord,com.idevicesinc.sweetblue.BleAdvertisingSettings,com.idevicesinc.sweetblue.AdvertisingListener)"><code>startAdvertising(BleScanRecord, BleAdvertisingSettings, AdvertisingListener)</code></a>.</div>
@@ -1452,7 +1452,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;getName()</pre>
+<pre class="methodSignature">public final&nbsp;java.lang.String&nbsp;getName()</pre>
 <div class="block">Returns the name this <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a> is using (and will be advertised as, if applicable).</div>
 </li>
 </ul>
@@ -1462,9 +1462,9 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>setName</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;setName&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</pre>
+<pre class="methodSignature">public final&nbsp;void&nbsp;setName&#8203;(java.lang.String&nbsp;name)</pre>
 <div class="block">Set the name you wish this <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a> to be known as. This will affect how other devices see this server, and sets the name
- on the lower level <a href="https://d.android.com/reference/android/bluetooth/BluetoothAdapter.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothAdapter</code></a>. If you DO change this, please be aware this will affect everything, including apps outside
+ on the lower level <code>BluetoothAdapter</code>. If you DO change this, please be aware this will affect everything, including apps outside
  of your own. It's probably best NOT to use this, but it's here for flexibility.</div>
 </li>
 </ul>
@@ -1474,7 +1474,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getNative</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/android/bluetooth/BluetoothGattServer.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink">BluetoothGattServer</a>&nbsp;getNative()</pre>
+<pre class="methodSignature">public final&nbsp;android.bluetooth.BluetoothGattServer&nbsp;getNative()</pre>
 <div class="block">Provides just-in-case lower-level access to the native server instance.
  See similar warning for <a href="BleDevice.html#getNative()"><code>BleDevice.getNative()</code></a>.</div>
 </li>
@@ -1496,7 +1496,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getStateMask</h4>
-<pre class="methodSignature">public final&nbsp;int&nbsp;getStateMask&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</pre>
+<pre class="methodSignature">public final&nbsp;int&nbsp;getStateMask&#8203;(java.lang.String&nbsp;macAddress)</pre>
 <div class="block">Returns the bitwise state mask representation of <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue"><code>BleServerState</code></a> for the given client mac address.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -1510,7 +1510,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>isAny</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;isAny&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;isAny&#8203;(java.lang.String&nbsp;macAddress,
                            int&nbsp;mask_BleServerState)</pre>
 <div class="block">Returns <code>true</code> if there is any bitwise overlap between the provided value and <a href="#getStateMask(java.lang.String)"><code>getStateMask(String)</code></a>.</div>
 <dl>
@@ -1525,7 +1525,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>isAll</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;isAll&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;isAll&#8203;(java.lang.String&nbsp;macAddress,
                            int&nbsp;mask_BleServerState)</pre>
 <div class="block">Returns <code>true</code> if there is complete bitwise overlap between the provided value and <a href="#getStateMask(java.lang.String)"><code>getStateMask(String)</code></a>.</div>
 <dl>
@@ -1540,7 +1540,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>is</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;is&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;is&#8203;(java.lang.String&nbsp;macAddress,
                         <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</pre>
 <div class="block">Returns true if the given client is in the state provided.</div>
 </li>
@@ -1551,7 +1551,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>isAny</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;isAny&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;isAny&#8203;(java.lang.String&nbsp;macAddress,
                            <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</pre>
 <div class="block">Returns true if the given client is in any of the states provided.</div>
 </li>
@@ -1562,7 +1562,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>connect</h4>
-<pre class="methodSignature">public final&nbsp;<a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a>&nbsp;connect&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a>&nbsp;connect&#8203;(java.lang.String&nbsp;macAddress)</pre>
 <div class="block">Overload of <a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener,com.idevicesinc.sweetblue.ServerReconnectFilter)"><code>connect(String, ServerConnectListener, ServerReconnectFilter)</code></a> with no listeners.</div>
 </li>
 </ul>
@@ -1572,7 +1572,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>connect</h4>
-<pre class="methodSignature">public final&nbsp;<a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a>&nbsp;connect&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<pre class="methodSignature">public final&nbsp;<a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a>&nbsp;connect&#8203;(java.lang.String&nbsp;macAddress,
                                                             <a href="ServerConnectListener.html" title="interface in com.idevicesinc.sweetblue">ServerConnectListener</a>&nbsp;connectListener)</pre>
 <div class="block">Overload of <a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener,com.idevicesinc.sweetblue.ServerReconnectFilter)"><code>connect(String, ServerConnectListener, ServerReconnectFilter)</code></a> with only one listener.</div>
 </li>
@@ -1583,7 +1583,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>connect</h4>
-<pre class="methodSignature">public final&nbsp;<a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a>&nbsp;connect&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<pre class="methodSignature">public final&nbsp;<a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a>&nbsp;connect&#8203;(java.lang.String&nbsp;macAddress,
                                                             <a href="ServerReconnectFilter.html" title="interface in com.idevicesinc.sweetblue">ServerReconnectFilter</a>&nbsp;connectionFailListener)</pre>
 <div class="block">Overload of <a href="#connect(java.lang.String,com.idevicesinc.sweetblue.ServerConnectListener,com.idevicesinc.sweetblue.ServerReconnectFilter)"><code>connect(String, ServerConnectListener, ServerReconnectFilter)</code></a> with only one listener.</div>
 </li>
@@ -1594,7 +1594,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>connect</h4>
-<pre class="methodSignature">public final&nbsp;<a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a>&nbsp;connect&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress,
+<pre class="methodSignature">public final&nbsp;<a href="ServerReconnectFilter.ConnectFailEvent.html" title="class in com.idevicesinc.sweetblue">ServerReconnectFilter.ConnectFailEvent</a>&nbsp;connect&#8203;(java.lang.String&nbsp;macAddress,
                                                             <a href="ServerConnectListener.html" title="interface in com.idevicesinc.sweetblue">ServerConnectListener</a>&nbsp;connectListener,
                                                             <a href="ServerReconnectFilter.html" title="interface in com.idevicesinc.sweetblue">ServerReconnectFilter</a>&nbsp;connectionFailListener)</pre>
 <div class="block">Connect to the given client mac address and provided listeners that are shorthand for calling <a href="#setListener_State(com.idevicesinc.sweetblue.ServerStateListener)"><code>setListener_State(ServerStateListener)</code></a>
@@ -1607,7 +1607,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>disconnect</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;disconnect&#8203;(<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;macAddress)</pre>
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;disconnect&#8203;(java.lang.String&nbsp;macAddress)</pre>
 </li>
 </ul>
 <a id="disconnect()">
@@ -1648,11 +1648,11 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>equals</h4>
-<pre class="methodSignature">public final&nbsp;boolean&nbsp;equals&#8203;(<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;object_nullable)</pre>
+<pre class="methodSignature">public final&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;object_nullable)</pre>
 <div class="block">Returns <a href="#equals(com.idevicesinc.sweetblue.BleServer)"><code>equals(BleServer)</code></a> if object is an instance of <a href="BleServer.html" title="class in com.idevicesinc.sweetblue"><code>BleServer</code></a>. Otherwise calls super.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+<dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="#equals(com.idevicesinc.sweetblue.BleServer)"><code>equals(BleServer)</code></a></dd>
 </dl>
@@ -1685,7 +1685,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>removeService</h4>
-<pre class="methodSignature">public final&nbsp;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&nbsp;removeService&#8203;(<a href="https://d.android.com/reference/java/util/UUID.html?is-external=true" title="class or interface in java.util" class="externalLink">UUID</a>&nbsp;serviceUuid)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="BleService.html" title="class in com.idevicesinc.sweetblue">BleService</a>&nbsp;removeService&#8203;(java.util.UUID&nbsp;serviceUuid)</pre>
 <div class="block">Remove any service previously provided to <a href="#addService(com.idevicesinc.sweetblue.BleService,com.idevicesinc.sweetblue.AddServiceListener)"><code>addService(BleService, AddServiceListener)</code></a> or overloads. This can be safely called
  even if the call to <a href="#addService(com.idevicesinc.sweetblue.BleService,com.idevicesinc.sweetblue.AddServiceListener)"><code>addService(BleService, AddServiceListener)</code></a> hasn't resulted in a callback to the provided listener yet, in which
  case it will be called with <a href="AddServiceListener.Status.html#CANCELLED_FROM_REMOVAL"><code>AddServiceListener.Status.CANCELLED_FROM_REMOVAL</code></a>.</div>
@@ -1707,7 +1707,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach)</pre>
+<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;java.lang.String&gt;&nbsp;forEach)</pre>
 <div class="block">Offers a more "functional" means of iterating through the internal list of clients instead of
  using <a href="#getClients()"><code>getClients()</code></a> or <a href="#getClients_List()"><code>getClients_List()</code></a>.</div>
 </li>
@@ -1718,7 +1718,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach,
+<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;java.lang.String&gt;&nbsp;forEach,
                              <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</pre>
 <div class="block">Same as <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void)"><code>getClients(ForEach_Void)</code></a> but will only return clients
  in the given state provided.</div>
@@ -1730,7 +1730,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach,
+<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Void.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Void</a>&lt;java.lang.String&gt;&nbsp;forEach,
                              <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</pre>
 <div class="block">Same as <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void)"><code>getClients(ForEach_Void)</code></a> but will only return clients
  in any of the given states provided.</div>
@@ -1742,7 +1742,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach)</pre>
+<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;java.lang.String&gt;&nbsp;forEach)</pre>
 <div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void)"><code>getClients(ForEach_Void)</code></a>
  if you need to break out of the iteration at any point.</div>
 </li>
@@ -1753,7 +1753,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach,
+<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;java.lang.String&gt;&nbsp;forEach,
                              <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</pre>
 <div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Void,com.idevicesinc.sweetblue.BleServerState)"><code>getClients(ForEach_Void, BleServerState)</code></a>
  if you need to break out of the iteration at any point.</div>
@@ -1765,7 +1765,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;forEach,
+<pre class="methodSignature">public final&nbsp;void&nbsp;getClients&#8203;(<a href="utils/ForEach_Breakable.html" title="interface in com.idevicesinc.sweetblue.utils">ForEach_Breakable</a>&lt;java.lang.String&gt;&nbsp;forEach,
                              <a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</pre>
 <div class="block">Same as <a href="#getClients(com.idevicesinc.sweetblue.utils.ForEach_Breakable)"><code>getClients(ForEach_Breakable)</code></a> but will only return clients
  in any of the given states provided.</div>
@@ -1777,7 +1777,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;getClients()</pre>
+<pre class="methodSignature">public final&nbsp;java.util.Iterator&lt;java.lang.String&gt;&nbsp;getClients()</pre>
 <div class="block">Returns all the clients connected or connecting (or previously so) to this server.</div>
 </li>
 </ul>
@@ -1787,7 +1787,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;getClients&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</pre>
+<pre class="methodSignature">public final&nbsp;java.util.Iterator&lt;java.lang.String&gt;&nbsp;getClients&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</pre>
 <div class="block">Returns all the clients connected or connecting (or previously so) to this server.</div>
 </li>
 </ul>
@@ -1797,7 +1797,7 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;getClients&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</pre>
+<pre class="methodSignature">public final&nbsp;java.util.Iterator&lt;java.lang.String&gt;&nbsp;getClients&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</pre>
 <div class="block">Returns all the clients connected or connecting (or previously so) to this server.</div>
 </li>
 </ul>
@@ -1807,8 +1807,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients_List</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;getClients_List()</pre>
-<div class="block">Overload of <a href="#getClients()"><code>getClients()</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
+<pre class="methodSignature">public final&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;getClients_List()</pre>
+<div class="block">Overload of <a href="#getClients()"><code>getClients()</code></a> that returns a <code>List</code> for you.</div>
 </li>
 </ul>
 <a id="getClients_List(com.idevicesinc.sweetblue.BleServerState)">
@@ -1817,8 +1817,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients_List</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;getClients_List&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</pre>
-<div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.BleServerState)"><code>getClients(BleServerState)</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
+<pre class="methodSignature">public final&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;getClients_List&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>&nbsp;state)</pre>
+<div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.BleServerState)"><code>getClients(BleServerState)</code></a> that returns a <code>List</code> for you.</div>
 </li>
 </ul>
 <a id="getClients_List(com.idevicesinc.sweetblue.BleServerState...)">
@@ -1827,8 +1827,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>getClients_List</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;getClients_List&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</pre>
-<div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.BleServerState...)"><code>getClients(BleServerState[])</code></a> that returns a <a href="https://d.android.com/reference/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>List</code></a> for you.</div>
+<pre class="methodSignature">public final&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;getClients_List&#8203;(<a href="BleServerState.html" title="enum in com.idevicesinc.sweetblue">BleServerState</a>...&nbsp;states)</pre>
+<div class="block">Overload of <a href="#getClients(com.idevicesinc.sweetblue.BleServerState...)"><code>getClients(BleServerState[])</code></a> that returns a <code>List</code> for you.</div>
 </li>
 </ul>
 <a id="getClientCount()">
@@ -1897,11 +1897,11 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;toString()</pre>
+<pre class="methodSignature">public final&nbsp;java.lang.String&nbsp;toString()</pre>
 <div class="block">Pretty-prints the list of connecting or connected clients.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 </dl>
 </li>
 </ul>
@@ -1911,8 +1911,8 @@ extends <a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNod
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getMacAddress</h4>
-<pre class="methodSignature">public final&nbsp;<a href="https://d.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;getMacAddress()</pre>
-<div class="block">Returns the local mac address provided by <a href="https://d.android.com/reference/android/bluetooth/BluetoothAdapter.html?is-external=true#getAddress()" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothAdapter.getAddress()</code></a>.</div>
+<pre class="methodSignature">public final&nbsp;java.lang.String&nbsp;getMacAddress()</pre>
+<div class="block">Returns the local mac address provided by <code>BluetoothAdapter.getAddress()</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="BleNode.html#getMacAddress()">getMacAddress</a></code>&nbsp;in class&nbsp;<code><a href="BleNode.html" title="class in com.idevicesinc.sweetblue">BleNode</a></code></dd>

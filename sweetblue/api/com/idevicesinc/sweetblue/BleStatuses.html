@@ -113,7 +113,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>com.idevicesinc.sweetblue.BleStatuses</li>
@@ -125,13 +125,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <hr>
 <pre>public final class <span class="typeNameLabel">BleStatuses</span>
-extends <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+extends java.lang.Object</pre>
 <div class="block">A collection of various BLE status codes that for whatever reason are not exposed through Android's 
  public BLE layer - this can be because they are <code>public</code> but use the @hide annotation,
  or they are not <code>public</code> in the first place, or they can only be found by Googling
  for native C/C++ library code.
  <br><br>
- See the static members of <a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothDevice</code></a> and <a href="https://d.android.com/reference/android/bluetooth/BluetoothGatt.html?is-external=true" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothGatt</code></a> for more information.
+ See the static members of <code>BluetoothDevice</code> and <code>BluetoothGatt</code> for more information.
  <br><br>
  NOTE: Most <code>GATT_</code> members here are copy/pasted from
  https://android.googlesource.com/platform/external/bluetooth/bluedroid/+/android-4.3_r1.1/stack/include/gatt_api.h</div>
@@ -234,7 +234,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#BOND_FAIL_REASON_NOT_AVAILABLE">BOND_FAIL_REASON_NOT_AVAILABLE</a></span></code></th>
 <td class="colLast">
 <div class="block">Used when attempting to bond on a device whose API level is less than 19, or does not have access to android's
- <a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true#createBond()" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothDevice.createBond()</code></a> method.</div>
+ <code>BluetoothDevice.createBond()</code> method.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -668,7 +668,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROFILE_GATT">PROFILE_GATT</a></span></code></th>
 <td class="colLast">
 <div class="block">Indicates a GATT profile
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#GATT" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.GATT</code></a></div>
+ Maps to <code>BluetoothProfile.GATT</code></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -847,8 +847,8 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://d.android.com/reference/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://d.android.com/reference/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -906,7 +906,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>BOND_FAIL_REASON_NOT_AVAILABLE</h4>
 <pre>public static final&nbsp;int BOND_FAIL_REASON_NOT_AVAILABLE</pre>
 <div class="block">Used when attempting to bond on a device whose API level is less than 19, or does not have access to android's
- <a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true#createBond()" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothDevice.createBond()</code></a> method.</div>
+ <code>BluetoothDevice.createBond()</code> method.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.BOND_FAIL_REASON_NOT_AVAILABLE">Constant Field Values</a></dd>
@@ -1131,7 +1131,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <pre>public static final&nbsp;int ADVERTISE_FAILED_DATA_TOO_LARGE</pre>
 <div class="block">Failed to start advertising as the advertise data to be broadcasted is larger than 31 bytes.
 
- Mapped from <a href="https://d.android.com/reference/android/bluetooth/le/AdvertiseCallback.html?is-external=true#ADVERTISE_FAILED_DATA_TOO_LARGE" title="class or interface in android.bluetooth.le" class="externalLink"><code>AdvertiseCallback.ADVERTISE_FAILED_DATA_TOO_LARGE</code></a></div>
+ Mapped from <code>AdvertiseCallback.ADVERTISE_FAILED_DATA_TOO_LARGE</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.ADVERTISE_FAILED_DATA_TOO_LARGE">Constant Field Values</a></dd>
@@ -1147,7 +1147,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <pre>public static final&nbsp;int ADVERTISE_FAILED_TOO_MANY_ADVERTISERS</pre>
 <div class="block">Failed to start advertising because no advertising instance is available.
 
- Mapped from <a href="https://d.android.com/reference/android/bluetooth/le/AdvertiseCallback.html?is-external=true#ADVERTISE_FAILED_TOO_MANY_ADVERTISERS" title="class or interface in android.bluetooth.le" class="externalLink"><code>AdvertiseCallback.ADVERTISE_FAILED_TOO_MANY_ADVERTISERS</code></a></div>
+ Mapped from <code>AdvertiseCallback.ADVERTISE_FAILED_TOO_MANY_ADVERTISERS</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.ADVERTISE_FAILED_TOO_MANY_ADVERTISERS">Constant Field Values</a></dd>
@@ -1163,7 +1163,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <pre>public static final&nbsp;int ADVERTISE_FAILED_ALREADY_STARTED</pre>
 <div class="block">Failed to start advertising as the advertising is already started.
 
- Mapped from <a href="https://d.android.com/reference/android/bluetooth/le/AdvertiseCallback.html?is-external=true#ADVERTISE_FAILED_ALREADY_STARTED" title="class or interface in android.bluetooth.le" class="externalLink"><code>AdvertiseCallback.ADVERTISE_FAILED_ALREADY_STARTED</code></a></div>
+ Mapped from <code>AdvertiseCallback.ADVERTISE_FAILED_ALREADY_STARTED</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.ADVERTISE_FAILED_ALREADY_STARTED">Constant Field Values</a></dd>
@@ -1179,7 +1179,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <pre>public static final&nbsp;int ADVERTISE_FAILED_INTERNAL_ERROR</pre>
 <div class="block">Operation failed due to an internal error.
 
- Mapped from <a href="https://d.android.com/reference/android/bluetooth/le/AdvertiseCallback.html?is-external=true#ADVERTISE_FAILED_INTERNAL_ERROR" title="class or interface in android.bluetooth.le" class="externalLink"><code>AdvertiseCallback.ADVERTISE_FAILED_INTERNAL_ERROR</code></a></div>
+ Mapped from <code>AdvertiseCallback.ADVERTISE_FAILED_INTERNAL_ERROR</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.ADVERTISE_FAILED_INTERNAL_ERROR">Constant Field Values</a></dd>
@@ -1195,7 +1195,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <pre>public static final&nbsp;int ADVERTISE_FAILED_FEATURE_UNSUPPORTED</pre>
 <div class="block">This feature is not supported on this platform.
 
- Mapped from <a href="https://d.android.com/reference/android/bluetooth/le/AdvertiseCallback.html?is-external=true#ADVERTISE_FAILED_FEATURE_UNSUPPORTED" title="class or interface in android.bluetooth.le" class="externalLink"><code>AdvertiseCallback.ADVERTISE_FAILED_FEATURE_UNSUPPORTED</code></a></div>
+ Mapped from <code>AdvertiseCallback.ADVERTISE_FAILED_FEATURE_UNSUPPORTED</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.ADVERTISE_FAILED_FEATURE_UNSUPPORTED">Constant Field Values</a></dd>
@@ -1311,7 +1311,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>SERVER_CONNECTED</h4>
 <pre>public static final&nbsp;int SERVER_CONNECTED</pre>
 <div class="block">Indicates the server is connected.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#STATE_CONNECTED" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.STATE_CONNECTED</code></a></div>
+ Maps to <code>BluetoothProfile.STATE_CONNECTED</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.SERVER_CONNECTED">Constant Field Values</a></dd>
@@ -1326,7 +1326,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>SERVER_CONNECTING</h4>
 <pre>public static final&nbsp;int SERVER_CONNECTING</pre>
 <div class="block">Indicates the server is connecting.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#STATE_CONNECTING" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.STATE_CONNECTING</code></a></div>
+ Maps to <code>BluetoothProfile.STATE_CONNECTING</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.SERVER_CONNECTING">Constant Field Values</a></dd>
@@ -1341,7 +1341,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>SERVER_DISCONNECTED</h4>
 <pre>public static final&nbsp;int SERVER_DISCONNECTED</pre>
 <div class="block">Indicates the server is disconnected.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#STATE_DISCONNECTED" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.STATE_DISCONNECTED</code></a></div>
+ Maps to <code>BluetoothProfile.STATE_DISCONNECTED</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.SERVER_DISCONNECTED">Constant Field Values</a></dd>
@@ -1356,7 +1356,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>SERVER_DISCONNECTING</h4>
 <pre>public static final&nbsp;int SERVER_DISCONNECTING</pre>
 <div class="block">Indicates the server is disconnecting.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#STATE_DISCONNECTING" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.STATE_DISCONNECTING</code></a></div>
+ Maps to <code>BluetoothProfile.STATE_DISCONNECTING</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.SERVER_DISCONNECTING">Constant Field Values</a></dd>
@@ -1371,7 +1371,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>DEVICE_CONNECTED</h4>
 <pre>public static final&nbsp;int DEVICE_CONNECTED</pre>
 <div class="block">Indicates the device is connected.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#STATE_CONNECTED" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.STATE_CONNECTED</code></a></div>
+ Maps to <code>BluetoothProfile.STATE_CONNECTED</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.DEVICE_CONNECTED">Constant Field Values</a></dd>
@@ -1386,7 +1386,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>DEVICE_CONNECTING</h4>
 <pre>public static final&nbsp;int DEVICE_CONNECTING</pre>
 <div class="block">Indicates the device is connecting.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#STATE_CONNECTING" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.STATE_CONNECTING</code></a></div>
+ Maps to <code>BluetoothProfile.STATE_CONNECTING</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.DEVICE_CONNECTING">Constant Field Values</a></dd>
@@ -1401,7 +1401,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>DEVICE_DISCONNECTED</h4>
 <pre>public static final&nbsp;int DEVICE_DISCONNECTED</pre>
 <div class="block">Indicates the device is disconnected.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#STATE_DISCONNECTED" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.STATE_DISCONNECTED</code></a></div>
+ Maps to <code>BluetoothProfile.STATE_DISCONNECTED</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.DEVICE_DISCONNECTED">Constant Field Values</a></dd>
@@ -1416,7 +1416,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>DEVICE_DISCONNECTING</h4>
 <pre>public static final&nbsp;int DEVICE_DISCONNECTING</pre>
 <div class="block">Indicates the device is disconnecting.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#STATE_DISCONNECTING" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.STATE_DISCONNECTING</code></a></div>
+ Maps to <code>BluetoothProfile.STATE_DISCONNECTING</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.DEVICE_DISCONNECTING">Constant Field Values</a></dd>
@@ -1431,7 +1431,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>DEVICE_ERROR</h4>
 <pre>public static final&nbsp;int DEVICE_ERROR</pre>
 <div class="block">Generic device error.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true#ERROR" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothDevice.ERROR</code></a></div>
+ Maps to <code>BluetoothDevice.ERROR</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.DEVICE_ERROR">Constant Field Values</a></dd>
@@ -1446,7 +1446,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>DEVICE_BOND_BONDING</h4>
 <pre>public static final&nbsp;int DEVICE_BOND_BONDING</pre>
 <div class="block">Device is in the process of bonding.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true#BOND_BONDING" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothDevice.BOND_BONDING</code></a></div>
+ Maps to <code>BluetoothDevice.BOND_BONDING</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.DEVICE_BOND_BONDING">Constant Field Values</a></dd>
@@ -1461,7 +1461,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>DEVICE_BOND_BONDED</h4>
 <pre>public static final&nbsp;int DEVICE_BOND_BONDED</pre>
 <div class="block">Device is currently bonded.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true#BOND_BONDED" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothDevice.BOND_BONDED</code></a></div>
+ Maps to <code>BluetoothDevice.BOND_BONDED</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.DEVICE_BOND_BONDED">Constant Field Values</a></dd>
@@ -1476,7 +1476,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>DEVICE_BOND_UNBONDED</h4>
 <pre>public static final&nbsp;int DEVICE_BOND_UNBONDED</pre>
 <div class="block">Device is not bonded.
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothDevice.html?is-external=true#BOND_NONE" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothDevice.BOND_NONE</code></a></div>
+ Maps to <code>BluetoothDevice.BOND_NONE</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.DEVICE_BOND_UNBONDED">Constant Field Values</a></dd>
@@ -1491,7 +1491,7 @@ extends <a href="https://d.android.com/reference/java/lang/Object.html?is-extern
 <h4>PROFILE_GATT</h4>
 <pre>public static final&nbsp;int PROFILE_GATT</pre>
 <div class="block">Indicates a GATT profile
- Maps to <a href="https://d.android.com/reference/android/bluetooth/BluetoothProfile.html?is-external=true#GATT" title="class or interface in android.bluetooth" class="externalLink"><code>BluetoothProfile.GATT</code></a></div>
+ Maps to <code>BluetoothProfile.GATT</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#com.idevicesinc.sweetblue.BleStatuses.PROFILE_GATT">Constant Field Values</a></dd>

@@ -28,6 +28,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Utility methods for string manipulation and creation needed by SweetBlue, mostly for debug purposes.
@@ -56,7 +57,7 @@ public class Utils_String extends Utils
 
 	public static String normalizeMacAddress(final String macAddress)
 	{
-		return normalizeMacAddress_replaceDelimiters(macAddress.toUpperCase());
+		return normalizeMacAddress_replaceDelimiters(macAddress.toUpperCase(Locale.US));
 	}
 
 	public static String normalizeMacAddress_replaceDelimiters(final String macAddress)
@@ -96,7 +97,7 @@ public class Utils_String extends Utils
 		// Best to just return an empty string here.
 		if (nameParts.length == 0) return "";
 		String consistentName = nameParts[0];
-		consistentName = consistentName.toLowerCase();
+		consistentName = consistentName.toLowerCase(Locale.US);
 		consistentName = consistentName.trim();
 		consistentName = consistentName.replace(" ", "_");
 
@@ -346,8 +347,8 @@ public class Utils_String extends Utils
 
 		// Ensure that case isn't an issue. If it IS, and it contains lower case chars, then bail out
 		if (optionList.contains(HexOption.ALLOW_LOWERCASE))
-			string = string.toUpperCase().trim();
-		else if (!string.equals(string.toUpperCase()))
+			string = string.toUpperCase(Locale.US).trim();
+		else if (!string.equals(string.toUpperCase(Locale.US)))
 			return null;
 
 		boolean allowPrefix = optionList.contains(HexOption.ALLOW_HEX_PREFIX);

@@ -21,6 +21,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 import android.Manifest;
@@ -85,6 +86,7 @@ public class Utils
 		return isAndroidVersion(Build.VERSION_CODES.S);
 	}
 
+	@androidx.annotation.ChecksSdkIntAtLeast(parameter = 0)
 	private static boolean isAndroidVersion(int apiVersion)
     {
         return Build.VERSION.SDK_INT >= apiVersion;
@@ -323,13 +325,13 @@ public class Utils
 
 		if (lookedForNames != null && !lookedForNames.isEmpty())
 		{
-			String nameNative_lower = nameNative.toLowerCase();
+			String nameNative_lower = nameNative.toLowerCase(Locale.US);
 
 			boolean match = false;
 
 			for (int i = 0; i < lookedForNames.size(); i++)
 			{
-				if (nameNative_lower.contains(lookedForNames.get(i).toLowerCase()))
+				if (nameNative_lower.contains(lookedForNames.get(i).toLowerCase(Locale.US)))
 				{
 					match = true;
 					break;

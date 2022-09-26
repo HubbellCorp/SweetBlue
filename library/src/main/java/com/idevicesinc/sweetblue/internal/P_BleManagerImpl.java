@@ -19,6 +19,7 @@ package com.idevicesinc.sweetblue.internal;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.app.PendingIntent;
@@ -980,6 +981,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
+    @SuppressLint("MissingPermission")
     public final void turnOnWithIntent(Activity callingActivity, int requestCode)
     {
         if (isAny(ON, TURNING_ON)) return;

@@ -19,6 +19,7 @@ package com.idevicesinc.sweetblue.utils;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.UUID;
 
 import com.idevicesinc.sweetblue.BleManagerConfig;
@@ -52,7 +53,7 @@ public class ReflectionUuidNameMap implements UuidNameMap
 	@Override
 	public String getUuidName(String uuid)
 	{
-		uuid = uuid.toLowerCase();
+		uuid = uuid.toLowerCase(Locale.US);
 		return m_dict.get(uuid);
 	}
 }

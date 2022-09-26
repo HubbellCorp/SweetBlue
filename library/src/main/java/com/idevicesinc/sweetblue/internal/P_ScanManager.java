@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -769,7 +770,7 @@ final class P_ScanManager
     private Interval getReportDelay()
     {
         Interval delay = m_manager.getConfigClone().scanReportDelay;
-        if (Build.MODEL.toLowerCase().contains("pixel"))
+        if (Build.MODEL.toLowerCase(Locale.US).contains("pixel"))
             delay = Interval.ZERO;
         return delay;
     }

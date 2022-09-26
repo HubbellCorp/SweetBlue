@@ -1,0 +1,29 @@
+name: 'SweetBlue Deploy WIKI'
+
+on:
+
+  workflow_dispatch:
+    inputs:
+      bumpversion:
+        description: 'Bump the markdown files with the current version in build.gradle'
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update Documentation
+        if: github.event.inputs.bumpversion == 'true'
+        run: ./gradlew bumpMarkdown
+
+      - name: Deploy markdown to wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        with:
+          path: "markdown"
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}

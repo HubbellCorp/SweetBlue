@@ -2,12 +2,12 @@ name: 'SweetBlue Deploy WIKI'
 
 on:
 
-  workflow_call:
+  workflow_dispatch:
     inputs:
       bumpversion:
         description: 'Bump the markdown files with the current version in build.gradle'
         required: false
-        default: 'true'
+        default: true
         type: boolean
 
 jobs:

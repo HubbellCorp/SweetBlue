@@ -13,23 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Build Library And Sample Apps
+      - name: Build all the things
         run: ./gradlew assemble
 
   Test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       # Run tests
       - name: Run Tests
         run: ./gradlew test
 
       # Store test results as an artifact, to be published by another workflow
-      - uses: actions/upload-artifact@v2
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: test-results
@@ -39,24 +42,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       # Run static analysis
       - name: Android Lint
         run: ./gradlew lint
 
-      # Store lint results as an artifact, to be published by another workflow
-      - uses: actions/upload-artifact@v2
+      # Store lint results as an artifact
+      - name: Archive lint results
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: lint-results
           path: '**/build/reports/*.xml'
 
       # Publish lint results to job summary
-      - uses: iDevicesInc/action-android-lint@prettier_lint_results
+      - name: Publish lint results
+        uses: iDevicesInc/action-android-lint@prettier_lint_results
         if: always()
         with:
-#          artifact: lint-results
+          #          artifact: lint-results
           name: SweetBlue CI Lint Results
           report-path: '**/build/reports/*.xml'
         continue-on-error: false

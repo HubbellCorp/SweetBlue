@@ -86,13 +86,13 @@ task gendocs(type: Javadoc) {
     options.windowTitle = "SweetBlue"
     options.memberLevel = JavadocMemberLevel.PROTECTED
     options.author = true
-    options.links("https://d.android.com/reference")
+    options.links('http://d.android.com/reference')
     exclude '**/BuildConfig.java'
     exclude '**/R.java'
     String v = "${SEMVER}"
     version = v.replace("_", '.')
     options.setDocTitle("SweetBlue " + version + " API")
-    destinationDir = file("${rootDir.absolutePath}/docs/sweetblue/api")
+    destinationDir = file("${rootDir.absolutePath}/javadocs/sweetblue/api")
     source = android.sourceSets.main.java.srcDirs
     classpath += files(android.getBootClasspath().join(File.pathSeparator))
     group = "sweetblue"

@@ -1,0 +1,16 @@
+name: 'SweetBlue Deploy WIKI'
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy markdown to wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        with:
+          path: "markdown"
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}

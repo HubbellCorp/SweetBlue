@@ -17,6 +17,7 @@
 
 package com.idevicesinc.sweetblue.simple_service;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -71,7 +72,7 @@ public class BleScanService extends Service
                 {
                     Intent notificationIntent = new Intent(this, MainActivity.class);
                     notificationIntent.putExtra(FROM_NOTIFICATION, true);
-                    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+                    @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getActivity(this, 42, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "notification_channel_id")
                             .setSmallIcon(R.drawable.settings)
                             .setContentTitle("BLE Scan")

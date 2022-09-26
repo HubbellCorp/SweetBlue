@@ -88,7 +88,7 @@ public enum BleManagerState implements State
 	SCANNING_PAUSED,
 
 	/**
-	 * This state dictates that all permissions (if needed) have been granted to allow BLE scanning to return results. See {@link com.idevicesinc.sweetblue.utils.BluetoothEnabler}.
+	 * This state dictates that all permissions (if needed) have been granted to allow BLE scanning to return results. See {@link com.idevicesinc.sweetblue.utils.BleSetupHelper}.
 	 */
 	BLE_SCAN_READY,
 	

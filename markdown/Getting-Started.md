@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     ...
-    implementation "com.idevicesinc:sweetblue:4.0.0.5-SNAPSHOT"
+    implementation "com.idevicesinc:sweetblue:4.0.0"
 }
 </pre>
 </code>

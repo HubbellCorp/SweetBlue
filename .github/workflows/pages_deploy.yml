@@ -36,4 +36,4 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: '-u'
-          message: 'Updated javadocs folder'
+          message: 'Updated docs folder'

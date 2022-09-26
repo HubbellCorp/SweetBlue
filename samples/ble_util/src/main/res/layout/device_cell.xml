@@ -31,7 +31,8 @@
 			android:layout_height="@dimen/scan_button_height"
 			android:singleLine="true"
 			android:text="@string/device_connect"
-			android:textSize="@dimen/button_font_size" />
+			android:textSize="@dimen/button_font_size"
+			style="?android:attr/buttonBarButtonStyle" />
 
 		<Button
 			android:id="@+id/disconnectButton"
@@ -39,7 +40,8 @@
 			android:layout_height="@dimen/scan_button_height"
 			android:singleLine="true"
 			android:text="@string/device_disconnect"
-			android:textSize="@dimen/button_font_size" />
+			android:textSize="@dimen/button_font_size"
+			style="?android:attr/buttonBarButtonStyle" />
 
 		<Button
 			android:id="@+id/bondButton"
@@ -47,7 +49,8 @@
 			android:layout_height="@dimen/scan_button_height"
 			android:singleLine="true"
 			android:text="@string/device_bond"
-			android:textSize="@dimen/button_font_size" />
+			android:textSize="@dimen/button_font_size"
+			style="?android:attr/buttonBarButtonStyle" />
 
 		<Button
 			android:id="@+id/unbondButton"
@@ -55,7 +58,8 @@
 			android:layout_height="@dimen/scan_button_height"
 			android:singleLine="true"
 			android:text="@string/device_unbond"
-			android:textSize="@dimen/button_font_size" />
+			android:textSize="@dimen/button_font_size"
+			style="?android:attr/buttonBarButtonStyle" />
 
 	</LinearLayout>
 

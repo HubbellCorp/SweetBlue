@@ -11,6 +11,9 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
+      - name: Update Documentation
+        run: ./gradlew bumpMarkdown
+
       - name: Deploy markdown to wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:

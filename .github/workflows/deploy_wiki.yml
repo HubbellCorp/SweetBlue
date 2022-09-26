@@ -1,6 +1,9 @@
 name: 'SweetBlue Deploy WIKI'
 
 on:
+  # TODO - Remove the pages_deploy branch before merging into dev!
+  push:
+    branches: [ main, 4.0/pages_deploy ]
 
   workflow_dispatch:
 

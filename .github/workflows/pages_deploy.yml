@@ -1,0 +1,35 @@
+name: 'SweetBlue Pages Deploy'
+
+on:
+
+  workflow_dispatch:
+
+permissions: write-all
+
+jobs:
+  PublishPages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: ./gradlew assembleRelease
+
+      # Generate javadoc again to make sure it's current
+      - name: Generate javadoc
+        run: ./gradlew gendocs
+
+      # Replace javadoc folder with the latest docs just generated
+      - name: Replace javadocs
+        run: |
+          rm -rf docs/
+          mkdir docs/
+          cp -r javadocs/* docs/
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '-u'
+          message: 'Updated docs folder'

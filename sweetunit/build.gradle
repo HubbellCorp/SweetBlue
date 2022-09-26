@@ -3,6 +3,10 @@ apply plugin: 'maven-publish'
 
 version = ext.appVersionName
 
+configurations {
+    javadocDeps
+}
+
 android {
     compileSdkVersion 32
 
@@ -42,6 +46,12 @@ dependencies {
     implementation 'androidx.test:rules:1.4.0'
     implementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+
+    javadocDeps 'junit:junit:4.13.2'
+    javadocDeps 'androidx.test.ext:junit:1.1.3'
+    javadocDeps 'androidx.test:rules:1.4.0'
+    javadocDeps 'androidx.test.espresso:espresso-core:3.4.0'
+    javadocDeps 'androidx.test.uiautomator:uiautomator:2.2.0'
 }
 
 // Generate javadocs
@@ -52,14 +62,17 @@ task gendocs(type: Javadoc) {
     options.windowTitle = "SweetUnit"
     options.memberLevel = JavadocMemberLevel.PROTECTED
     options.author = true
-    String home = android.getSdkDirectory().getAbsolutePath()
-    options.linksOffline('http://d.android.com/reference', home + '/docs/reference')
+    options.links('http://d.android.com/reference')
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
     String v = "${SEMVER}"
     version = v.replace("_", '.')
     options.setDocTitle("SweetUnit " + version + " API")
-    destinationDir = file("${rootDir.absolutePath}/docs/sweetunit/api")
-    source = files(android.sourceSets.main.java.srcDirs)
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    destinationDir = file("${rootDir.absolutePath}/javadocs/sweetunit/api")
+    source = android.sourceSets.main.java.srcDirs
+    classpath += files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += files(rootProject.projectDir.absolutePath + "/library/build/intermediates/aar_main_jar/release/classes.jar")
+    classpath += configurations.javadocDeps
     group = "sweetunit"
 }
 

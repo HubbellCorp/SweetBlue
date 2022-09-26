@@ -3,6 +3,10 @@ apply plugin: 'maven-publish'
 
 version = ext.appVersionName
 
+configurations {
+    javadocDeps
+}
+
 android {
     compileSdkVersion 32
 
@@ -55,6 +59,9 @@ dependencies {
     testImplementation project(':sweetunit')
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.robolectric:robolectric:4.4'
+
+    javadocDeps 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    javadocDeps 'io.reactivex.rxjava2:rxjava:2.1.13'
 }
 
 // Generate javadocs
@@ -65,14 +72,17 @@ task gendocs(type: Javadoc) {
     options.windowTitle = "SweetBlueRx"
     options.memberLevel = JavadocMemberLevel.PROTECTED
     options.author = true
-    String home = android.getSdkDirectory().getAbsolutePath()
-    options.linksOffline('http://d.android.com/reference', home + '/docs/reference')
+    options.links('http://d.android.com/reference')
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
     String v = "${SEMVER}"
     version = v.replace("_", '.')
     options.setDocTitle("SweetBlueRx " + version + " API")
-    destinationDir = file("${rootDir.absolutePath}/docs/sweetbluerx/api")
-    source = files(android.sourceSets.main.java.srcDirs)
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    destinationDir = file("${rootDir.absolutePath}/javadocs/sweetbluerx/api")
+    source = android.sourceSets.main.java.srcDirs
+    classpath += files(rootProject.projectDir.absolutePath + "/library/build/intermediates/aar_main_jar/release/classes.jar")
+    classpath += files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.javadocDeps
     group = "sweetbluerx"
 }
 

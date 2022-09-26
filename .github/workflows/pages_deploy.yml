@@ -35,6 +35,6 @@ jobs:
           message: 'Updated docs folder'
 
       - name: Deploy javadocs to Github Pages
-        uses: JamesIves.github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: docs

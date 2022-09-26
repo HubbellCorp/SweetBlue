@@ -14,8 +14,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Update Documentation
-        run: ./gradlew bumpMarkdown
+#      - name: Update Documentation
+#        run: ./gradlew bumpMarkdown
 
       - name: Deploy markdown to wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1

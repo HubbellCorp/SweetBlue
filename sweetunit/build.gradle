@@ -80,7 +80,7 @@ task gendocs(type: Javadoc) {
 task sbjavadocJar(type: Jar, dependsOn: gendocs) {
     from gendocs.destinationDir
     archiveFileName = getJavadocJarName("sweetunit")
-    archiveClassifier = "javadoc"
+    archiveClassifier.set("javadoc")
     destinationDirectory = new File(getJarDir())
     group = "sweetunit"
     description = "Generates the javadoc jar."
@@ -88,16 +88,26 @@ task sbjavadocJar(type: Jar, dependsOn: gendocs) {
 
 
 //////////////////////////////////////////////
-//              Upload Tasks                //
+//              Publishing Config           //
 //////////////////////////////////////////////
+android {
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
+}
+
 publishing {
     publications {
         sweetBluePublication(MavenPublication) {
             groupId 'com.idevicesinc'
             artifactId 'sweetunit'
             version "${version}"
-            artifact 'build/outputs/aar/SweetUnit-release.aar'
-            artifact sbjavadocJar.archiveFile
+            afterEvaluate {
+                from components.release
+            }
+            artifact sbjavadocJar
         }
     }
 

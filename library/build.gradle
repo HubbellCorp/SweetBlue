@@ -5,10 +5,14 @@ apply plugin: 'maven-publish'
 version = ext.appVersionName
 
 android {
+    namespace 'com.idevicesinc.sweetblue'
     compileSdkVersion 32
 
     defaultConfig {
         minSdkVersion 18
+        aarMetadata {
+            minCompileSdk = 18
+        }
         targetSdkVersion 32
         project.archivesBaseName = "sweetblue"
         testInstrumentationRunner "com.idevicesinc.atf.ScreenOnJunitRunner"
@@ -44,7 +48,6 @@ android {
     lint {
         lintConfig file('../lint.xml')
     }
-    namespace 'com.idevicesinc.sweetblue'
 }
 
 tasks.withType(Test) {
@@ -101,10 +104,16 @@ task gendocs(type: Javadoc) {
 // Create javadoc jar file
 task sbjavadocJar(type: Jar, dependsOn: gendocs) {
     archiveFileName = getJavadocJarName("sweetblue")
+    archiveClassifier.set("javadoc")
     from gendocs.destinationDir
     destinationDirectory = new File(getJarDir())
     group = "sweetblue"
     description = "Generates the javadoc jar."
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    from android.sourceSets.main.java.srcDirs
 }
 
 task setVersionVar() {
@@ -160,16 +169,26 @@ task cleanFolders {
 
 
 //////////////////////////////////////////////
-//              Publishing Task             //
+//             Publishing Config            //
 //////////////////////////////////////////////
+android {
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
+}
+
 publishing {
     publications {
         sweetBluePublication(MavenPublication) {
             groupId 'com.idevicesinc'
             artifactId 'sweetblue'
             version "${version}"
-            artifact 'build/outputs/aar/sweetblue-release.aar'
-            artifact sbjavadocJar.archiveFile
+            afterEvaluate {
+                from components.release
+            }
+            artifact sbjavadocJar
         }
     }
 
@@ -183,3 +202,5 @@ publishing {
         }
     }
 }
+
+

@@ -16,7 +16,7 @@ buildscript {
 
 
 allprojects {
-    ext.appVersionName = "4.0.1"
+    ext.appVersionName = "4.0.1.0-SNAPSHOT"
     repositories {
         google()
         mavenCentral()
@@ -169,7 +169,7 @@ def getJarName(String module) {
 }
 
 def getJavadocJarName(String module) {
-    return getJarBaseName(module) + "-javadoc.jar"
+    return "${module}javadoc_${SEMVER}.jar"
 }
 
 def getOutputFolder() {

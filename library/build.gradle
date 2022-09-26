@@ -101,7 +101,6 @@ task gendocs(type: Javadoc) {
 // Create javadoc jar file
 task sbjavadocJar(type: Jar, dependsOn: gendocs) {
     archiveFileName = getJavadocJarName("sweetblue")
-    archiveClassifier = 'javadoc'
     from gendocs.destinationDir
     destinationDirectory = new File(getJarDir())
     group = "sweetblue"

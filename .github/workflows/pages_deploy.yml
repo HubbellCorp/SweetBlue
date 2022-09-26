@@ -1,12 +1,8 @@
 name: 'SweetBlue Pages Deploy'
 
 on:
-  push:
-    # TODO - Remove the pages_deploy branch before merging into dev!
-    branches: [ main, 4.0/pages_deploy ]
 
   workflow_dispatch:
-
 
 permissions: write-all
 

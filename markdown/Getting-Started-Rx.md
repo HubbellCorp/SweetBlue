@@ -21,8 +21,8 @@ repositories {
  
 dependencies {
     ...
-    implementation "com.idevicesinc:sweetblue:4.0.1"
-    implementation "com.idevicesinc:sweetbluerx:4.0.1"
+    implementation "com.idevicesinc:sweetblue:4.0.0"
+    implementation "com.idevicesinc:sweetbluerx:4.0.0"
 }
 </pre></code>
 

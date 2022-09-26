@@ -18,9 +18,9 @@ repositories {
 }
  
 dependencies {
-    implementation "com.idevicesinc:sweetblue:4.0.1"
+    implementation "com.idevicesinc:sweetblue:4.0.0"
     // Make sure to only include the dependency on the test variant
-    testImplementation "com.idevicesinc:sweetunit:4.0.1"
+    testImplementation "com.idevicesinc:sweetunit:4.0.0"
     // Robolectric is used to mock an Activity instance. It's possible to use another library for this such as Mockito,
     // but it's untested, and would require more work.
     testImplementation "org.robolectric:robolectric:4.2.1"

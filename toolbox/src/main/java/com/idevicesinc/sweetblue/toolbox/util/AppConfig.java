@@ -52,7 +52,7 @@ public class AppConfig
     private static AppConfig sInstance = null;
     private final static String kSharedPreferencesFilename = "SBTB_PREFS";
 
-    protected Context mContext;
+//    protected Context mContext;
     protected SharedPreferences mSharedPreferences;
 
     public static AppConfig getInstance()
@@ -74,9 +74,9 @@ public class AppConfig
 
     private AppConfig(Context context)
     {
-        mContext = context;
-        mSharedPreferences = mContext.getSharedPreferences(kSharedPreferencesFilename, Context.MODE_PRIVATE);
-        mContext = null;  // Don't hold ref, might leak memory.  Look into this more
+//        mContext = context;
+        mSharedPreferences = context.getSharedPreferences(kSharedPreferencesFilename, Context.MODE_PRIVATE);
+//        mContext = null;  // Don't hold ref, might leak memory.  Look into this more
     }
 
     public <T extends Object> T getConfigurationOption(ConfigurationOption co)

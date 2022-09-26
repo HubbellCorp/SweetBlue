@@ -119,23 +119,20 @@ public class DeviceDetailsActivity extends BaseActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        switch (item.getItemId())
-        {
-            case R.id.negotiateMtu:
-                showNegotiateMtuDialog();
-                break;
-            case R.id.connect:
-                m_viewModel.connect();
-                break;
-            case R.id.disconnect:
-                m_viewModel.disconnect();
-                break;
-            case R.id.bond:
-                m_viewModel.bond();
-                break;
-            case R.id.unbond:
-                m_viewModel.unbond();
-                break;
+        if (item.getItemId() == R.id.negotiateMtu) {
+            showNegotiateMtuDialog();
+        }
+        else if (item.getItemId() == R.id.connect) {
+            m_viewModel.connect();
+        }
+        else if (item.getItemId() == R.id.disconnect) {
+            m_viewModel.disconnect();
+        }
+        else if (item.getItemId() == R.id.bond) {
+            m_viewModel.bond();
+        }
+        else if (item.getItemId() == R.id.unbond) {
+            m_viewModel.unbond();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -15,7 +15,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="light_gray">#FFEBEBEB</color>
-    <color name="medium_light_gray">#FFC6C1BE</color>
     <color name="gray">#FFA0A0A0</color>
     <color name="dark_gray">#FF323232</color>
     <color name="primary_background">#FF161616</color>

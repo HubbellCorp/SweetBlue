@@ -17,6 +17,7 @@
 
 package com.idevicesinc.sweetblue.toolbox.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -58,7 +59,7 @@ public class WriteValueLoadFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View layout = inflater.inflate(R.layout.layout_write_value_load, null);
+        @SuppressLint("InflateParams") View layout = inflater.inflate(R.layout.layout_write_value_load, null);
 
         mListView = layout.findViewById(R.id.savedValueListView);
 
@@ -129,19 +130,15 @@ public class WriteValueLoadFragment extends Fragment
 
                 //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(item -> {
-                    switch (item.getItemId())
-                    {
-                        case R.id.writeValueEdit:
-                            mParent.editSavedValue(sv);
-                            break;
-
-                        case R.id.writeValueDelete:
-                            mParent.deleteSavedValue(sv);
-                            mSavedValueList.remove(sv);
-                            mAdapter.notifyDataSetChanged();
-                            if (sv.equals(mSelectedValue))
-                                mSelectedValue = null;
-                            break;
+                    if (item.getItemId() == R.id.writeValueEdit) {
+                        mParent.editSavedValue(sv);
+                    }
+                    else if (item.getItemId() == R.id.writeValueDelete) {
+                        mParent.deleteSavedValue(sv);
+                        mSavedValueList.remove(sv);
+                        mAdapter.notifyDataSetChanged();
+                        if (sv.equals(mSelectedValue))
+                            mSelectedValue = null;
                     }
                     return true;
                 });

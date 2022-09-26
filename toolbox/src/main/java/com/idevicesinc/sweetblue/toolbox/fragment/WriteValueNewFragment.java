@@ -17,6 +17,7 @@
 
 package com.idevicesinc.sweetblue.toolbox.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -53,7 +54,7 @@ public class WriteValueNewFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View layout = inflater.inflate(R.layout.layout_write_value_new, null);
+        @SuppressLint("InflateParams") View layout = inflater.inflate(R.layout.layout_write_value_new, null);
 
         mValueEditText = layout.findViewById(R.id.valueEditText);
         mWriteTypeSpinner = layout.findViewById(R.id.writeTypeSpinner);

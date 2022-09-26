@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import android.os.Handler;
 
@@ -405,7 +406,7 @@ public class DashboardViewModel extends ViewModel
         m_nameScanFilter.query = query;
         m_queryString.setValue(query);
 
-        String lcQuery = query != null ? query.toLowerCase() : null;
+        String lcQuery = query != null ? query.toLowerCase(Locale.US) : null;
 
         if (changed && !shorter)
         {
@@ -414,7 +415,7 @@ public class DashboardViewModel extends ViewModel
             while (it.hasNext())
             {
                 final BleDevice device = it.next();
-                if (!device.getName_native().toLowerCase().contains(lcQuery))
+                if (!device.getName_native().toLowerCase(Locale.US).contains(lcQuery))
                 {
                     it.remove();
                 }
@@ -430,7 +431,7 @@ public class DashboardViewModel extends ViewModel
             boolean anyAdded = false;
             for (BleDevice device : m_deviceList)
             {
-                if (device.getName_native().toLowerCase().contains(lcQuery) && !m_displayList.getValue().contains(device))
+                if (device.getName_native().toLowerCase(Locale.US).contains(lcQuery) && !m_displayList.getValue().contains(device))
                 {
                     anyAdded = true;
                     m_displayList.getValue().add(device);
@@ -555,13 +556,13 @@ public class DashboardViewModel extends ViewModel
 
         public NameScanFilter(String query)
         {
-            this.query = query.toLowerCase();
+            this.query = query.toLowerCase(Locale.US);
         }
 
         @Override
         public Please onEvent(ScanEvent e)
         {
-            return Please.acknowledgeIf(e.name_native().toLowerCase().contains(query));
+            return Please.acknowledgeIf(e.name_native().toLowerCase(Locale.US).contains(query));
         }
     }
 

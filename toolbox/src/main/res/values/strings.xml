@@ -69,7 +69,7 @@
     <string name="drawer_close">Close Drawer</string>
     <string name="start_scan">Start Scan</string>
     <string name="not_ready_to_scan">Not Ready To Scan</string>
-    <string name="sort_by">Sort By...</string>
+    <string name="sort_by">Sort By…</string>
     <string name="unsorted">Unsorted</string>
     <string name="name">Name</string>
     <string name="signal_strength">Signal Strength</string>
@@ -177,7 +177,7 @@
 	<string name="secondary_service">SECONDARY SERVICE</string>
     <string name="need_connection_characteristics_error">You must be connected to view the characteristics.</string>
     <string name="need_connection_write_characteristics_error">You must be connected to write to characteristics.</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
 	<string name="broadcast">Broadcast</string>
     <string name="read">Read</string>
     <string name="write_no_response">Write No Response</string>
@@ -189,12 +189,12 @@
     <string name="unknown">Unknown</string>
     <string name="signal_strength_colon">Signal Strength: %1$s</string>
 
-    <string name="connecting">Connecting...</string>
-    <string name="discovering_services">Discovering Services...</string>
-    <string name="authenticating">Authenticating...</string>
-    <string name="initializing">Initializing...</string>
+    <string name="connecting">Connecting…</string>
+    <string name="discovering_services">Discovering Services…</string>
+    <string name="authenticating">Authenticating…</string>
+    <string name="initializing">Initializing…</string>
     <string name="connected">Connected</string>
-    <string name="bonding">Bonding...</string>
+    <string name="bonding">Bonding…</string>
 
     <string name="scan_type_classic">Classic</string>
     <string name="scan_type_pre_lollipop">Pre-Lollipop</string>

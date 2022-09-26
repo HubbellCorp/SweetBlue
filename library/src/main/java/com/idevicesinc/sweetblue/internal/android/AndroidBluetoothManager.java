@@ -159,6 +159,7 @@ public final class AndroidBluetoothManager implements IBluetoothManager
         return BleStatuses.STATE_OFF;
     }
 
+    @SuppressLint("DiscouragedPrivateApi")
     @Override
     public final int getBleState()
     {
@@ -195,7 +196,7 @@ public final class AndroidBluetoothManager implements IBluetoothManager
         }
     }
 
-    @SuppressLint("MissingPermission")
+    @SuppressLint({"MissingPermission", "HardwareIds"})
     @Override
     public final String getAddress()
     {

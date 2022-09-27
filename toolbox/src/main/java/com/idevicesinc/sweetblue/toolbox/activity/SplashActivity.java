@@ -18,6 +18,7 @@
 package com.idevicesinc.sweetblue.toolbox.activity;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,6 +38,8 @@ import com.idevicesinc.sweetblue.toolbox.util.AppConfig;
 import com.idevicesinc.sweetblue.toolbox.viewmodel.SplashViewModel;
 
 
+// TODO - Use built-in android splash screen for android 12 and higher
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity
 {
 

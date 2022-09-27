@@ -24,6 +24,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 import android.util.Log;
@@ -52,7 +53,7 @@ public final class Utils_Reflection extends Utils
 			{
 				uuidString = uuid.toString();
 			}
-			uuidString = uuidString.toLowerCase();
+			uuidString = uuidString.toLowerCase(Locale.US);
 		}
 		
 		return uuidString;

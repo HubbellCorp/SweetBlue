@@ -41,17 +41,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class BaseTester extends AbstractTestClass
 {
 
-    private final static int ENABLER_TIMEOUT = 30000;
-    static final String KEY = "X5SJYkgp5hK9cEbwGUGlCbwu2OEpKY-OusLJ3HkdTNE6tQ3H-te3Qd-DM2C3GwEzct" +
-            "5UbATfAMrALV5zBfOHfvNZ7n_WJi0gxn3c6XSMkyiHdx4JaiLjUx2fAHS1oRZiix6PpdSdZceuoOU9p4_IWmKISWWKFz" +
-            "C7-BOM0O5-rH8_N0Jn_UW1eQiGqEES8u4C4wpKX0RXW82RX3-TCkS6vU45uy80i0rwASVaTiBUYslscNOcBjZQQ2pBz2" +
-            "iLK2FRPqQOaWKVpNhGbHwovisP6ihBPUNXfFlhZ0U-a3glHkt9rCvuZzYj0yjSXmqtwF-giDp3SyTVHJxc6OdiyxY9kA";
+    private final static int SETUP_HELPER_TIMEOUT = 30000;
 
     Activity activity;
     BleManager mgr;
     BleManagerConfig m_config;
     private PowerManager.WakeLock m_screenLock;
-    private AtomicBoolean enablerLock = new AtomicBoolean(true);
+    private AtomicBoolean setupHelperLock = new AtomicBoolean(true);
 
     @Rule
     public ActivityTestRule<Activity> mRule = new ActivityTestRule<>(Activity.class);
@@ -69,24 +65,24 @@ public abstract class BaseTester extends AbstractTestClass
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         activity = mRule.launchActivity(intent);
         instantiateManagerInstance();
-        if (useEnabler())
+        if (useSetupHelper())
         {
-            long m_enablerStart = System.currentTimeMillis();
+            long m_setupHelperStart = System.currentTimeMillis();
 
-            // Start loop to check on enabler dialogs
-            P_Bridge_BleManager.postUpdateDelayed(mgr.getIBleManager(), this::enablerDialogLoop, 350);
+            // Start loop to check on helper dialogs
+            P_Bridge_BleManager.postUpdateDelayed(mgr.getIBleManager(), this::setupHelperDialogLoop, 350);
 
             // Make sure the screen is on
             activity.runOnUiThread(this::makeSureScreenIsOn);
 
-            // Start the enabler process
-            P_Bridge_BleManager.postMainDelayed(mgr.getIBleManager(), this::startEnabler, 250);
+            // Start the helper process
+            P_Bridge_BleManager.postMainDelayed(mgr.getIBleManager(), this::startHelper, 250);
 
-            // Wait on this thread for the enabler to complete
-            while (enablerLock.get())
+            // Wait on this thread for the helper to complete
+            while (setupHelperLock.get())
             {
-                if (System.currentTimeMillis() - m_enablerStart > ENABLER_TIMEOUT)
-                    throw new RuntimeException("Timeout while running Enabler!");
+                if (System.currentTimeMillis() - m_setupHelperStart > SETUP_HELPER_TIMEOUT)
+                    throw new RuntimeException("Timeout while running Setup Helper!");
                 try
                 {
                     Thread.sleep(25);
@@ -145,10 +141,10 @@ public abstract class BaseTester extends AbstractTestClass
     }
 
     /**
-     * This tells the base test class to use the BluetoothEnabler (it will be handled automatically, so that by the time your test actually runs, this will
-     * be taken care of for you). The only time this should ever return <code>false</code> is when testing the Enabler itself.
+     * This tells the base test class to use the BleSetupHelper (it will be handled automatically, so that by the time your test actually runs, this will
+     * be taken care of for you). The only time this should ever return <code>false</code> is when testing the Helper itself.
      */
-    public boolean useEnabler()
+    public boolean useSetupHelper()
     {
         return true;
     }
@@ -175,11 +171,11 @@ public abstract class BaseTester extends AbstractTestClass
         return config;
     }
 
-    private void enablerDialogLoop()
+    private void setupHelperDialogLoop()
     {
         UIUtil.handleBluetoothEnablerDialogs(activity);
-        if (enablerLock.get())
-            P_Bridge_BleManager.postUpdateDelayed(mgr.getIBleManager(), this::enablerDialogLoop, 20);
+        if (setupHelperLock.get())
+            P_Bridge_BleManager.postUpdateDelayed(mgr.getIBleManager(), this::setupHelperDialogLoop, 20);
     }
 
     private void makeSureScreenIsOn()
@@ -193,12 +189,12 @@ public abstract class BaseTester extends AbstractTestClass
         }
     }
 
-    private void startEnabler()
+    private void startHelper()
     {
         BleSetupHelper.runEnabler(mgr, activity, result ->
         {
             if (result.getSuccessful())
-                enablerLock.set(false);
+                setupHelperLock.set(false);
         });
     }
 

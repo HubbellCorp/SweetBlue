@@ -18,6 +18,7 @@
 package com.idevicesinc.sweetblue.toolbox.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.idevicesinc.sweetblue.DeviceStateListener;
@@ -52,9 +54,9 @@ public class BleDetailsFragment extends BaseFragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View layout = inflater.inflate(R.layout.layout_bledevice_details, null);
+        @SuppressLint("InflateParams") View layout = inflater.inflate(R.layout.layout_bledevice_details, null);
 
-        m_viewModel = ViewModelProviders.of(getActivity()).get(DeviceDetailsViewModel.class);
+        m_viewModel = new ViewModelProvider(getActivity()).get(DeviceDetailsViewModel.class);
 
         m_viewModel.getStateEvent().observe(getViewLifecycleOwner(), stateEvent -> {
             if (stateEvent != null)

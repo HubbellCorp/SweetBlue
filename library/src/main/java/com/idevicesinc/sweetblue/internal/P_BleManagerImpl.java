@@ -19,6 +19,7 @@ package com.idevicesinc.sweetblue.internal;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.app.PendingIntent;
@@ -829,7 +830,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Overload of {@link #turnOnLocationWithIntent_forOsServices(Activity, int)} if you don't care about result.
      *
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final void turnOnLocationWithIntent_forOsServices(final Activity callingActivity)
     {
@@ -849,7 +850,7 @@ public final class P_BleManagerImpl implements IBleManager
      * negative from {@link Activity#shouldShowRequestPermissionRationale(String)} when the Location Permission has never been requested. Make sure to use this in conjunction with {@link #isLocationEnabledForScanning_byRuntimePermissions()}
      * which will tell you if permissions are already enabled.
      *
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final boolean willLocationPermissionSystemDialogBeShown(Activity callingActivity)
     {
@@ -874,7 +875,7 @@ public final class P_BleManagerImpl implements IBleManager
      * user can navigate to enable the permissions.
      *
      * @see #isLocationEnabledForScanning_byRuntimePermissions()
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final void turnOnLocationWithIntent_forPermissions(final Activity callingActivity, int requestCode)
     {
@@ -978,8 +979,9 @@ public final class P_BleManagerImpl implements IBleManager
      * If current state is {@link BleManagerState#ON} or {@link BleManagerState#TURNING_ON}
      * this method early outs and does nothing.
      *
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
+    @SuppressLint("MissingPermission")
     public final void turnOnWithIntent(Activity callingActivity, int requestCode)
     {
         if (isAny(ON, TURNING_ON)) return;

@@ -51,6 +51,7 @@ import com.idevicesinc.sweetblue.utils.TimeEstimator;
 import com.idevicesinc.sweetblue.utils.Uuids;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -3038,7 +3039,7 @@ public final class BleDevice extends BleNode
 
             if (notify == null)
             {
-                m_deviceImpl.logger().e(String.format("Entry %d of the notify array was null!", i));
+                m_deviceImpl.logger().e(String.format(Locale.US, "Entry %d of the notify array was null!", i));
                 continue;
             }
 

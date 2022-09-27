@@ -60,7 +60,6 @@ import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
  *
  * Created by dyoung on 3/24/14.
  */
-@TargetApi(5)
 final class P_BluetoothCrashResolver {
     private static final String TAG = "BluetoothCrashResolver";
     private static final boolean PREEMPTIVE_ACTION_ENABLED = true;
@@ -300,7 +299,6 @@ final class P_BluetoothCrashResolver {
     }
 
     @SuppressLint("MissingPermission")
-    @TargetApi(17)
     private void startRecovery() {
         // The discovery operation will start by clearing out the bluetooth mac list to only the 256
         // most recently seen BLE mac addresses.

@@ -1378,7 +1378,7 @@ public final class RxBleManager
      * SweetBlue will fall back to classic discovery through {@link BluetoothAdapter#startDiscovery()} when you call {@link #scan(ScanOptions)}, so you may not have to use this.
      *
      * @see #isLocationEnabledForScanning_byOsServices()
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final void turnOnLocationWithIntent_forOsServices(final Activity callingActivity, int requestCode)
     {
@@ -1388,7 +1388,7 @@ public final class RxBleManager
     /**
      * Overload of {@link #turnOnLocationWithIntent_forOsServices(Activity, int)} if you don't care about result.
      *
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final void turnOnLocationWithIntent_forOsServices(final Activity callingActivity)
     {
@@ -1401,7 +1401,7 @@ public final class RxBleManager
      * negative from {@link Activity#shouldShowRequestPermissionRationale(String)} when the Location Permission has never been requested. Make sure to use this in conjunction with {@link #isLocationEnabledForScanning_byRuntimePermissions()}
      * which will tell you if permissions are already enabled.
      *
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final boolean willLocationPermissionSystemDialogBeShown(Activity callingActivity)
     {
@@ -1415,7 +1415,7 @@ public final class RxBleManager
      * user can navigate to enable the permissions.
      *
      * @see #isLocationEnabledForScanning_byRuntimePermissions()
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final void turnOnLocationWithIntent_forPermissions(final Activity callingActivity, int requestCode)
     {
@@ -1468,7 +1468,7 @@ public final class RxBleManager
      * @see #turnOnLocationWithIntent_forPermissions(Activity, int)
      * @see #turnOnLocationWithIntent_forOsServices(Activity)
      * @see #turnOnLocationWithIntent_forOsServices(Activity, int)
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final boolean isLocationEnabledForScanning()
     {
@@ -1480,7 +1480,7 @@ public final class RxBleManager
      * or {@link android.Manifest.permission#ACCESS_FINE_LOCATION} in your AndroidManifest.xml, <code>false</code> otherwise.
      *
      * @see #scan(ScanOptions)
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final boolean isLocationEnabledForScanning_byManifestPermissions()
     {
@@ -1494,7 +1494,7 @@ public final class RxBleManager
      *
      * @see #scan(ScanOptions)
      * @see #turnOnLocationWithIntent_forPermissions(Activity, int)
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final boolean isLocationEnabledForScanning_byRuntimePermissions()
     {
@@ -1523,7 +1523,7 @@ public final class RxBleManager
      * @see #scan(ScanOptions)
      * @see #turnOnLocationWithIntent_forOsServices(Activity)
      * @see #turnOnLocationWithIntent_forOsServices(Activity, int)
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final boolean isLocationEnabledForScanning_byOsServices()
     {
@@ -1537,7 +1537,7 @@ public final class RxBleManager
      * If current state is {@link BleManagerState#ON} or {@link BleManagerState#TURNING_ON}
      * this method early outs and does nothing.
      *
-     * @see com.idevicesinc.sweetblue.utils.BluetoothEnabler
+     * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     public final void turnOnWithIntent(Activity callingActivity, int requestCode)
     {

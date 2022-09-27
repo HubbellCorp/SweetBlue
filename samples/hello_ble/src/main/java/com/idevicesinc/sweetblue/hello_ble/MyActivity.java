@@ -17,6 +17,7 @@
 
 package com.idevicesinc.sweetblue.hello_ble;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -203,7 +204,7 @@ public class MyActivity extends Activity
     {
         // Read the battery level of the device. You don't necessarily have to pass in the service UUID here, as SweetBlue will scan the service database
         // for the characteristic you're looking for, however, it's most efficient to be this explicit so it can avoid having to iterate over everything.
-        BleRead read = new BleRead(Uuids.BATTERY_SERVICE_UUID, Uuids.BATTERY_LEVEL).setReadWriteListener(readEvent ->
+        @SuppressLint("SetTextI18n") BleRead read = new BleRead(Uuids.BATTERY_SERVICE_UUID, Uuids.BATTERY_LEVEL).setReadWriteListener(readEvent ->
         {
             if (readEvent.wasSuccess())
             {

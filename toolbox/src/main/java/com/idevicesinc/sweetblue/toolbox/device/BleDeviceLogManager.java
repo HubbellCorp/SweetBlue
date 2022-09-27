@@ -25,6 +25,7 @@ import com.idevicesinc.sweetblue.BleDevice;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -96,7 +97,7 @@ public class BleDeviceLogManager
 
         List<BleDeviceLogEntry> getListForEventType(EventType et, String uuid)
         {
-            uuid = uuid.toLowerCase();
+            uuid = uuid.toLowerCase(Locale.US);
 
             // Get appropriate map for event type
             Map<String, List<BleDeviceLogEntry>> m = mEventLog.get(et);
@@ -126,7 +127,7 @@ public class BleDeviceLogManager
 
     public BleDeviceLogEntry getLatestEntryForDevice(String macAddress, EventType et, String uuid)
     {
-        macAddress = macAddress.toLowerCase();
+        macAddress = macAddress.toLowerCase(Locale.US);
         BleDeviceLog log = mLogMap.get(macAddress);
         if (log == null)
             return null;
@@ -180,7 +181,7 @@ public class BleDeviceLogManager
 
     public void addEntryForDevice(String macAddress, EventType et, UUID charUuid, byte[] value)
     {
-        macAddress = macAddress.toLowerCase();
+        macAddress = macAddress.toLowerCase(Locale.US);
         BleDeviceLog log = mLogMap.get(macAddress);
         if (log == null)
         {

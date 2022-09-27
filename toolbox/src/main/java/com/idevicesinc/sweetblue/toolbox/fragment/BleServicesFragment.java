@@ -17,6 +17,7 @@
 
 package com.idevicesinc.sweetblue.toolbox.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.idevicesinc.sweetblue.BleService;
@@ -50,9 +52,9 @@ public class BleServicesFragment extends BaseFragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View layout = inflater.inflate(R.layout.layout_service_list, null);
+        @SuppressLint("InflateParams") View layout = inflater.inflate(R.layout.layout_service_list, null);
 
-        m_viewModel = ViewModelProviders.of(getActivity()).get(DeviceDetailsViewModel.class);
+        m_viewModel = new ViewModelProvider(getActivity()).get(DeviceDetailsViewModel.class);
 
         m_viewModel.getServiceList().observe(getViewLifecycleOwner(), bluetoothGattServices -> m_adapter.notifyDataSetChanged());
 

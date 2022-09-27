@@ -50,7 +50,7 @@ public final class RxServerConnectTest extends RxBaseBleUnitTest
         startAsyncTest();
     }
 
-    @Test(timeout = 15000)
+    @Test(timeout = 5000)
     public void connectMultipleTest() throws Exception
     {
         m_config.loggingOptions = LogOptions.ON;
@@ -75,7 +75,7 @@ public final class RxServerConnectTest extends RxBaseBleUnitTest
         startAsyncTest();
     }
 
-    @Test(timeout = 15000)
+    @Test(timeout = 5000)
     public void connectThenDisconnectTest() throws Exception
     {
         m_config.loggingOptions = LogOptions.ON;
@@ -97,7 +97,7 @@ public final class RxServerConnectTest extends RxBaseBleUnitTest
         startAsyncTest();
     }
 
-    @Test(timeout = 15000)
+    @Test(timeout = 5000)
     public void failConnectThenConnectTest() throws Exception
     {
         m_config.loggingOptions = LogOptions.ON;

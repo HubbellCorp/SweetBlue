@@ -15,20 +15,22 @@
 
 		<LinearLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
+			android:layout_height="0dp"
 			android:layout_weight="1"
-			android:orientation="horizontal">
+			android:orientation="horizontal"
+			android:baselineAligned="false">
 
 			<LinearLayout
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:orientation="vertical">
+				android:orientation="vertical"
+				tools:ignore="NestedWeights">
 
 				<TextView
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginLeft="10dp"
+					android:layout_marginStart="10dp"
 					android:layout_marginTop="10dp"
 					android:text="@string/ble_options"
 					android:textSize="@dimen/default_font_size" />
@@ -36,7 +38,7 @@
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginLeft="5dp"
+					android:layout_marginStart="5dp"
 					android:orientation="vertical">
 
 					<LinearLayout
@@ -49,7 +51,8 @@
 							android:layout_height="@dimen/scan_button_height"
 							android:singleLine="true"
 							android:text="@string/ble_enable"
-							android:textSize="@dimen/button_font_size" />
+							android:textSize="@dimen/button_font_size"
+							style="?android:attr/buttonBarButtonStyle" />
 
 						<Button
 							android:id="@+id/disableButton"
@@ -57,7 +60,8 @@
 							android:layout_height="@dimen/scan_button_height"
 							android:singleLine="true"
 							android:text="@string/ble_disable"
-							android:textSize="@dimen/button_font_size" />
+							android:textSize="@dimen/button_font_size"
+							style="?android:attr/buttonBarButtonStyle" />
 
 					</LinearLayout>
 
@@ -71,7 +75,8 @@
 							android:layout_height="@dimen/scan_button_height"
 							android:singleLine="true"
 							android:text="@string/ble_unbond_all"
-							android:textSize="@dimen/button_font_size" />
+							android:textSize="@dimen/button_font_size"
+							style="?android:attr/buttonBarButtonStyle" />
 
 						<Button
 							android:id="@+id/nukeButton"
@@ -79,7 +84,8 @@
 							android:layout_height="@dimen/scan_button_height"
 							android:singleLine="true"
 							android:text="@string/ble_nuke"
-							android:textSize="@dimen/button_font_size" />
+							android:textSize="@dimen/button_font_size"
+							style="?android:attr/buttonBarButtonStyle" />
 
 					</LinearLayout>
 
@@ -97,7 +103,7 @@
 				<TextView
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginRight="10dp"
+					android:layout_marginEnd="10dp"
 					android:layout_marginTop="10dp"
 					android:text="@string/scan_options"
 					android:textSize="@dimen/default_font_size" />
@@ -105,7 +111,7 @@
 				<LinearLayout
 					android:layout_width="wrap_content"
 					android:layout_height="match_parent"
-					android:layout_marginRight="5dp"
+					android:layout_marginEnd="5dp"
 					android:orientation="vertical">
 
 					<LinearLayout
@@ -118,7 +124,8 @@
 							android:layout_height="@dimen/scan_button_height"
 							android:singleLine="true"
 							android:text="@string/scan_infinite"
-							android:textSize="@dimen/button_font_size" />
+							android:textSize="@dimen/button_font_size"
+							style="?android:attr/buttonBarButtonStyle" />
 
 						<Button
 							android:id="@+id/stopScanButton"
@@ -126,7 +133,8 @@
 							android:layout_height="@dimen/scan_button_height"
 							android:singleLine="true"
 							android:text="@string/stop_scanning"
-							android:textSize="@dimen/button_font_size" />
+							android:textSize="@dimen/button_font_size"
+							style="?android:attr/buttonBarButtonStyle" />
 					</LinearLayout>
 
 					<LinearLayout
@@ -139,7 +147,8 @@
 							android:layout_height="@dimen/scan_button_height"
 							android:singleLine="true"
 							android:text="@string/scan_for_x_sec"
-							android:textSize="@dimen/button_font_size" />
+							android:textSize="@dimen/button_font_size"
+							style="?android:attr/buttonBarButtonStyle" />
 
 						<Button
 							android:id="@+id/scanPeriodicallyButton"
@@ -147,7 +156,8 @@
 							android:layout_height="@dimen/scan_button_height"
 							android:singleLine="true"
 							android:text="@string/scan_for_x_sec_repeated"
-							android:textSize="@dimen/button_font_size" />
+							android:textSize="@dimen/button_font_size"
+							style="?android:attr/buttonBarButtonStyle" />
 					</LinearLayout>
 
 				</LinearLayout>
@@ -156,7 +166,7 @@
 
 		</LinearLayout>
 
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="10dp"

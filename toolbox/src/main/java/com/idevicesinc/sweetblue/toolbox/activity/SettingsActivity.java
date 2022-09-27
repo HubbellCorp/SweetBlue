@@ -55,6 +55,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -298,13 +299,13 @@ public class SettingsActivity extends BaseActivity
             if (splits.length > 0)
             {
                 String first = splits[0];
-                first = first.substring(0, 1).toUpperCase() + first.substring(1);
+                first = first.substring(0, 1).toUpperCase(Locale.US) + first.substring(1);
                 sb.append(first);
                 for (int i = 1; i < splits.length; ++i)
                 {
                     sb.append(' ');
                     String split = splits[i];
-                    split = split.substring(0, 1).toLowerCase() + split.substring(1);
+                    split = split.substring(0, 1).toLowerCase(Locale.US) + split.substring(1);
                     sb.append(split);
                 }
             }

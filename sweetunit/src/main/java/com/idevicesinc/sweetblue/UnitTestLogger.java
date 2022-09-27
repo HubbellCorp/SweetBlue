@@ -21,6 +21,7 @@ package com.idevicesinc.sweetblue;
 import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Implementation of {@link SweetLogger} which just prints logs to the console via System.out.println().
@@ -33,7 +34,7 @@ public class UnitTestLogger implements SweetLogger
     @Override public void onLogEntry(int level, String tag, String msg)
     {
         if (m_timeFormatter == null)
-            m_timeFormatter = new SimpleDateFormat("[HH:mm:ss.SSS]");
+            m_timeFormatter = new SimpleDateFormat("[HH:mm:ss.SSS]", Locale.US);
         StringBuilder b = new StringBuilder();
         b.append(m_timeFormatter.format(new Date())).append("  ");
         switch (level)

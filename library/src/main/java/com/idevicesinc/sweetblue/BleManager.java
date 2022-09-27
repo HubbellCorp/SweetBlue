@@ -23,6 +23,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
@@ -1564,6 +1566,7 @@ public final class BleManager
 	/**
 	 * Same as {@link #newDevice(BluetoothDevice)}, but allows passing in a {@link BleDeviceConfig} as well.
 	 */
+	@SuppressLint("MissingPermission")
 	public final @Nullable(Prevalence.NEVER) BleDevice newDevice(BluetoothDevice nativeDevice, BleDeviceConfig config)
 	{
 		return newDevice(nativeDevice.getAddress(), nativeDevice.getName(), config);
@@ -1580,7 +1583,6 @@ public final class BleManager
 	/**
 	 * Same as {@link #newDevice(String)} but passes a {@link BleDeviceConfig} to be used as well.
 	 */
-
 	public final @Nullable(Prevalence.NEVER) BleDevice newDevice(final String macAddress, final BleDeviceConfig config)
 	{
 		return newDevice(macAddress, null, config);

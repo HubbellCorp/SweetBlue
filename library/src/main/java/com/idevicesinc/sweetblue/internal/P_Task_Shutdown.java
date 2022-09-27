@@ -21,6 +21,7 @@ package com.idevicesinc.sweetblue.internal;
 import com.idevicesinc.sweetblue.BleDeviceState;
 import com.idevicesinc.sweetblue.BleTask;
 import java.util.List;
+import java.util.Locale;
 
 
 public class P_Task_Shutdown extends PA_Task
@@ -52,7 +53,7 @@ public class P_Task_Shutdown extends PA_Task
         // we'll just log it and allow things to continue, so we don't lock apps up when trying to close
         if (!connectedDevices.isEmpty())
         {
-            getLogger().e(String.format("%d devices were not disconnected when shutting down!", connectedDevices.size()));
+            getLogger().e(String.format(Locale.US, "%d devices were not disconnected when shutting down!", connectedDevices.size()));
             // Clear the semaphore to ensure we dont lock up the app
             getManager().clearShutdownSemaphore();
             fail();

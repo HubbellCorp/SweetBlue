@@ -19,6 +19,7 @@ package com.idevicesinc.sweetblue.internal;
 
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 import android.os.Build;
 import android.os.Process;
@@ -117,12 +118,12 @@ public final class P_Logger
 
 	public final void setMainThread(int threadId)
 	{
-		m_threadNames.put(threadId, String.format(THREAD_TMPLT, MAIN, threadId));
+		m_threadNames.put(threadId, String.format(Locale.US, THREAD_TMPLT, MAIN, threadId));
 	}
 
 	public final void setUpdateThread(int threadId)
 	{
-		m_threadNames.put(threadId, String.format(THREAD_TMPLT, UPDATE, threadId));
+		m_threadNames.put(threadId, String.format(Locale.US, THREAD_TMPLT, UPDATE, threadId));
 	}
 
 

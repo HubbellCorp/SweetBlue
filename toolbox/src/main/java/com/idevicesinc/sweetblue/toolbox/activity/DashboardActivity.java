@@ -17,6 +17,7 @@
 
 package com.idevicesinc.sweetblue.toolbox.activity;
 
+import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -71,6 +72,7 @@ public class DashboardActivity extends BaseActivity
 
     private DashboardViewModel m_viewModel;
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -206,6 +208,7 @@ public class DashboardActivity extends BaseActivity
         return true;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onResume()
     {
@@ -387,14 +390,12 @@ public class DashboardActivity extends BaseActivity
     {
         if (m_drawerToggler.onOptionsItemSelected(item))
             return true;
-        switch (item.getItemId())
-        {
-            case R.id.scanOptions:
-                openScanOptionsDialog();
-                return true;
-            case R.id.sortOptions:
-                openSortOptionsDialog();
-                return true;
+        if (item.getItemId() == R.id.scanOptions) {
+            openScanOptionsDialog();
+            return true;
+        } else if (item.getItemId() == R.id.sortOptions) {
+            openSortOptionsDialog();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -146,6 +146,8 @@ public class FileUtil
             String JSONString = os.toString();
             JSONObject jo = new JSONObject(JSONString);
 
+            is.close();
+
             return jo;
         }
     }

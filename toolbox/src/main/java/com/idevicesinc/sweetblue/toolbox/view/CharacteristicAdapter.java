@@ -53,6 +53,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -66,6 +67,8 @@ public class CharacteristicAdapter extends BaseExpandableListAdapter
     private static String SIGNED_WRITE;
     private static String EXTENDED_PROPS;
     private static String WRITE_NO_RESPONSE;
+
+    private static Map<Integer, Uuids.GATTDisplayType> DISPLAYTYPE_MAP;
 
 
     private CharacteristicsActivity mParent;
@@ -95,6 +98,20 @@ public class CharacteristicAdapter extends BaseExpandableListAdapter
             mCharDescMap.put(ch, ch.getDescriptors());
 
         Collections.sort(mCharacteristicList, new CharacteristicComparator());
+
+        if (DISPLAYTYPE_MAP == null) {
+            populateDisplayTypeMap();
+        }
+    }
+
+    private void populateDisplayTypeMap() {
+        DISPLAYTYPE_MAP.put(R.id.displayTypeBoolean, Uuids.GATTDisplayType.Boolean);
+        DISPLAYTYPE_MAP.put(R.id.displayTypeBitfield, Uuids.GATTDisplayType.Bitfield);
+        DISPLAYTYPE_MAP.put(R.id.displayTypeUnsignedInteger, Uuids.GATTDisplayType.UnsignedInteger);
+        DISPLAYTYPE_MAP.put(R.id.displayTypeSignedInteger, Uuids.GATTDisplayType.SignedInteger);
+        DISPLAYTYPE_MAP.put(R.id.displayTypeDecimal, Uuids.GATTDisplayType.Decimal);
+        DISPLAYTYPE_MAP.put(R.id.displayTypeString, Uuids.GATTDisplayType.String);
+        DISPLAYTYPE_MAP.put(R.id.displayTypeHex, Uuids.GATTDisplayType.Hex);
     }
 
     @Override
@@ -205,38 +222,7 @@ public class CharacteristicAdapter extends BaseExpandableListAdapter
                     //registering popup with OnMenuItemClickListener
                     popup.setOnMenuItemClickListener(item ->
                     {
-                        switch (item.getItemId())
-                        {
-                            // TODO - Android Gradle Plugin version 8 will break this switch statement
-                            // TODO - Will need to figure out an alternative
-                            case R.id.displayTypeBoolean:
-                                h.displayType = Uuids.GATTDisplayType.Boolean;
-                                break;
-
-                            case R.id.displayTypeBitfield:
-                                h.displayType = Uuids.GATTDisplayType.Bitfield;
-                                break;
-
-                            case R.id.displayTypeUnsignedInteger:
-                                h.displayType = Uuids.GATTDisplayType.UnsignedInteger;
-                                break;
-
-                            case R.id.displayTypeSignedInteger:
-                                h.displayType = Uuids.GATTDisplayType.SignedInteger;
-                                break;
-
-                            case R.id.displayTypeDecimal:
-                                h.displayType = Uuids.GATTDisplayType.Decimal;
-                                break;
-
-                            case R.id.displayTypeString:
-                                h.displayType = Uuids.GATTDisplayType.String;
-                                break;
-
-                            case R.id.displayTypeHex:
-                                h.displayType = Uuids.GATTDisplayType.Hex;
-                                break;
-                        }
+                        h.displayType = DISPLAYTYPE_MAP.get(item.getItemId());
 
                         //TODO:  Refresh type label
 
@@ -396,7 +382,7 @@ public class CharacteristicAdapter extends BaseExpandableListAdapter
 
                     byte[] val = bdle.getValue();
 
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.US);
                     String timeString = sdf.format(new Date(ts));
 
                     valueString = dt.toString(/*bgc.getValue()*/ val);

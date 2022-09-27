@@ -135,25 +135,23 @@ public class LoggerActivity extends BaseActivity
         else
         {
             item.setChecked(true);
-            switch (item.getItemId())
-            {
-                case R.id.verbose:
-                    m_viewModel.setLogLevel(LogLevel.Verbose);
-                    break;
-                case R.id.debug:
-                    m_viewModel.setLogLevel(LogLevel.Debug);
-                    break;
-                case R.id.info:
-                    m_viewModel.setLogLevel(LogLevel.Info);
-                    break;
-                case R.id.warn:
-                    m_viewModel.setLogLevel(LogLevel.Warn);
-                    break;
-                case R.id.error:
-                    m_viewModel.setLogLevel(LogLevel.Error);
-                    break;
-                default:
-                    return super.onOptionsItemSelected(item);
+            if (item.getItemId() == R.id.verbose) {
+                m_viewModel.setLogLevel(LogLevel.Verbose);
+            }
+            else if (item.getItemId() == R.id.debug) {
+                m_viewModel.setLogLevel(LogLevel.Debug);
+            }
+            else if (item.getItemId() == R.id.info) {
+                m_viewModel.setLogLevel(LogLevel.Info);
+            }
+            else if (item.getItemId() == R.id.warn) {
+                m_viewModel.setLogLevel(LogLevel.Warn);
+            }
+            else if (item.getItemId() == R.id.error) {
+                m_viewModel.setLogLevel(LogLevel.Error);
+            }
+            else {
+                return super.onOptionsItemSelected(item);
             }
             m_viewModel.refreshLog();
             return true;

@@ -6,14 +6,14 @@ version = ext.appVersionName
 
 android {
     namespace 'com.idevicesinc.sweetblue'
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 18
         aarMetadata {
             minCompileSdk = 18
         }
-        targetSdkVersion 32
+        targetSdkVersion 33
         project.archivesBaseName = "sweetblue"
         testInstrumentationRunner "com.idevicesinc.atf.ScreenOnJunitRunner"
     }
@@ -64,6 +64,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'androidx.annotation:annotation:1.5.0'
+
     // Instrumentation test dependencies
     androidTestImplementation project(':sweetunit')
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

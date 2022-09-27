@@ -17,6 +17,7 @@
 
 package com.idevicesinc.sweetblue.toolbox.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.TextViewCompat;
@@ -54,6 +55,7 @@ public class DeviceRow extends FrameLayout
     private ImageView m_bondImageView;
 
 
+    @SuppressLint("InflateParams")
     public DeviceRow(Context context)
     {
         super(context);

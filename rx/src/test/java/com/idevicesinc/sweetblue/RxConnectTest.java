@@ -37,7 +37,7 @@ import org.robolectric.annotation.Config;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import io.reactivex.disposables.Disposable;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 
 @Config(manifest = Config.NONE, sdk = 25)

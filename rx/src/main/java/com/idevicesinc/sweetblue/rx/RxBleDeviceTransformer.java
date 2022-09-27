@@ -1,7 +1,7 @@
 package com.idevicesinc.sweetblue.rx;
 
 import com.idevicesinc.sweetblue.BleDevice;
-import io.reactivex.functions.Function;
+import io.reactivex.rxjava3.functions.Function;
 
 
 /**

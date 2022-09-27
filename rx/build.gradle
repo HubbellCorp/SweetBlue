@@ -52,16 +52,16 @@ tasks.withType(Test) {
 }
 
 dependencies {
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
     implementation project(':library')
 
     testImplementation project(':sweetunit')
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.robolectric:robolectric:4.4'
 
-    javadocDeps 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    javadocDeps 'io.reactivex.rxjava2:rxjava:2.1.13'
+    javadocDeps 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    javadocDeps 'io.reactivex.rxjava3:rxjava:3.0.0'
 }
 
 // Generate javadocs

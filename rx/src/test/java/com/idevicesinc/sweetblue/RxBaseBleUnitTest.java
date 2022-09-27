@@ -21,7 +21,7 @@ package com.idevicesinc.sweetblue;
 import android.app.Activity;
 
 import org.robolectric.Robolectric;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 
 

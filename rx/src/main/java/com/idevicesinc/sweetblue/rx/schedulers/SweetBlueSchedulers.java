@@ -3,7 +3,7 @@ package com.idevicesinc.sweetblue.rx.schedulers;
 
 import com.idevicesinc.sweetblue.P_Bridge;
 import com.idevicesinc.sweetblue.rx.plugins.RxSweetBluePlugins;
-import io.reactivex.Scheduler;
+import io.reactivex.rxjava3.core.Scheduler;
 
 /**
  * SweetBlue specific schedulers.

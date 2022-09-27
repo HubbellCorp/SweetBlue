@@ -3,7 +3,7 @@ package com.idevicesinc.sweetblue.rx.annotations;
 
 import com.idevicesinc.sweetblue.ScanOptions;
 import com.idevicesinc.sweetblue.rx.RxBleManager;
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 
 /**
  * Annotation that dictates that an {@link Observable} should only ever have a single subscription.

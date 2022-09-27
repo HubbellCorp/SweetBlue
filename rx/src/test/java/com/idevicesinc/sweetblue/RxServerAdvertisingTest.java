@@ -28,7 +28,7 @@ import org.reactivestreams.Subscription;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import java.util.concurrent.atomic.AtomicInteger;
-import io.reactivex.FlowableSubscriber;
+import io.reactivex.rxjava3.core.FlowableSubscriber;
 
 
 @Config(manifest = Config.NONE, sdk = 25)

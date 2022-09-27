@@ -10,7 +10,6 @@ import com.idevicesinc.sweetblue.BleNotify;
 import com.idevicesinc.sweetblue.BleRead;
 import com.idevicesinc.sweetblue.BleTransaction;
 import com.idevicesinc.sweetblue.BleWrite;
-import com.idevicesinc.sweetblue.DeviceReconnectFilter;
 import com.idevicesinc.sweetblue.P_Bridge_User;
 import com.idevicesinc.sweetblue.P_ITransaction;
 import com.idevicesinc.sweetblue.ReadWriteListener;
@@ -19,8 +18,8 @@ import com.idevicesinc.sweetblue.internal.IBleTransaction;
 import com.idevicesinc.sweetblue.utils.Event;
 import com.idevicesinc.sweetblue.utils.Phy;
 import java.util.List;
-import io.reactivex.Observable;
-import io.reactivex.Single;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
 
 
 public abstract class RxBleTransaction implements P_ITransaction

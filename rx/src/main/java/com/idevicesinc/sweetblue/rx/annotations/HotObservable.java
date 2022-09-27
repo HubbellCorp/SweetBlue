@@ -1,7 +1,7 @@
 package com.idevicesinc.sweetblue.rx.annotations;
 
-import io.reactivex.Observable;
-import io.reactivex.Flowable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Flowable;
 
 /**
  * Annotation used to dictate if a particular {@link Observable}, or {@link Flowable} is considered

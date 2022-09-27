@@ -4,10 +4,9 @@ package com.idevicesinc.sweetblue.rx.schedulers;
 import com.idevicesinc.sweetblue.internal.P_SweetHandler;
 
 import java.util.concurrent.TimeUnit;
-import io.reactivex.Scheduler;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.disposables.Disposables;
-import io.reactivex.plugins.RxJavaPlugins;
+import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 
 
 public class SweetBlueScheduler extends Scheduler
@@ -60,7 +59,7 @@ public class SweetBlueScheduler extends Scheduler
             if (unit == null) throw new NullPointerException("unit == null");
 
             if (m_disposed)
-                return Disposables.disposed();
+                return Disposable.disposed();
 
             run = RxJavaPlugins.onSchedule(run);
 
@@ -73,7 +72,7 @@ public class SweetBlueScheduler extends Scheduler
             if (m_disposed)
             {
                 m_handler.removeCallbacks(scheduled);
-                return Disposables.disposed();
+                return Disposable.disposed();
             }
 
             return scheduled;

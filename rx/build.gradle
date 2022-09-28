@@ -53,7 +53,7 @@ tasks.withType(Test) {
 
 dependencies {
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
     implementation project(':library')
 
     testImplementation project(':sweetunit')
@@ -61,7 +61,7 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.4'
 
     javadocDeps 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    javadocDeps 'io.reactivex.rxjava3:rxjava:3.0.0'
+    javadocDeps 'io.reactivex.rxjava3:rxjava:3.1.5'
 }
 
 // Generate javadocs

@@ -315,6 +315,134 @@ public abstract class AbstractTestClass
     }
 
     /**
+     * Forwards {@link Assert#assertNotEquals(long, long)}, and wraps it in a try/catch so that we can properly release the semaphore when a test
+     * fails (so it doesn't lock up).
+     */
+    public void assertNotEquals(long expected, long actual)
+    {
+        try
+        {
+            Assert.assertNotEquals(expected, actual);
+        }
+        catch (Error e)
+        {
+            handleException(e);
+        }
+    }
+
+    /**
+     * Forwards {@link Assert#assertNotEquals(String, long, long)}, and wraps it in a try/catch so that we can properly release the semaphore when a test
+     * fails (so it doesn't lock up).
+     */
+    public void assertNotEquals(String failMsg, long expected, long actual)
+    {
+        try
+        {
+            Assert.assertNotEquals(failMsg, expected, actual);
+        }
+        catch (Error e)
+        {
+            handleException(e);
+        }
+    }
+
+    /**
+     * Forwards {@link Assert#assertNotEquals(Object, Object)}, and wraps it in a try/catch so that we can properly release the semaphore when a test
+     * fails (so it doesn't lock up).
+     */
+    public void assertNotEquals(Object expected, Object actual)
+    {
+        try
+        {
+            Assert.assertNotEquals(expected, actual);
+        }
+        catch (Error e)
+        {
+            handleException(e);
+        }
+    }
+
+    /**
+     * Forwards {@link Assert#assertNotEquals(String, Object, Object)}, and wraps it in a try/catch so that we can properly release the semaphore when a test
+     * fails (so it doesn't lock up).
+     */
+    public void assertNotEquals(String failMsg, Object expected, Object actual)
+    {
+        try
+        {
+            Assert.assertNotEquals(failMsg, expected, actual);
+        }
+        catch (Error e)
+        {
+            handleException(e);
+        }
+    }
+
+    /**
+     * Forwards {@link Assert#assertNotEquals(float, float, float)}, and wraps it in a try/catch so that we can properly release the semaphore when a test
+     * fails (so it doesn't lock up).
+     */
+    public void assertNotEquals(float expected, float actual, float delta)
+    {
+        try
+        {
+            Assert.assertNotEquals(expected, actual, delta);
+        }
+        catch (Error e)
+        {
+            handleException(e);
+        }
+    }
+
+    /**
+     * Forwards {@link Assert#assertNotEquals(String, float, float, float)}, and wraps it in a try/catch so that we can properly release the semaphore when a test
+     * fails (so it doesn't lock up).
+     */
+    public void assertNotEquals(String failMsg, float expected, float actual, float delta)
+    {
+        try
+        {
+            Assert.assertNotEquals(failMsg, expected, actual, delta);
+        }
+        catch (Error e)
+        {
+            handleException(e);
+        }
+    }
+
+    /**
+     * Forwards {@link Assert#assertNotEquals(double, double, double)}, and wraps it in a try/catch so that we can properly release the semaphore when a test
+     * fails (so it doesn't lock up).
+     */
+    public void assertNotEquals(double expected, double actual, double delta)
+    {
+        try
+        {
+            Assert.assertNotEquals(expected, actual, delta);
+        }
+        catch (Error e)
+        {
+            handleException(e);
+        }
+    }
+
+    /**
+     * Forwards {@link Assert#assertNotEquals(String, double, double, double)}, and wraps it in a try/catch so that we can properly release the semaphore when a test
+     * fails (so it doesn't lock up).
+     */
+    public void assertNotEquals(String failMsg, double expected, double actual, double delta)
+    {
+        try
+        {
+            Assert.assertNotEquals(failMsg, expected, actual, delta);
+        }
+        catch (Error e)
+        {
+            handleException(e);
+        }
+    }
+
+    /**
      * Forwards {@link Assert#assertArrayEquals(byte[], byte[])}, and wraps it in a try/catch so that we can properly release the semaphore when a test
      * fails (so it doesn't lock up).
      */

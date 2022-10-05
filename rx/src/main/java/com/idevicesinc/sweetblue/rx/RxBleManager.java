@@ -1576,19 +1576,6 @@ public final class RxBleManager
     }
 
     /**
-     * @deprecated use {@link #stopScan()} or {@link #stopScan(ScanFilter)} instead.
-     * This method will be removed in v3.1.
-     *
-     * Convenience that will call both {@link BleManager#stopPeriodicScan()} and {@link BleManager#stopScan()} for you. This is here as a stop-gap
-     * in the off chance the scan doesn't stop when you dispose the {@link Flowable} returned from {@link #scan(ScanOptions)}.
-     */
-    @Deprecated
-    public final void stopAllScanning()
-    {
-        m_mgr.stopScan();
-    }
-
-    /**
      * Stops any scans previously started by {@link #scan()}, {@link #scan(ScanOptions)}, or {@link #scan_onlyNew(ScanOptions)}.
      */
     public final void stopScan()

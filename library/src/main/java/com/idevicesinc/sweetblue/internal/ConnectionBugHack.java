@@ -28,7 +28,6 @@ import com.idevicesinc.sweetblue.UhOhListener;
 import com.idevicesinc.sweetblue.utils.Interval;
 import static com.idevicesinc.sweetblue.BleDeviceState.BLE_CONNECTED;
 import static com.idevicesinc.sweetblue.BleDeviceState.BLE_DISCONNECTED;
-import static com.idevicesinc.sweetblue.BleDeviceState.BONDED;
 
 
 public class ConnectionBugHack
@@ -139,7 +138,7 @@ public class ConnectionBugHack
         boolean isDisconnected = !m_device.is(BLE_CONNECTED);
         if (isDisconnected)
         {
-            boolean lowLevelIsConnected = m_device.getNative().isConnected();
+            boolean lowLevelIsConnected = m_device.getNativeDevice().isConnected();
             if (lowLevelIsConnected)
             {
                 // We think we're disconnected, but the low level check is telling us otherwise. So we're pretty sure at this point, we're in this case where

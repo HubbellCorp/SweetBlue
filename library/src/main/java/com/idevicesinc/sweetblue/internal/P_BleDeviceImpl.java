@@ -930,13 +930,23 @@ public final class P_BleDeviceImpl extends BleNodeImpl implements IBleDevice
     }
 
     @Override
-    public IBluetoothDevice getNative()
+    public BluetoothDevice getNative()
+    {
+        return this.getNativeDevice().getNativeDevice();
+    }
+
+    @Override
+    public BluetoothGatt getNativeGatt()
+    {
+        return this.getNativeBleGatt().getGatt();
+    }
+
+    public IBluetoothDevice getNativeDevice()
     {
         return m_nativeManager.getDeviceLayer();
     }
 
-    @Override
-    public IBluetoothGatt getNativeGatt()
+    public IBluetoothGatt getNativeBleGatt()
     {
         return m_nativeManager.getGattLayer();
     }
@@ -1014,7 +1024,7 @@ public final class P_BleDeviceImpl extends BleNodeImpl implements IBleDevice
             return false;
         if (this.isNull() && device_nullable.isNull()) return true;
 
-        return device_nullable.nativeManager().getDeviceLayer().equals(getNative());
+        return device_nullable.nativeManager().getDeviceLayer().equals(this.getNativeDevice());
     }
 
     @Override

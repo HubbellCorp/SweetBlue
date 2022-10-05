@@ -545,105 +545,6 @@ public final class BleManager
 	}
 
 	/**
-	 * @deprecated use {@link #startScan(ScanOptions)} instead.
-	 * This method will be removed in v3.1.
-	 *
-	 * Manually starts a periodic scan.
-	 *
-	 * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
-	 */
-	@Deprecated
-	public final void startPeriodicScan(Interval scanActiveTime, Interval scanPauseTime)
-	{
-		startScan(new ScanOptions().scanPeriodically(scanActiveTime, scanPauseTime));
-	}
-
-	/**
-	 * @deprecated use {@link #startScan(ScanOptions)} instead.
-	 * This method will be removed in v3.1.
-	 *
-	 * Same as {@link #startPeriodicScan(Interval, Interval)} but calls {@link #setListener_Discovery(DiscoveryListener)} for you too.
-	 *
-	 * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
-	 */
-	@Deprecated
-	public final void startPeriodicScan(Interval scanActiveTime, Interval scanPauseTime, DiscoveryListener discoveryListener)
-	{
-		startScan(new ScanOptions(discoveryListener).scanPeriodically(scanActiveTime, scanPauseTime));
-	}
-
-	/**
-	 * @deprecated use {@link #startScan(ScanOptions)} instead.
-	 * This method will be removed in v3.1.
-	 *
-	 * Same as {@link #startPeriodicScan(Interval, Interval)} but adds a filter too.
-	 *
-	 * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
-	 */
-	@Deprecated
-	public final void startPeriodicScan(Interval scanActiveTime, Interval scanPauseTime, ScanFilter filter)
-	{
-		startScan(new ScanOptions(filter).scanPeriodically(scanActiveTime, scanPauseTime));
-	}
-
-	/**
-	 * @deprecated use {@link #startScan(ScanOptions)} instead.
-	 * This method will be removed in v3.1.
-	 *
-	 * Same as {@link #startPeriodicScan(Interval, Interval)} but calls {@link #setListener_Discovery(DiscoveryListener)} for you too and adds a filter.
-	 *
-	 * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
-	 */
-	@Deprecated
-	public final void startPeriodicScan(Interval scanActiveTime, Interval scanPauseTime, ScanFilter filter, DiscoveryListener discoveryListener)
-	{
-		startScan(new ScanOptions(filter, discoveryListener)
-				.withScanFilterApplyMode(ScanFilter.ApplyMode.CombineEither)
-				.scanPeriodically(scanActiveTime, scanPauseTime));
-	}
-
-	/**
-	 * @deprecated use {@link #startScan(ScanOptions)} instead.
-	 * This method will be removed in v3.1.
-	 *
-	 * Same as {@link #startPeriodicScan(Interval, Interval)} but calls {@link #setListener_Discovery(DiscoveryListener)} for you too and adds a filter and a filter mode.
-	 *
-	 * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
-	 */
-	@Deprecated
-	public final void startPeriodicScan(Interval scanActiveTime, Interval scanPauseTime, ScanFilter filter, ScanFilter.ApplyMode filterApplyMode, DiscoveryListener discoveryListener)
-	{
-		m_managerImpl.startScan(new ScanOptions(filter, discoveryListener)
-				.withScanFilterApplyMode(filterApplyMode)
-				.scanPeriodically(scanActiveTime, scanPauseTime));
-	}
-
-	/**
-	 * @deprecated use {@link #stopScan()} or {@link #stopScan(ScanFilter)} instead.
-	 * This method will be removed in v3.1.
-	 *
-	 * Same as {@link #stopPeriodicScan()} but will also unregister any {@link ScanFilter} provided
-	 * through {@link #startPeriodicScan(Interval, Interval, ScanFilter)} or other overloads.
-	 */
-	@Deprecated
-	public final void stopPeriodicScan(final ScanFilter filter)
-	{
-		m_managerImpl.stopScan(filter);
-	}
-
-	/**
-	 * @deprecated use {@link #stopScan()} or {@link #stopScan(ScanFilter)} instead.
-	 * This method will be removed in v3.1.
-	 *
-	 * Stops a periodic scan previously started explicitly with {@link #startPeriodicScan(Interval, Interval)}.
-	 */
-	@Deprecated
-	public final void stopPeriodicScan()
-	{
-		m_managerImpl.stopScan();
-	}
-
-	/**
 	 * Starts a scan that will continue indefinitely until {@link #stopScan()} is called.
 	 *
 	 * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
@@ -1132,19 +1033,6 @@ public final class BleManager
 	public final Context getApplicationContext()
 	{
 		return m_managerImpl.getApplicationContext();
-	}
-
-	/**
-	 * @deprecated use {@link #stopScan()} or {@link #stopScan(ScanFilter)} instead.
-	 * This method will be removed in v3.1.
-	 *
-	 * Convenience that will call both {@link #stopPeriodicScan()} and {@link #stopScan()} for you.
-	 */
-	@Deprecated
-	public final void stopAllScanning()
-	{
-		stopPeriodicScan();
-		stopScan();
 	}
 
 	/**

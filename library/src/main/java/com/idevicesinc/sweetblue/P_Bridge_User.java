@@ -71,12 +71,6 @@ public final class P_Bridge_User
         return please.ack();
     }
 
-    @Deprecated
-    public static boolean stopPeriodicScan(ScanFilter.Please please)
-    {
-        return (please.m_stopScanOptions & ScanFilter.Please.STOP_PERIODIC_SCAN) != 0x0;
-    }
-
     public static boolean stopScan(ScanFilter.Please please)
     {
         return (please.m_stopScanOptions & ScanFilter.Please.STOP_SCAN) != 0x0;

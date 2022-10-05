@@ -37,7 +37,7 @@ import com.idevicesinc.sweetblue.utils.GattDatabase;
  * @see UnitTestBluetoothServer
  * @see UnitTestLogger
  *
- * @deprecated - Do not use this class anymore, it won't work correctly.
+ * @deprecated - Do not use this class anymore, it won't work correctly.  This will be removed in v4.2
  */
 @Deprecated
 @SuppressWarnings("squid:ClassVariableVisibilityCheck")

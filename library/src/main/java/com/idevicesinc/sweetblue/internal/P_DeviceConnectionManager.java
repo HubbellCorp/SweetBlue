@@ -895,15 +895,13 @@ class P_DeviceConnectionManager
         // troubled devices, as to get them to work more reliably, we have to remove the bond after every connect).
         final boolean tryBondingWhileDisconnected = Utils_Config.bool(conf_device().tryBondingWhileDisconnected, conf_mngr().tryBondingWhileDisconnected);
 
-        final boolean tryBondingWhileDisconnected_manageOnDisk = Utils_Config.bool(conf_device().tryBondingWhileDisconnected_manageOnDisk, conf_mngr().tryBondingWhileDisconnected_manageOnDisk);
-
         final boolean autoBondFix = Utils_Config.bool(conf_device().autoBondFixes, conf_mngr().autoBondFixes) && Utils.phoneHasBondingIssues();
 
         final boolean alwaysBondOnConnect = Utils_Config.bool(conf_device().alwaysBondOnConnect, conf_mngr().alwaysBondOnConnect);
 
         needsBond = autoBondFix || alwaysBondOnConnect;
 
-        final boolean doPreBond = getManager().getDiskOptionsManager().loadNeedsBonding(m_device.getMacAddress(), tryBondingWhileDisconnected_manageOnDisk) || needsBond;
+        final boolean doPreBond = getManager().getDiskOptionsManager().loadNeedsBonding(m_device.getMacAddress()) || needsBond;
 
         if (doPreBond && tryBondingWhileDisconnected)
         {

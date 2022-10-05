@@ -130,7 +130,7 @@ final class P_BleDevice_ListenerProcessor implements IDeviceListener.Callback
         // This doesn't make much sense. If the disconnect task is the current, it will NOT be in the queue. Further disconnect tasks in the queue will
         // be tagged as redundant, so why care if it's in the queue or not?
         if (state == PE_TaskState.REDUNDANT && !m_device.getIManager().getTaskManager().isInQueue(P_Task_Disconnect.class, m_device))
-            onConnectionStateChange(P_Bridge_Native.newGattHolder(m_device.getNativeGatt().getGatt()), BleStatuses.GATT_STATUS_NOT_APPLICABLE, BleStatuses.DEVICE_DISCONNECTED, false, task.isExplicit());
+            onConnectionStateChange(P_Bridge_Native.newGattHolder(m_device.getNativeBleGatt().getGatt()), BleStatuses.GATT_STATUS_NOT_APPLICABLE, BleStatuses.DEVICE_DISCONNECTED, false, task.isExplicit());
     }
 
     private void onConnectTaskStateChange(P_Task_Connect task, PE_TaskState state)
@@ -144,7 +144,7 @@ final class P_BleDevice_ListenerProcessor implements IDeviceListener.Callback
 
                 // As redundant means we didn't even make a native request, there will be no callback, so this is here to capture this scenario
             else if (state == PE_TaskState.REDUNDANT)
-                onConnectionStateChange(P_Bridge_Native.newGattHolder(m_device.getNativeGatt().getGatt()), BleStatuses.GATT_STATUS_NOT_APPLICABLE, BleStatuses.DEVICE_CONNECTED, false, task.isExplicit());
+                onConnectionStateChange(P_Bridge_Native.newGattHolder(m_device.getNativeBleGatt().getGatt()), BleStatuses.GATT_STATUS_NOT_APPLICABLE, BleStatuses.DEVICE_CONNECTED, false, task.isExplicit());
         }
     }
 
@@ -274,9 +274,9 @@ final class P_BleDevice_ListenerProcessor implements IDeviceListener.Callback
 
             if (option == BleDeviceConfig.RefreshOption.AFTER_DISCONNECTING)
             {
-                if (!Utils.refreshGatt(m_device.getNativeGatt().getGatt()))
+                if (!Utils.refreshGatt(m_device.getNativeBleGatt().getGatt()))
                 {
-                    m_logger.e("Unable to refresh gatt. Gatt is null = " + (m_device.getNativeGatt().getGatt() == null));
+                    m_logger.e("Unable to refresh gatt. Gatt is null = " + (m_device.getNativeBleGatt().getGatt() == null));
                 }
             }
 

@@ -64,23 +64,23 @@ final class P_BondManager
     }
 
 
-    public final void setListener(BondListener listener_nullable)
+    public void setListener(BondListener listener_nullable)
     {
         m_listener = listener_nullable;
     }
 
-    public final void setEphemeralListener(BondListener listener)
+    public void setEphemeralListener(BondListener listener)
     {
         m_ephemeralListener = listener;
     }
 
-    public final void resetBondRetryCount()
+    public void resetBondRetryCount()
     {
         m_bondRetries = 0;
         m_bondRequested = false;
     }
 
-    final void onBondTaskStateChange(final PA_Task task, final PE_TaskState state)
+    void onBondTaskStateChange(final PA_Task task, final PE_TaskState state)
     {
         final PA_StateTracker.E_Intent intent = task.isExplicit() ? PA_StateTracker.E_Intent.INTENTIONAL : PA_StateTracker.E_Intent.UNINTENTIONAL;
 
@@ -123,7 +123,7 @@ final class P_BondManager
         }
     }
 
-    final void onNativeUnbond(final PA_StateTracker.E_Intent intent)
+    void onNativeUnbond(final PA_StateTracker.E_Intent intent)
     {
         final boolean wasAlreadyUnbonded = m_device.is(UNBONDED);
 
@@ -132,21 +132,20 @@ final class P_BondManager
 
         if (intent == PA_StateTracker.E_Intent.INTENTIONAL)
         {
-            boolean hitDisk = Utils_Config.bool(m_device.getConfig().tryBondingWhileDisconnected_manageOnDisk, m_device.getIManager().getConfigClone().tryBondingWhileDisconnected_manageOnDisk);
-            m_device.getIManager().getDiskOptionsManager().clearNeedsBonding(m_device.getMacAddress(), hitDisk);
+            m_device.getIManager().getDiskOptionsManager().clearNeedsBonding(m_device.getMacAddress());
         }
 
         if (!wasAlreadyUnbonded)
             invokeCallback(Status.SUCCESS, BondListener.BondEvent.Type.UNBOND, BleStatuses.BOND_FAIL_REASON_NOT_APPLICABLE, intent.convert());
     }
 
-    final void onNativeBonding(final PA_StateTracker.E_Intent intent)
+    void onNativeBonding(final PA_StateTracker.E_Intent intent)
     {
         m_device.getStateTracker().update(intent, BleStatuses.GATT_STATUS_NOT_APPLICABLE, BONDED, false, BONDING, true, UNBONDED, false);
         m_device.getStateTracker().updateBondState(BONDING);
     }
 
-    final void onNativeBond(final PA_StateTracker.E_Intent intent)
+    void onNativeBond(final PA_StateTracker.E_Intent intent)
     {
         final boolean wasAlreadyBonded = m_device.is(BONDED);
 
@@ -190,12 +189,12 @@ final class P_BondManager
         return overrideBondingStates;
     }
 
-    final void onNativeBondRequest()
+    void onNativeBondRequest()
     {
         m_bondRequested = true;
     }
 
-    final void onNativeBondFailed(final PA_StateTracker.E_Intent intent, final BondListener.Status status, final int failReason, final boolean wasDirect)
+    void onNativeBondFailed(final PA_StateTracker.E_Intent intent, final BondListener.Status status, final int failReason, final boolean wasDirect)
     {
         if (isNativelyBondingOrBonded())
         {
@@ -257,15 +256,13 @@ final class P_BondManager
             return m_device.conf_mngr().bondRetryFilter;
     }
 
-    final void saveNeedsBondingIfDesired()
+    void saveNeedsBondingIfDesired()
     {
         final boolean tryBondingWhileDisconnected = Utils_Config.bool(m_device.conf_device().tryBondingWhileDisconnected, m_device.conf_mngr().tryBondingWhileDisconnected);
 
         if (tryBondingWhileDisconnected)
         {
-            final boolean tryBondingWhileDisconnected_manageOnDisk = Utils_Config.bool(m_device.conf_device().tryBondingWhileDisconnected_manageOnDisk, m_device.conf_mngr().tryBondingWhileDisconnected_manageOnDisk);
-
-            m_device.getIManager().getDiskOptionsManager().saveNeedsBonding(m_device.getMacAddress(), tryBondingWhileDisconnected_manageOnDisk);
+            m_device.getIManager().getDiskOptionsManager().saveNeedsBonding(m_device.getMacAddress());
         }
     }
 
@@ -274,7 +271,7 @@ final class P_BondManager
         m_device.getStateTracker().update(intent, BleStatuses.GATT_STATUS_NOT_APPLICABLE, BONDED, false, BONDING, false, UNBONDED, true);
     }
 
-    final boolean bondIfNeeded(final UUID charUuid, final BondFilter.CharacteristicEventType type)
+    boolean bondIfNeeded(final UUID charUuid, final BondFilter.CharacteristicEventType type)
     {
         final BondFilter bondFilter = m_device.conf_device().bondFilter != null ? m_device.conf_device().bondFilter : m_device.conf_mngr().bondFilter;
 
@@ -287,7 +284,7 @@ final class P_BondManager
         return applyPlease_BondFilter(please);
     }
 
-    final boolean applyPlease_BondFilter(BondFilter.Please please_nullable)
+    boolean applyPlease_BondFilter(BondFilter.Please please_nullable)
     {
         if (please_nullable == null) return false;
 
@@ -308,7 +305,7 @@ final class P_BondManager
         return bond;
     }
 
-    final BondListener.BondEvent invokeCallback(Status status, BondListener.BondEvent.Type bondType, int failReason, State.ChangeIntent intent)
+    BondListener.BondEvent invokeCallback(Status status, BondListener.BondEvent.Type bondType, int failReason, State.ChangeIntent intent)
     {
         final BondListener.BondEvent event = P_Bridge_User.newBondEvent(m_device.getBleDevice(), bondType, status, failReason, intent);
 
@@ -317,7 +314,7 @@ final class P_BondManager
         return event;
     }
 
-    final void invokeCallback(final BondListener.BondEvent event)
+    void invokeCallback(final BondListener.BondEvent event)
     {
         if (m_ephemeralListener != null)
             m_device.getIManager().postEvent(m_ephemeralListener, event);
@@ -333,7 +330,7 @@ final class P_BondManager
             m_device.getIManager().postEvent(listener, event);
     }
 
-    final Object[] getNativeBondingStateOverrides()
+    Object[] getNativeBondingStateOverrides()
     {
         // Cut the 3 calls to jni layer down to one for efficiency (getting the native bond state calls a jni function)
         int bondState = m_device.getNativeManager().getNativeBondState();
@@ -361,7 +358,7 @@ final class P_BondManager
         return bondState == BluetoothDevice.BOND_BONDED || bondState == BluetoothDevice.BOND_BONDING;
     }
 
-    final void update(double timeStep)
+    void update(double timeStep)
     {
         mConnectBugHack.update(timeStep);
     }

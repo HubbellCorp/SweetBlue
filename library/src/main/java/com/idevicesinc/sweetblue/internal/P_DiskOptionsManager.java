@@ -106,7 +106,7 @@ final class P_DiskOptionsManager
     }
 
 
-    final void saveLastDisconnect(final String mac, final State.ChangeIntent changeIntent, final boolean hitDisk)
+    void saveLastDisconnect(final String mac, final State.ChangeIntent changeIntent, final boolean hitDisk)
     {
         final int diskValue = State.ChangeIntent.toDiskValue(changeIntent);
         m_inMemoryDb_lastDisconnect.put(mac, diskValue);
@@ -116,7 +116,7 @@ final class P_DiskOptionsManager
         prefs(E_Namespace.LAST_DISCONNECT).edit().putInt(mac, diskValue).commit();
     }
 
-    final State.ChangeIntent loadLastDisconnect(final String mac, final boolean hitDisk)
+    State.ChangeIntent loadLastDisconnect(final String mac, final boolean hitDisk)
     {
         final Integer value_memory = m_inMemoryDb_lastDisconnect.get(mac);
 
@@ -138,7 +138,7 @@ final class P_DiskOptionsManager
         return lastDisconnect;
     }
 
-    final void saveAdaptorAdvertisingName(String name)
+    void saveAdaptorAdvertisingName(String name)
     {
         String n = name;
         if (n == null)
@@ -149,7 +149,7 @@ final class P_DiskOptionsManager
         prefs(E_Namespace.ADAPTOR_NAME).edit().putString(PHONE_NAME_KEY, n).commit();
     }
 
-    final boolean hasAdaptorAdvertisingName()
+    boolean hasAdaptorAdvertisingName()
     {
         final String value_memory = m_inMemoryDb_adaptorName.get(null);
 
@@ -163,7 +163,7 @@ final class P_DiskOptionsManager
     }
 
     // Don't use this for checking the name for the first time.
-    final String getAdaptorAdvertisingName()
+    String getAdaptorAdvertisingName()
     {
         final String value_memory = m_inMemoryDb_adaptorName.get(null);
 
@@ -176,40 +176,26 @@ final class P_DiskOptionsManager
         return value_disk;
     }
 
-    final void saveNeedsBonding(final String mac, final boolean hitDisk)
+    void saveNeedsBonding(final String mac)
     {
         m_inMemoryDb_needsBonding.put(mac, true);
-
-        if (!hitDisk) return;
-
-        prefs(E_Namespace.NEEDS_BONDING).edit().putBoolean(mac, true).commit();
     }
 
-    final void clearNeedsBonding(final String mac, final boolean hitDisk)
+    void clearNeedsBonding(final String mac)
     {
         m_inMemoryDb_needsBonding.remove(mac);
-
-        if (!hitDisk) return;
-
-        prefs(E_Namespace.NEEDS_BONDING).edit().remove(mac).commit();
     }
 
-    final boolean loadNeedsBonding(final String mac, final boolean hitDisk)
+    boolean loadNeedsBonding(final String mac)
     {
         final Boolean value_memory = m_inMemoryDb_needsBonding.get(mac);
 
         if (value_memory != null)   return value_memory;
 
-        if (!hitDisk) return false;
-
-        final SharedPreferences prefs = prefs(E_Namespace.NEEDS_BONDING);
-
-        final boolean value_disk = prefs.getBoolean(mac, false);
-
-        return value_disk;
+        return false;
     }
 
-    final void saveName(final String mac, final String name, final boolean hitDisk)
+    void saveName(final String mac, final String name, final boolean hitDisk)
     {
         final String name_override = name != null ? name : "";
 
@@ -220,7 +206,7 @@ final class P_DiskOptionsManager
         prefs(E_Namespace.DEVICE_NAME).edit().putString(mac, name_override).commit();
     }
 
-    final String loadName(final String mac, final boolean hitDisk)
+    String loadName(final String mac, final boolean hitDisk)
     {
         final String value_memory = m_inMemoryDb_name.get(mac);
 
@@ -235,7 +221,7 @@ final class P_DiskOptionsManager
         return value_disk;
     }
 
-    final void clear()
+    void clear()
     {
         final E_Namespace[] values = E_Namespace.values();
 
@@ -251,14 +237,14 @@ final class P_DiskOptionsManager
         }
     }
 
-    final void clearName(final String macAddress)
+    void clearName(final String macAddress)
     {
         final E_Namespace namespace = E_Namespace.DEVICE_NAME;
 
         clearNamespace(macAddress, namespace);
     }
 
-    final void clear(final String macAddress)
+    void clear(final String macAddress)
     {
         final E_Namespace[] values = E_Namespace.values();
 
@@ -266,7 +252,7 @@ final class P_DiskOptionsManager
             clearNamespace(macAddress, value);
     }
 
-    final Iterator<String> getPreviouslyConnectedDevices()
+    Iterator<String> getPreviouslyConnectedDevices()
     {
         final SharedPreferences prefs = prefs(E_Namespace.LAST_DISCONNECT);
 

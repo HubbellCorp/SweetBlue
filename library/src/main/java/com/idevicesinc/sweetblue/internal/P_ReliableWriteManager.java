@@ -162,7 +162,7 @@ final class P_ReliableWriteManager
 
 	private void abortReliableWrite()
 	{
-		m_device.nativeManager().getGattLayer().abortReliableWrite(m_device.getNative().getNativeDevice());
+		m_device.nativeManager().getGattLayer().abortReliableWrite(m_device.getNativeDevice().getNativeDevice());
 	}
 
 	public ReadWriteListener.ReadWriteEvent execute()

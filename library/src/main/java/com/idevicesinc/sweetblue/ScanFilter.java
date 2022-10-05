@@ -208,10 +208,9 @@ public interface ScanFilter
      * Small struct passed back from {@link ScanFilter#onEvent(ScanEvent)}.
      * Use static constructor methods to create an instance.
      */
-    public static class Please
+    class Please
     {
         static int STOP_SCAN			= 0x1;
-        @Deprecated static int STOP_PERIODIC_SCAN	= 0x2;
 
         private final boolean m_ack;
         private final BleDeviceConfig m_config;
@@ -239,35 +238,6 @@ public interface ScanFilter
         public Please thenStopScan()
         {
             m_stopScanOptions |= STOP_SCAN;
-
-            return this;
-        }
-
-        /**
-         * @deprecated use {@link #thenStopScan()} instead.
-         * This method will be removed in v3.1.
-         *
-         * Shorthand for calling {@link BleManager#stopPeriodicScan(ScanFilter)}.
-         */
-        @Deprecated
-        public Please thenStopPeriodicScan()
-        {
-            m_stopScanOptions |= STOP_PERIODIC_SCAN;
-
-            return this;
-        }
-
-        /**
-         * @deprecated use {@link #thenStopScan()} instead.
-         * This method will be removed in v3.1.
-         *
-         * Shorthand for calling both {@link BleManager#stopScan(ScanFilter)} and {@link BleManager#stopPeriodicScan(ScanFilter)}.
-         */
-        @Deprecated
-        public Please thenStopAllScanning()
-        {
-            thenStopScan();
-            thenStopPeriodicScan();
 
             return this;
         }

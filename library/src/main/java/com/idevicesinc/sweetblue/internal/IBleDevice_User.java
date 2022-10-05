@@ -18,6 +18,9 @@
 package com.idevicesinc.sweetblue.internal;
 
 
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGatt;
+
 import com.idevicesinc.sweetblue.BleConnectionPriority;
 import com.idevicesinc.sweetblue.BleDescriptorRead;
 import com.idevicesinc.sweetblue.BleDescriptorWrite;
@@ -37,8 +40,6 @@ import com.idevicesinc.sweetblue.HistoricalDataLoadListener;
 import com.idevicesinc.sweetblue.NotificationListener;
 import com.idevicesinc.sweetblue.ReadWriteListener;
 import com.idevicesinc.sweetblue.annotations.Nullable;
-import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
-import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.BleScanRecord;
 import com.idevicesinc.sweetblue.utils.Distance;
 import com.idevicesinc.sweetblue.utils.EpochTime;
@@ -141,8 +142,8 @@ interface IBleDevice_User
     String getName_native();
     String getName_normalized();
     String getName_debug();
-    IBluetoothDevice getNative();
-    IBluetoothGatt getNativeGatt();
+    BluetoothDevice getNative();
+    BluetoothGatt getNativeGatt();
     String getMacAddress();
     BondListener.BondEvent bond(BondListener listener);
     boolean unbond(BondListener listener);

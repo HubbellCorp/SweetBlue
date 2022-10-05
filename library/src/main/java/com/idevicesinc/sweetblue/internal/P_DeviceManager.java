@@ -590,7 +590,7 @@ final class P_DeviceManager
         {
             if (device.is(BleDeviceState.BLE_CONNECTED))
             {
-                device.getNativeManager().updateNativeConnectionState(device.getNativeGatt());
+                device.getNativeManager().updateNativeConnectionState(device.getNativeBleGatt());
                 device.onNativeDisconnect(false, BleStatuses.GATT_STATUS_NOT_APPLICABLE, false, true);
             }
 

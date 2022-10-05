@@ -34,7 +34,6 @@ import com.idevicesinc.sweetblue.internal.android.P_Bridge_Native;
 import com.idevicesinc.sweetblue.internal.android.P_DeviceHolder;
 import com.idevicesinc.sweetblue.internal.android.P_GattHolder;
 import com.idevicesinc.sweetblue.utils.CodeHelper;
-import com.idevicesinc.sweetblue.utils.LogFunction;
 import com.idevicesinc.sweetblue.utils.P_Const;
 import com.idevicesinc.sweetblue.utils.Utils_Config;
 import com.idevicesinc.sweetblue.utils.Utils_String;
@@ -291,7 +290,7 @@ final class P_BleDeviceNativeManager
         // 			bond state
         if (m_device != null && getManager().is(ON))
         {
-            bondState_native = m_device.getNative().getBondState();
+            bondState_native = m_device.getNativeDevice().getBondState();
             m_bondState_cached = bondState_native;
         }
         else
@@ -308,7 +307,7 @@ final class P_BleDeviceNativeManager
         // 			we obviously won't be able to get a state. We return BLE_DISCONNECTED here for obvious reasons.
         if (m_managerLayer.isBluetoothEnabled())
         {
-            return m_managerLayer.getConnectionState(m_device.getNative(), GattConst.GATT_SERVER);
+            return m_managerLayer.getConnectionState(m_device.getNativeDevice(), GattConst.GATT_SERVER);
         }
         else
         {

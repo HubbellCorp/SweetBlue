@@ -176,17 +176,6 @@ public class BleDeviceConfig extends BleNodeConfig implements Cloneable
     public Boolean tryBondingWhileDisconnected = true;
 
     /**
-     * Default is <code>false</code> - controls whether any bonding issues worked around if {@link #tryBondingWhileDisconnected} is <code>true</code> are remembered on disk
-     * (through {@link SharedPreferences}) so that bonding is as stable as possible across application sessions.
-     *
-     * @deprecated This option will be removed in v3.1. It just adds extra complexity when it's not really needed. If your device needs to be bonded, then
-     * set {@link #alwaysBondOnConnect} to <code>true</code>, or manually call {@link BleDevice#bond()}.
-     */
-    @Deprecated
-    @Nullable(Prevalence.NORMAL)
-    public Boolean tryBondingWhileDisconnected_manageOnDisk = false;
-
-    /**
      * Default is <code>false</code> - Controls whether SweetBlue will automatically bond when connecting to a peripheral (rather than letting Android do it itself).
      * If the device is already bonded, this will do nothing. In most cases, it's best to bond <i>before</i> connecting, but there are rare devices which work better
      * to bond <i>after</i> becoming connected. To adjust this behavior, adjust {@link #tryBondingWhileDisconnected} (if it's <code>true</code>, then the bond will happen
@@ -223,7 +212,7 @@ public class BleDeviceConfig extends BleNodeConfig implements Cloneable
      * @see DefaultReconnectFilter
      */
     @Nullable(Nullable.Prevalence.NORMAL)
-    public ReconnectFilter reconnectFilter = new DefaultDeviceReconnectFilter();
+    public ReconnectFilter<?> reconnectFilter = new DefaultDeviceReconnectFilter();
 
     /**
      * Default is <code>true</code> - whether to automatically get services immediately after a {@link BleDevice} is
@@ -435,7 +424,7 @@ public class BleDeviceConfig extends BleNodeConfig implements Cloneable
      * <br><br>
      * Use {@link Interval#DISABLED} to disable undiscovery altogether.
      *
-     * @see DiscoveryListener#onEvent(Event)
+     * @see DiscoveryListener#onEvent(DiscoveryListener.DiscoveryEvent)
      * @see #undiscoveryKeepAlive
      */
     @Nullable(Prevalence.NORMAL)
@@ -451,7 +440,7 @@ public class BleDeviceConfig extends BleNodeConfig implements Cloneable
      * A decent default time to start with is {@link #DEFAULT_SCAN_KEEP_ALIVE }.
      * Use {@link Interval#DISABLED} to disable undiscovery altogether.
      *
-     * @see DiscoveryListener#onEvent(Event)
+     * @see DiscoveryListener#onEvent(DiscoveryListener.DiscoveryEvent)
      * @see #minScanTimeNeededForUndiscovery
      */
     @Nullable(Prevalence.NORMAL)
@@ -522,7 +511,7 @@ public class BleDeviceConfig extends BleNodeConfig implements Cloneable
      * to reconnect for any reason.
      */
     @Nullable(Prevalence.NORMAL)
-    public AuthTransactionFactory defaultAuthFactory = null;
+    public AuthTransactionFactory<?> defaultAuthFactory = null;
 
     /**
      * Set a default {@link com.idevicesinc.sweetblue.BleTransaction.Init} factory which will be used to dispatch a new instance
@@ -530,7 +519,7 @@ public class BleDeviceConfig extends BleNodeConfig implements Cloneable
      * to reconnect for any reason.
      */
     @Nullable(Prevalence.NORMAL)
-    public InitTransactionFactory defaultInitFactory = null;
+    public InitTransactionFactory<?> defaultInitFactory = null;
 
     /**
      * This is the default {@link BleTransaction.Atomicity} that will be used for all {@link BleTransaction}.  You can change

@@ -22,6 +22,7 @@ import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothManager;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothServer;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 
 
@@ -75,7 +76,7 @@ public class BleManagerConfig_UnitTest extends BleManagerConfig
         });
         SweetDIManager.getInstance().registerTransient(IBluetoothManager.class, UnitTestBluetoothManager.class);
         SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, UnitTestBluetoothDevice.class);
-        serverFactory = (manager, server) -> new UnitTestBluetoothServer(manager);
+        SweetDIManager.getInstance().registerTransient(IBluetoothServer.class, UnitTestBluetoothServer.class);
         logger = new UnitTestLogger();
     }
 

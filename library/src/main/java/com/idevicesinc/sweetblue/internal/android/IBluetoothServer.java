@@ -48,30 +48,4 @@ public interface IBluetoothServer
     boolean sendResponse(P_DeviceHolder device, int requestId, int status, int offset, byte[] value);
     BluetoothGattServer getNativeServer();
 
-
-    /**
-     * Interface used by the library to instantiate a new instance of {@link IBluetoothServer}
-     */
-    interface Factory
-    {
-        IBluetoothServer newInstance(IBleManager manager, P_ServerHolder server);
-    }
-
-    /**
-     * An instance of {@link DefaultFactory} used by the library, unless {@link com.idevicesinc.sweetblue.BleManagerConfig#serverFactory} is changed.
-     */
-    Factory DEFAULT_FACTORY = new DefaultFactory();
-
-    /**
-     * Default implementation of {@link Factory}.
-     */
-    class DefaultFactory implements Factory
-    {
-        @Override
-        public IBluetoothServer newInstance(IBleManager manager, P_ServerHolder server)
-        {
-            return new AndroidBluetoothServer(manager, server);
-        }
-    }
-
 }

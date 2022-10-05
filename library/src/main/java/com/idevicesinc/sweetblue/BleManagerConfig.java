@@ -474,14 +474,6 @@ public class BleManagerConfig extends BleDeviceConfig
      */
     public UpdateCallback updateLoopCallback = null;
 
-    /**
-     * This option is exposed for unit testing. This factory provides the library with a way to instantiate a "native" bluetooth gatt server
-     * instance.
-     * <br>
-     * <b>WARNING: DO NOT CHANGE THIS FROM THE DEFAULT IN PRODUCTION!</b>
-     */
-    @UnitTest
-    public IBluetoothServer.Factory serverFactory = IBluetoothServer.DEFAULT_FACTORY;
 
     /**
      * Default is <code>null</code> - optional, only used if {@link #loggingOptions} is not {@link LogOptions#OFF}. Provides a look-up table

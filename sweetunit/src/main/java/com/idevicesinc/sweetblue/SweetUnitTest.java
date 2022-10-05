@@ -17,18 +17,15 @@
 
 package com.idevicesinc.sweetblue;
 
+
 import android.app.Activity;
 import com.idevicesinc.sweetblue.annotations.Nullable;
 import com.idevicesinc.sweetblue.di.SweetDIManager;
-import com.idevicesinc.sweetblue.internal.IBleDevice;
-import com.idevicesinc.sweetblue.internal.IBleManager;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothManager;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothServer;
-import com.idevicesinc.sweetblue.internal.android.P_ServerHolder;
 import com.idevicesinc.sweetblue.framework.AbstractTestClass;
-
 import org.junit.After;
 import org.junit.Before;
 
@@ -58,38 +55,6 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
 
 
     /**
-     * Returns the current instance of {@link IBluetoothManager}. If the instance is <code>null</code>, then
-     * a new instance of {@link UnitTestBluetoothManager} will be created and used.
-     */
-    public @Nullable(Nullable.Prevalence.NEVER) IBluetoothManager getManagerLayer()
-    {
-        if (mBluetoothManager == null)
-            mBluetoothManager = new UnitTestBluetoothManager();
-        return mBluetoothManager;
-    }
-
-    /**
-     * Returns the current instance of {@link IBluetoothDevice}. If the instance is <code>null</code>, then
-     * a new instance of {@link UnitTestBluetoothDevice} will be created and used.
-     */
-    public @Nullable(Nullable.Prevalence.NEVER) IBluetoothDevice getDeviceLayer(@Nullable(Nullable.Prevalence.NEVER) IBleDevice device)
-    {
-        return new UnitTestBluetoothDevice(device);
-    }
-
-    /**
-     * Returns the current instance of {@link IBluetoothServer}. If the instance is <code>null</code>, then
-     * a new instance of {@link UnitTestBluetoothServer} will be created and used.
-     */
-    public @Nullable(Nullable.Prevalence.NEVER) IBluetoothServer getServerLayer(@Nullable(Nullable.Prevalence.NEVER) IBleManager mgr, @Nullable(Nullable.Prevalence.NEVER) P_ServerHolder serverHolder)
-    {
-        if (mBluetoothServer == null)
-            mBluetoothServer = new UnitTestBluetoothServer(mgr);
-        return mBluetoothServer;
-    }
-
-
-    /**
      * This method is called before every test. This is where the {@link Activity} instance is created,
      * from calling {@link #createActivity()}. The {@link BleManager} instance is also initialized here
      * using {@link #initManager(BleManagerConfig)}, {@link #getConfig()}.
@@ -99,17 +64,19 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
     {
         if (m_activity == null)
             m_activity = createActivity();
-        // bluetooth manager is a special case where it has to be registered before initializing the blemanager
-        // whereas everything else should be regi
+        // bluetooth manager is a special case where it has to be registered before instantiating the blemanager
+        // whereas everything else should be registered after the manager has been instantiated
         SweetDIManager.getInstance().registerTransient(IBluetoothManager.class, UnitTestBluetoothManager.class);
         initManager(getConfig());
         SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, UnitTestBluetoothDevice.class);
         SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, UnitTestBluetoothGatt.class);
+        SweetDIManager.getInstance().registerTransient(IBluetoothServer.class, args -> new UnitTestBluetoothServer(args.get(0)));
         postSetup();
     }
 
     /**
-     * Override this method if you need to perform additional setup, after the built-in setup is done
+     * Override this method if you need to perform additional setup, after the built-in setup is done (mainly this
+     * is used to override DI registrations from the default test ones)
      */
     public void postSetup()
     {
@@ -134,7 +101,7 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
      * {@link Activity} instance, as well as null-ing out all instance fields.
      */
     @After
-    public void tearDown() throws Exception
+    public void tearDown()
     {
         if (m_manager != null)
             m_manager.shutdown();
@@ -154,7 +121,6 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
     public BleManagerConfig getConfig()
     {
         m_config = new BleManagerConfig();
-        m_config.serverFactory = this::getServerLayer;
         m_config.logger = new UnitTestLogger();
         return m_config;
     }

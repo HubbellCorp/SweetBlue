@@ -84,7 +84,9 @@ import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothDevice;
 import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothGatt;
 import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothManager;
+import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothServer;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothServer;
 import com.idevicesinc.sweetblue.internal.android.IDeviceListener;
 import com.idevicesinc.sweetblue.internal.android.IManagerListener;
 import com.idevicesinc.sweetblue.internal.android.IServerListener;
@@ -2315,6 +2317,7 @@ public final class P_BleManagerImpl implements IBleManager
         m_diManager.registerTransient(IBleTransaction.class, P_BleTransactionBackend.class);
         m_diManager.registerTransient(IBluetoothDevice.class, AndroidBluetoothDevice.class);
         m_diManager.registerTransient(IBluetoothGatt.class, AndroidBluetoothGatt.class);
+        m_diManager.registerTransient(IBluetoothServer.class, AndroidBluetoothServer.class);
         if (!m_diManager.isRegistered(IBluetoothManager.class))
             m_diManager.registerTransient(IBluetoothManager.class, AndroidBluetoothManager.class);
     }
@@ -2325,6 +2328,7 @@ public final class P_BleManagerImpl implements IBleManager
         m_diManager.unregister(IBluetoothDevice.class);
         m_diManager.unregister(IBluetoothGatt.class);
         m_diManager.unregister(IBluetoothManager.class);
+        m_diManager.unregister(IBluetoothServer.class);
     }
 
     private void stopScan_private(E_Intent intent)

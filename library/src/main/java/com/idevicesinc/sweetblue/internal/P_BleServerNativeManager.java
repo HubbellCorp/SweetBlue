@@ -111,7 +111,7 @@ final class P_BleServerNativeManager
 			clearAllConnectionStates();
 
 			final P_ServerHolder holder = m_mngr.managerLayer().openGattServer(m_mngr.getApplicationContext(), m_server.getInternalListener());
-			m_nativeLayer = m_mngr.getConfigClone().serverFactory.newInstance(m_mngr, holder);
+			m_nativeLayer = SweetDIManager.getInstance().get(IBluetoothServer.class, m_mngr, holder);
 
 			return !m_nativeLayer.isServerNull();
 		}

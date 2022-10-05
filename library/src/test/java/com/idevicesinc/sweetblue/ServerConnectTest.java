@@ -19,7 +19,9 @@ package com.idevicesinc.sweetblue;
 
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleManager;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothServer;
 import com.idevicesinc.sweetblue.internal.android.P_DeviceHolder;
 import com.idevicesinc.sweetblue.utils.Interval;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
@@ -97,7 +99,7 @@ public class ServerConnectTest extends BaseBleUnitTest
     public void failConnectThenConnectTest() throws Exception
     {
         m_config.loggingOptions = LogOptions.ON;
-        m_config.serverFactory = (manager, server) -> new FailConnectOnceServer(manager);
+        SweetDIManager.getInstance().registerTransient(IBluetoothServer.class, args -> new FailConnectOnceServer(args.get(0)));
 
         final String deviceMac = Util_Unit.randomMacAddress();
 

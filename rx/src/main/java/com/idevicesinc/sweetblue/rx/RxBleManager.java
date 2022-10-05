@@ -35,8 +35,6 @@ import com.idevicesinc.sweetblue.ServerStateListener;
 import com.idevicesinc.sweetblue.annotations.Advanced;
 import com.idevicesinc.sweetblue.annotations.Experimental;
 import com.idevicesinc.sweetblue.annotations.Nullable;
-import com.idevicesinc.sweetblue.di.SweetDIManager;
-import com.idevicesinc.sweetblue.internal.IBleTransaction;
 import com.idevicesinc.sweetblue.rx.annotations.HotObservable;
 import com.idevicesinc.sweetblue.DiscoveryListener.LifeCycle;
 import com.idevicesinc.sweetblue.ManagerStateListener.StateEvent;
@@ -44,7 +42,6 @@ import com.idevicesinc.sweetblue.UhOhListener.UhOhEvent;
 import com.idevicesinc.sweetblue.rx.plugins.RxSweetBluePlugins;
 import com.idevicesinc.sweetblue.rx.schedulers.SweetBlueSchedulers;
 import com.idevicesinc.sweetblue.utils.EpochTime;
-import com.idevicesinc.sweetblue.utils.Event;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.HistoricalData;
 import com.idevicesinc.sweetblue.utils.Interval;
@@ -71,6 +68,7 @@ import io.reactivex.disposables.Disposable;
  * Main entry point for the Rx module. You should use this class, rather than {@link BleManager} directly. The observe methods in this class
  * set listeners in the {@link BleManager} instance, so it's best not to use it as much as possible.
  */
+@SuppressWarnings("unused")
 public final class RxBleManager
 {
     /**
@@ -141,7 +139,7 @@ public final class RxBleManager
     }
 
 
-    public final BleManager getBleManager()
+    public BleManager getBleManager()
     {
         return m_mgr;
     }
@@ -150,7 +148,7 @@ public final class RxBleManager
     /**
      * Overload of {@link #scan(ScanOptions)}, which uses a default instance of {@link ScanOptions}.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) Observable<RxDiscoveryEvent> scan()
+    public @Nullable(Nullable.Prevalence.NEVER) Observable<RxDiscoveryEvent> scan()
     {
         return scan(new ScanOptions());
     }
@@ -163,7 +161,7 @@ public final class RxBleManager
      * <p>
      * NOTE: This ignores any {@link DiscoveryListener} that is set within the {@link ScanOptions} instance passed into this method.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) Observable<RxDiscoveryEvent> scan(@Nullable(Nullable.Prevalence.NORMAL) ScanOptions options)
+    public @Nullable(Nullable.Prevalence.NEVER) Observable<RxDiscoveryEvent> scan(@Nullable(Nullable.Prevalence.NORMAL) ScanOptions options)
     {
         return Observable.create((ObservableEmitter<DiscoveryEvent> emitter) ->
         {
@@ -190,7 +188,7 @@ public final class RxBleManager
      * <p>
      * NOTE: This ignores any {@link DiscoveryListener} that is set within the {@link ScanOptions} instance passed into this method.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) Observable<RxBleDevice> scan_onlyNew(@Nullable(Nullable.Prevalence.NORMAL) ScanOptions options)
+    public @Nullable(Nullable.Prevalence.NEVER) Observable<RxBleDevice> scan_onlyNew(@Nullable(Nullable.Prevalence.NORMAL) ScanOptions options)
     {
         // Filter out anything other than DISCOVERED devices (ignoring rediscovery, and undiscovery)
         return scan(options).filter(RxDiscoveryEvent::wasDiscovered).map(RxDiscoveryEvent::device);
@@ -349,7 +347,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxAssertEvent} when any {@link com.idevicesinc.sweetblue.AssertListener.AssertEvent}s
      * are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxAssertEvent> observeAssertEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxAssertEvent> observeAssertEvents()
     {
         if (m_assertFlowable == null)
         {
@@ -379,7 +377,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxServerStateEvent} when any {@link com.idevicesinc.sweetblue.ServerStateListener.StateEvent}s
      * are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxServerStateEvent> observeServerStateEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxServerStateEvent> observeServerStateEvents()
     {
         if (m_serverStateFlowable == null)
         {
@@ -409,7 +407,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxBondEvent} when any {@link com.idevicesinc.sweetblue.BondListener.BondEvent}s
      * for all {@link RxBleDevice}s are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxBondEvent> observeBondEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxBondEvent> observeBondEvents()
     {
         if (m_bondFlowable == null)
         {
@@ -439,7 +437,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxReadWriteEvent} when any {@link com.idevicesinc.sweetblue.ReadWriteListener.ReadWriteEvent}s
      * for all {@link RxBleDevice}s are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxReadWriteEvent> observeReadWriteEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxReadWriteEvent> observeReadWriteEvents()
     {
         if (m_readWriteFlowable == null)
         {
@@ -469,7 +467,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxNotificationEvent} when any {@link com.idevicesinc.sweetblue.NotificationListener.NotificationEvent}s
      * for all {@link RxBleDevice}s are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxNotificationEvent> observeNotificationEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxNotificationEvent> observeNotificationEvents()
     {
         if (m_notifyEventFlowable == null)
         {
@@ -499,7 +497,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxHistoricalDataLoadEvent} when any {@link com.idevicesinc.sweetblue.HistoricalDataLoadListener.HistoricalDataLoadEvent}s
      * for all {@link RxBleDevice}s are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxHistoricalDataLoadEvent> observeHistoricalDataLoadEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxHistoricalDataLoadEvent> observeHistoricalDataLoadEvents()
     {
         if (m_historicalDataLoadFlowable == null)
         {
@@ -529,7 +527,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxOutgoingEvent} when any {@link com.idevicesinc.sweetblue.OutgoingListener.OutgoingEvent}s
      * are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxOutgoingEvent> observeOutgoingEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxOutgoingEvent> observeOutgoingEvents()
     {
         if (m_outgoingEventFlowable == null)
         {
@@ -559,7 +557,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxServiceAddEvent} when any {@link com.idevicesinc.sweetblue.AddServiceListener.ServiceAddEvent}s
      * are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxServiceAddEvent> observeServiceAddEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxServiceAddEvent> observeServiceAddEvents()
     {
         if (m_serviceAddEventFlowable == null)
         {
@@ -589,7 +587,7 @@ public final class RxBleManager
      * Returns a {@link Flowable} which emits {@link RxAdvertisingEvent} when any {@link com.idevicesinc.sweetblue.AdvertisingListener.AdvertisingEvent}s
      * are posted by the library.
      */
-    public final @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxAdvertisingEvent> observeAdvertisingEvents()
+    public @HotObservable @Nullable(Nullable.Prevalence.NEVER) Flowable<RxAdvertisingEvent> observeAdvertisingEvents()
     {
         if (m_advertisingEventFlowable == null)
         {
@@ -650,7 +648,7 @@ public final class RxBleManager
      * <p>
      * Returns an instance of {@link RxBleDevice}.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) BleDevice getDevice(@Nullable(Nullable.Prevalence.NEVER) Object... query)
+    public @Nullable(Nullable.Prevalence.NEVER) BleDevice getDevice(@Nullable(Nullable.Prevalence.NEVER) Object... query)
     {
         return Single.create((SingleEmitter<BleDevice> emitter) ->
         {
@@ -665,7 +663,7 @@ public final class RxBleManager
      * <p>
      * Returns an instance of {@link RxBleDevice}.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) BleDevice getDevice(final int mask_BleDeviceState)
+    public @Nullable(Nullable.Prevalence.NEVER) BleDevice getDevice(final int mask_BleDeviceState)
     {
         return Single.create((SingleEmitter<BleDevice> emitter) ->
         {
@@ -678,7 +676,7 @@ public final class RxBleManager
     /**
      * Shortcut for checking if {@link #getDevice(String)} returns {@link BleDevice#NULL}.
      */
-    public final boolean hasDevice(final String macAddress)
+    public boolean hasDevice(final String macAddress)
     {
         return m_mgr.hasDevice(macAddress);
     }
@@ -686,7 +684,7 @@ public final class RxBleManager
     /**
      * Calls {@link #hasDevice(String)}.
      */
-    public final boolean hasDevice(final BleDevice device)
+    public boolean hasDevice(final BleDevice device)
     {
         return m_mgr.hasDevice(device);
     }
@@ -694,7 +692,7 @@ public final class RxBleManager
     /**
      * Returns true if we have a device in the given state.
      */
-    public final boolean hasDevice(BleDeviceState state)
+    public boolean hasDevice(BleDeviceState state)
     {
         return m_mgr.hasDevice(state);
     }
@@ -703,7 +701,7 @@ public final class RxBleManager
      * Returns true if we have a device that matches the given query.
      * See {@link BleDevice#is(Object...)} for the query format.
      */
-    public final boolean hasDevice(Object... query)
+    public boolean hasDevice(Object... query)
     {
         return m_mgr.hasDevice(query);
     }
@@ -711,7 +709,7 @@ public final class RxBleManager
     /**
      * Returns <code>true</code> if there is any {@link BleDevice} for which {@link BleDevice#isAny(int)} with the given mask returns <code>true</code>.
      */
-    public final boolean hasDevice(final int mask_BleDeviceState)
+    public boolean hasDevice(final int mask_BleDeviceState)
     {
         return m_mgr.hasDevice(mask_BleDeviceState);
     }
@@ -789,7 +787,7 @@ public final class RxBleManager
      * Returns an {@link Observable} which emits the macAddresses of all devices that we know about from both
      * current and previous app sessions.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) Observable<String> getDevices_previouslyConnected()
+    public @Nullable(Nullable.Prevalence.NEVER) Observable<String> getDevices_previouslyConnected()
     {
         return Observable.create((ObservableOnSubscribe<String>) emitter ->
         {
@@ -849,7 +847,7 @@ public final class RxBleManager
      * Returns the total number of devices this manager is...managing.
      * This includes all devices that are {@link BleDeviceState#DISCOVERED}.
      */
-    public final int getDeviceCount()
+    public int getDeviceCount()
     {
         return m_mgr.getDeviceCount();
     }
@@ -857,7 +855,7 @@ public final class RxBleManager
     /**
      * Returns the number of devices that are in the current state.
      */
-    public final int getDeviceCount(BleDeviceState state)
+    public int getDeviceCount(BleDeviceState state)
     {
         return m_mgr.getDeviceCount(state);
     }
@@ -866,7 +864,7 @@ public final class RxBleManager
      * Returns the number of devices that match the given query.
      * See {@link BleDevice#is(Object...)} for the query format.
      */
-    public final int getDeviceCount(Object... query)
+    public int getDeviceCount(Object... query)
     {
         return m_mgr.getDeviceCount(query);
     }
@@ -875,7 +873,7 @@ public final class RxBleManager
      * Returns whether we have any devices. For example if you have never called {@link #scan(ScanOptions)}
      * or {@link #newDevice(String)} (or overloads) then this will return false.
      */
-    public final boolean hasDevices()
+    public boolean hasDevices()
     {
         return m_mgr.hasDevices();
     }
@@ -885,7 +883,7 @@ public final class RxBleManager
      * yourself (and probably shouldn't), but it's here for flexibility.
      */
     @Advanced
-    public final void removeDeviceFromCache(RxBleDevice device)
+    public void removeDeviceFromCache(RxBleDevice device)
     {
         m_mgr.removeDeviceFromCache(device.getBleDevice());
     }
@@ -895,7 +893,7 @@ public final class RxBleManager
      * yourself (and probably shouldn't), but it's here for flexibility.
      */
     @Advanced
-    public final void removeAllDevicesFromCache()
+    public void removeAllDevicesFromCache()
     {
         m_mgr.removeAllDevicesFromCache();
     }
@@ -904,7 +902,7 @@ public final class RxBleManager
      * Returns a new {@link HistoricalData} instance using
      * {@link BleDeviceConfig#historicalDataFactory} if available.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) HistoricalData newHistoricalData(final byte[] data, final EpochTime epochTime)
+    public @Nullable(Nullable.Prevalence.NEVER) HistoricalData newHistoricalData(final byte[] data, final EpochTime epochTime)
     {
         return m_mgr.newHistoricalData(data, epochTime);
     }
@@ -914,7 +912,7 @@ public final class RxBleManager
      * {@link BleDevice#newHistoricalData(byte[], EpochTime)} if we have a device
      * matching the given mac address.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) HistoricalData newHistoricalData(final byte[] data, final EpochTime epochTime, final String macAddress)
+    public @Nullable(Nullable.Prevalence.NEVER) HistoricalData newHistoricalData(final byte[] data, final EpochTime epochTime, final String macAddress)
     {
         return m_mgr.newHistoricalData(data, epochTime, macAddress);
     }
@@ -924,7 +922,7 @@ public final class RxBleManager
      * <p>
      * NOTE: The device creation is performed on the thread which SweetBlue is using, and this method is blocking.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) RxBleServer getServer(final IncomingListener listener, final GattDatabase db, final AddServiceListener addListener)
+    public @Nullable(Nullable.Prevalence.NEVER) RxBleServer getServer(final IncomingListener listener, final GattDatabase db, final AddServiceListener addListener)
     {
         return Single.create((SingleOnSubscribe<BleServer>) emitter ->
         {
@@ -937,20 +935,20 @@ public final class RxBleManager
     /**
      * Same as {@link #getServer(IncomingListener, GattDatabase, AddServiceListener)}, which passes null for all arguments.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) RxBleServer getServer()
+    public @Nullable(Nullable.Prevalence.NEVER) RxBleServer getServer()
     {
         return getServer(null, null, null);
     }
 
     /**
      * Forcefully undiscovers a device, disconnecting it first if needed and removing it from this manager's internal list.
-     * {@link DiscoveryListener#onEvent(Event)} with {@link LifeCycle#UNDISCOVERED} will be called.
+     * {@link DiscoveryListener#onEvent(DiscoveryEvent)}  with {@link LifeCycle#UNDISCOVERED} will be called.
      * No clear use case has been thought of but the method is here just in case anyway.
      *
      * @return <code>true</code> if the device was undiscovered, <code>false</code> if device is already {@link BleDeviceState#UNDISCOVERED} or manager
      * doesn't contain an instance, checked referentially, not through {@link RxBleDevice#equals(RxBleDevice)} (i.e. by mac address).
      */
-    public final boolean undiscover(final RxBleDevice device)
+    public boolean undiscover(final RxBleDevice device)
     {
         return m_mgr.undiscover(device.getBleDevice());
     }
@@ -960,7 +958,7 @@ public final class RxBleManager
      * NOTE: This can really mess things up, especially if you're currently trying to connect to a device. Only use this if you absolutely have to!
      */
     @Advanced
-    public final void clearQueue()
+    public void clearQueue()
     {
         m_mgr.clearQueue();
     }
@@ -970,7 +968,7 @@ public final class RxBleManager
      *
      * @see #clearSharedPreferences(String)
      */
-    public final void clearSharedPreferences(final RxBleDevice device)
+    public void clearSharedPreferences(final RxBleDevice device)
     {
         clearSharedPreferences(device.getMacAddress());
     }
@@ -979,11 +977,10 @@ public final class RxBleManager
      * Clears all data currently being held in {@link android.content.SharedPreferences} for a particular device.
      *
      * @see BleDeviceConfig#manageLastDisconnectOnDisk
-     * @see BleDeviceConfig#tryBondingWhileDisconnected_manageOnDisk
      * @see BleDeviceConfig#saveNameChangesToDisk
      * @see #clearSharedPreferences()
      */
-    public final void clearSharedPreferences(final String macAddress)
+    public void clearSharedPreferences(final String macAddress)
     {
         m_mgr.clearSharedPreferences(macAddress);
     }
@@ -992,11 +989,10 @@ public final class RxBleManager
      * Clears all data currently being held in {@link android.content.SharedPreferences} for all devices.
      *
      * @see BleDeviceConfig#manageLastDisconnectOnDisk
-     * @see BleDeviceConfig#tryBondingWhileDisconnected_manageOnDisk
      * @see BleDeviceConfig#saveNameChangesToDisk
      * @see #clearSharedPreferences(String)
      */
-    public final void clearSharedPreferences()
+    public void clearSharedPreferences()
     {
         m_mgr.clearSharedPreferences();
     }
@@ -1004,13 +1000,13 @@ public final class RxBleManager
     /**
      * Returns this manager's knowledge of the app's foreground state.
      */
-    public final boolean isForegrounded()
+    public boolean isForegrounded()
     {
         return m_mgr.isForegrounded();
     }
 
     @Override
-    public final String toString()
+    public String toString()
     {
         return m_mgr.toString();
     }
@@ -1020,7 +1016,7 @@ public final class RxBleManager
      * This also clears out the {@link BleManager}, and {@link RxBleManager} static instances. This is meant to be called upon application exit. However, to use it again,
      * just call {@link BleManager#get(Context)}, or {@link BleManager#get(Context, BleManagerConfig)} again.
      */
-    public final void shutdown()
+    public void shutdown()
     {
         cleanUpFlowables();
         RxSweetBluePlugins.reset();
@@ -1047,7 +1043,7 @@ public final class RxBleManager
         m_advertisingEventFlowable = null;
     }
 
-    public final void setConfig(RxBleManagerConfig config)
+    public void setConfig(RxBleManagerConfig config)
     {
         if (config != null && (config.defaultAuthFactory != null || config.defaultInitFactory != null))
             throw new RuntimeException("Please do not set defaultAuthFactory, or defaultInitFactory! Use defaultRxAuthFactory, or defaultRxInitFactory instead.");
@@ -1065,7 +1061,7 @@ public final class RxBleManager
         m_mgr.setConfig(m_config);
     }
 
-    public final @Nullable(Nullable.Prevalence.NEVER) RxBleManagerConfig getConfigClone()
+    public @Nullable(Nullable.Prevalence.NEVER) RxBleManagerConfig getConfigClone()
     {
         return m_config.clone();
     }
@@ -1073,7 +1069,7 @@ public final class RxBleManager
     /**
      * Returns whether the manager is in any of the provided states.
      */
-    public final boolean isAny(BleManagerState... states)
+    public boolean isAny(BleManagerState... states)
     {
         return m_mgr.isAny(states);
     }
@@ -1083,7 +1079,7 @@ public final class RxBleManager
      *
      * @see #isAny(BleManagerState...)
      */
-    public final boolean isAll(BleManagerState... states)
+    public boolean isAll(BleManagerState... states)
     {
         return m_mgr.isAll(states);
     }
@@ -1093,7 +1089,7 @@ public final class RxBleManager
      *
      * @see #isAny(BleManagerState...)
      */
-    public final boolean is(final BleManagerState state)
+    public boolean is(final BleManagerState state)
     {
         return m_mgr.is(state);
     }
@@ -1103,7 +1099,7 @@ public final class RxBleManager
      *
      * @see #isAll(int)
      */
-    public final boolean isAny(final int mask_BleManagerState)
+    public boolean isAny(final int mask_BleManagerState)
     {
         return m_mgr.isAny(mask_BleManagerState);
     }
@@ -1113,7 +1109,7 @@ public final class RxBleManager
      *
      * @see #isAny(int)
      */
-    public final boolean isAll(final int mask_BleManagerState)
+    public boolean isAll(final int mask_BleManagerState)
     {
         return m_mgr.isAll(mask_BleManagerState);
     }
@@ -1123,7 +1119,7 @@ public final class RxBleManager
      *
      * @see RxBleDevice#getTimeInState(BleDeviceState)
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) Interval getTimeInState(BleManagerState state)
+    public @Nullable(Nullable.Prevalence.NEVER) Interval getTimeInState(BleManagerState state)
     {
         return m_mgr.getTimeInState(state);
     }
@@ -1131,7 +1127,7 @@ public final class RxBleManager
     /**
      * Checks the underlying stack to see if BLE is supported on the phone.
      */
-    public final boolean isBleSupported()
+    public boolean isBleSupported()
     {
         return m_mgr.isBleSupported();
     }
@@ -1140,7 +1136,7 @@ public final class RxBleManager
      * Checks to see if the device is running an Android OS which supports
      * advertising.
      */
-    public final boolean isAdvertisingSupportedByAndroidVersion()
+    public boolean isAdvertisingSupportedByAndroidVersion()
     {
         return m_mgr.isAdvertisingSupportedByAndroidVersion();
     }
@@ -1148,7 +1144,7 @@ public final class RxBleManager
     /**
      * Checks to see if the device supports advertising.
      */
-    public final boolean isAdvertisingSupportedByChipset()
+    public boolean isAdvertisingSupportedByChipset()
     {
         return m_mgr.isAdvertisingSupportedByChipset();
     }
@@ -1156,7 +1152,7 @@ public final class RxBleManager
     /**
      * Checks to see if the device supports advertising BLE services.
      */
-    public final boolean isAdvertisingSupported()
+    public boolean isAdvertisingSupported()
     {
         return isAdvertisingSupportedByAndroidVersion() && isAdvertisingSupportedByChipset();
     }
@@ -1164,7 +1160,7 @@ public final class RxBleManager
     /**
      * Returns <code>true</code> if the android device is running an android OS version which supports Bluetooth 5 features.
      */
-    public final boolean isBluetooth5SupportedByAndroidVersion()
+    public boolean isBluetooth5SupportedByAndroidVersion()
     {
         return m_mgr.isAdvertisingSupportedByAndroidVersion();
     }
@@ -1174,7 +1170,7 @@ public final class RxBleManager
      * <p>
      * It's possible for this to return <code>true</code>, and {@link #isBluetooth5HighSpeedSupported()} to return <code>false</code>.
      */
-    public final boolean isBluetooth5LongRangeSupported()
+    public boolean isBluetooth5LongRangeSupported()
     {
         return m_mgr.isBluetooth5LongRangeSupported();
     }
@@ -1182,7 +1178,7 @@ public final class RxBleManager
     /**
      * Returns <code>true</code> if the android device supports the high speed feature of Bluetooth 5 (2x the speed of Bluetooth 4.x).
      */
-    public final boolean isBluetooth5HighSpeedSupported()
+    public boolean isBluetooth5HighSpeedSupported()
     {
         return m_mgr.isBluetooth5HighSpeedSupported();
     }
@@ -1191,7 +1187,7 @@ public final class RxBleManager
      * Convenience method to check if the android device supports bluetooth 5 in any way. This just calls {@link #isBluetooth5SupportedByAndroidVersion()},
      * {@link #isBluetooth5HighSpeedSupported()} and {@link #isBluetooth5LongRangeSupported()}.
      */
-    public final boolean isBluetooth5Supported()
+    public boolean isBluetooth5Supported()
     {
         return isBluetooth5SupportedByAndroidVersion() && (isBluetooth5LongRangeSupported() || isBluetooth5HighSpeedSupported());
     }
@@ -1200,7 +1196,7 @@ public final class RxBleManager
      * Disables BLE if manager is {@link BleManagerState#ON}. This disconnects all current
      * connections, stops scanning, and forgets all discovered devices.
      */
-    public final void turnOff()
+    public void turnOff()
     {
         m_mgr.turnOff();
     }
@@ -1209,7 +1205,7 @@ public final class RxBleManager
      * Returns the native manager.
      */
     @Advanced
-    public final @Nullable(Nullable.Prevalence.NORMAL) BluetoothManager getNative()
+    public @Nullable(Nullable.Prevalence.NORMAL) BluetoothManager getNative()
     {
         return m_mgr.getNative();
     }
@@ -1218,7 +1214,7 @@ public final class RxBleManager
      * Returns the native bluetooth adapter.
      */
     @Advanced
-    public final @Nullable(Nullable.Prevalence.NORMAL) BluetoothAdapter getNativeAdapter()
+    public @Nullable(Nullable.Prevalence.NORMAL) BluetoothAdapter getNativeAdapter()
     {
         return m_mgr.getNativeAdapter();
     }
@@ -1230,7 +1226,7 @@ public final class RxBleManager
      * @see BleManagerConfig#manageCpuWakeLock
      */
     @Advanced
-    public final void pushWakeLock()
+    public void pushWakeLock()
     {
         m_mgr.pushWakeLock();
     }
@@ -1239,7 +1235,7 @@ public final class RxBleManager
      * Opposite of {@link #pushWakeLock()}, eventually calls {@link android.os.PowerManager.WakeLock#release()}.
      */
     @Advanced
-    public final void popWakeLock()
+    public void popWakeLock()
     {
         m_mgr.popWakeLock();
     }
@@ -1249,7 +1245,7 @@ public final class RxBleManager
      * message with a stack trace to the console as well if {@link BleManagerConfig#loggingOptions} is not {@link LogOptions#OFF}.
      */
     @Advanced
-    public final boolean ASSERT(boolean condition)
+    public boolean ASSERT(boolean condition)
     {
         return ASSERT(condition, "");
     }
@@ -1258,7 +1254,7 @@ public final class RxBleManager
      * Same as {@link #ASSERT(boolean)} but with an added message.
      */
     @Advanced
-    public final boolean ASSERT(boolean condition, String message)
+    public boolean ASSERT(boolean condition, String message)
     {
         return m_mgr.ASSERT(condition, message);
     }
@@ -1268,7 +1264,7 @@ public final class RxBleManager
      *
      * @see BleManagerState
      */
-    public final int getStateMask()
+    public int getStateMask()
     {
         return m_mgr.getStateMask();
     }
@@ -1277,7 +1273,7 @@ public final class RxBleManager
      * Enables BLE if manager is currently {@link BleManagerState#OFF} or {@link BleManagerState#TURNING_OFF}, otherwise does nothing.
      * For a convenient way to ask your user first see {@link #turnOnWithIntent(android.app.Activity, int)}.
      */
-    public final void turnOn()
+    public void turnOn()
     {
         m_mgr.turnOn();
     }
@@ -1295,7 +1291,7 @@ public final class RxBleManager
      *
      * @see BleManagerState#RESETTING
      */
-    public final void reset()
+    public void reset()
     {
         reset(null);
     }
@@ -1306,7 +1302,7 @@ public final class RxBleManager
      *
      * @see BleManagerState#RESETTING
      */
-    public final void reset(ResetListener listener)
+    public void reset(ResetListener listener)
     {
         m_mgr.reset(listener);
     }
@@ -1318,7 +1314,7 @@ public final class RxBleManager
      * @see #reset()
      */
     @Experimental
-    public final void nukeBle()
+    public void nukeBle()
     {
         nukeBle(null);
     }
@@ -1330,7 +1326,7 @@ public final class RxBleManager
      * @see #reset(ResetListener)
      */
     @Experimental
-    public final void nukeBle(ResetListener resetListener)
+    public void nukeBle(ResetListener resetListener)
     {
         m_mgr.nukeBle(resetListener);
     }
@@ -1340,7 +1336,7 @@ public final class RxBleManager
      * Essentially a convenience method for calling {@link RxBleDevice#unbond()},
      * on each device individually.
      */
-    public final void unbondAll()
+    public void unbondAll()
     {
         m_mgr.unbondAll();
     }
@@ -1350,7 +1346,7 @@ public final class RxBleManager
      * Essentially a convenience method for calling {@link RxBleDevice#disconnect()},
      * on each device individually.
      */
-    public final void disconnectAll()
+    public void disconnectAll()
     {
         m_mgr.disconnectAll();
     }
@@ -1358,7 +1354,7 @@ public final class RxBleManager
     /**
      * Same as {@link #disconnectAll()} but drills down to {@link RxBleDevice#disconnect_remote()} instead.
      */
-    public final void disconnectAll_remote()
+    public void disconnectAll_remote()
     {
         m_mgr.disconnectAll_remote();
     }
@@ -1368,7 +1364,7 @@ public final class RxBleManager
      * Essentially a convenience method for calling {@link RxBleDevice#undiscover()},
      * on each device individually.
      */
-    public final void undiscoverAll()
+    public void undiscoverAll()
     {
         m_mgr.undiscoverAll();
     }
@@ -1382,7 +1378,7 @@ public final class RxBleManager
      * @see #isLocationEnabledForScanning_byOsServices()
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final void turnOnLocationWithIntent_forOsServices(final Activity callingActivity, int requestCode)
+    public void turnOnLocationWithIntent_forOsServices(final Activity callingActivity, int requestCode)
     {
         m_mgr.turnOnLocationWithIntent_forOsServices(callingActivity, requestCode);
     }
@@ -1392,7 +1388,7 @@ public final class RxBleManager
      *
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final void turnOnLocationWithIntent_forOsServices(final Activity callingActivity)
+    public void turnOnLocationWithIntent_forOsServices(final Activity callingActivity)
     {
         m_mgr.turnOnLocationWithIntent_forOsServices(callingActivity);
     }
@@ -1405,7 +1401,7 @@ public final class RxBleManager
      *
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final boolean willLocationPermissionSystemDialogBeShown(Activity callingActivity)
+    public boolean willLocationPermissionSystemDialogBeShown(Activity callingActivity)
     {
         return m_mgr.willLocationPermissionSystemDialogBeShown(callingActivity);
     }
@@ -1419,7 +1415,7 @@ public final class RxBleManager
      * @see #isLocationEnabledForScanning_byRuntimePermissions()
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final void turnOnLocationWithIntent_forPermissions(final Activity callingActivity, int requestCode)
+    public void turnOnLocationWithIntent_forPermissions(final Activity callingActivity, int requestCode)
     {
         m_mgr.turnOnLocationWithIntent_forPermissions(callingActivity, requestCode);
     }
@@ -1434,7 +1430,7 @@ public final class RxBleManager
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      * @see <a href="https://developer.android.com/guide/topics/connectivity/bluetooth/permissions"></a>
      */
-    public final void requestBluetoothPermissions(final Activity callingActivity, int requestCode)
+    public void requestBluetoothPermissions(final Activity callingActivity, int requestCode)
     {
         m_mgr.requestBluetoothPermissions(callingActivity, requestCode);
     }
@@ -1443,7 +1439,7 @@ public final class RxBleManager
      * Tells you whether a call to {@link #scan(ScanOptions)}, will succeed or not. Basically a convenience for checking if both
      * {@link #isLocationEnabledForScanning()} and {@link #is(BleManagerState)} with {@link BleManagerState#SCANNING} return <code>true</code>.
      */
-    public final boolean isScanningReady()
+    public boolean isScanningReady()
     {
         return m_mgr.isScanningReady();
     }
@@ -1452,7 +1448,7 @@ public final class RxBleManager
      * Convenience method which reports <code>true</code> if the {@link BleManager} is in any of the following states: <br><br>
      * {@link BleManagerState#SCANNING}, {@link BleManagerState#SCANNING_PAUSED}, {@link BleManagerState#BOOST_SCANNING}, or {@link BleManagerState#STARTING_SCAN}
      */
-    public final boolean isScanning()
+    public boolean isScanning()
     {
         return m_mgr.isScanning();
     }
@@ -1472,7 +1468,7 @@ public final class RxBleManager
      * @see #turnOnLocationWithIntent_forOsServices(Activity, int)
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final boolean isLocationEnabledForScanning()
+    public boolean isLocationEnabledForScanning()
     {
         return m_mgr.isLocationEnabledForScanning();
     }
@@ -1484,7 +1480,7 @@ public final class RxBleManager
      * @see #scan(ScanOptions)
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final boolean isLocationEnabledForScanning_byManifestPermissions()
+    public boolean isLocationEnabledForScanning_byManifestPermissions()
     {
         return m_mgr.isLocationEnabledForScanning_byManifestPermissions();
     }
@@ -1498,7 +1494,7 @@ public final class RxBleManager
      * @see #turnOnLocationWithIntent_forPermissions(Activity, int)
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final boolean isLocationEnabledForScanning_byRuntimePermissions()
+    public boolean isLocationEnabledForScanning_byRuntimePermissions()
     {
         return m_mgr.isLocationEnabledForScanning_byRuntimePermissions();
     }
@@ -1510,7 +1506,7 @@ public final class RxBleManager
      *
      * @see #requestBluetoothPermissions(Activity, int)
      */
-    public final boolean areBluetoothPermissionsEnabled()
+    public boolean areBluetoothPermissionsEnabled()
     {
         return m_mgr.areBluetoothPermissionsEnabled();
     }
@@ -1527,7 +1523,7 @@ public final class RxBleManager
      * @see #turnOnLocationWithIntent_forOsServices(Activity, int)
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final boolean isLocationEnabledForScanning_byOsServices()
+    public boolean isLocationEnabledForScanning_byOsServices()
     {
         return m_mgr.isLocationEnabledForScanning_byOsServices();
     }
@@ -1541,7 +1537,7 @@ public final class RxBleManager
      *
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final void turnOnWithIntent(Activity callingActivity, int requestCode)
+    public void turnOnWithIntent(Activity callingActivity, int requestCode)
     {
         m_mgr.turnOnWithIntent(callingActivity, requestCode);
     }
@@ -1550,7 +1546,7 @@ public final class RxBleManager
      * Opposite of {@link #onPause()}, to be called from your override of {@link android.app.Activity#onResume()} for each {@link android.app.Activity}
      * in your application. See comment for {@link #onPause()} for a similar explanation for why you should call this method.
      */
-    public final void onResume()
+    public void onResume()
     {
         m_mgr.onResume();
     }
@@ -1562,7 +1558,7 @@ public final class RxBleManager
      * but another good reason is for future-proofing. Later releases of this library may do other more important things
      * in this method so it's good to have it being called just in case.
      */
-    public final void onPause()
+    public void onPause()
     {
         m_mgr.onPause();
     }
@@ -1570,7 +1566,7 @@ public final class RxBleManager
     /**
      * Returns the {@link android.app.Application} provided to the constructor.
      */
-    public final @Nullable(Nullable.Prevalence.RARE) Context getApplicationContext()
+    public @Nullable(Nullable.Prevalence.RARE) Context getApplicationContext()
     {
         return m_mgr.getApplicationContext();
     }
@@ -1578,7 +1574,7 @@ public final class RxBleManager
     /**
      * Stops any scans previously started by {@link #scan()}, {@link #scan(ScanOptions)}, or {@link #scan_onlyNew(ScanOptions)}.
      */
-    public final void stopScan()
+    public void stopScan()
     {
         m_mgr.stopScan();
     }
@@ -1588,7 +1584,7 @@ public final class RxBleManager
      *
      * Calling {@link #stopScan()} alone will keep any previously registered filters active.
      */
-    public final void stopScan(ScanFilter filter)
+    public void stopScan(ScanFilter filter)
     {
         m_mgr.stopScan(filter);
     }
@@ -1600,7 +1596,7 @@ public final class RxBleManager
      * NOTE: You may still receive some callbacks after calling this method, as it seems the android stack batches
      * these results, and calls them in order.
      */
-    public final void stopScan(PendingIntent pendingIntent)
+    public void stopScan(PendingIntent pendingIntent)
     {
         m_mgr.stopScan(pendingIntent);
     }
@@ -1615,7 +1611,7 @@ public final class RxBleManager
                 private Disposable stateDisposable;
 
                 @Override
-                public void subscribe(final FlowableEmitter<DiscoveryEvent> emitter) throws Exception
+                public void subscribe(final FlowableEmitter<DiscoveryEvent> emitter)
                 {
                     if (emitter.isCancelled()) return;
 

@@ -30,7 +30,10 @@ import com.idevicesinc.sweetblue.utils.GattDatabase;
  *
  * @see UnitTestBluetoothDevice
  * @see UnitTestBluetoothGatt
+ *
+ * @deprecated - Do not use this class anymore, it won't work as expected
  */
+@Deprecated
 @SuppressWarnings("squid:ClassVariableVisibilityCheck")
 public class BleDeviceConfig_UnitTest extends BleDeviceConfig
 {

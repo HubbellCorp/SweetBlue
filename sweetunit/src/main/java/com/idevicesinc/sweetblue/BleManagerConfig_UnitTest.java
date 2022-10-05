@@ -21,6 +21,7 @@ import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothManager;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 
 
@@ -34,7 +35,10 @@ import com.idevicesinc.sweetblue.utils.GattDatabase;
  * @see UnitTestBluetoothGatt
  * @see UnitTestBluetoothServer
  * @see UnitTestLogger
+ *
+ * @deprecated - Do not use this class anymore, it won't work correctly.
  */
+@Deprecated
 @SuppressWarnings("squid:ClassVariableVisibilityCheck")
 public class BleManagerConfig_UnitTest extends BleManagerConfig
 {
@@ -62,7 +66,6 @@ public class BleManagerConfig_UnitTest extends BleManagerConfig
 
     private void populateUnitTestItems()
     {
-        bluetoothManagerImplementation = new UnitTestBluetoothManager();
         SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs ->
         {
             if (m_gattDatabase == null)
@@ -70,7 +73,7 @@ public class BleManagerConfig_UnitTest extends BleManagerConfig
             else
                 return new UnitTestBluetoothGatt(inputs.get(0), m_gattDatabase);
         });
-
+        SweetDIManager.getInstance().registerTransient(IBluetoothManager.class, UnitTestBluetoothManager.class);
         SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, UnitTestBluetoothDevice.class);
         serverFactory = (manager, server) -> new UnitTestBluetoothServer(manager);
         logger = new UnitTestLogger();

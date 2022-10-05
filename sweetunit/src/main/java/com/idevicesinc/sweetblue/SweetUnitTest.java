@@ -95,9 +95,13 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
      * using {@link #initManager(BleManagerConfig)}, {@link #getConfig()}.
      */
     @Before
-    public void setup() throws Exception
+    public void setup()
     {
-        m_activity = createActivity();
+        if (m_activity == null)
+            m_activity = createActivity();
+        // bluetooth manager is a special case where it has to be registered before initializing the blemanager
+        // whereas everything else should be regi
+        SweetDIManager.getInstance().registerTransient(IBluetoothManager.class, UnitTestBluetoothManager.class);
         initManager(getConfig());
         SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, UnitTestBluetoothDevice.class);
         SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, UnitTestBluetoothGatt.class);
@@ -150,7 +154,6 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
     public BleManagerConfig getConfig()
     {
         m_config = new BleManagerConfig();
-        m_config.bluetoothManagerImplementation = getManagerLayer();
         m_config.serverFactory = this::getServerLayer;
         m_config.logger = new UnitTestLogger();
         return m_config;

@@ -772,7 +772,6 @@ public class ConnectTest extends BaseBleUnitTest
     public BleManagerConfig getConfig()
     {
         m_config = new BleManagerConfig();
-        m_config.bluetoothManagerImplementation = new UnitTestBluetoothManager();
         m_config.logger = new UnitTestLogger();
         m_config.loggingOptions = LogOptions.ON;
         m_config.updateThreadType = UpdateThreadType.THREAD;

@@ -83,6 +83,7 @@ import com.idevicesinc.sweetblue.compat.S_Util;
 import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothDevice;
 import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothGatt;
+import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothManager;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.internal.android.IDeviceListener;
 import com.idevicesinc.sweetblue.internal.android.IManagerListener;
@@ -150,6 +151,8 @@ public final class P_BleManagerImpl implements IBleManager
     private final P_TaskManager m_taskManager;
     private P_UhOhThrottler m_uhOhThrottler;
     private P_WakeLockManager m_wakeLockMngr;
+    private final SweetDIManager m_diManager;
+    private IBluetoothManager m_bluetoothManager;
 
     private HistoricalDataLoadListener m_historicalDataLoadListener;
     private DiscoveryListener m_discoveryListener;
@@ -205,6 +208,7 @@ public final class P_BleManagerImpl implements IBleManager
         }
 
         // DI stuff
+        m_diManager = SweetDIManager.getInstance();
         registerDI();
 
         m_deviceMap = new HashMap<>();
@@ -232,11 +236,12 @@ public final class P_BleManagerImpl implements IBleManager
         m_historicalDatabase = PU_HistoricalData.newDatabase(context, this);
         m_diskOptionsMngr = new P_DiskOptionsManager(this);
         m_filterMngr = new P_ScanFilterManager(this, m_config.defaultScanFilter);
-        if (m_config.bluetoothManagerImplementation.isManagerNull())
+        m_bluetoothManager = m_diManager.get(IBluetoothManager.class);
+        if (m_bluetoothManager.isManagerNull())
         {
-            m_config.bluetoothManagerImplementation.resetManager(m_context);
+            m_bluetoothManager.resetManager(m_context);
         }
-        int nativeStateInt = m_config.bluetoothManagerImplementation.getState();
+        int nativeStateInt = m_bluetoothManager.getState();
         BleManagerState nativeState = P_Bridge_User.getState(nativeStateInt);
 
         if (m_timeTurnedOn == 0 && nativeState.overlaps(BluetoothAdapter.STATE_ON))
@@ -270,7 +275,7 @@ public final class P_BleManagerImpl implements IBleManager
     }
 
 
-    public final void setConfig(@Nullable(Nullable.Prevalence.RARE) BleManagerConfig config_nullable)
+    public void setConfig(@Nullable(Nullable.Prevalence.RARE) BleManagerConfig config_nullable)
     {
         m_config = config_nullable != null ? config_nullable.clone() : new BleManagerConfig();
         updateTimeTracker();
@@ -278,7 +283,7 @@ public final class P_BleManagerImpl implements IBleManager
         initConfigDependentMembers();
     }
 
-    public final BleManagerConfig getConfigClone()
+    public BleManagerConfig getConfigClone()
     {
         return m_config.clone();
     }
@@ -286,7 +291,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns whether the manager is in any of the provided states.
      */
-    public final boolean isAny(BleManagerState... states)
+    public boolean isAny(BleManagerState... states)
     {
         for (int i = 0; i < states.length; i++)
         {
@@ -301,7 +306,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see #isAny(BleManagerState...)
      */
-    public final boolean isAll(BleManagerState... states)
+    public boolean isAll(BleManagerState... states)
     {
         for (int i = 0; i < states.length; i++)
         {
@@ -316,7 +321,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see #isAny(BleManagerState...)
      */
-    public final boolean is(final BleManagerState state)
+    public boolean is(final BleManagerState state)
     {
         return state.overlaps(getStateMask());
     }
@@ -326,7 +331,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see #isAll(int)
      */
-    public final boolean isAny(final int mask_BleManagerState)
+    public boolean isAny(final int mask_BleManagerState)
     {
         return (getStateMask() & mask_BleManagerState) != 0x0;
     }
@@ -336,7 +341,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see #isAny(int)
      */
-    public final boolean isAll(final int mask_BleManagerState)
+    public boolean isAll(final int mask_BleManagerState)
     {
         return (getStateMask() & mask_BleManagerState) == mask_BleManagerState;
     }
@@ -346,7 +351,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleDevice#getTimeInState(BleDeviceState)
      */
-    public final Interval getTimeInState(BleManagerState state)
+    public Interval getTimeInState(BleManagerState state)
     {
         return Interval.millis(m_stateTracker.getTimeInState(state.ordinal()));
     }
@@ -354,7 +359,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Checks the underlying stack to see if BLE is supported on the phone.
      */
-    public final boolean isBleSupported()
+    public boolean isBleSupported()
     {
         PackageManager pm = m_context.getPackageManager();
         boolean hasBLE = pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE);
@@ -366,7 +371,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Checks to see if the device is running an Android OS which supports
      * advertising.
      */
-    public final boolean isAdvertisingSupportedByAndroidVersion()
+    public boolean isAdvertisingSupportedByAndroidVersion()
     {
         return Utils.isLollipop();
     }
@@ -374,7 +379,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Checks to see if the device supports advertising.
      */
-    public final boolean isAdvertisingSupportedByChipset()
+    public boolean isAdvertisingSupportedByChipset()
     {
         if (isAdvertisingSupportedByAndroidVersion())
         {
@@ -389,12 +394,12 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Checks to see if the device supports advertising BLE services.
      */
-    public final boolean isAdvertisingSupported()
+    public boolean isAdvertisingSupported()
     {
         return isAdvertisingSupportedByAndroidVersion() && isAdvertisingSupportedByChipset();
     }
 
-    public final boolean isBluetooth5SupportedByAndroidVersion()
+    public boolean isBluetooth5SupportedByAndroidVersion()
     {
         return Utils.isOreo();
     }
@@ -403,7 +408,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns <code>true</code> if the android device is running Oreo (8.0), and if the hardware supports Bluetooth 5's long range
      * feature.
      */
-    public final boolean isBluetooth5LongRangeSupported()
+    public boolean isBluetooth5LongRangeSupported()
     {
         return Utils.isOreo() && managerLayer().isBluetooth5LongRangeSupported();
     }
@@ -411,7 +416,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns <code>true</code> if the android device is running Oreo (8.0), and if the hardware supports Bluetooth 5's high speed feature.
      */
-    public final boolean isBluetooth5HighSpeedSupported()
+    public boolean isBluetooth5HighSpeedSupported()
     {
         return Utils.isOreo() && managerLayer().isBluetooth5HighSpeedSupported();
     }
@@ -420,7 +425,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Disables BLE if manager is {@link BleManagerState#ON}. This disconnects all current
      * connections, stops scanning, and forgets all discovered devices.
      */
-    public final void turnOff()
+    public void turnOff()
     {
         turnOff_private(false);
     }
@@ -429,7 +434,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns the native manager.
      */
     @Advanced
-    public final BluetoothManager getNative()
+    public BluetoothManager getNative()
     {
         return managerLayer().getNativeManager();
     }
@@ -438,7 +443,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns the native bluetooth adapter.
      */
     @Advanced
-    public final BluetoothAdapter getNativeAdapter()
+    public BluetoothAdapter getNativeAdapter()
     {
         return managerLayer().getNativeAdaptor();
     }
@@ -447,12 +452,12 @@ public final class P_BleManagerImpl implements IBleManager
      * Sets a default backup {@link HistoricalDataLoadListener} that will be invoked
      * for all historical data loads to memory for all uuids for all devices.
      */
-    public final void setListener_HistoricalDataLoad(@Nullable(Nullable.Prevalence.NORMAL) final HistoricalDataLoadListener listener_nullable)
+    public void setListener_HistoricalDataLoad(@Nullable(Nullable.Prevalence.NORMAL) final HistoricalDataLoadListener listener_nullable)
     {
         m_historicalDataLoadListener = listener_nullable;
     }
 
-    public final void setListener_UhOh(@Nullable(Nullable.Prevalence.NORMAL) UhOhListener listener_nullable)
+    public void setListener_UhOh(@Nullable(Nullable.Prevalence.NORMAL) UhOhListener listener_nullable)
     {
         m_uhOhThrottler.setListener(listener_nullable);
     }
@@ -461,7 +466,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Set a listener here to be notified whenever {@link #ASSERT(boolean)} fails.
      * Mostly for use by internal library developers.
      */
-    public final void setListener_Assert(@Nullable(Nullable.Prevalence.NORMAL) AssertListener listener_nullable)
+    public void setListener_Assert(@Nullable(Nullable.Prevalence.NORMAL) AssertListener listener_nullable)
     {
         m_assertionListener = listener_nullable;
     }
@@ -469,7 +474,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Set a listener here to be notified whenever a {@link BleDevice} is discovered, rediscovered, or undiscovered.
      */
-    public final void setListener_Discovery(@Nullable(Nullable.Prevalence.NORMAL) DiscoveryListener listener_nullable)
+    public void setListener_Discovery(@Nullable(Nullable.Prevalence.NORMAL) DiscoveryListener listener_nullable)
     {
         m_discoveryListener = listener_nullable;
     }
@@ -478,7 +483,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns the discovery listener set with {@link #setListener_Discovery(DiscoveryListener)} or
      * {@link BleManagerConfig#defaultDiscoveryListener}, or <code>null</code> if not set.
      */
-    public final DiscoveryListener getListener_Discovery()
+    public DiscoveryListener getListener_Discovery()
     {
         return m_discoveryListener;
     }
@@ -486,7 +491,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Set a listener here to be notified whenever this manager's {@link BleManagerState} changes.
      */
-    public final void setListener_State(@Nullable(Nullable.Prevalence.NORMAL) ManagerStateListener listener_nullable)
+    public void setListener_State(@Nullable(Nullable.Prevalence.NORMAL) ManagerStateListener listener_nullable)
     {
         m_stateTracker.setListener(listener_nullable);
     }
@@ -498,7 +503,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleDevice#setListener_State(DeviceStateListener)
      */
-    public final void setListener_DeviceState(@Nullable(Nullable.Prevalence.NORMAL) DeviceStateListener listener_nullable)
+    public void setListener_DeviceState(@Nullable(Nullable.Prevalence.NORMAL) DeviceStateListener listener_nullable)
     {
         m_defaultDeviceStateListener = listener_nullable;
     }
@@ -512,7 +517,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleServer#setListener_ReconnectFilter(ServerReconnectFilter)
      */
-    public final void setListener_ServerReconnectFilter(@Nullable(Nullable.Prevalence.NORMAL) ServerReconnectFilter listener_nullable)
+    public void setListener_ServerReconnectFilter(@Nullable(Nullable.Prevalence.NORMAL) ServerReconnectFilter listener_nullable)
     {
         m_defaultServerReconnectFilter = listener_nullable;
     }
@@ -521,7 +526,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Convenience method to listener for all server connections. This listener is somewhat pointless, as you can only have
      * one {@link BleServer}. However, in the case we extend that in the future, this will be here.
      */
-    public final void setListener_ServerConnect(@Nullable(Nullable.Prevalence.NORMAL) ServerConnectListener listener_nullable)
+    public void setListener_ServerConnect(@Nullable(Nullable.Prevalence.NORMAL) ServerConnectListener listener_nullable)
     {
         m_defaultServerConnectFilter = listener_nullable;
     }
@@ -535,7 +540,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleServer#setListener_Incoming(IncomingListener)
      */
-    public final void setListener_Incoming(@Nullable(Nullable.Prevalence.NORMAL) IncomingListener listener_nullable)
+    public void setListener_Incoming(@Nullable(Nullable.Prevalence.NORMAL) IncomingListener listener_nullable)
     {
         m_defaultServerIncomingListener = listener_nullable;
     }
@@ -547,7 +552,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleServer#setListener_ServiceAdd(AddServiceListener)
      */
-    public final void setListener_ServiceAdd(@Nullable(Nullable.Prevalence.NORMAL) AddServiceListener listener_nullable)
+    public void setListener_ServiceAdd(@Nullable(Nullable.Prevalence.NORMAL) AddServiceListener listener_nullable)
     {
         m_serviceAddListener = listener_nullable;
     }
@@ -559,7 +564,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleServer#setListener_State(ServerStateListener)
      */
-    public final void setListener_ServerState(@Nullable(Nullable.Prevalence.NORMAL) ServerStateListener listener_nullable)
+    public void setListener_ServerState(@Nullable(Nullable.Prevalence.NORMAL) ServerStateListener listener_nullable)
     {
         m_defaultServerStateListener = listener_nullable;
     }
@@ -571,7 +576,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleServer#setListener_Outgoing(OutgoingListener)
      */
-    public final void setListener_Outgoing(@Nullable(Nullable.Prevalence.NORMAL) OutgoingListener listener_nullable)
+    public void setListener_Outgoing(@Nullable(Nullable.Prevalence.NORMAL) OutgoingListener listener_nullable)
     {
         m_defaultServerOutgoingListener = listener_nullable;
     }
@@ -583,12 +588,12 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleDevice#setListener_Reconnect(DeviceReconnectFilter)
      */
-    public final void setListener_DeviceReconnect(@Nullable(Nullable.Prevalence.NORMAL) DeviceReconnectFilter listener_nullable)
+    public void setListener_DeviceReconnect(@Nullable(Nullable.Prevalence.NORMAL) DeviceReconnectFilter listener_nullable)
     {
         m_defaultDeviceReconnectFilter = listener_nullable;
     }
 
-    public final void setListener_DeviceConnect(@Nullable(Nullable.Prevalence.NORMAL) DeviceConnectListener listener_nullable)
+    public void setListener_DeviceConnect(@Nullable(Nullable.Prevalence.NORMAL) DeviceConnectListener listener_nullable)
     {
         m_defaultDeviceConnectListener = listener_nullable;
     }
@@ -596,7 +601,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Convenience method to set a default back up listener for all {@link com.idevicesinc.sweetblue.BondListener.BondEvent}s across all {@link BleDevice} instances.
      */
-    public final void setListener_Bond(@Nullable(Nullable.Prevalence.NORMAL) BondListener listener_nullable)
+    public void setListener_Bond(@Nullable(Nullable.Prevalence.NORMAL) BondListener listener_nullable)
     {
         m_defaultBondListener = listener_nullable;
     }
@@ -606,12 +611,12 @@ public final class P_BleManagerImpl implements IBleManager
      * <br><br>
      * TIP: Place some analytics code in the listener here.
      */
-    public final void setListener_Read_Write(@Nullable(Nullable.Prevalence.NORMAL) ReadWriteListener listener_nullable)
+    public void setListener_Read_Write(@Nullable(Nullable.Prevalence.NORMAL) ReadWriteListener listener_nullable)
     {
         m_defaultReadWriteListener = listener_nullable;
     }
 
-    public final void setListener_Notification(@Nullable(Nullable.Prevalence.NORMAL) NotificationListener listener_nullable)
+    public void setListener_Notification(@Nullable(Nullable.Prevalence.NORMAL) NotificationListener listener_nullable)
     {
         m_defaultNotificationListener = listener_nullable;
     }
@@ -619,22 +624,22 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Set a listener here to be notified of the result of starting to advertise.
      */
-    public final void setListener_Advertising(AdvertisingListener listener)
+    public void setListener_Advertising(AdvertisingListener listener)
     {
         m_advertisingListener = listener;
     }
 
-    public final void setListener_TaskState(PA_Task.I_StateListener listener)
+    public void setListener_TaskState(PA_Task.I_StateListener listener)
     {
         m_defaultTaskStateListener = listener;
     }
 
-    public final PA_Task.I_StateListener getDefaultTaskStateListener()
+    public PA_Task.I_StateListener getDefaultTaskStateListener()
     {
         return m_defaultTaskStateListener;
     }
 
-    public final boolean startScan(ScanOptions options)
+    public boolean startScan(ScanOptions options)
     {
         showScanWarningIfNeeded();
 
@@ -648,7 +653,7 @@ public final class P_BleManagerImpl implements IBleManager
      * @see BleManagerConfig#manageCpuWakeLock
      */
     @Advanced
-    public final void pushWakeLock()
+    public void pushWakeLock()
     {
         m_wakeLockMngr.push();
     }
@@ -657,7 +662,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Opposite of {@link #pushWakeLock()}, eventually calls {@link android.os.PowerManager.WakeLock#release()}.
      */
     @Advanced
-    public final void popWakeLock()
+    public void popWakeLock()
     {
         m_wakeLockMngr.pop();
     }
@@ -667,7 +672,7 @@ public final class P_BleManagerImpl implements IBleManager
      * message with a stack trace to the console as well if {@link BleManagerConfig#loggingOptions} is not {@link LogOptions#OFF}.
      */
     @Advanced
-    public final boolean ASSERT(boolean condition)
+    public boolean ASSERT(boolean condition)
     {
         return ASSERT(condition, "");
     }
@@ -676,7 +681,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Same as {@link #ASSERT(boolean)} but with an added message.
      */
     @Advanced
-    public final boolean ASSERT(boolean condition, String message)
+    public boolean ASSERT(boolean condition, String message)
     {
         if (!condition)
         {
@@ -711,7 +716,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleManagerState
      */
-    public final int getStateMask()
+    public int getStateMask()
     {
         return m_stateTracker.getState();
     }
@@ -720,7 +725,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Enables BLE if manager is currently {@link BleManagerState#OFF} or {@link BleManagerState#TURNING_OFF}, otherwise does nothing.
      * For a convenient way to ask your user first see {@link #turnOnWithIntent(android.app.Activity, int)}.
      */
-    public final void turnOn()
+    public void turnOn()
     {
         if (isAny(TURNING_ON, ON)) return;
 
@@ -749,7 +754,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleManagerState#RESETTING
      */
-    public final void reset()
+    public void reset()
     {
         reset(null);
     }
@@ -760,7 +765,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleManagerState#RESETTING
      */
-    public final void reset(ResetListener listener)
+    public void reset(ResetListener listener)
     {
         reset_private(false, listener);
     }
@@ -772,7 +777,7 @@ public final class P_BleManagerImpl implements IBleManager
      * @see #reset()
      */
     @Experimental
-    public final void nukeBle()
+    public void nukeBle()
     {
         nukeBle(null);
     }
@@ -784,7 +789,7 @@ public final class P_BleManagerImpl implements IBleManager
      * @see #reset(ResetListener)
      */
     @Experimental
-    public final void nukeBle(ResetListener resetListener)
+    public void nukeBle(ResetListener resetListener)
     {
         reset_private(true, resetListener);
     }
@@ -794,7 +799,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Essentially a convenience method for calling {@link BleDevice#unbond()},
      * on each device individually.
      */
-    public final void unbondAll()
+    public void unbondAll()
     {
         m_deviceMngr.unbondAll(null, BondListener.Status.CANCELLED_FROM_UNBOND);
     }
@@ -804,7 +809,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Essentially a convenience method for calling {@link BleDevice#disconnect()},
      * on each device individually.
      */
-    public final void disconnectAll()
+    public void disconnectAll()
     {
         m_deviceMngr.disconnectAll();
     }
@@ -812,7 +817,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Same as {@link #disconnectAll()} but drills down to {@link BleDevice#disconnect_remote()} instead.
      */
-    public final void disconnectAll_remote()
+    public void disconnectAll_remote()
     {
         m_deviceMngr.disconnectAll_remote();
     }
@@ -822,12 +827,12 @@ public final class P_BleManagerImpl implements IBleManager
      * Essentially a convenience method for calling {@link BleDevice#undiscover()},
      * on each device individually.
      */
-    public final void undiscoverAll()
+    public void undiscoverAll()
     {
         m_deviceMngr.undiscoverAll();
     }
 
-    public final void turnOnLocationWithIntent_forOsServices(final Activity callingActivity, int requestCode)
+    public void turnOnLocationWithIntent_forOsServices(final Activity callingActivity, int requestCode)
     {
         final Intent enableLocationIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 
@@ -839,7 +844,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final void turnOnLocationWithIntent_forOsServices(final Activity callingActivity)
+    public void turnOnLocationWithIntent_forOsServices(final Activity callingActivity)
     {
         final Intent enableLocationIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 
@@ -859,7 +864,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final boolean willLocationPermissionSystemDialogBeShown(Activity callingActivity)
+    public boolean willLocationPermissionSystemDialogBeShown(Activity callingActivity)
     {
         if (Utils.isMarshmallow())
         {
@@ -884,7 +889,7 @@ public final class P_BleManagerImpl implements IBleManager
      * @see #isLocationEnabledForScanning_byRuntimePermissions()
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
-    public final void turnOnLocationWithIntent_forPermissions(final Activity callingActivity, int requestCode)
+    public void turnOnLocationWithIntent_forPermissions(final Activity callingActivity, int requestCode)
     {
         if (Utils.isMarshmallow())
         {
@@ -918,7 +923,7 @@ public final class P_BleManagerImpl implements IBleManager
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      * @see <a href="https://developer.android.com/guide/topics/connectivity/bluetooth/permissions"></a>
      */
-    public final void requestBluetoothPermissions(final Activity callingActivity, int requestCode)
+    public void requestBluetoothPermissions(final Activity callingActivity, int requestCode)
     {
         if (Utils.isAndroid12()) {
             BleManagerConfig cfg = getConfigClone();
@@ -930,7 +935,7 @@ public final class P_BleManagerImpl implements IBleManager
         }
     }
 
-    public final boolean isScanningReady()
+    public boolean isScanningReady()
     {
         boolean ready = true;
         if (Utils.isAndroid12()) {
@@ -948,33 +953,33 @@ public final class P_BleManagerImpl implements IBleManager
      * Convenience method which reports <code>true</code> if the {@link BleManager} is in any of the following states: <br><br>
      * {@link BleManagerState#SCANNING}, {@link BleManagerState#SCANNING_PAUSED}, {@link BleManagerState#BOOST_SCANNING}, or {@link BleManagerState#STARTING_SCAN}
      */
-    public final boolean isScanning()
+    public boolean isScanning()
     {
         return isAny(SCANNING, SCANNING_PAUSED, BOOST_SCANNING, STARTING_SCAN);
     }
 
-    public final boolean isLocationEnabledForScanning()
+    public boolean isLocationEnabledForScanning()
     {
         return managerLayer().isLocationEnabledForScanning();
     }
 
-    public final boolean isLocationEnabledForScanning_byManifestPermissions()
+    public boolean isLocationEnabledForScanning_byManifestPermissions()
     {
         return Utils.isLocationEnabledForScanning_byManifestPermissions(getApplicationContext());
     }
 
-    public final boolean isLocationEnabledForScanning_byRuntimePermissions()
+    public boolean isLocationEnabledForScanning_byRuntimePermissions()
     {
         return managerLayer().isLocationEnabledForScanning_byRuntimePermissions();
     }
 
-    public final boolean areBluetoothPermissionsEnabled()
+    public boolean areBluetoothPermissionsEnabled()
     {
         BleManagerConfig cfg = getConfigClone();
         return Utils.areBluetoothPermissionsGranted(getApplicationContext(), cfg.requestBackgroundOperation, cfg.requestAdvertisePermission);
     }
 
-    public final boolean isLocationEnabledForScanning_byOsServices()
+    public boolean isLocationEnabledForScanning_byOsServices()
     {
         return managerLayer().isLocationEnabledForScanning_byOsServices();
     }
@@ -989,7 +994,7 @@ public final class P_BleManagerImpl implements IBleManager
      * @see com.idevicesinc.sweetblue.utils.BleSetupHelper
      */
     @SuppressLint("MissingPermission")
-    public final void turnOnWithIntent(Activity callingActivity, int requestCode)
+    public void turnOnWithIntent(Activity callingActivity, int requestCode)
     {
         if (isAny(ON, TURNING_ON)) return;
 
@@ -1001,7 +1006,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Opposite of {@link #onPause()}, to be called from your override of {@link android.app.Activity#onResume()} for each {@link android.app.Activity}
      * in your application. See comment for {@link #onPause()} for a similar explanation for why you should call this method.
      */
-    public final void onResume()
+    public void onResume()
     {
         m_isForegrounded = true;
         m_timeForegrounded = 0.0;
@@ -1016,7 +1021,7 @@ public final class P_BleManagerImpl implements IBleManager
      * but another good reason is for future-proofing. Later releases of this library may do other more important things
      * in this method so it's good to have it being called just in case.
      */
-    public final void onPause()
+    public void onPause()
     {
         m_isForegrounded = false;
         m_timeForegrounded = 0.0;
@@ -1030,7 +1035,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see BleManagerConfig#blockingShutdown
      */
-    public final void shutdown()
+    public void shutdown()
     {
         m_logger.e("Received shutdown call, shutting down BleManager...");
         clearListeners();
@@ -1081,7 +1086,7 @@ public final class P_BleManagerImpl implements IBleManager
         return getDevices_List(BleDeviceState.BLE_CONNECTED).size();
     }
 
-    public final void clearShutdownSemaphore()
+    public void clearShutdownSemaphore()
     {
         m_shutdownSemaphore.release();
     }
@@ -1116,12 +1121,12 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns the {@link android.app.Application} provided to the constructor.
      */
-    public final Context getApplicationContext()
+    public Context getApplicationContext()
     {
         return (Application) m_context;
     }
 
-    public final void stopScan()
+    public void stopScan()
     {
         m_postManager.runOrPostToUpdateThread(() -> {
             if (!m_scanManager.isPeriodicScan())
@@ -1134,14 +1139,14 @@ public final class P_BleManagerImpl implements IBleManager
         });
     }
 
-    public final void stopScan(ScanFilter filter)
+    public void stopScan(ScanFilter filter)
     {
         m_filterMngr.clearEphemeralFilter();
 
         stopScan();
     }
 
-    public final void stopScan(PendingIntent pendingIntent)
+    public void stopScan(PendingIntent pendingIntent)
     {
         m_postManager.runOrPostToUpdateThread(() ->
         {
@@ -1154,7 +1159,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Gets a known {@link BleDeviceState#DISCOVERED} device by MAC address, or {@link BleDevice#NULL} if there is no such device.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice getDevice(final String macAddress)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice getDevice(final String macAddress)
     {
         final String macAddress_normalized = normalizeMacAddress(macAddress);
 
@@ -1168,7 +1173,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Shortcut for checking if {@link #getDevice(String)} returns {@link BleDevice#NULL}.
      */
-    public final boolean hasDevice(final String macAddress)
+    public boolean hasDevice(final String macAddress)
     {
         return !getDevice(macAddress).isNull();
     }
@@ -1176,7 +1181,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Calls {@link #hasDevice(String)}.
      */
-    public final boolean hasDevice(final IBleDevice device)
+    public boolean hasDevice(final IBleDevice device)
     {
         return hasDevice(device.getMacAddress());
     }
@@ -1184,7 +1189,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns the first device that is in the given state, or {@link BleDevice#NULL} if no match is found.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice getDevice(BleDeviceState state)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice getDevice(BleDeviceState state)
     {
         return m_deviceMngr.getDevice(state);
     }
@@ -1193,7 +1198,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns the first device that matches the query, or {@link BleDevice#NULL} if no match is found.
      * See {@link BleDevice#is(Object...)} for the query format.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice getDevice(Object... query)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice getDevice(Object... query)
     {
         return m_deviceMngr.getDevice(query);
     }
@@ -1202,7 +1207,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns true if we have a device that matches the given query.
      * See {@link BleDevice#is(Object...)} for the query format.
      */
-    public final boolean hasDevice(Object... query)
+    public boolean hasDevice(Object... query)
     {
         return !getDevice(query).isNull();
     }
@@ -1210,12 +1215,12 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns the first device which returns <code>true</code> for {@link BleDevice#isAny(int)}, or {@link BleDevice#NULL} if no such device is found.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice getDevice(final int mask_BleDeviceState)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice getDevice(final int mask_BleDeviceState)
     {
         return m_deviceMngr.getDevice(mask_BleDeviceState);
     }
 
-    public final List<BleDevice> getDevices(final Intent intentFromScan)
+    public List<BleDevice> getDevices(final Intent intentFromScan)
     {
         if (Utils.isLollipop())
         {
@@ -1224,7 +1229,7 @@ public final class P_BleManagerImpl implements IBleManager
         return P_Const.EMPTY_BLEDEVICE_LIST;
     }
 
-    public final void getDevices(final ForEach_Void<BleDevice> forEach)
+    public void getDevices(final ForEach_Void<BleDevice> forEach)
     {
         m_deviceMngr.forEach(forEach);
     }
@@ -1233,7 +1238,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Same as {@link #getDevices(ForEach_Void)} but will only return devices
      * in the given state provided.
      */
-    public final void getDevices(final ForEach_Void<BleDevice> forEach, final BleDeviceState state)
+    public void getDevices(final ForEach_Void<BleDevice> forEach, final BleDeviceState state)
     {
         m_deviceMngr.forEach(forEach, state, true);
     }
@@ -1242,7 +1247,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Overload of {@link #getDevices(ForEach_Void)}
      * if you need to break out of the iteration at any point.
      */
-    public final void getDevices(final ForEach_Breakable<BleDevice> forEach)
+    public void getDevices(final ForEach_Breakable<BleDevice> forEach)
     {
         m_deviceMngr.forEach(forEach);
     }
@@ -1251,7 +1256,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Overload of {@link #getDevices(ForEach_Void, BleDeviceState)}
      * if you need to break out of the iteration at any point.
      */
-    public final void getDevices(final ForEach_Breakable<BleDevice> forEach, final BleDeviceState state)
+    public void getDevices(final ForEach_Breakable<BleDevice> forEach, final BleDeviceState state)
     {
         m_deviceMngr.forEach(forEach, state, true);
     }
@@ -1260,7 +1265,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns the mac addresses of all devices that we know about from both current and previous
      * app sessions.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) Iterator<String> getDevices_previouslyConnected()
+    public @Nullable(Nullable.Prevalence.NEVER) Iterator<String> getDevices_previouslyConnected()
     {
         return m_diskOptionsMngr.getPreviouslyConnectedDevices();
     }
@@ -1274,7 +1279,7 @@ public final class P_BleManagerImpl implements IBleManager
      * NOTE: If the Bluetooth radio is turned off, some android devices return <code>null</code>. In this case,
      * SweetBlue will just return an empty list.
      */
-    public final Set<IBleDevice> getDevices_bonded()
+    public Set<IBleDevice> getDevices_bonded()
     {
         Set<P_DeviceHolder> native_bonded_devices = managerLayer().getBondedDevices();
         // The native system can return null from the above call if the bluetooth radio is
@@ -1294,7 +1299,7 @@ public final class P_BleManagerImpl implements IBleManager
         return bonded_devices;
     }
 
-    public final @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List()
+    public @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List()
     {
         return m_deviceMngr.getList();
     }
@@ -1302,7 +1307,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Same as {@link #getDevices_List()}, but sorts the list using {@link BleManagerConfig#defaultListComparator}.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List_sorted()
+    public @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List_sorted()
     {
         return m_deviceMngr.getList_sorted();
     }
@@ -1311,7 +1316,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns the total number of devices this manager is...managing.
      * This includes all devices that are {@link BleDeviceState#DISCOVERED}.
      */
-    public final int getDeviceCount()
+    public int getDeviceCount()
     {
         return m_deviceMngr.getCount();
     }
@@ -1319,7 +1324,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns the number of devices that are in the current state.
      */
-    public final int getDeviceCount(BleDeviceState state)
+    public int getDeviceCount(BleDeviceState state)
     {
         return m_deviceMngr.getCount(state);
     }
@@ -1328,17 +1333,17 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns the number of devices that match the given query.
      * See {@link BleDevice#is(Object...)} for the query format.
      */
-    public final int getDeviceCount(Object... query)
+    public int getDeviceCount(Object... query)
     {
         return m_deviceMngr.getCount(query);
     }
 
-    public final boolean hasDevices()
+    public boolean hasDevices()
     {
         return m_deviceMngr.getCount() > 0;
     }
 
-    public final @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List(final BleDeviceState state)
+    public @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List(final BleDeviceState state)
     {
         return m_deviceMngr.getDevices_List(false, state);
     }
@@ -1346,12 +1351,12 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Same as {@link #getDevices_List(BleDeviceState)} except the list is sorted using {@link BleManagerConfig#defaultListComparator}.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List_sorted(final BleDeviceState state)
+    public @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List_sorted(final BleDeviceState state)
     {
         return m_deviceMngr.getDevices_List(true, state);
     }
 
-    public final @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List(final Object... query)
+    public @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List(final Object... query)
     {
         return m_deviceMngr.getDevices_List(false, query);
     }
@@ -1359,12 +1364,12 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Same as {@link #getDevices_List(Object...)} except the list is sorted using {@link BleManagerConfig#defaultListComparator}.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List_sorted(final Object... query)
+    public @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List_sorted(final Object... query)
     {
         return m_deviceMngr.getDevices_List(true, query);
     }
 
-    public final @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List(final int mask_BleDeviceState)
+    public @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List(final int mask_BleDeviceState)
     {
         return m_deviceMngr.getDevices_List(false, mask_BleDeviceState);
     }
@@ -1372,7 +1377,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Same as {@link #getDevices_List(int)} except the list is sorted using {@link BleManagerConfig#defaultListComparator}.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List_sorted(final int mask_BleDeviceState)
+    public @Nullable(Nullable.Prevalence.NEVER) List<IBleDevice> getDevices_List_sorted(final int mask_BleDeviceState)
     {
         return m_deviceMngr.getDevices_List(true, mask_BleDeviceState);
     }
@@ -1382,7 +1387,7 @@ public final class P_BleManagerImpl implements IBleManager
      * yourself (and probably shouldn't), but it's here for flexibility.
      */
     @Advanced
-    public final void removeDeviceFromCache(IBleDevice device)
+    public void removeDeviceFromCache(IBleDevice device)
     {
         m_deviceMngr.remove(device, m_deviceMngr_cache);
     }
@@ -1392,7 +1397,7 @@ public final class P_BleManagerImpl implements IBleManager
      * yourself (and probably shouldn't), but it's here for flexibility.
      */
     @Advanced
-    public final void removeAllDevicesFromCache()
+    public void removeAllDevicesFromCache()
     {
         m_deviceMngr.removeAll(m_deviceMngr_cache);
     }
@@ -1401,7 +1406,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Returns a new {@link HistoricalData} instance using
      * {@link BleDeviceConfig#historicalDataFactory} if available.
      */
-    public final HistoricalData newHistoricalData(final byte[] data, final EpochTime epochTime)
+    public HistoricalData newHistoricalData(final byte[] data, final EpochTime epochTime)
     {
         final BleDeviceConfig.HistoricalDataFactory factory = m_config.historicalDataFactory;
 
@@ -1420,7 +1425,7 @@ public final class P_BleManagerImpl implements IBleManager
      * {@link BleDevice#newHistoricalData(byte[], EpochTime)} if we have a device
      * matching the given mac address.
      */
-    public final HistoricalData newHistoricalData(final byte[] data, final EpochTime epochTime, final String macAddress)
+    public HistoricalData newHistoricalData(final byte[] data, final EpochTime epochTime, final String macAddress)
     {
         final IBleDevice device = getDevice(macAddress);
 
@@ -1437,7 +1442,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Overload of {@link BleManager#getServer(IncomingListener)} without any initial set-up parameters.
      */
-    public final IBleServer getServer()
+    public IBleServer getServer()
     {
         return getServer((IncomingListener) null);
     }
@@ -1445,7 +1450,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns a {@link BleServer} instance. which for now at least is a singleton.
      */
-    public final IBleServer getServer(final IncomingListener incomingListener)
+    public IBleServer getServer(final IncomingListener incomingListener)
     {
         return getServer(incomingListener, null, null);
     }
@@ -1453,7 +1458,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Overload of {@link BleManager#getServer(GattDatabase, AddServiceListener)}, with no {@link AddServiceListener} set.
      */
-    public final IBleServer getServer(final GattDatabase gattDatabase)
+    public IBleServer getServer(final GattDatabase gattDatabase)
     {
         return getServer(gattDatabase, null);
     }
@@ -1461,7 +1466,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Overload of {@link BleManager#getServer(IncomingListener, GattDatabase, AddServiceListener)}, with no {@link IncomingListener} set.
      */
-    public final IBleServer getServer(final GattDatabase gattDatabase, AddServiceListener addServiceListener)
+    public IBleServer getServer(final GattDatabase gattDatabase, AddServiceListener addServiceListener)
     {
         return getServer(null, gattDatabase, addServiceListener);
     }
@@ -1469,7 +1474,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns a {@link BleServer} instance. This is now the preferred method to retrieve the server instance.
      */
-    public final IBleServer getServer(final IncomingListener incomingListener, final GattDatabase gattDatabase, final AddServiceListener addServiceListener)
+    public IBleServer getServer(final IncomingListener incomingListener, final GattDatabase gattDatabase, final AddServiceListener addServiceListener)
     {
         if (m_server == null)
         {
@@ -1487,7 +1492,7 @@ public final class P_BleManagerImpl implements IBleManager
         return m_server;
     }
 
-    public final boolean hasServerInstance()
+    public boolean hasServerInstance()
     {
         // Return true if m_server is NOT null
         return m_server != null;
@@ -1497,7 +1502,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Same as {@link #newDevice(String, String, BleDeviceConfig)} but uses an empty string for the name
      * and passes a <code>null</code> {@link BleDeviceConfig}, which results in inherited options from {@link BleManagerConfig}.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(String macAddress)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(String macAddress)
     {
         return newDevice(macAddress, null, null);
     }
@@ -1505,7 +1510,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Same as {@link #newDevice(String)} but allows a custom name also.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(final String macAddress, final String name)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(final String macAddress, final String name)
     {
         return newDevice(macAddress, name, null);
     }
@@ -1513,7 +1518,7 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Same as {@link #newDevice(String)} but passes a {@link BleDeviceConfig} to be used as well.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(final String macAddress, final BleDeviceConfig config)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(final String macAddress, final BleDeviceConfig config)
     {
         return newDevice(macAddress, null, config);
     }
@@ -1527,12 +1532,12 @@ public final class P_BleManagerImpl implements IBleManager
      * documentation says that underlying stack will always return a valid {@link android.bluetooth.BluetoothDevice}
      * instance (which is required to create a valid {@link BleDevice} instance), but you really never know.
      */
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(final String macAddress, final String name, final BleDeviceConfig config)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(final String macAddress, final String name, final BleDeviceConfig config)
     {
         return newDevice(macAddress, name, null, config);
     }
 
-    public final @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(final String macAddress, final String name, final byte[] scanRecord, final BleDeviceConfig config)
+    public @Nullable(Nullable.Prevalence.NEVER) IBleDevice newDevice(final String macAddress, final String name, final byte[] scanRecord, final BleDeviceConfig config)
     {
         final String macAddress_normalized = normalizeMacAddress(macAddress);
 
@@ -1574,7 +1579,7 @@ public final class P_BleManagerImpl implements IBleManager
         return newDevice;
     }
 
-    public final boolean undiscover(final IBleDevice device)
+    public boolean undiscover(final IBleDevice device)
     {
         if (device == null) return false;
         if (device.isNull()) return false;
@@ -1594,7 +1599,7 @@ public final class P_BleManagerImpl implements IBleManager
      * NOTE: This can really mess things up, especially if you're currently trying to connect to a device. Only use this if you absolutely have to!
      */
     @Advanced
-    public final void clearQueue()
+    public void clearQueue()
     {
         m_taskManager.clearQueueOfAll();
     }
@@ -1604,7 +1609,7 @@ public final class P_BleManagerImpl implements IBleManager
      *
      * @see #clearSharedPreferences(String)
      */
-    public final void clearSharedPreferences(final BleDevice device)
+    public void clearSharedPreferences(final BleDevice device)
     {
         clearSharedPreferences(device.getMacAddress());
     }
@@ -1617,7 +1622,7 @@ public final class P_BleManagerImpl implements IBleManager
      * @see BleDeviceConfig#saveNameChangesToDisk
      * @see #clearSharedPreferences()
      */
-    public final void clearSharedPreferences(final String macAddress)
+    public void clearSharedPreferences(final String macAddress)
     {
         final String macAddress_normalized = normalizeMacAddress(macAddress);
 
@@ -1632,7 +1637,7 @@ public final class P_BleManagerImpl implements IBleManager
      * @see BleDeviceConfig#saveNameChangesToDisk
      * @see #clearSharedPreferences(String)
      */
-    public final void clearSharedPreferences()
+    public void clearSharedPreferences()
     {
         m_diskOptionsMngr.clear();
     }
@@ -1643,7 +1648,7 @@ public final class P_BleManagerImpl implements IBleManager
      * alone and let the library handle the calling of this method.
      */
     @Advanced
-    public final void update(final double timeStep_seconds, final long currentTime)
+    public void update(final double timeStep_seconds, final long currentTime)
     {
         TimeTracker tt = TimeTracker.getInstance();
 
@@ -1728,57 +1733,57 @@ public final class P_BleManagerImpl implements IBleManager
     /**
      * Returns this manager's knowledge of the app's foreground state.
      */
-    public final boolean isForegrounded()
+    public boolean isForegrounded()
     {
         return m_isForegrounded;
     }
 
-    @Override public final String toString()
+    @Override public String toString()
     {
         return m_stateTracker.toString();
     }
 
-    public final P_BluetoothCrashResolver getCrashResolver()
+    public P_BluetoothCrashResolver getCrashResolver()
     {
         return m_crashResolver;
     }
 
-    public final P_ManagerStateTracker getStateTracker()
+    public P_ManagerStateTracker getStateTracker()
     {
         return m_stateTracker;
     }
 
-    public final P_Logger getLogger()
+    public P_Logger getLogger()
     {
         return m_logger;
     }
 
-    public final P_TaskManager getTaskManager()
+    public P_TaskManager getTaskManager()
     {
         return m_taskManager;
     }
 
-    public final void tryPurgingStaleDevices(final double scanTime)
+    public void tryPurgingStaleDevices(final double scanTime)
     {
         m_deviceMngr.requestPurge(scanTime, m_deviceMngr_cache, m_discoveryListener);
     }
 
-    public final long timeTurnedOn()
+    public long timeTurnedOn()
     {
         return m_timeTurnedOn;
     }
 
-    public final void clearTimeTurnedOn()
+    public void clearTimeTurnedOn()
     {
         m_timeTurnedOn = 0;
     }
 
-    public final double timeForegrounded()
+    public double timeForegrounded()
     {
         return m_timeForegrounded;
     }
 
-    public final synchronized BleDevice getBleDevice(IBleDevice device)
+    public synchronized BleDevice getBleDevice(IBleDevice device)
     {
         if (device == null || device.isNull())
             return BleDevice.NULL;
@@ -1793,7 +1798,7 @@ public final class P_BleManagerImpl implements IBleManager
         return d;
     }
 
-    public final synchronized BleNode getBleNode(IBleNode node)
+    public synchronized BleNode getBleNode(IBleNode node)
     {
         if (node instanceof IBleServer)
             return getBleServer((IBleServer) node);
@@ -1801,7 +1806,7 @@ public final class P_BleManagerImpl implements IBleManager
             return getBleDevice((IBleDevice) node);
     }
 
-    public final synchronized BleServer getBleServer(IBleServer server)
+    public synchronized BleServer getBleServer(IBleServer server)
     {
         if (server == null || server.isNull())
             return BleServer.NULL;
@@ -1816,7 +1821,7 @@ public final class P_BleManagerImpl implements IBleManager
         return s;
     }
 
-    public final void checkIdleStatus()
+    public void checkIdleStatus()
     {
         if (is(IDLE))
         {
@@ -1830,7 +1835,7 @@ public final class P_BleManagerImpl implements IBleManager
         }
     }
 
-    public final void stopScan(E_Intent intent)
+    public void stopScan(E_Intent intent)
     {
         m_scanManager.resetTimeNotScanning();
 
@@ -1850,7 +1855,7 @@ public final class P_BleManagerImpl implements IBleManager
         m_stateTracker.remove(BleManagerState.BOOST_SCANNING, intent, BleStatuses.GATT_STATUS_NOT_APPLICABLE);
     }
 
-    public final synchronized void onDiscoveredFromNativeStack(List<P_ScanManager.DiscoveryEntry> entries)
+    public synchronized void onDiscoveredFromNativeStack(List<P_ScanManager.DiscoveryEntry> entries)
     {
         //--- DRK > Protects against fringe case where scan task is executing and app calls turnOff().
         //---		Here the scan task will be interrupted but still potentially has enough time to
@@ -1947,17 +1952,17 @@ public final class P_BleManagerImpl implements IBleManager
         onDiscovered_wrapItUp(list);
     }
 
-    public final IBluetoothManager managerLayer()
+    public IBluetoothManager managerLayer()
     {
-        return m_config.bluetoothManagerImplementation;
+        return m_bluetoothManager;
     }
 
-    public final boolean canPerformAutoScan()
+    public boolean canPerformAutoScan()
     {
         return is(ON) && (m_config.autoScanDuringOta || !m_deviceMngr.hasDevice(BleDeviceState.PERFORMING_OTA));
     }
 
-    public final void uhOh(UhOhListener.UhOh reason)
+    public void uhOh(UhOhListener.UhOh reason)
     {
 //		if( reason == UhOh.UNKNOWN_CONNECTION_ERROR )
 //		{
@@ -1967,7 +1972,7 @@ public final class P_BleManagerImpl implements IBleManager
         m_uhOhThrottler.uhOh(reason);
     }
 
-    public final void postEvent(final GenericListener_Void listener, final Event event)
+    public void postEvent(final GenericListener_Void listener, final Event event)
     {
         if (listener != null)
         {
@@ -1992,37 +1997,37 @@ public final class P_BleManagerImpl implements IBleManager
         }
     }
 
-    public final P_ScanManager getScanManager()
+    public P_ScanManager getScanManager()
     {
         return m_scanManager;
     }
 
-    public final P_PostManager getPostManager()
+    public P_PostManager getPostManager()
     {
         return m_postManager;
     }
 
-    public final P_BleManagerNativeManager getNativeManager()
+    public P_BleManagerNativeManager getNativeManager()
     {
         return m_nativeManager;
     }
 
-    public final P_WakeLockManager getWakeLockManager()
+    public P_WakeLockManager getWakeLockManager()
     {
         return m_wakeLockMngr;
     }
 
-    public final P_DeviceManager getDeviceManager_cache()
+    public P_DeviceManager getDeviceManager_cache()
     {
         return m_deviceMngr_cache;
     }
 
-    public final P_DeviceManager getDeviceManager()
+    public P_DeviceManager getDeviceManager()
     {
         return m_deviceMngr;
     }
 
-    public final void clearScanningRelatedMembers(final E_Intent intent)
+    public void clearScanningRelatedMembers(final E_Intent intent)
     {
 //		m_filterMngr.clear();
 
@@ -2031,7 +2036,7 @@ public final class P_BleManagerImpl implements IBleManager
         m_stateTracker.remove(BleManagerState.SCANNING, intent, BleStatuses.GATT_STATUS_NOT_APPLICABLE);
     }
 
-    public final boolean ready() {
+    public boolean ready() {
         if (!m_ready)
         {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
@@ -2050,7 +2055,7 @@ public final class P_BleManagerImpl implements IBleManager
         return m_ready;
     }
 
-    public final IBluetoothDevice newNativeDevice(final String macAddress)
+    public IBluetoothDevice newNativeDevice(final String macAddress)
     {
         P_DeviceHolder deviceHolder = P_DeviceHolder.newHolder(managerLayer().getRemoteDevice(macAddress), macAddress);
         P_BleDeviceImpl d = P_BleDeviceImpl.EMPTY_DEVICE(this);
@@ -2064,69 +2069,69 @@ public final class P_BleManagerImpl implements IBleManager
         return m_defaultServerOutgoingListener;
     }
 
-    public final AdvertisingListener getListener_Advertising()
+    public AdvertisingListener getListener_Advertising()
     {
         return m_advertisingListener;
     }
 
-    public final Backend_HistoricalDatabase getHistoricalDatabase()
+    public Backend_HistoricalDatabase getHistoricalDatabase()
     {
         return m_historicalDatabase;
     }
 
-    public final HistoricalDataLoadListener getHistoricalDataLoadListener()
+    public HistoricalDataLoadListener getHistoricalDataLoadListener()
     {
         return m_historicalDataLoadListener;
     }
 
-    public final P_DiskOptionsManager getDiskOptionsManager()
+    public P_DiskOptionsManager getDiskOptionsManager()
     {
         return m_diskOptionsMngr;
     }
 
-    public final ReadWriteListener getDefaultReadWriteListener()
+    public ReadWriteListener getDefaultReadWriteListener()
     {
         return m_defaultReadWriteListener;
     }
 
-    public final NotificationListener getDefaultNotificationListener()
+    public NotificationListener getDefaultNotificationListener()
     {
         return m_defaultNotificationListener;
     }
 
-    public final ServerStateListener getDefaultServerStateListener()
+    public ServerStateListener getDefaultServerStateListener()
     {
         return m_defaultServerStateListener;
     }
 
-    public final ServerConnectListener getDefaultServerConnectListener()
+    public ServerConnectListener getDefaultServerConnectListener()
     {
         return m_defaultServerConnectFilter;
     }
 
-    public final void onDiscovered_fromRogueAutoConnect(final IBleDevice device, final boolean newlyDiscovered, final List<UUID> services_nullable, final byte[] scanRecord_nullable, final int rssi)
+    public void onDiscovered_fromRogueAutoConnect(final IBleDevice device, final boolean newlyDiscovered, final List<UUID> services_nullable, final byte[] scanRecord_nullable, final int rssi)
     {
         m_deviceMngr.add(device);
 
         onDiscovered_wrapItUp(device, device.nativeManager().getDeviceLayer(), newlyDiscovered, scanRecord_nullable, rssi, BleDeviceOrigin.FROM_DISCOVERY, /*scanEvent=*/null);
     }
 
-    public final DeviceConnectListener getDefaultDeviceConnectListener()
+    public DeviceConnectListener getDefaultDeviceConnectListener()
     {
         return m_defaultDeviceConnectListener;
     }
 
-    public final DeviceReconnectFilter getDefaultDeviceReconnectFilter()
+    public DeviceReconnectFilter getDefaultDeviceReconnectFilter()
     {
         return m_defaultDeviceReconnectFilter;
     }
 
-    public final BondListener getDefaultBondListener()
+    public BondListener getDefaultBondListener()
     {
         return m_defaultBondListener;
     }
 
-    public final String getDeviceName(IBluetoothDevice device, byte[] scanRecord) throws Exception
+    public String getDeviceName(IBluetoothDevice device, byte[] scanRecord) throws Exception
     {
         final String nameFromDevice;
         final String nameFromRecord;
@@ -2154,17 +2159,17 @@ public final class P_BleManagerImpl implements IBleManager
         }
     }
 
-    public final DeviceStateListener getDefaultDeviceStateListener()
+    public DeviceStateListener getDefaultDeviceStateListener()
     {
         return m_defaultDeviceStateListener;
     }
 
-    public final IncomingListener getDefaultServerIncomingListener()
+    public IncomingListener getDefaultServerIncomingListener()
     {
         return m_defaultServerIncomingListener;
     }
 
-    public final long currentTime()
+    public long currentTime()
     {
         return m_currentTick;
     }
@@ -2198,7 +2203,7 @@ public final class P_BleManagerImpl implements IBleManager
 
 
 
-    private final String normalizeMacAddress(final String macAddress)
+    private String normalizeMacAddress(final String macAddress)
     {
         final String macAddress_normalized = Utils_String.normalizeMacAddress(macAddress);
 
@@ -2218,17 +2223,17 @@ public final class P_BleManagerImpl implements IBleManager
         }
     }
 
-    final void setBleScanReady()
+    void setBleScanReady()
     {
         m_stateTracker.update(E_Intent.INTENTIONAL, BleStatuses.GATT_STATUS_NOT_APPLICABLE, BLE_SCAN_READY, true);
     }
 
-    final void forceOn()
+    void forceOn()
     {
         m_stateTracker.update(E_Intent.INTENTIONAL, BleStatuses.GATT_STATUS_NOT_APPLICABLE, ON, true, OFF, false);
     }
 
-    final void forceOff()
+    void forceOff()
     {
         m_stateTracker.update(E_Intent.INTENTIONAL, BleStatuses.GATT_STATUS_NOT_APPLICABLE, ON, false, OFF, true);
     }
@@ -2238,23 +2243,23 @@ public final class P_BleManagerImpl implements IBleManager
      * NOTE: Apparently no good way to know when app as a whole is being destroyed
      * and not individual Activities, so keeping this package-private for now.
      */
-    final void onDestroy()
+    void onDestroy()
     {
         m_wakeLockMngr.clear();
         m_nativeManager.shutdown();
     }
 
-    final boolean isBluetoothEnabled()
+    boolean isBluetoothEnabled()
     {
         return managerLayer().isBluetoothEnabled();
     }
 
-    public final long getUpdateRate()
+    public long getUpdateRate()
     {
         return m_updateRunnable.getUpdateRate();
     }
 
-    final <T extends Event> void postEvents(final GenericListener_Void listener, final List<T> events)
+    <T extends Event> void postEvents(final GenericListener_Void listener, final List<T> events)
     {
         if (listener != null)
         {
@@ -2285,12 +2290,12 @@ public final class P_BleManagerImpl implements IBleManager
         }
     }
 
-    public final ServerReconnectFilter getDefaultServerReconnectFilter()
+    public ServerReconnectFilter getDefaultServerReconnectFilter()
     {
         return m_defaultServerReconnectFilter;
     }
 
-    public final AddServiceListener getDefaultAddServiceListener()
+    public AddServiceListener getDefaultAddServiceListener()
     {
         return m_serviceAddListener;
     }
@@ -2307,18 +2312,19 @@ public final class P_BleManagerImpl implements IBleManager
 
     private void registerDI()
     {
-        SweetDIManager diMgr = SweetDIManager.getInstance();
-        diMgr.registerTransient(IBleTransaction.class, P_BleTransactionBackend.class);
-        diMgr.registerTransient(IBluetoothDevice.class, AndroidBluetoothDevice.class);
-        diMgr.registerTransient(IBluetoothGatt.class, AndroidBluetoothGatt.class);
+        m_diManager.registerTransient(IBleTransaction.class, P_BleTransactionBackend.class);
+        m_diManager.registerTransient(IBluetoothDevice.class, AndroidBluetoothDevice.class);
+        m_diManager.registerTransient(IBluetoothGatt.class, AndroidBluetoothGatt.class);
+        if (!m_diManager.isRegistered(IBluetoothManager.class))
+            m_diManager.registerTransient(IBluetoothManager.class, AndroidBluetoothManager.class);
     }
 
     private void unregisterDI()
     {
-        SweetDIManager diMgr = SweetDIManager.getInstance();
-        diMgr.unregister(IBleTransaction.class);
-        diMgr.unregister(IBluetoothDevice.class);
-        diMgr.unregister(IBluetoothGatt.class);
+        m_diManager.unregister(IBleTransaction.class);
+        m_diManager.unregister(IBluetoothDevice.class);
+        m_diManager.unregister(IBluetoothGatt.class);
+        m_diManager.unregister(IBluetoothManager.class);
     }
 
     private void stopScan_private(E_Intent intent)
@@ -2622,7 +2628,7 @@ public final class P_BleManagerImpl implements IBleManager
      * Might not be useful to outside world. Used for sanity/early-out checks internally. Keeping private for now.
      * Does referential equality check.
      */
-    private final boolean hasDevice_private(IBleDevice device)
+    private boolean hasDevice_private(IBleDevice device)
     {
         return m_deviceMngr.has(device);
     }
@@ -2673,7 +2679,7 @@ public final class P_BleManagerImpl implements IBleManager
         }
     }
 
-    final boolean startScan_private(ScanOptions opts)
+    boolean startScan_private(ScanOptions opts)
     {
         if (m_taskManager.isInQueue(P_Task_Scan.class, this))
         {
@@ -2772,14 +2778,14 @@ public final class P_BleManagerImpl implements IBleManager
 
         m_filterMngr.setDefaultFilter(m_config.defaultScanFilter);
 
-        m_config.bluetoothManagerImplementation.setIBleManager(this);
+        m_bluetoothManager.setIBleManager(this);
 
-        if (m_config.bluetoothManagerImplementation.isManagerNull())
+        if (m_bluetoothManager.isManagerNull())
         {
-            m_config.bluetoothManagerImplementation.resetManager(m_context);
+            m_bluetoothManager.resetManager(m_context);
         }
 
-        m_nativeManager.init(m_config.bluetoothManagerImplementation);
+        m_nativeManager.init(m_bluetoothManager);
 
         boolean startUpdate = true;
 

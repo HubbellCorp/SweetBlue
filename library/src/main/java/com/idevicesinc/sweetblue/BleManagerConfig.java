@@ -484,14 +484,6 @@ public class BleManagerConfig extends BleDeviceConfig
     public IBluetoothServer.Factory serverFactory = IBluetoothServer.DEFAULT_FACTORY;
 
     /**
-     * This option is exposed for unit testing. This option provides the library with a way to call methods on the "native" bluetooth manager.
-     * <br>
-     * <b>WARNING: DO NOT SET THIS IN PRODUCTION!</b>
-     */
-    @UnitTest
-    public IBluetoothManager bluetoothManagerImplementation = IBluetoothManager.DEFAULT_INSTANCE;
-
-    /**
      * Default is <code>null</code> - optional, only used if {@link #loggingOptions} is not {@link LogOptions#OFF}. Provides a look-up table
      * so logs can show the name associated with a {@link UUID} along with its numeric string.
      */

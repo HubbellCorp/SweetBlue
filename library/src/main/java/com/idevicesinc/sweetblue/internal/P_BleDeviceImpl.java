@@ -252,7 +252,7 @@ public final class P_BleDeviceImpl extends BleNodeImpl implements IBleDevice
 
         if (m_nativeManager.needsInit())
         {
-            m_nativeManager.init(SweetDIManager.getInstance().get(IBluetoothGatt.class, this), conf_mngr().bluetoothManagerImplementation);
+            m_nativeManager.init(SweetDIManager.getInstance().get(IBluetoothGatt.class, this), getIManager().managerLayer());
         }
 
         initEstimators();

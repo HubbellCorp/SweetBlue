@@ -18,6 +18,8 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothManager;
 import com.idevicesinc.sweetblue.utils.Interval;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -121,6 +123,7 @@ public class UhOhThrottleTest extends BaseBleUnitTest
 
                 new Thread(() -> {
                     System.out.println("Restarting BleManager...");
+                    SweetDIManager.getInstance().registerTransient(IBluetoothManager.class, UnitTestBluetoothManager.class);
                     m_manager = initManager(m_config);
                     m_manager.getIBleManager().uhOh(UhOhListener.UhOh.CANNOT_ENABLE_BLUETOOTH);
                     m_manager.getIBleManager().uhOh(UhOhListener.UhOh.CANNOT_ENABLE_BLUETOOTH);

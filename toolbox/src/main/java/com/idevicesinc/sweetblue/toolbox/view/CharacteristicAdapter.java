@@ -100,6 +100,7 @@ public class CharacteristicAdapter extends BaseExpandableListAdapter
         Collections.sort(mCharacteristicList, new CharacteristicComparator());
 
         if (DISPLAYTYPE_MAP == null) {
+            DISPLAYTYPE_MAP = new HashMap<>();
             populateDisplayTypeMap();
         }
     }

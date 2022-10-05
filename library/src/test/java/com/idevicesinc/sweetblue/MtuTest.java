@@ -18,7 +18,9 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
 import com.idevicesinc.sweetblue.utils.Uuids;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
@@ -26,6 +28,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+
+import java.nio.channels.SeekableByteChannel;
 import java.util.Random;
 import java.util.UUID;
 
@@ -172,7 +176,8 @@ public class MtuTest extends BaseBleUnitTest
 
         m_config.loggingOptions = LogOptions.ON;
 
-        m_config.gattFactory = device -> new MtuFailBluetoothGatt(device, db);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new MtuFailBluetoothGatt((IBleDevice) inputs[0], db));
+
 
         m_config.mtuTestCallback = new MtuTestCallback()
         {
@@ -223,7 +228,7 @@ public class MtuTest extends BaseBleUnitTest
 
         m_config.loggingOptions = LogOptions.ON;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, db);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
 
         m_config.mtuTestCallback = new MtuTestCallback()
         {

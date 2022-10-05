@@ -18,6 +18,7 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.ByteBuffer;
@@ -123,10 +124,11 @@ public class WriteStripeTest extends BaseBleUnitTest
     }
 
     @Override
-    public IBluetoothGatt getGattLayer(IBleDevice device)
+    public void postSetup()
     {
-        return new StripeBluetoothGatt(device);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new StripeBluetoothGatt((IBleDevice) inputs[0]));
     }
+
 
     private final class StripeBluetoothGatt extends UnitTestBluetoothGatt
     {

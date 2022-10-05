@@ -18,7 +18,9 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.utils.Interval;
 import com.idevicesinc.sweetblue.utils.Pointer;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
@@ -78,7 +80,7 @@ public class BondTest extends BaseBleUnitTest
     @Test(timeout = 20000)
     public void bondRetryTest() throws Exception
     {
-        m_config.bluetoothDeviceFactory = device -> new BondFailACoupleTimesLayer(device, 3);
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, BondFailACoupleTimesLayer.class);
 
         m_manager.setConfig(m_config);
 
@@ -94,7 +96,7 @@ public class BondTest extends BaseBleUnitTest
     @Test(timeout = 20000)
     public void bondFilterTest() throws Exception
     {
-        m_config.bluetoothDeviceFactory = device -> new BondFailACoupleTimesLayer(device, 1);
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, BondFailAfterOnceLayer.class);
 
         m_config.bondFilter = new BondFilter()
         {
@@ -182,12 +184,24 @@ public class BondTest extends BaseBleUnitTest
         return config;
     }
 
-    private final class BondFailACoupleTimesLayer extends UnitTestBluetoothDevice
+    private final class BondFailAfterOnceLayer extends BondFailACoupleTimesLayer
+    {
+        BondFailAfterOnceLayer(IBleDevice bleDevice)
+        {
+            super(bleDevice, 1);
+        }
+    }
+
+    private class BondFailACoupleTimesLayer extends UnitTestBluetoothDevice
     {
 
         private int m_failsSoFar;
         private final int m_maxFails;
 
+        public BondFailACoupleTimesLayer(IBleDevice device)
+        {
+            this(device, 3);
+        }
 
         public BondFailACoupleTimesLayer(IBleDevice device, int maxFails)
         {

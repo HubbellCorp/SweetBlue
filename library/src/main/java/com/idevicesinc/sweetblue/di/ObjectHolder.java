@@ -1,6 +1,7 @@
 package com.idevicesinc.sweetblue.di;
 
 import com.idevicesinc.sweetblue.utils.FunctionO;
+import com.idevicesinc.sweetblue.utils.FunctionVargs;
 import com.idevicesinc.sweetblue.utils.Utils_Reflection;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +15,7 @@ final class ObjectHolder<B, I extends B>
     DIScope m_scopeType;
     I m_instance;
     Map<Class<?>, I> m_scopedInstanceMap;
-    FunctionO<I> m_constructorFunction;
+    FunctionVargs<I> m_constructorFunction;
 
 
     ObjectHolder(Class<B> baseClass, Class<I> implementationClass, DIScope scopeType)
@@ -26,7 +27,7 @@ final class ObjectHolder<B, I extends B>
     }
 
     @SuppressWarnings("unchecked")
-    ObjectHolder(Class<B> baseClass, DIScope scopeType, FunctionO<I> constructorFunction)
+    ObjectHolder(Class<B> baseClass, DIScope scopeType, FunctionVargs<I> constructorFunction)
     {
         m_manager = SweetDIManager.getInstance();
         m_implementationClass = (Class<I>) baseClass;
@@ -52,22 +53,22 @@ final class ObjectHolder<B, I extends B>
                     if (m_instance == null)
                     {
                         boolean hasArgs = hasArgs(args);
-                        m_instance = hasArgs ? constructParameterInstance(null, args) : constructInstance();
+                        m_instance = hasArgs ? constructParameterInstance(args) : constructInstance();
                     }
                     return m_instance;
                 case Transient:
-                    return hasArgs(args) ? constructParameterInstance(null, args) : constructInstance();
+                    return hasArgs(args) ? constructParameterInstance(args) : constructInstance();
             }
         }
         throw new RuntimeException("Unknown, or null scope type: " + m_scopeType);
     }
 
 
-    @SuppressWarnings("unchecked")
-    private I constructParameterInstance(Class<?>[] argTypes, Object... constructorArgs)
+
+    private I constructParameterInstance(Object... constructorArgs)
     {
         if (m_constructorFunction != null)
-            return m_constructorFunction.call();
+            return m_constructorFunction.call(constructorArgs);
 
         if (constructorArgs != null)
         {
@@ -115,7 +116,7 @@ final class ObjectHolder<B, I extends B>
 
         if (instance == null)
         {
-            instance = args == null ? constructInstance() : constructParameterInstance(null, args);
+            instance = hasArgs(args) ? constructParameterInstance(null, args) : constructInstance();
             m_scopedInstanceMap.put(callingClass, instance);
         }
         return instance;

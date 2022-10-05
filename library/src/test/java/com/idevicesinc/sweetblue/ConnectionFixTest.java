@@ -17,8 +17,10 @@
 
 package com.idevicesinc.sweetblue;
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.P_Bridge_Internal;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,7 +57,7 @@ public class ConnectionFixTest extends BaseBleUnitTest
         stateList.add(BleDeviceState.BLE_CONNECTED);
         stateList.add(BleDeviceState.BLE_DISCONNECTED);
 
-        m_config.bluetoothDeviceFactory = ConnectionBugDevice::new;
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, ConnectionBugDevice.class);
         m_config.bondFilter = new BleDeviceConfig.DefaultBondFilter()
         {
             @Override
@@ -110,7 +112,7 @@ public class ConnectionFixTest extends BaseBleUnitTest
         stateList.add(BleDeviceState.BLE_CONNECTED);
         stateList.add(BleDeviceState.BLE_DISCONNECTED);
 
-        m_config.bluetoothDeviceFactory = ConnectionBugBrokenDevice::new;
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, ConnectionBugBrokenDevice.class);
         m_config.bondFilter = new BleDeviceConfig.DefaultBondFilter()
         {
             @Override

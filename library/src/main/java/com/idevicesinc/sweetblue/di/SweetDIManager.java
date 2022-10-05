@@ -1,6 +1,7 @@
 package com.idevicesinc.sweetblue.di;
 
 import com.idevicesinc.sweetblue.utils.FunctionO;
+import com.idevicesinc.sweetblue.utils.FunctionVargs;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -74,7 +75,7 @@ public class SweetDIManager
      *
      * @see DIScope#Transient
      */
-    public final <T> void registerTransient(Class<T> objectClass, FunctionO<T> constructorFunc)
+    public final <T> void registerTransient(Class<T> objectClass, FunctionVargs<T> constructorFunc)
     {
         registerObject(objectClass, DIScope.Transient, constructorFunc);
     }
@@ -110,7 +111,7 @@ public class SweetDIManager
      *
      * @see DIScope#Scoped
      */
-    public final <T> void registerScoped(Class<T> objectClass, FunctionO<T> constructorFunction)
+    public final <T> void registerScoped(Class<T> objectClass, FunctionVargs<T> constructorFunction)
     {
         registerObject(objectClass, DIScope.Scoped, constructorFunction);
     }
@@ -149,7 +150,7 @@ public class SweetDIManager
      *
      * @see DIScope#Singleton
      */
-    public final <T> void registerSingleton(Class<T> objectClass, FunctionO<T> constructorFunction)
+    public final <T> void registerSingleton(Class<T> objectClass, FunctionVargs<T> constructorFunction)
     {
         registerObject(objectClass, DIScope.Singleton, constructorFunction);
     }
@@ -250,7 +251,7 @@ public class SweetDIManager
         }
     }
 
-    private <B> void registerObject(Class<B> baseClass, DIScope scopeType, FunctionO<B> constructorFunction)
+    private <B> void registerObject(Class<B> baseClass, DIScope scopeType, FunctionVargs<B> constructorFunction)
     {
         ObjectHolder<B, B> holder = new ObjectHolder<>(baseClass, scopeType, constructorFunction);
         synchronized (m_registeredObjects)

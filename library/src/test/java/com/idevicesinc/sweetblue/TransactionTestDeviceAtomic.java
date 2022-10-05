@@ -17,6 +17,7 @@
 
 package com.idevicesinc.sweetblue;
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.P_Bridge_BleManager;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
@@ -172,6 +173,12 @@ public class TransactionTestDeviceAtomic extends BaseBleUnitTest
             .addCharacteristic(mAuthCharUuid).setValue(new byte[]{0x2, 0x4}).setProperties().read().setPermissions().read().completeService()
             .addService(mInitServiceUuid)
             .addCharacteristic(mInitCharUuid).setValue(new byte[]{0x8, 0xA}).setProperties().read().setPermissions().read().completeService();
+
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+    }
 
     @Override
     public IBluetoothGatt getGattLayer(IBleDevice device)

@@ -26,7 +26,10 @@ import com.idevicesinc.sweetblue.ReadWriteListener;
 import com.idevicesinc.sweetblue.utils.Utils;
 
 
-class BleTransactionImpl implements IBleTransaction
+/**
+ * Backend class for BleTransactions.
+ */
+public final class P_BleTransactionBackend implements IBleTransaction
 {
 
     private final double m_timeout;
@@ -34,10 +37,10 @@ class BleTransactionImpl implements IBleTransaction
     private boolean m_isRunning;
     private IBleDevice m_device = null;
     private PI_EndListener m_listener;
-    private Callback m_callback;
+    private final Callback m_callback;
 
 
-    BleTransactionImpl(Callback callback)
+    P_BleTransactionBackend(Callback callback)
     {
         m_timeout = 0.0;
         m_callback = callback;

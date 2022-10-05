@@ -18,6 +18,9 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.Interval;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
@@ -59,6 +62,12 @@ public class DuplicateCharTest extends BaseBleUnitTest
             .addDescriptor(mNotifyDesc).setPermissions().readWrite().completeChar()
             .addCharacteristic(mTestChar).setValue(new byte[]{0x2, 0x3, 0x4, 0x5, 0x6}).setProperties().readWrite().setPermissions().readWrite().completeService();
 
+
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+    }
 
     @Test(timeout = 10000)
     public void writeCharWhenMultipleExistTest() throws Exception
@@ -148,7 +157,7 @@ public class DuplicateCharTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, db2);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db2));
 
         m_manager.setConfig(m_config);
 
@@ -234,7 +243,6 @@ public class DuplicateCharTest extends BaseBleUnitTest
     public BleManagerConfig getConfig()
     {
         BleManagerConfig config = super.getConfig();
-        config.gattFactory = device -> new UnitTestBluetoothGatt(device, db);
         config.loggingOptions = LogOptions.ON;
         return config;
     }

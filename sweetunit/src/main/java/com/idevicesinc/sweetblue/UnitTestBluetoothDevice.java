@@ -23,6 +23,9 @@ import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
 import android.content.Context;
 import android.text.TextUtils;
+
+import androidx.annotation.CallSuper;
+
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.P_Bridge_BleManager;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
@@ -55,6 +58,7 @@ public class UnitTestBluetoothDevice implements IBluetoothDevice
      * This method is called internally. You should have no reason to override this method. If you do, this class probably won't work right, unless you remember
      * to call super.init().
      */
+    @CallSuper
     @Override
     public void init()
     {

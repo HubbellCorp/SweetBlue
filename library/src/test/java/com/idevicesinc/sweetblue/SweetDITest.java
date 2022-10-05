@@ -26,7 +26,7 @@ public class SweetDITest extends AbstractTestClass {
     }
 
     @Test(timeout = 3000)
-    public void transientRuntimeConstructorArgsDIObjectTest() throws Exception
+    public void transientRuntimeConstructorArgsInnerClassDIObjectTest() throws Exception
     {
         m_manager.registerTransient(HeyLookAnotherTestClass.class);
 
@@ -38,10 +38,23 @@ public class SweetDITest extends AbstractTestClass {
         assertNotEquals(instance, secondInstance);
     }
 
+    @Test(timeout = 3000000)
+    public void transientRuntimeConstructorArgsDIObjectTest() throws Exception
+    {
+        m_manager.registerTransient(TestDIClass2.class);
+
+        TestDIClass2 instance = m_manager.get(TestDIClass2.class, new TestDIClass());
+        assertNotNull(instance);
+
+        TestDIClass2 secondInstance = m_manager.get(TestDIClass2.class, new TestDIClass());
+        assertNotNull(secondInstance);
+        assertNotEquals(instance, secondInstance);
+    }
+
     @Test(timeout = 3000)
     public void transientCustomConstructorDIObjectTest() throws Exception
     {
-        m_manager.registerTransient(YetEvenAnotherTestClass.class, () -> new YetEvenAnotherTestClass("something here") {});
+        m_manager.registerTransient(YetEvenAnotherTestClass.class, (args) -> new YetEvenAnotherTestClass("something here") {});
 
         YetEvenAnotherTestClass instance = m_manager.get(YetEvenAnotherTestClass.class);
         assertNotNull(instance);
@@ -54,7 +67,7 @@ public class SweetDITest extends AbstractTestClass {
     @Test(timeout = 3000)
     public void scopedCustomConstructorDIObjectTest() throws Exception
     {
-        m_manager.registerScoped(YetEvenAnotherTestClass.class, () -> new YetEvenAnotherTestClass("something here") {});
+        m_manager.registerScoped(YetEvenAnotherTestClass.class, (args) -> new YetEvenAnotherTestClass("something here") {});
         m_manager.registerScoped(WrapperTestClass.class);
 
         YetEvenAnotherTestClass class1 = m_manager.get(YetEvenAnotherTestClass.class);
@@ -67,7 +80,7 @@ public class SweetDITest extends AbstractTestClass {
     @Test(timeout = 3000)
     public void singletonCustomConstructorDIObjectTest() throws Exception
     {
-        m_manager.registerSingleton(YetEvenAnotherTestClass.class, () -> new YetEvenAnotherTestClass("something here") {});
+        m_manager.registerSingleton(YetEvenAnotherTestClass.class, (args) -> new YetEvenAnotherTestClass("something here") {});
         m_manager.registerScoped(WrapperTestClass.class);
 
         YetEvenAnotherTestClass class1 = m_manager.get(YetEvenAnotherTestClass.class);

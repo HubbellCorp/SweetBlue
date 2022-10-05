@@ -547,23 +547,6 @@ public class BleDeviceConfig extends BleNodeConfig implements Cloneable
     public int maxConnectionFailHistorySize = DEFAULT_MAX_CONNECTION_FAIL_HISTORY_SIZE;
 
     /**
-     * This option is exposed for unit testing. This factory provides the library with a way to instantiate a "native" bluetooth device.
-     * <br>
-     * <b>WARNING: DO NOT CHANGE THIS FROM THE DEFAULT IN PRODUCTION!</b>
-     */
-    @UnitTest
-    public IBluetoothDevice.Factory bluetoothDeviceFactory = IBluetoothDevice.DEFAULT_FACTORY;
-
-    /**
-     * This option is exposed for unit testing. This factory provides the library with a way to instantiate a "native" bluetooth gatt instance.
-     * <br>
-     * <b>WARNING: DO NOT CHANGE THIS FROM THE DEFAULT IN PRODUCTION!</b>
-     */
-    @UnitTest
-    public IBluetoothGatt.Factory gattFactory = IBluetoothGatt.DEFAULT_FACTORY;
-
-
-    /**
      * Enumeration used with {@link #useGattRefresh}. This specifies where SweetBlue will refresh the gatt database for a device.
      */
     public enum RefreshOption
@@ -672,38 +655,4 @@ public class BleDeviceConfig extends BleNodeConfig implements Cloneable
         return (BleDeviceConfig) super.clone();
     }
 
-
-    IBluetoothGatt newGattLayer(IBleDevice device)
-    {
-        if (gattFactory == null)
-        {
-            gattFactory = new IBluetoothGatt.DefaultFactory();
-        }
-        try
-        {
-            return gattFactory.newInstance(device);
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    IBluetoothDevice newDeviceLayer(IBleDevice device)
-    {
-        if (bluetoothDeviceFactory == null)
-        {
-            bluetoothDeviceFactory = new IBluetoothDevice.DefaultFactory();
-        }
-        try
-        {
-            final IBluetoothDevice idevice = bluetoothDeviceFactory.newInstance(device);
-            idevice.init();
-            return idevice;
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

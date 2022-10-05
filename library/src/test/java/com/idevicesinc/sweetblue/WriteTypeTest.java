@@ -20,6 +20,9 @@ package com.idevicesinc.sweetblue;
 
 import android.bluetooth.BluetoothGattCharacteristic;
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.UpdateThreadType;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
@@ -97,8 +100,12 @@ public class WriteTypeTest extends BaseBleUnitTest
         BleManagerConfig config = super.getConfig();
         m_config.loggingOptions = LogOptions.ON;
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        config.gattFactory = device -> new UnitTestBluetoothGatt(device, db);
         return config;
     }
 
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+    }
 }

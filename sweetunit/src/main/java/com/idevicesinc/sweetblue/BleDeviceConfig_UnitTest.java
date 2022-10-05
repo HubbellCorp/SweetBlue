@@ -17,6 +17,10 @@
 
 package com.idevicesinc.sweetblue;
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 
 /**
@@ -52,12 +56,14 @@ public class BleDeviceConfig_UnitTest extends BleDeviceConfig
 
     private void populateUnitTestItems()
     {
-        if (m_gattDatabase == null)
-            gattFactory = UnitTestBluetoothGatt::new;
-        else
-            gattFactory = device -> new UnitTestBluetoothGatt(device, m_gattDatabase);
-
-        bluetoothDeviceFactory = UnitTestBluetoothDevice::new;
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, (args) ->
+        {
+            if (m_gattDatabase == null)
+                return new UnitTestBluetoothGatt((IBleDevice) args[0]);
+            else
+                return new UnitTestBluetoothGatt((IBleDevice) args[0], m_gattDatabase);
+        });
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, UnitTestBluetoothDevice.class);
     }
 
 }

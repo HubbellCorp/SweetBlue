@@ -82,13 +82,6 @@ public final class P_Bridge_User
         return (please.m_stopScanOptions & ScanFilter.Please.STOP_SCAN) != 0x0;
     }
 
-
-    public static IBluetoothDevice newDeviceLayer(IBleManager mgr, IBleDevice device)
-    {
-        return mgr.getConfigClone().newDeviceLayer(device);
-    }
-
-
     public static BleManagerState getState(int nativeStateInt)
     {
         return BleManagerState.get(nativeStateInt);
@@ -360,13 +353,6 @@ public final class P_Bridge_User
     {
         return new BleServer(serverImpl);
     }
-
-
-    public static IBluetoothGatt newGattLayer(BleDeviceConfig config, BleDevice device)
-    {
-        return config.newGattLayer(device.getIBleDevice());
-    }
-
 
     public static boolean boolOrDefault(Boolean bool)
     {

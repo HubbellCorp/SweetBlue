@@ -177,7 +177,7 @@ public final class Utils_Reflection extends Utils
 		{
 			Class<?> check = classesLookingFor[i];
 			Class<?> clazz = actualClasses[otherIndex--];
-			if (clazz != check)
+			if (clazz != check && !clazz.isAssignableFrom(check))
 				return false;
 		}
 		return true;

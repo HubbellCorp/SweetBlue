@@ -35,6 +35,8 @@ import com.idevicesinc.sweetblue.ServerStateListener;
 import com.idevicesinc.sweetblue.annotations.Advanced;
 import com.idevicesinc.sweetblue.annotations.Experimental;
 import com.idevicesinc.sweetblue.annotations.Nullable;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.IBleTransaction;
 import com.idevicesinc.sweetblue.rx.annotations.HotObservable;
 import com.idevicesinc.sweetblue.DiscoveryListener.LifeCycle;
 import com.idevicesinc.sweetblue.ManagerStateListener.StateEvent;

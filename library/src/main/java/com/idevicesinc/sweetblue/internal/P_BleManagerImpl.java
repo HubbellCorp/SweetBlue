@@ -80,6 +80,10 @@ import com.idevicesinc.sweetblue.backend.historical.Backend_HistoricalDatabase;
 import com.idevicesinc.sweetblue.compat.PermissionsCompat;
 import com.idevicesinc.sweetblue.compat.L_Util;
 import com.idevicesinc.sweetblue.compat.S_Util;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothDevice;
+import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothGatt;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.internal.android.IDeviceListener;
 import com.idevicesinc.sweetblue.internal.android.IManagerListener;
 import com.idevicesinc.sweetblue.internal.android.IServerListener;
@@ -199,6 +203,12 @@ public final class P_BleManagerImpl implements IBleManager
         {
             m_isForegrounded = ((Activity) context).hasWindowFocus();
         }
+
+        // DI stuff
+        SweetDIManager diMgr = SweetDIManager.getInstance();
+        diMgr.registerTransient(IBleTransaction.class, P_BleTransactionBackend.class);
+        diMgr.registerTransient(IBluetoothDevice.class, AndroidBluetoothDevice.class);
+        diMgr.registerTransient(IBluetoothGatt.class, AndroidBluetoothGatt.class);
 
         m_deviceMap = new HashMap<>();
         m_serverMap = new HashMap<>();
@@ -2045,7 +2055,8 @@ public final class P_BleManagerImpl implements IBleManager
     public final IBluetoothDevice newNativeDevice(final String macAddress)
     {
         P_DeviceHolder deviceHolder = P_DeviceHolder.newHolder(managerLayer().getRemoteDevice(macAddress), macAddress);
-        IBluetoothDevice layer = P_Bridge_User.newDeviceLayer(this, P_BleDeviceImpl.EMPTY_DEVICE(this));
+        P_BleDeviceImpl d = P_BleDeviceImpl.EMPTY_DEVICE(this);
+        IBluetoothDevice layer = SweetDIManager.getInstance().get(IBluetoothDevice.class, d);
         layer.setNativeDevice(deviceHolder.getDevice(), deviceHolder);
         return layer;
     }

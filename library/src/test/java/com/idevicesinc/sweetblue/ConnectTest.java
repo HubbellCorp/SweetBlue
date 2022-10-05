@@ -19,6 +19,10 @@ package com.idevicesinc.sweetblue;
 
 
 import com.idevicesinc.sweetblue.defaults.DefaultDeviceReconnectFilter;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.Interval;
 import com.idevicesinc.sweetblue.utils.Pointer;
@@ -82,7 +86,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void retryConnectionTest() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.BLE_DISCONNECTED };
 
         m_manager.setConfig(m_config);
@@ -261,8 +265,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void connectFailTest() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
-
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
         doConnectFailTest(m_config);
 
         startAsyncTest();
@@ -272,8 +275,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void connectFailTest_main() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.MAIN;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
-
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
         doConnectFailTest(m_config);
         startAsyncTest();
     }
@@ -309,8 +311,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void connectFailManagerTest() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
-
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
         doConnectFailManagerTest(m_config);
 
         startAsyncTest();
@@ -320,8 +321,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void connectFailManagerTest_main() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.MAIN;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
-
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
         doConnectFailManagerTest(m_config);
         startAsyncTest();
     }
@@ -364,7 +364,7 @@ public class ConnectTest extends BaseBleUnitTest
     {
         m_config.updateThreadType = UpdateThreadType.THREAD;
         m_config.connectFailRetryConnectingOverall = true;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
 
         doConnectThenDisconnectBeforeServiceDiscoveryTest(m_config);
 
@@ -376,8 +376,7 @@ public class ConnectTest extends BaseBleUnitTest
     {
         m_config.updateThreadType = UpdateThreadType.MAIN;
         m_config.connectFailRetryConnectingOverall = true;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
-
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
         doConnectThenDisconnectBeforeServiceDiscoveryTest(m_config);
         startAsyncTest();
     }
@@ -409,8 +408,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void connectThenFailDiscoverServicesTest() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.SERVICE_DISCOVERY_FAILED);
-
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.SERVICE_DISCOVERY_FAILED));
         m_config.connectFailRetryConnectingOverall = true;
 
         doConnectThenFailDiscoverServicesTest(m_config);
@@ -422,7 +420,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void connectThenFailDiscoverServicesTest_main() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.MAIN;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.SERVICE_DISCOVERY_FAILED);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectFailBluetoothGatt((IBleDevice) inputs[0], ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.SERVICE_DISCOVERY_FAILED));
 
         m_config.connectFailRetryConnectingOverall = true;
 
@@ -468,7 +466,7 @@ public class ConnectTest extends BaseBleUnitTest
                     return super.onEvent(e);
             }
         };
-        m_config.gattFactory = device -> new ReadWriteFailBluetoothGatt(device, batteryDb, ReadWriteFailBluetoothGatt.FailType.TIME_OUT);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ReadWriteFailBluetoothGatt((IBleDevice) inputs[0], batteryDb, ReadWriteFailBluetoothGatt.FailType.TIME_OUT));
 
         m_config.connectFailRetryConnectingOverall = false;
 
@@ -492,7 +490,7 @@ public class ConnectTest extends BaseBleUnitTest
                     return super.onEvent(e);
             }
         };
-        m_config.gattFactory = device -> new ReadWriteFailBluetoothGatt(device, batteryDb, ReadWriteFailBluetoothGatt.FailType.TIME_OUT);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ReadWriteFailBluetoothGatt((IBleDevice) inputs[0], batteryDb, ReadWriteFailBluetoothGatt.FailType.TIME_OUT));
 
         m_config.connectFailRetryConnectingOverall = false;
 
@@ -549,7 +547,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void connectThenFailInitTxnTest() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        m_config.gattFactory = device -> new ReadWriteFailBluetoothGatt(device, batteryDb, ReadWriteFailBluetoothGatt.FailType.GATT_ERROR);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ReadWriteFailBluetoothGatt((IBleDevice) inputs[0], batteryDb, ReadWriteFailBluetoothGatt.FailType.GATT_ERROR));
         m_config.connectFailRetryConnectingOverall = true;
 
         doConnectThenFailInitTxnTest(m_config);
@@ -561,7 +559,7 @@ public class ConnectTest extends BaseBleUnitTest
     public void connectThenFailInitTxnTest_main() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.MAIN;
-        m_config.gattFactory = device -> new ReadWriteFailBluetoothGatt(device, batteryDb, ReadWriteFailBluetoothGatt.FailType.GATT_ERROR);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ReadWriteFailBluetoothGatt((IBleDevice) inputs[0], batteryDb, ReadWriteFailBluetoothGatt.FailType.GATT_ERROR));
         m_config.connectFailRetryConnectingOverall = true;
 
         doConnectThenFailInitTxnTest(m_config);
@@ -612,7 +610,6 @@ public class ConnectTest extends BaseBleUnitTest
     public void disconnectDuringConnectTest() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        m_config.gattFactory = UnitTestBluetoothGatt::new;
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.BLE_CONNECTING, BleDeviceState.BLE_DISCONNECTED };
 
         doDisconnectDuringConnectTest(m_config);
@@ -623,7 +620,6 @@ public class ConnectTest extends BaseBleUnitTest
     public void disconnectDuringConnectTest_main() throws Exception
     {
         m_config.updateThreadType = UpdateThreadType.MAIN;
-        m_config.gattFactory = UnitTestBluetoothGatt::new;
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.BLE_CONNECTING, BleDeviceState.BLE_DISCONNECTED };
 
         doDisconnectDuringConnectTest(m_config);
@@ -777,8 +773,6 @@ public class ConnectTest extends BaseBleUnitTest
     {
         m_config = new BleManagerConfig();
         m_config.bluetoothManagerImplementation = new UnitTestBluetoothManager();
-        m_config.bluetoothDeviceFactory = UnitTestBluetoothDevice::new;
-        m_config.gattFactory = UnitTestBluetoothGatt::new;
         m_config.logger = new UnitTestLogger();
         m_config.loggingOptions = LogOptions.ON;
         m_config.updateThreadType = UpdateThreadType.THREAD;

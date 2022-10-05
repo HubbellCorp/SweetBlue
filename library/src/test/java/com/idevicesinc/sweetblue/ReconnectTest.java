@@ -22,10 +22,12 @@ import android.bluetooth.BluetoothGattCallback;
 import android.content.Context;
 import com.idevicesinc.sweetblue.defaults.DefaultDeviceReconnectFilter;
 import com.idevicesinc.sweetblue.defaults.NoReconnectFilter;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.ExecutingHandler;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.P_InternalBridge;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.Interval;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
@@ -206,7 +208,8 @@ public class ReconnectTest extends BaseBleUnitTest
     {
         m_config.loggingOptions = LogOptions.ON;
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.RECONNECTING_SHORT_TERM };
-        m_config.gattFactory = device -> new ShortTermGatt(device, 2);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class,
+                inputs -> new ShortTermGatt((IBleDevice) inputs[0], 2));
 
         m_manager.setConfig(m_config);
 
@@ -263,7 +266,7 @@ public class ReconnectTest extends BaseBleUnitTest
                 return super.onConnectFailed(e);
             }
         };
-        m_config.gattFactory = NeverConnectGatt::new;
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, NeverConnectGatt.class);
 
         m_manager.setConfig(m_config);
 
@@ -286,7 +289,7 @@ public class ReconnectTest extends BaseBleUnitTest
             }
         };
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.RECONNECTING_SHORT_TERM, BleDeviceState.RECONNECTING_LONG_TERM };
-        m_config.gattFactory = device -> new ShortTermGatt(device, 4);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ShortTermGatt((IBleDevice) inputs[0], 4));
 
         m_manager.setConfig(m_config);
 
@@ -316,7 +319,7 @@ public class ReconnectTest extends BaseBleUnitTest
         m_config.loggingOptions = LogOptions.ON;
         m_config.reconnectFilter = new DefaultDeviceReconnectFilter(Interval.millis(25), Interval.millis(25), Interval.millis(250), Interval.millis(500));
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.RECONNECTING_SHORT_TERM, BleDeviceState.RECONNECTING_LONG_TERM };
-        m_config.gattFactory = device -> new ShortTermGatt(device, 50);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ShortTermGatt((IBleDevice) inputs[0], 50));
 
         m_manager.setConfig(m_config);
 
@@ -349,7 +352,7 @@ public class ReconnectTest extends BaseBleUnitTest
         m_config.loggingOptions = LogOptions.ON;
         m_config.reconnectFilter = new DefaultDeviceReconnectFilter(Interval.millis(25), Interval.millis(25), Interval.millis(250), Interval.millis(5000));
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.RECONNECTING_SHORT_TERM, BleDeviceState.RECONNECTING_LONG_TERM };
-        m_config.gattFactory = device -> new ShortTermGatt(device, 4);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ShortTermGatt((IBleDevice) inputs[0], 4));
 
         m_manager.setConfig(m_config);
 
@@ -380,7 +383,7 @@ public class ReconnectTest extends BaseBleUnitTest
     public void reconnectShortTermWhileExecutingTaskTest() throws Exception
     {
         m_config.loggingOptions = LogOptions.ON;
-        m_config.gattFactory = device -> new ReconnectGatt(device, m_db);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ReconnectGatt((IBleDevice) inputs[0], m_db));
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.CONNECTED };
         m_manager.setConfig(m_config);
 
@@ -516,8 +519,7 @@ public class ReconnectTest extends BaseBleUnitTest
             }
         };
 
-        m_config.gattFactory = ConnectOnceThenLoseGatt::new;
-
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ConnectOnceThenLoseGatt((IBleDevice) inputs[0]));
         m_manager.setConfig(m_config);
 
         final BleDevice device = m_manager.newDevice(Util_Unit.randomMacAddress(), "Reconnect Tester");

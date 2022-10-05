@@ -46,6 +46,7 @@ import com.idevicesinc.sweetblue.HistoricalDataLoadListener;
 import com.idevicesinc.sweetblue.MtuTestCallback;
 import com.idevicesinc.sweetblue.NotificationListener;
 import com.idevicesinc.sweetblue.P_Bridge_User;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.PA_StateTracker.E_Intent;
 import com.idevicesinc.sweetblue.ReadWriteListener;
 import com.idevicesinc.sweetblue.ReadWriteListener.ReadWriteEvent;
@@ -251,7 +252,7 @@ public final class P_BleDeviceImpl extends BleNodeImpl implements IBleDevice
 
         if (m_nativeManager.needsInit())
         {
-            m_nativeManager.init(P_Bridge_User.newGattLayer(getConfig(), getBleDevice()), conf_mngr().bluetoothManagerImplementation);
+            m_nativeManager.init(SweetDIManager.getInstance().get(IBluetoothGatt.class, this), conf_mngr().bluetoothManagerImplementation);
         }
 
         initEstimators();

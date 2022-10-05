@@ -18,8 +18,11 @@
 package com.idevicesinc.sweetblue;
 
 
+import androidx.annotation.CallSuper;
+
 import com.idevicesinc.sweetblue.ReadWriteListener.Status;
 import com.idevicesinc.sweetblue.annotations.Nullable;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleTransaction;
 import com.idevicesinc.sweetblue.utils.Event;
 import com.idevicesinc.sweetblue.utils.Phy;
@@ -185,10 +188,10 @@ public abstract class BleTransaction implements P_ITransaction
 		}
 	};
 
-	
+
 	public BleTransaction()
 	{
-		m_transactionImpl = IBleTransaction.DEFAULT_FACTORY.newInstance(m_callback);
+		m_transactionImpl = SweetDIManager.getInstance().get(IBleTransaction.class, m_callback);
 	}
 
 	BleTransaction(IBleTransaction impl) {

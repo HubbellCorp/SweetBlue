@@ -20,8 +20,11 @@ package com.idevicesinc.sweetblue;
 
 import android.bluetooth.BluetoothGattCallback;
 import android.content.Context;
+
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.Interval;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
@@ -72,14 +75,14 @@ public class ReadWritePriorityTest extends BaseBleUnitTest
             }
         };
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, db);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
 
         m_manager.setConfig(m_config);
 
         final BleDevice goodDevice = m_manager.newDevice(Util_Unit.randomMacAddress(), "MyGoodDevice");
 
         final BleDeviceConfig badConfig = new BleDeviceConfig_UnitTest();
-        badConfig.gattFactory = UnconnectableGatt::new;
+//        badConfig.gattFactory = UnconnectableGatt::new;
 
         final BleDevice badDevice1 = m_manager.newDevice(Util_Unit.randomMacAddress(), "BadDevice1", badConfig);
         final BleDevice badDevice2 = m_manager.newDevice(Util_Unit.randomMacAddress(), "BadDevice2", badConfig);
@@ -90,6 +93,7 @@ public class ReadWritePriorityTest extends BaseBleUnitTest
             if (e.wasSuccess())
             {
                 // Now that our good device is connected, let's get the connect logic going for our bad devices
+                SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, UnconnectableGatt.class);
                 badDevice1.connect();
                 badDevice2.connect();
                 BleRead read = new BleRead(firstServiceUuid, firstCharUuid);

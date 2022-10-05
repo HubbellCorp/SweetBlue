@@ -15,6 +15,7 @@ import com.idevicesinc.sweetblue.P_Bridge_User;
 import com.idevicesinc.sweetblue.P_ITransaction;
 import com.idevicesinc.sweetblue.ReadWriteListener;
 import com.idevicesinc.sweetblue.annotations.Nullable;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleTransaction;
 import com.idevicesinc.sweetblue.utils.Event;
 import com.idevicesinc.sweetblue.utils.Phy;
@@ -138,7 +139,7 @@ public abstract class RxBleTransaction implements P_ITransaction
 
     public RxBleTransaction()
     {
-        m_transactionImpl = IBleTransaction.DEFAULT_FACTORY.newInstance(m_callback);
+        m_transactionImpl = SweetDIManager.getInstance().get(IBleTransaction.class, m_callback);
 
         // At the internal layer, it doesn't care that the txn is an "rx" txn or not, they all look the same, so this is here
         // to wrap the rx txn into a BleTransaction.
@@ -232,7 +233,7 @@ public abstract class RxBleTransaction implements P_ITransaction
      * for example to {@link #fail()} or {@link #succeed()} a transaction that has taken longer than a certain
      * amount of time.
      *
-     * @see BleTransaction#update(double)
+     * @see RxBleTransaction#update(double)
      */
     public double getTime()
     {

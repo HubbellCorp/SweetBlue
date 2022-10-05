@@ -18,6 +18,7 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.*;
@@ -44,6 +45,13 @@ public class GetServiceExceptionTest extends BaseBleUnitTest
             addCharacteristic(Uuids.BATTERY_LEVEL).setPermissions().read().setProperties().read().build().
             addDescriptor(Uuids.CHARACTERISTIC_USER_DESCRIPTION_DESCRIPTOR_UUID).setValue(new byte[] { 0x08 }).setPermissions().read().completeService();
 
+
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, ConcurrentBluetoothGatt.class);
+    }
+
     @Test(timeout = 15000)
     public void getServiceExceptionTest() throws Exception
     {
@@ -63,13 +71,6 @@ public class GetServiceExceptionTest extends BaseBleUnitTest
         });
 
         startAsyncTest();
-    }
-
-
-    @Override
-    public IBluetoothGatt getGattLayer(IBleDevice device)
-    {
-        return new ConcurrentBluetoothGatt(device);
     }
 
     private class ConcurrentBluetoothGatt extends UnitTestBluetoothGatt

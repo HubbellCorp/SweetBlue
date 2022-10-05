@@ -18,12 +18,14 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.Pointer;
 import com.idevicesinc.sweetblue.utils.UpdateThreadType;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
@@ -51,6 +53,12 @@ public final class DefaultTransactionsTest extends BaseBleUnitTest
             .addService(mInitServiceUuid)
             .addCharacteristic(mInitCharUuid).setValue(new byte[]{0x8, 0xA}).setProperties().read().setPermissions().read().completeService();
 
+
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+    }
 
     @Test(timeout = 40000)
     public void defaultAuthTransactionTest() throws Exception

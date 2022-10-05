@@ -33,6 +33,7 @@ import com.idevicesinc.sweetblue.ScanFilter;
 import com.idevicesinc.sweetblue.ScanOptions;
 import com.idevicesinc.sweetblue.UhOhListener;
 import com.idevicesinc.sweetblue.compat.L_Util;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.internal.android.P_DeviceHolder;
 import com.idevicesinc.sweetblue.utils.Interval;
@@ -493,7 +494,7 @@ final class P_ScanManager
 
             for (ScanInfo info : infos)
             {
-                final IBluetoothDevice layer = P_Bridge_User.newDeviceLayer(m_manager, P_BleDeviceImpl.EMPTY_DEVICE(m_manager));
+                final IBluetoothDevice layer = SweetDIManager.getInstance().get(IBluetoothDevice.class, P_BleDeviceImpl.EMPTY_DEVICE(m_manager));
                 layer.setNativeDevice(info.m_device.getDevice(), info.m_device);
 
                 if (m_manager.getConfigClone().enableCrashResolver)

@@ -20,6 +20,7 @@ package com.idevicesinc.sweetblue.internal;
 
 import com.idevicesinc.sweetblue.BleStatuses;
 import com.idevicesinc.sweetblue.P_Bridge_User;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.android.AndroidBluetoothServer;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothServer;
@@ -184,7 +185,7 @@ final class P_BleServerNativeManager
 		}
 		else
 		{
-			final IBluetoothDevice layer = P_Bridge_User.newDeviceLayer(m_server.getIManager(), P_BleDeviceImpl.EMPTY_DEVICE(m_server.getIManager()));
+			final IBluetoothDevice layer = SweetDIManager.getInstance().get(IBluetoothDevice.class, P_BleDeviceImpl.EMPTY_DEVICE(m_server.getIManager()));
 			layer.setNativeDevice(device.getDevice(), P_DeviceHolder.NULL);
 			final int nativeState = m_server.getIManager().managerLayer().getConnectionState( layer, BleStatuses.PROFILE_GATT );
 

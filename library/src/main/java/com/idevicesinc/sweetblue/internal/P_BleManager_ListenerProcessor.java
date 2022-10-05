@@ -36,6 +36,7 @@ import com.idevicesinc.sweetblue.P_Bridge_User;
 import com.idevicesinc.sweetblue.ServerReconnectFilter;
 import com.idevicesinc.sweetblue.UhOhListener.UhOh;
 import com.idevicesinc.sweetblue.compat.L_Util;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.android.AdapterConst;
 import com.idevicesinc.sweetblue.internal.android.DeviceConst;
 import com.idevicesinc.sweetblue.internal.android.IManagerListener;
@@ -58,6 +59,7 @@ final class P_BleManager_ListenerProcessor implements IManagerListener.Callback
     private final PA_Task.I_StateListener m_scanTaskListener = new ScanTaskListener();
     private final BroadcastReceiver m_receiver = new BluetoothReceiver();
     private final IManagerListener m_nativeListener;
+    private final SweetDIManager m_diManager;
 
     private final IBleManager m_mngr;
     private Interval m_pollRate;
@@ -70,6 +72,8 @@ final class P_BleManager_ListenerProcessor implements IManagerListener.Callback
     P_BleManager_ListenerProcessor(IBleManager bleMngr)
     {
         m_mngr = bleMngr;
+
+        m_diManager = SweetDIManager.getInstance();
 
         m_mngr.getApplicationContext().registerReceiver(m_receiver, newIntentFilter());
 
@@ -392,7 +396,7 @@ final class P_BleManager_ListenerProcessor implements IManagerListener.Callback
 
     private void onBondRequest(Intent intent)
     {
-        final IBluetoothDevice layer = P_Bridge_User.newDeviceLayer(m_mngr, P_BleDeviceImpl.EMPTY_DEVICE(m_mngr));
+        final IBluetoothDevice layer = m_diManager.get(IBluetoothDevice.class, P_BleDeviceImpl.EMPTY_DEVICE(m_mngr));
 
         final P_DeviceHolder deviceHolder = P_DeviceHolder.newHolder(intent);
 
@@ -456,7 +460,7 @@ final class P_BleManager_ListenerProcessor implements IManagerListener.Callback
 
             final int rssi = intent.getShortExtra(DeviceConst.EXTRA_RSSI, Short.MIN_VALUE);
 
-            final IBluetoothDevice layer = P_Bridge_User.newDeviceLayer(m_mngr, P_BleDeviceImpl.EMPTY_DEVICE(m_mngr));
+            final IBluetoothDevice layer = m_diManager.get(IBluetoothDevice.class, P_BleDeviceImpl.EMPTY_DEVICE(m_mngr));
             layer.setNativeDevice(deviceHolder.getDevice(), deviceHolder);
 
             final List<P_ScanManager.DiscoveryEntry> entries = new ArrayList<>(1);
@@ -645,7 +649,7 @@ final class P_BleManager_ListenerProcessor implements IManagerListener.Callback
             failReason = BleStatuses.BOND_FAIL_REASON_NOT_APPLICABLE;
         }
 
-        final IBluetoothDevice layer = P_Bridge_User.newDeviceLayer(m_mngr, P_BleDeviceImpl.EMPTY_DEVICE(m_mngr));
+        final IBluetoothDevice layer = m_diManager.get(IBluetoothDevice.class, P_BleDeviceImpl.EMPTY_DEVICE(m_mngr));
 
         layer.setNativeDevice(deviceHolder.getDevice(), deviceHolder);
 

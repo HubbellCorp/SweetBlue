@@ -18,6 +18,7 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
@@ -44,6 +45,12 @@ public class PollingTest extends BaseBleUnitTest
     private GattDatabase db = new GattDatabase().addService(Uuids.BATTERY_SERVICE_UUID)
             .addCharacteristic(Uuids.BATTERY_LEVEL).setValue(new byte[]{100}).setPermissions().read().setProperties().read().completeService();
 
+
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, BatteryBluetoothGatt.class);
+    }
 
     @Test(timeout = 30000)
     public void rssiPollTest() throws Exception
@@ -81,12 +88,6 @@ public class PollingTest extends BaseBleUnitTest
             });
         });
         startAsyncTest();
-    }
-
-    @Override
-    public IBluetoothGatt getGattLayer(IBleDevice device)
-    {
-        return new BatteryBluetoothGatt(device);
     }
 
     private final class BatteryBluetoothGatt extends UnitTestBluetoothGatt

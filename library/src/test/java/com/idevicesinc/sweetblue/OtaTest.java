@@ -17,6 +17,9 @@
 
 package com.idevicesinc.sweetblue;
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.UpdateThreadType;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
@@ -37,6 +40,13 @@ public class OtaTest extends BaseBleUnitTest
 
     private GattDatabase db = new GattDatabase().addService(m_serviceUuid)
             .addCharacteristic(m_charUuid).setValue(new byte[]{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}).setProperties().write().setPermissions().write().completeService();
+
+
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+    }
 
     @Test(timeout = 20000)
     public void otaTest() throws Exception
@@ -82,7 +92,6 @@ public class OtaTest extends BaseBleUnitTest
         BleManagerConfig config = super.getConfig();
         config.loggingOptions = LogOptions.ON;
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        config.gattFactory = device -> new UnitTestBluetoothGatt(device, db);
         return config;
     }
 

@@ -18,7 +18,9 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.Interval;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
 import org.junit.Test;
@@ -38,7 +40,7 @@ public class ServiceDiscoveryDelayTest extends BaseBleUnitTest
     {
         m_config.loggingOptions = LogOptions.ON;
         m_config.useGattRefresh = false;
-        m_config.gattFactory = BluetoothGatt::new;
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, BluetoothGatt.class);
         m_config.serviceDiscoveryDelay = Interval.ONE_SEC;
         m_config.defaultDeviceStates = new BleDeviceState[] { BleDeviceState.DISCOVERING_SERVICES };
 

@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.os.Build;
 import com.idevicesinc.sweetblue.compat.L_Util;
 import com.idevicesinc.sweetblue.compat.P_Bridge_Compat;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.IBleManager;
 import com.idevicesinc.sweetblue.internal.P_Bridge_BleDevice;
@@ -35,6 +36,7 @@ import com.idevicesinc.sweetblue.internal.P_Bridge_BleServer;
 import com.idevicesinc.sweetblue.internal.P_Bridge_Internal;
 import com.idevicesinc.sweetblue.internal.P_Bridge_BleManager;
 import com.idevicesinc.sweetblue.internal.android.AdapterConst;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.internal.android.P_DeviceHolder;
 import com.idevicesinc.sweetblue.internal.android.P_GattHolder;
 import com.idevicesinc.sweetblue.internal.android.ProfileConst;
@@ -187,8 +189,7 @@ public final class Util_Native
             {
                 oldState = BluetoothDevice.BOND_BONDED;
             }
-
-            P_Bridge_BleManager.onNativeBondStateChanged(mgr, mgr.getConfigClone().newDeviceLayer(device.getIBleDevice()), oldState, newState, 0);
+            P_Bridge_BleManager.onNativeBondStateChanged(mgr, SweetDIManager.getInstance().get(IBluetoothDevice.class, device.getIBleDevice()), oldState, newState, 0);
         }, delay.millis());
     }
 
@@ -221,7 +222,7 @@ public final class Util_Native
             {
                 oldState = BluetoothDevice.BOND_BONDED;
             }
-            P_Bridge_BleManager.onNativeBondStateChanged(mgr, mgr.getConfigClone().newDeviceLayer(device.getIBleDevice()), oldState, BluetoothDevice.BOND_NONE, failReason);
+            P_Bridge_BleManager.onNativeBondStateChanged(mgr, SweetDIManager.getInstance().get(IBluetoothDevice.class, device.getIBleDevice()), oldState, BluetoothDevice.BOND_NONE, failReason);
         }, delay.millis());
     }
 

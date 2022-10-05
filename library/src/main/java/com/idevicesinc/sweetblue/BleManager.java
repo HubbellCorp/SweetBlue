@@ -30,8 +30,6 @@ import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
-import android.bluetooth.le.BluetoothLeScanner;
-import android.bluetooth.le.ScanResult;
 import android.content.Context;
 import android.content.Intent;
 import com.idevicesinc.sweetblue.BondListener.BondEvent;
@@ -40,7 +38,6 @@ import com.idevicesinc.sweetblue.annotations.Advanced;
 import com.idevicesinc.sweetblue.annotations.Experimental;
 import com.idevicesinc.sweetblue.annotations.Nullable;
 import com.idevicesinc.sweetblue.annotations.Nullable.Prevalence;
-import com.idevicesinc.sweetblue.compat.L_Util;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.IBleManager;
 import com.idevicesinc.sweetblue.internal.P_BleManagerImpl;
@@ -52,8 +49,6 @@ import com.idevicesinc.sweetblue.utils.ForEach_Void;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.HistoricalData;
 import com.idevicesinc.sweetblue.utils.Interval;
-import com.idevicesinc.sweetblue.utils.P_Const;
-import com.idevicesinc.sweetblue.utils.Utils;
 
 /**
  * The entry point to the library. Get a singleton instance using {@link #get(android.content.Context, BleManagerConfig)} or its overloads. Make sure

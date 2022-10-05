@@ -19,6 +19,7 @@ package com.idevicesinc.sweetblue;
 
 import android.app.Activity;
 import com.idevicesinc.sweetblue.annotations.Nullable;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.IBleManager;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
@@ -77,15 +78,6 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
     }
 
     /**
-     * Returns the current instance of {@link IBluetoothGatt}. If the instance is <code>null</code>, then
-     * a new instance of {@link UnitTestBluetoothGatt} will be created and used.
-     */
-    public @Nullable(Nullable.Prevalence.NEVER) IBluetoothGatt getGattLayer(@Nullable(Nullable.Prevalence.NEVER) IBleDevice device)
-    {
-        return new UnitTestBluetoothGatt(device);
-    }
-
-    /**
      * Returns the current instance of {@link IBluetoothServer}. If the instance is <code>null</code>, then
      * a new instance of {@link UnitTestBluetoothServer} will be created and used.
      */
@@ -107,6 +99,16 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
     {
         m_activity = createActivity();
         initManager(getConfig());
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, UnitTestBluetoothDevice.class);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, UnitTestBluetoothGatt.class);
+        postSetup();
+    }
+
+    /**
+     * Override this method if you need to perform additional setup, after the built-in setup is done
+     */
+    public void postSetup()
+    {
     }
 
     /**
@@ -133,6 +135,7 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
         if (m_manager != null)
             m_manager.shutdown();
         m_activity.finish();
+        SweetDIManager.getInstance().dispose();
         m_manager = null;
         m_config = null;
         m_activity = null;
@@ -148,8 +151,6 @@ public abstract class SweetUnitTest<A extends Activity> extends AbstractTestClas
     {
         m_config = new BleManagerConfig();
         m_config.bluetoothManagerImplementation = getManagerLayer();
-        m_config.gattFactory = this::getGattLayer;
-        m_config.bluetoothDeviceFactory = this::getDeviceLayer;
         m_config.serverFactory = this::getServerLayer;
         m_config.logger = new UnitTestLogger();
         return m_config;

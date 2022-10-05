@@ -52,30 +52,30 @@ public interface IBluetoothDevice
     BleDevice getBleDevice();
 
 
-    /**
-     * Interface used by the library to instantiate a new instance of {@link IBluetoothDevice}
-     */
-    interface Factory
-    {
-        IBluetoothDevice newInstance(IBleDevice device);
-    }
+//    /**
+//     * Interface used by the library to instantiate a new instance of {@link IBluetoothDevice}
+//     */
+//    interface Factory
+//    {
+//        IBluetoothDevice newInstance(IBleDevice device);
+//    }
 
-    /**
-     * Default implementation of {@link Factory}.
-     */
-    class DefaultFactory implements Factory
-    {
-        @Override
-        public IBluetoothDevice newInstance(IBleDevice device)
-        {
-            return new AndroidBluetoothDevice(device);
-        }
-    }
-
-    /**
-     * An instance of {@link DefaultFactory} used by the library, unless {@link com.idevicesinc.sweetblue.BleManagerConfig#bluetoothDeviceFactory} is changed.
-     */
-    Factory DEFAULT_FACTORY = new DefaultFactory();
+//    /**
+//     * Default implementation of {@link Factory}.
+//     */
+//    class DefaultFactory implements Factory
+//    {
+//        @Override
+//        public IBluetoothDevice newInstance(IBleDevice device)
+//        {
+//            return new AndroidBluetoothDevice(device);
+//        }
+//    }
+//
+//    /**
+//     * An instance of {@link DefaultFactory} used by the library, unless {@link com.idevicesinc.sweetblue.BleManagerConfig#bluetoothDeviceFactory} is changed.
+//     */
+//    Factory DEFAULT_FACTORY = new DefaultFactory();
 
     /**
      * Null instance of the {@link IBluetoothDevice} interface (rather than instantiating each time it's used).

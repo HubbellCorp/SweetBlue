@@ -18,21 +18,16 @@
 package com.idevicesinc.sweetblue;
 
 
-import com.idevicesinc.sweetblue.compat.O_Util;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
 import com.idevicesinc.sweetblue.utils.Util_Unit;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-
 import java.util.UUID;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 
 @Config(manifest = Config.NONE, sdk = 25)
@@ -57,6 +52,11 @@ public class ReadTest extends BaseBleUnitTest
                     .addCharacteristic(fourthCharUuid).setProperties().readWrite().setPermissions().readWrite().completeService();
 
 
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ReadBluetoothGatt((IBleDevice) inputs[0], db));
+    }
 
     @Test(timeout = 15000)
     public void simpleReadTest() throws Exception

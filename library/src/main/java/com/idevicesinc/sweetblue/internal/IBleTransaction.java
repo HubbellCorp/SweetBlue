@@ -36,26 +36,4 @@ public interface IBleTransaction extends IBleTransaction_User, IBleTransaction_I
         void onEndTxn(BleDevice device, BleTransaction.EndReason reason);
         BleTransaction.Atomicity getAtomicity();
     }
-
-    /**
-     * Factory interface used to instantiate a new internal transaction class
-     */
-    interface Factory
-    {
-        IBleTransaction newInstance(Callback callback);
-    }
-
-    Factory DEFAULT_FACTORY = new DefaultFactory();
-
-    /**
-     * Default class to create a new instance of IBleTransaction (implemented via BleTransactionImpl)
-     */
-    class DefaultFactory implements Factory
-    {
-        @Override
-        public IBleTransaction newInstance(Callback callback)
-        {
-            return new BleTransactionImpl(callback);
-        }
-    }
 }

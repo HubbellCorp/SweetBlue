@@ -45,7 +45,7 @@ public class OtaTest extends BaseBleUnitTest
     @Override
     public void postSetup()
     {
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), db));
     }
 
     @Test(timeout = 20000)

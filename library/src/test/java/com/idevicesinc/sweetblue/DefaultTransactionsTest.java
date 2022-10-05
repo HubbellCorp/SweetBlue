@@ -57,7 +57,7 @@ public final class DefaultTransactionsTest extends BaseBleUnitTest
     @Override
     public void postSetup()
     {
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), db));
     }
 
     @Test(timeout = 40000)
@@ -264,12 +264,6 @@ public final class DefaultTransactionsTest extends BaseBleUnitTest
         });
 
         m_manager.startScan();
-    }
-
-    @Override
-    public IBluetoothGatt getGattLayer(IBleDevice device)
-    {
-        return new UnitTestBluetoothGatt(device, db);
     }
 
 }

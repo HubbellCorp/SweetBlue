@@ -176,7 +176,7 @@ public class MtuTest extends BaseBleUnitTest
 
         m_config.loggingOptions = LogOptions.ON;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new MtuFailBluetoothGatt((IBleDevice) inputs[0], db));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new MtuFailBluetoothGatt(inputs.get(0), db));
 
 
         m_config.mtuTestCallback = new MtuTestCallback()
@@ -228,7 +228,7 @@ public class MtuTest extends BaseBleUnitTest
 
         m_config.loggingOptions = LogOptions.ON;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), db));
 
         m_config.mtuTestCallback = new MtuTestCallback()
         {

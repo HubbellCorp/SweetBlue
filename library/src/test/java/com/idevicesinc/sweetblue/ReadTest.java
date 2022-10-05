@@ -55,7 +55,7 @@ public class ReadTest extends BaseBleUnitTest
     @Override
     public void postSetup()
     {
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ReadBluetoothGatt((IBleDevice) inputs[0], db));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new ReadBluetoothGatt(inputs.get(0), db));
     }
 
     @Test(timeout = 15000)
@@ -149,11 +149,6 @@ public class ReadTest extends BaseBleUnitTest
         startAsyncTest();
     }
 
-    @Override
-    public IBluetoothGatt getGattLayer(IBleDevice device)
-    {
-        return new ReadBluetoothGatt(device, db);
-    }
 
     private class ReadBluetoothGatt extends UnitTestBluetoothGatt
     {

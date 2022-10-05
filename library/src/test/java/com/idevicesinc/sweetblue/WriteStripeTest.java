@@ -126,7 +126,7 @@ public class WriteStripeTest extends BaseBleUnitTest
     @Override
     public void postSetup()
     {
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new StripeBluetoothGatt((IBleDevice) inputs[0]));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new StripeBluetoothGatt(inputs.get(0)));
     }
 
 

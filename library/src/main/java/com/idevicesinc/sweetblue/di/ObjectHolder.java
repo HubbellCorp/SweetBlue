@@ -68,7 +68,7 @@ final class ObjectHolder<B, I extends B>
     private I constructParameterInstance(Object... constructorArgs)
     {
         if (m_constructorFunction != null)
-            return m_constructorFunction.call(constructorArgs);
+            return m_constructorFunction.call(new FunctionVargs.Vargs(constructorArgs));
 
         if (constructorArgs != null)
         {
@@ -85,7 +85,7 @@ final class ObjectHolder<B, I extends B>
 
     private I constructInstance()
     {
-        if (m_constructorFunction != null) return m_constructorFunction.call();
+        if (m_constructorFunction != null) return m_constructorFunction.call(new FunctionVargs.Vargs());
 
         I instance = Utils_Reflection.constructInstance(m_implementationClass, param -> m_manager.safeGet(param));
 

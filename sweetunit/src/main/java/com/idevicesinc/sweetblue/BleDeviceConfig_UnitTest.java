@@ -59,9 +59,9 @@ public class BleDeviceConfig_UnitTest extends BleDeviceConfig
         SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, (args) ->
         {
             if (m_gattDatabase == null)
-                return new UnitTestBluetoothGatt((IBleDevice) args[0]);
+                return new UnitTestBluetoothGatt(args.get(0));
             else
-                return new UnitTestBluetoothGatt((IBleDevice) args[0], m_gattDatabase);
+                return new UnitTestBluetoothGatt(args.get(0), m_gattDatabase);
         });
         SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, UnitTestBluetoothDevice.class);
     }

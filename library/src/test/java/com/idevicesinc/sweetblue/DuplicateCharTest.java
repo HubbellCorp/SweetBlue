@@ -66,7 +66,7 @@ public class DuplicateCharTest extends BaseBleUnitTest
     @Override
     public void postSetup()
     {
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), db));
     }
 
     @Test(timeout = 10000)
@@ -157,7 +157,7 @@ public class DuplicateCharTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], db2));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), db2));
 
         m_manager.setConfig(m_config);
 

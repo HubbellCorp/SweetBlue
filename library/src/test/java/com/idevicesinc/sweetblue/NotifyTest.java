@@ -64,7 +64,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotifyWithDesc));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -101,7 +101,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotifyWithDesc));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -188,7 +188,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotify));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotify));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -226,7 +226,7 @@ public class NotifyTest extends BaseBleUnitTest
     @Test(timeout = 18000)
     public void enableNotifyWithNoDefaultListenerTest() throws Exception
     {
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotify));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotify));
         m_config.loggingOptions = LogOptions.ON;
 
         m_manager.setConfig(m_config);
@@ -257,7 +257,7 @@ public class NotifyTest extends BaseBleUnitTest
     @Test(timeout = 15000)
     public void multiNotifyTest() throws Exception
     {
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotify));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotify));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -294,7 +294,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotify));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotify));
 
         m_manager.setConfig(m_config);
 
@@ -341,7 +341,7 @@ public class NotifyTest extends BaseBleUnitTest
     @Test(timeout = 15000)
     public void disableNotifyNoDescriptorTest() throws Exception
     {
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotify));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotify));
 
         m_manager.setConfig(m_config);
 
@@ -389,7 +389,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotifyWithDesc));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -438,7 +438,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotifyWithDesc));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -489,7 +489,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbIndicateNoDesc));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbIndicateNoDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -538,7 +538,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_device = null;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new PollNotifyBluetoothGatt((IBleDevice) inputs[0], dbNotifyWithDesc));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new PollNotifyBluetoothGatt(inputs.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -588,7 +588,7 @@ public class NotifyTest extends BaseBleUnitTest
     {
         m_config.loggingOptions = LogOptions.ON;
 
-        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt((IBleDevice) inputs[0], dbNotify));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, inputs -> new UnitTestBluetoothGatt(inputs.get(0), dbNotify));
 
         final byte[] first = Util_Unit.randomBytes(20);
         final byte[] second = Util_Unit.randomBytes(20);

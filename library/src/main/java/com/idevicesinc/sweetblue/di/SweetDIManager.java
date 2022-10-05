@@ -32,7 +32,7 @@ import java.util.Map;
  *
  * @see DIScope for more info on the registration types
  */
-public class SweetDIManager
+public final class SweetDIManager
 {
     private static SweetDIManager s_managerInstance = null;
 
@@ -64,7 +64,7 @@ public class SweetDIManager
      *
      * @see DIScope#Transient
      */
-    public final <B> void registerTransient(Class<B> objectClass)
+    public <B> void registerTransient(Class<B> objectClass)
     {
         registerTransient(objectClass, objectClass);
     }
@@ -75,7 +75,7 @@ public class SweetDIManager
      *
      * @see DIScope#Transient
      */
-    public final <T> void registerTransient(Class<T> objectClass, FunctionVargs<T> constructorFunc)
+    public <T> void registerTransient(Class<T> objectClass, FunctionVargs<T> constructorFunc)
     {
         registerObject(objectClass, DIScope.Transient, constructorFunc);
     }
@@ -86,7 +86,7 @@ public class SweetDIManager
      *
      * @see DIScope#Transient
      */
-    public final <B, I extends B> void registerTransient(Class<B> baseClass, Class<I> implementationClass)
+    public <B, I extends B> void registerTransient(Class<B> baseClass, Class<I> implementationClass)
     {
         registerObject(baseClass, implementationClass, DIScope.Transient);
     }
@@ -98,7 +98,7 @@ public class SweetDIManager
      *
      * @see DIScope#Scoped
      */
-    public final <T> void registerScoped(Class<T> objectClass)
+    public <T> void registerScoped(Class<T> objectClass)
     {
         registerScoped(objectClass, objectClass);
     }
@@ -111,7 +111,7 @@ public class SweetDIManager
      *
      * @see DIScope#Scoped
      */
-    public final <T> void registerScoped(Class<T> objectClass, FunctionVargs<T> constructorFunction)
+    public <T> void registerScoped(Class<T> objectClass, FunctionVargs<T> constructorFunction)
     {
         registerObject(objectClass, DIScope.Scoped, constructorFunction);
     }
@@ -124,7 +124,7 @@ public class SweetDIManager
      *
      * @see DIScope#Scoped
      */
-    public final <B, I extends B> void registerScoped(Class<B> baseClass, Class<I> implementationClass)
+    public <B, I extends B> void registerScoped(Class<B> baseClass, Class<I> implementationClass)
     {
         registerObject(baseClass, implementationClass, DIScope.Scoped);
     }
@@ -136,7 +136,7 @@ public class SweetDIManager
      *
      * @see DIScope#Singleton
      */
-    public final <T> void registerSingleton(Class<T> itemClass)
+    public <T> void registerSingleton(Class<T> itemClass)
     {
         registerSingleton(itemClass, itemClass);
     }
@@ -150,7 +150,7 @@ public class SweetDIManager
      *
      * @see DIScope#Singleton
      */
-    public final <T> void registerSingleton(Class<T> objectClass, FunctionVargs<T> constructorFunction)
+    public <T> void registerSingleton(Class<T> objectClass, FunctionVargs<T> constructorFunction)
     {
         registerObject(objectClass, DIScope.Singleton, constructorFunction);
     }
@@ -163,7 +163,7 @@ public class SweetDIManager
      *
      * @see DIScope#Singleton
      */
-    public final <B, I extends B> void registerSingleton(Class<B> baseClass, Class<I> implementationClass)
+    public <B, I extends B> void registerSingleton(Class<B> baseClass, Class<I> implementationClass)
     {
         registerObject(baseClass, implementationClass, DIScope.Singleton);
     }
@@ -178,7 +178,7 @@ public class SweetDIManager
      *                        will be returned, and the constructor args will be ignored.
      * @throws IllegalStateException if the requested class is not registered in the DI system
      */
-    public final <B, I extends B> I get(Class<B> objectClass, Object... constructorArgs)
+    public <B, I extends B> I get(Class<B> objectClass, Object... constructorArgs)
     {
         return get_private(objectClass, true, constructorArgs);
     }
@@ -193,7 +193,7 @@ public class SweetDIManager
      *                        will be returned, and the constructor args will be ignored.
      * @throws IllegalStateException if the requested class is not registered in the DI system
      */
-    public final <B, I extends B> I safeGet(Class<B> objectClass, Object... constructorArgs)
+    public <B, I extends B> I safeGet(Class<B> objectClass, Object... constructorArgs)
     {
         return get_private(objectClass, false, constructorArgs);
     }
@@ -201,11 +201,19 @@ public class SweetDIManager
     /**
      * Returns true if the given class is registered in the DI system.
      */
-    public final boolean isRegistered(Class<?> classToCheck)
+    public boolean isRegistered(Class<?> classToCheck)
     {
-        synchronized (SweetDIManager.class)
+        synchronized (m_registeredObjects)
         {
             return m_registeredObjects.containsKey(classToCheck);
+        }
+    }
+
+    public void unregister(Class<?> classToUnregister)
+    {
+        synchronized (m_registeredObjects)
+        {
+            m_registeredObjects.remove(classToUnregister);
         }
     }
 
@@ -214,11 +222,14 @@ public class SweetDIManager
      * manager instance is nulled out. Make sure to call {@link #getInstance()} before calling
      * any other methods on the manager.
      */
-    public final void dispose()
+    public void dispose()
     {
-        synchronized (SweetDIManager.class)
+        synchronized (m_registeredObjects)
         {
             m_registeredObjects.clear();
+        }
+        synchronized (SweetDIManager.class)
+        {
             s_managerInstance = null;
         }
     }

@@ -205,10 +205,7 @@ public final class P_BleManagerImpl implements IBleManager
         }
 
         // DI stuff
-        SweetDIManager diMgr = SweetDIManager.getInstance();
-        diMgr.registerTransient(IBleTransaction.class, P_BleTransactionBackend.class);
-        diMgr.registerTransient(IBluetoothDevice.class, AndroidBluetoothDevice.class);
-        diMgr.registerTransient(IBluetoothGatt.class, AndroidBluetoothGatt.class);
+        registerDI();
 
         m_deviceMap = new HashMap<>();
         m_serverMap = new HashMap<>();
@@ -1069,6 +1066,7 @@ public final class P_BleManagerImpl implements IBleManager
         }
 
         clearQueue();
+        unregisterDI();
         m_uhOhThrottler.shutdown();
         m_updateRunnable.m_shutdown = true;
         ((Application) m_context).unregisterActivityLifecycleCallbacks(m_activityCallbacks);
@@ -1522,7 +1520,7 @@ public final class P_BleManagerImpl implements IBleManager
 
     /**
      * Creates a new {@link BleDevice} or returns an existing one if the macAddress matches.
-     * {@link DiscoveryListener#onEvent(Event)} will be called if a new device
+     * {@link DiscoveryListener#onEvent(DiscoveryListener.DiscoveryEvent)} will be called if a new device
      * is created.
      * <br><br>
      * NOTE: You should always do a {@link BleDevice#isNull()} check on this method's return value just in case. Android
@@ -2307,7 +2305,21 @@ public final class P_BleManagerImpl implements IBleManager
 
 
 
+    private void registerDI()
+    {
+        SweetDIManager diMgr = SweetDIManager.getInstance();
+        diMgr.registerTransient(IBleTransaction.class, P_BleTransactionBackend.class);
+        diMgr.registerTransient(IBluetoothDevice.class, AndroidBluetoothDevice.class);
+        diMgr.registerTransient(IBluetoothGatt.class, AndroidBluetoothGatt.class);
+    }
 
+    private void unregisterDI()
+    {
+        SweetDIManager diMgr = SweetDIManager.getInstance();
+        diMgr.unregister(IBleTransaction.class);
+        diMgr.unregister(IBluetoothDevice.class);
+        diMgr.unregister(IBluetoothGatt.class);
+    }
 
     private void stopScan_private(E_Intent intent)
     {

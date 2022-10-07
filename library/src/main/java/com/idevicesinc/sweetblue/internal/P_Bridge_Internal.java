@@ -64,11 +64,6 @@ public final class P_Bridge_Internal
         return P_BleServerImpl.NULL;
     }
 
-    public static P_BleManagerImpl newManager(Context context, BleManagerConfig config)
-    {
-        return new P_BleManagerImpl(context, config);
-    }
-
     public static String charName(IBleManager mgr, UUID uuid)
     {
         return mgr.getLogger().charName(uuid);

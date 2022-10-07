@@ -18,6 +18,7 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.rx.RxBleDevice;
@@ -117,10 +118,11 @@ public final class RxReadTest extends RxBaseBleUnitTest
     }
 
     @Override
-    public IBluetoothGatt getGattLayer(IBleDevice device)
+    public void postSetup()
     {
-        return new ReadBluetoothGatt(device, db);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new ReadBluetoothGatt(args.get(0), db));
     }
+
 
     private static class ReadBluetoothGatt extends UnitTestBluetoothGatt
     {

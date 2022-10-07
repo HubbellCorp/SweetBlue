@@ -21,6 +21,8 @@ package com.idevicesinc.sweetblue;
 import android.annotation.SuppressLint;
 
 import com.idevicesinc.sweetblue.defaults.DefaultDeviceReconnectFilter;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.rx.RxBleDevice;
 import com.idevicesinc.sweetblue.rx.RxBleTransaction;
 import com.idevicesinc.sweetblue.rx.exception.ConnectException;
@@ -77,7 +79,8 @@ public class RxConnectTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args ->
+                new ConnectFailBluetoothGatt(args.get(0), ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
         m_config.defaultDeviceStates = new BleDeviceState[]{BleDeviceState.BLE_DISCONNECTED};
 
         m_manager.setConfig(m_config);
@@ -199,7 +202,9 @@ public class RxConnectTest extends RxBaseBleUnitTest
 
         m_config.updateThreadType = UpdateThreadType.THREAD;
         m_config.loggingOptions = LogOptions.ON;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR);
+
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args ->
+                new ConnectFailBluetoothGatt(args.get(0), ConnectFailBluetoothGatt.FailurePoint.POST_CONNECTING_BLE, ConnectFailBluetoothGatt.FailureType.DISCONNECT_GATT_ERROR));
 
         m_manager.setConfig(m_config);
 
@@ -232,7 +237,8 @@ public class RxConnectTest extends RxBaseBleUnitTest
 
         m_config.updateThreadType = UpdateThreadType.THREAD;
         m_config.loggingOptions = LogOptions.ON;
-        m_config.gattFactory = device -> new ConnectFailBluetoothGatt(device, ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.SERVICE_DISCOVERY_FAILED);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args ->
+                new ConnectFailBluetoothGatt(args.get(0), ConnectFailBluetoothGatt.FailurePoint.SERVICE_DISCOVERY, ConnectFailBluetoothGatt.FailureType.SERVICE_DISCOVERY_FAILED));
 
         m_config.connectFailRetryConnectingOverall = true;
 
@@ -271,7 +277,8 @@ public class RxConnectTest extends RxBaseBleUnitTest
 
         m_config.updateThreadType = UpdateThreadType.THREAD;
         m_config.loggingOptions = LogOptions.ON;
-        m_config.gattFactory = device -> new ReadWriteFailBluetoothGatt(device, batteryDb, ReadWriteFailBluetoothGatt.FailType.TIME_OUT);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args ->
+                new ReadWriteFailBluetoothGatt(args.get(0), batteryDb, ReadWriteFailBluetoothGatt.FailType.TIME_OUT));
 
         m_config.connectFailRetryConnectingOverall = false;
 
@@ -332,7 +339,6 @@ public class RxConnectTest extends RxBaseBleUnitTest
 
         m_config.updateThreadType = UpdateThreadType.THREAD;
         m_config.loggingOptions = LogOptions.ON;
-        m_config.gattFactory = UnitTestBluetoothGatt::new;
         m_config.defaultDeviceStates = new BleDeviceState[]{BleDeviceState.BLE_CONNECTING, BleDeviceState.BLE_DISCONNECTED};
 
         m_manager.setConfig(m_config);

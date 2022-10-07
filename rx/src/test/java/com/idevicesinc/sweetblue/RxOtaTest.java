@@ -18,6 +18,8 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.rx.RxBleDevice;
 import com.idevicesinc.sweetblue.rx.RxBleManagerConfig;
 import com.idevicesinc.sweetblue.rx.RxBleTransaction;
@@ -73,12 +75,17 @@ public final class RxOtaTest extends RxBaseBleUnitTest
     }
 
     @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), db));
+    }
+
+    @Override
     public RxBleManagerConfig getConfig()
     {
         RxBleManagerConfig config = super.getConfig();
         config.loggingOptions = LogOptions.ON;
         m_config.updateThreadType = UpdateThreadType.THREAD;
-        config.gattFactory = device -> new UnitTestBluetoothGatt(device, db);
         return config;
     }
 

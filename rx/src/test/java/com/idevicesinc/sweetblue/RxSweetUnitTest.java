@@ -19,6 +19,7 @@ package com.idevicesinc.sweetblue;
 
 import android.app.Activity;
 import com.idevicesinc.sweetblue.annotations.Nullable;
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.IBleManager;
 import com.idevicesinc.sweetblue.internal.P_Bridge_BleManager;
@@ -60,47 +61,6 @@ public abstract class RxSweetUnitTest<A extends Activity> extends AbstractTestCl
 
 
     /**
-     * Returns the current instance of {@link IBluetoothManager}. If the instance is <code>null</code>, then
-     * a new instance of {@link UnitTestBluetoothManager} will be created and used.
-     */
-    public @Nullable(Nullable.Prevalence.NEVER) IBluetoothManager getManagerLayer()
-    {
-        if (mBluetoothManager == null)
-            mBluetoothManager = new UnitTestBluetoothManager();
-        return mBluetoothManager;
-    }
-
-    /**
-     * Returns the current instance of {@link IBluetoothDevice}. If the instance is <code>null</code>, then
-     * a new instance of {@link UnitTestBluetoothDevice} will be created and used.
-     */
-    public @Nullable(Nullable.Prevalence.NEVER) IBluetoothDevice getDeviceLayer(@Nullable(Nullable.Prevalence.NEVER) IBleDevice device)
-    {
-        return new UnitTestBluetoothDevice(device);
-    }
-
-    /**
-     * Returns the current instance of {@link IBluetoothGatt}. If the instance is <code>null</code>, then
-     * a new instance of {@link UnitTestBluetoothGatt} will be created and used.
-     */
-    public @Nullable(Nullable.Prevalence.NEVER) IBluetoothGatt getGattLayer(@Nullable(Nullable.Prevalence.NEVER) IBleDevice device)
-    {
-        return new UnitTestBluetoothGatt(device);
-    }
-
-    /**
-     * Returns the current instance of {@link IBluetoothServer}. If the instance is <code>null</code>, then
-     * a new instance of {@link UnitTestBluetoothServer} will be created and used.
-     */
-    public @Nullable(Nullable.Prevalence.NEVER) IBluetoothServer getServerLayer(@Nullable(Nullable.Prevalence.NEVER) IBleManager mgr, @Nullable(Nullable.Prevalence.NEVER) P_ServerHolder serverHolder)
-    {
-        if (mBluetoothServer == null)
-            mBluetoothServer = new UnitTestBluetoothServer(mgr);
-        return mBluetoothServer;
-    }
-
-
-    /**
      * This method is called before every test. This is where the {@link Activity} instance is created,
      * from calling {@link #createActivity()}. The {@link BleManager} instance is also initialized here
      * using {@link #initManager(RxBleManagerConfig)}, {@link #getConfig()}.
@@ -109,7 +69,20 @@ public abstract class RxSweetUnitTest<A extends Activity> extends AbstractTestCl
     public void setup() throws Exception
     {
         m_activity = createActivity();
+        SweetDIManager.getInstance().registerTransient(IBluetoothManager.class, UnitTestBluetoothManager.class);
         initManager(getConfig());
+        SweetDIManager.getInstance().registerTransient(IBluetoothServer.class, args -> new UnitTestBluetoothServer(args.get(0)));
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, UnitTestBluetoothGatt.class);
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, UnitTestBluetoothDevice.class);
+        postSetup();
+    }
+
+    /**
+     * Override this method if you need to perform additional setup, after the built-in setup is done (mainly this
+     * is used to override DI registrations from the default test ones)
+     */
+    public void postSetup()
+    {
     }
 
     /**
@@ -149,10 +122,6 @@ public abstract class RxSweetUnitTest<A extends Activity> extends AbstractTestCl
     public RxBleManagerConfig getConfig()
     {
         m_config = new RxBleManagerConfig();
-        m_config.bluetoothManagerImplementation = getManagerLayer();
-        m_config.gattFactory = this::getGattLayer;
-        m_config.bluetoothDeviceFactory = this::getDeviceLayer;
-        m_config.serverFactory = this::getServerLayer;
         m_config.logger = new UnitTestLogger();
         // TODO - For some reason, this is causing the tests to lock up after running (gradlew never exits)
         // TODO - We should look into this, I think this is needed to avoid an intermittent failure

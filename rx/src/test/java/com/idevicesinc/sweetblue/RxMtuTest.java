@@ -17,7 +17,9 @@
 
 package com.idevicesinc.sweetblue;
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.rx.RxBleDevice;
 import com.idevicesinc.sweetblue.rx.RxBleTransaction;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
@@ -178,7 +180,7 @@ public final class RxMtuTest extends RxBaseBleUnitTest
 
         m_config.loggingOptions = LogOptions.ON;
 
-        m_config.gattFactory = device -> new MtuFailBluetoothGatt(device, db);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new MtuFailBluetoothGatt(args.get(0), db));
 
         m_config.mtuTestCallback = new MtuTestCallback()
         {
@@ -229,7 +231,7 @@ public final class RxMtuTest extends RxBaseBleUnitTest
 
         m_config.loggingOptions = LogOptions.ON;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, db);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), db));
 
         m_config.mtuTestCallback = new MtuTestCallback()
         {

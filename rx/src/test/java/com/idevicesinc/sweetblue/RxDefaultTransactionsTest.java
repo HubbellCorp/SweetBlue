@@ -18,6 +18,7 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
 import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.rx.RxBleManagerConfig;
@@ -50,6 +51,12 @@ public final class RxDefaultTransactionsTest extends RxBaseBleUnitTest
             .addService(mInitServiceUuid)
             .addCharacteristic(mInitCharUuid).setValue(new byte[]{0x8, 0xA}).setProperties().read().setPermissions().read().completeService();
 
+
+    @Override
+    public void postSetup()
+    {
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), db));
+    }
 
     @Test(timeout = 40000)
     public void defaultAuthTransactionTest() throws Exception
@@ -254,12 +261,6 @@ public final class RxDefaultTransactionsTest extends RxBaseBleUnitTest
                     }
                 }, err ->
                         assertTrue("Failed to connect to device!", false)))));
-    }
-
-    @Override
-    public IBluetoothGatt getGattLayer(IBleDevice device)
-    {
-        return new UnitTestBluetoothGatt(device, db);
     }
 
 }

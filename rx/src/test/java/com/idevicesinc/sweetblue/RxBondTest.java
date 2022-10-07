@@ -18,7 +18,9 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothDevice;
 import com.idevicesinc.sweetblue.rx.RxBleDevice;
 import com.idevicesinc.sweetblue.rx.RxBleManagerConfig;
 import com.idevicesinc.sweetblue.utils.Interval;
@@ -45,7 +47,7 @@ public final class RxBondTest extends RxBaseBleUnitTest
     @Test(timeout = 20000)
     public void bondRetryTest() throws Exception
     {
-        m_config.bluetoothDeviceFactory = device -> new BondFailACoupleTimesLayer(device, 3);
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, args -> new BondFailACoupleTimesLayer(args.get(0), 3));
 
         m_manager.setConfig(m_config);
 
@@ -58,7 +60,7 @@ public final class RxBondTest extends RxBaseBleUnitTest
     @Test(timeout = 20000)
     public void bondFilterTest() throws Exception
     {
-        m_config.bluetoothDeviceFactory = device -> new BondFailACoupleTimesLayer(device, 1);
+        SweetDIManager.getInstance().registerTransient(IBluetoothDevice.class, args -> new BondFailACoupleTimesLayer(args.get(0), 1));
 
         m_config.bondFilter = new BondFilter()
         {

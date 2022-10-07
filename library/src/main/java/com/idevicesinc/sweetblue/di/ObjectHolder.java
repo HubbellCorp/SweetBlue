@@ -1,15 +1,13 @@
 package com.idevicesinc.sweetblue.di;
 
-import com.idevicesinc.sweetblue.utils.FunctionO;
 import com.idevicesinc.sweetblue.utils.FunctionVargs;
 import com.idevicesinc.sweetblue.utils.Utils_Reflection;
 import java.util.HashMap;
 import java.util.Map;
 
 
-final class ObjectHolder<B, I extends B>
+public final class ObjectHolder<B, I extends B>
 {
-    private final SweetDIManager m_manager;
     Class<I> m_implementationClass;
     Class<B> m_baseClass;
     DIScope m_scopeType;
@@ -18,18 +16,16 @@ final class ObjectHolder<B, I extends B>
     FunctionVargs<I> m_constructorFunction;
 
 
-    ObjectHolder(Class<B> baseClass, Class<I> implementationClass, DIScope scopeType)
+    public ObjectHolder(Class<B> baseClass, Class<I> implementationClass, DIScope scopeType)
     {
-        m_manager = SweetDIManager.getInstance();
         m_implementationClass = implementationClass;
         m_baseClass = baseClass;
         m_scopeType = scopeType;
     }
 
     @SuppressWarnings("unchecked")
-    ObjectHolder(Class<B> baseClass, DIScope scopeType, FunctionVargs<I> constructorFunction)
+    public ObjectHolder(Class<B> baseClass, DIScope scopeType, FunctionVargs<I> constructorFunction)
     {
-        m_manager = SweetDIManager.getInstance();
         m_implementationClass = (Class<I>) baseClass;
         m_constructorFunction = constructorFunction;
         m_baseClass = baseClass;
@@ -41,23 +37,23 @@ final class ObjectHolder<B, I extends B>
         return args != null && args.length > 0;
     }
 
-    public I getInstance(Object... args)
+    public I getInstance(SweetDIManager m_manager, Object... args)
     {
         if (m_scopeType != null)
         {
             switch (m_scopeType)
             {
                 case Scoped:
-                    return getScopedInstance(args);
+                    return getScopedInstance(m_manager, args);
                 case Singleton:
                     if (m_instance == null)
                     {
                         boolean hasArgs = hasArgs(args);
-                        m_instance = hasArgs ? constructParameterInstance(args) : constructInstance();
+                        m_instance = hasArgs ? constructParameterInstance(m_manager, args) : constructInstance(m_manager);
                     }
                     return m_instance;
                 case Transient:
-                    return hasArgs(args) ? constructParameterInstance(args) : constructInstance();
+                    return hasArgs(args) ? constructParameterInstance(m_manager, args) : constructInstance(m_manager);
             }
         }
         throw new RuntimeException("Unknown, or null scope type: " + m_scopeType);
@@ -65,7 +61,7 @@ final class ObjectHolder<B, I extends B>
 
 
 
-    private I constructParameterInstance(Object... constructorArgs)
+    private I constructParameterInstance(SweetDIManager m_manager, Object... constructorArgs)
     {
         if (m_constructorFunction != null)
             return m_constructorFunction.call(new FunctionVargs.Vargs(constructorArgs));
@@ -79,11 +75,11 @@ final class ObjectHolder<B, I extends B>
         }
         else
         {
-            return constructInstance();
+            return constructInstance(m_manager);
         }
     }
 
-    private I constructInstance()
+    private I constructInstance(SweetDIManager m_manager)
     {
         if (m_constructorFunction != null) return m_constructorFunction.call(new FunctionVargs.Vargs());
 
@@ -94,7 +90,7 @@ final class ObjectHolder<B, I extends B>
         throw new RuntimeException("Unable to instantiate class " + m_implementationClass);
     }
 
-    private I getScopedInstance(Object... args)
+    private I getScopedInstance(SweetDIManager m_manager, Object... args)
     {
         I instance;
         Class<?> callingClass;
@@ -116,7 +112,7 @@ final class ObjectHolder<B, I extends B>
 
         if (instance == null)
         {
-            instance = hasArgs(args) ? constructParameterInstance(null, args) : constructInstance();
+            instance = hasArgs(args) ? constructParameterInstance(m_manager, args) : constructInstance(m_manager);
             m_scopedInstanceMap.put(callingClass, instance);
         }
         return instance;

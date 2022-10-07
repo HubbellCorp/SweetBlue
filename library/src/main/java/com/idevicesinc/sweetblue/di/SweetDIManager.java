@@ -1,8 +1,9 @@
 package com.idevicesinc.sweetblue.di;
 
+import com.idevicesinc.sweetblue.internal.IBleManager;
+import com.idevicesinc.sweetblue.internal.P_BleManagerImpl;
 import com.idevicesinc.sweetblue.utils.FunctionO;
 import com.idevicesinc.sweetblue.utils.FunctionVargs;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,12 +37,18 @@ public final class SweetDIManager
 {
     private static SweetDIManager s_managerInstance = null;
 
+    // Special case for BleManager impl. Most of the DI registration is done in this impl class, so we need to make sure this
+    // gets added when it's used to populate the manager impl in the user facing manager class
+    private final static Map<Class<?>, ObjectHolder<?, ?>> m_preRegisteredObjects = new HashMap<>() {{
+        put(IBleManager.class, new ObjectHolder<>(IBleManager.class, P_BleManagerImpl.class, DIScope.Transient));
+    }};
+
     private final Map<Class<?>, ObjectHolder<?, ?>> m_registeredObjects;
 
 
     private SweetDIManager()
     {
-        m_registeredObjects = new HashMap<>();
+        m_registeredObjects = new HashMap<>(m_preRegisteredObjects);
     }
 
     /**
@@ -250,7 +257,7 @@ public final class SweetDIManager
             }
             return null;
         }
-        return (I) objectHolder.getInstance(constructorArgs);
+        return (I) objectHolder.getInstance(this, constructorArgs);
     }
 
     private <B, I extends B> void registerObject(Class<B> baseClass, Class<I> implementationClass, DIScope scopeType)

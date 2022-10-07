@@ -18,7 +18,9 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.P_Bridge_BleManager;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothManager;
 import com.idevicesinc.sweetblue.utils.Interval;
 
 import org.junit.Test;
@@ -36,8 +38,6 @@ public final class RxManagerStateTest extends RxBaseBleUnitTest
     public void onToOffTest() throws Exception
     {
         m_config.loggingOptions = LogOptions.ON;
-
-        m_config.bluetoothManagerImplementation = new UnitTestBluetoothManager();
 
         m_manager.setConfig(m_config);
 
@@ -69,8 +69,6 @@ public final class RxManagerStateTest extends RxBaseBleUnitTest
     public void onToOffToOnTest() throws Exception
     {
         m_config.loggingOptions = LogOptions.ON;
-
-        m_config.bluetoothManagerImplementation = new UnitTestBluetoothManager();
 
         m_manager.setConfig(m_config);
 
@@ -111,8 +109,7 @@ public final class RxManagerStateTest extends RxBaseBleUnitTest
     {
         m_config.loggingOptions = LogOptions.ON;
 
-        final DontTurnOffBluetoothManager layer = new DontTurnOffBluetoothManager();
-        m_config.bluetoothManagerImplementation = layer;
+        SweetDIManager.getInstance().registerTransient(IBluetoothManager.class, DontTurnOffBluetoothManager.class);
 
         m_manager.setConfig(m_config);
 

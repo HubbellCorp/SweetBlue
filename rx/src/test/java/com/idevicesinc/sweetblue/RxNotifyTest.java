@@ -18,7 +18,9 @@
 package com.idevicesinc.sweetblue;
 
 
+import com.idevicesinc.sweetblue.di.SweetDIManager;
 import com.idevicesinc.sweetblue.internal.IBleDevice;
+import com.idevicesinc.sweetblue.internal.android.IBluetoothGatt;
 import com.idevicesinc.sweetblue.rx.RxBleDevice;
 import com.idevicesinc.sweetblue.rx.RxBleTransaction;
 import com.idevicesinc.sweetblue.utils.GattDatabase;
@@ -60,7 +62,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, dbNotifyWithDesc);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -102,7 +104,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, dbNotify);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), dbNotify));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -142,7 +144,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     @Test(timeout = 15000)
     public void multiNotifyTest() throws Exception
     {
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, dbNotify);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), dbNotify));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -180,7 +182,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, dbNotify);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), dbNotify));
 
         m_manager.setConfig(m_config);
 
@@ -227,7 +229,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, dbNotify);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), dbNotify));
 
         m_manager.setConfig(m_config);
 
@@ -275,7 +277,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, dbNotifyWithDesc);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -327,7 +329,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, dbNotifyWithDesc);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -389,7 +391,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new UnitTestBluetoothGatt(device, dbIndicateNoDesc);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new UnitTestBluetoothGatt(args.get(0), dbIndicateNoDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 
@@ -440,7 +442,7 @@ public final class RxNotifyTest extends RxBaseBleUnitTest
     {
         m_device = null;
 
-        m_config.gattFactory = device -> new PollNotifyBluetoothGatt(device, dbNotifyWithDesc);
+        SweetDIManager.getInstance().registerTransient(IBluetoothGatt.class, args -> new PollNotifyBluetoothGatt(args.get(0), dbNotifyWithDesc));
 
         m_config.loggingOptions = LogOptions.ON;
 

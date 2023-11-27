@@ -18,6 +18,7 @@
 package com.idevicesinc.sweetblue.toolbox.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -369,6 +370,7 @@ public class SettingsActivity extends BaseActivity
         return true;
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed()
     {

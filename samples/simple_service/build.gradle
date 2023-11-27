@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.idevicesinc.sweetblue.simple_service"
@@ -30,6 +30,6 @@ android {
 
 dependencies {
     implementation project(':library')
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }

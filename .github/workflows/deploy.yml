@@ -15,6 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
       - name: Build Library And Sample Apps
         run: ./gradlew assembleRelease
 
@@ -23,6 +29,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
 
       # Run tests
       - name: Run Tests
@@ -41,6 +53,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
 
       # Run static analysis
       - name: Android Lint
@@ -65,6 +83,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
 
       # This may be redundant, but we should make sure the documentation is up-to-date, just in case
       - name: Update Documentation
@@ -107,6 +131,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
       # Have gradle write out the current version (it seems when using environments, env vars do not carry
       # over from job to job, so we need to get it again here)
       - name: Write version file
@@ -145,6 +175,12 @@ jobs:
         # Make sure we get the latest on the branch, as a commit may have been made earlier
         with:
           ref: ${{ GITHUB_REF_NAME }}
+
+      - name: Install Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
 
       - name: Merge into main
         uses: devmasx/merge-branch@master

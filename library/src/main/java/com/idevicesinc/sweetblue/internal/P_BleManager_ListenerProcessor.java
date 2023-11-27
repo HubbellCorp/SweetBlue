@@ -23,6 +23,8 @@ import static com.idevicesinc.sweetblue.BleManagerState.ON;
 import static com.idevicesinc.sweetblue.BleManagerState.SCANNING;
 import static com.idevicesinc.sweetblue.BleManagerState.TURNING_OFF;
 import static com.idevicesinc.sweetblue.BleManagerState.TURNING_ON;
+
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -36,6 +38,8 @@ import com.idevicesinc.sweetblue.P_Bridge_User;
 import com.idevicesinc.sweetblue.ServerReconnectFilter;
 import com.idevicesinc.sweetblue.UhOhListener.UhOh;
 import com.idevicesinc.sweetblue.compat.L_Util;
+import com.idevicesinc.sweetblue.compat.O_Util;
+import com.idevicesinc.sweetblue.compat.T_Util;
 import com.idevicesinc.sweetblue.internal.android.AdapterConst;
 import com.idevicesinc.sweetblue.internal.android.DeviceConst;
 import com.idevicesinc.sweetblue.internal.android.IManagerListener;
@@ -67,11 +71,20 @@ final class P_BleManager_ListenerProcessor implements IManagerListener.Callback
 
 
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     P_BleManager_ListenerProcessor(IBleManager bleMngr)
     {
         m_mngr = bleMngr;
 
-        m_mngr.getApplicationContext().registerReceiver(m_receiver, newIntentFilter());
+        if (Utils.isAndroid14()) {
+            // Context.RECEIVER_NOT_EXPORTED was added in Android 13. However, passing this int
+            // was not necessary for 13. In 14, if you do not pass this int, then the receiver won't
+            // get registered, and end up crashing the application.
+            T_Util.registerReceiver(m_mngr.getApplicationContext(), m_receiver, newIntentFilter());
+        } else {
+            m_mngr.getApplicationContext().registerReceiver(m_receiver, newIntentFilter());
+        }
+
 
         m_pollRate = m_mngr.getConfigClone().defaultStatePollRate;
 

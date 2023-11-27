@@ -86,6 +86,16 @@ public class Utils
 		return isAndroidVersion(Build.VERSION_CODES.S);
 	}
 
+	public static boolean isAndroid13()
+	{
+		return isAndroidVersion(Build.VERSION_CODES.TIRAMISU);
+	}
+
+	public static boolean isAndroid14()
+	{
+		return isAndroidVersion(Build.VERSION_CODES.UPSIDE_DOWN_CAKE);
+	}
+
 	@androidx.annotation.ChecksSdkIntAtLeast(parameter = 0)
 	private static boolean isAndroidVersion(int apiVersion)
     {

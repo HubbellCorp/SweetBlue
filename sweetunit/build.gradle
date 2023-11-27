@@ -8,7 +8,6 @@ configurations {
 }
 
 android {
-    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 18
@@ -42,15 +41,15 @@ repositories {
 dependencies {
     implementation project(':library')
     implementation 'junit:junit:4.13.2'
-    implementation 'androidx.test.ext:junit:1.1.3'
-    implementation 'androidx.test:rules:1.4.0'
-    implementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.test.ext:junit:1.1.5'
+    implementation 'androidx.test:rules:1.5.0'
+    implementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 
     javadocDeps 'junit:junit:4.13.2'
-    javadocDeps 'androidx.test.ext:junit:1.1.3'
-    javadocDeps 'androidx.test:rules:1.4.0'
-    javadocDeps 'androidx.test.espresso:espresso-core:3.4.0'
+    javadocDeps 'androidx.test.ext:junit:1.1.5'
+    javadocDeps 'androidx.test:rules:1.5.0'
+    javadocDeps 'androidx.test.espresso:espresso-core:3.5.1'
     javadocDeps 'androidx.test.uiautomator:uiautomator:2.2.0'
 }
 
@@ -91,6 +90,7 @@ task sbjavadocJar(type: Jar, dependsOn: gendocs) {
 //              Publishing Config           //
 //////////////////////////////////////////////
 android {
+    compileSdk 34
     publishing {
         singleVariant('release') {
             withSourcesJar()

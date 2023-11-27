@@ -105,6 +105,7 @@ public class CharacteristicAdapter extends BaseExpandableListAdapter
     }
 
     private void populateDisplayTypeMap() {
+        DISPLAYTYPE_MAP = new HashMap<>();
         DISPLAYTYPE_MAP.put(R.id.displayTypeBoolean, Uuids.GATTDisplayType.Boolean);
         DISPLAYTYPE_MAP.put(R.id.displayTypeBitfield, Uuids.GATTDisplayType.Bitfield);
         DISPLAYTYPE_MAP.put(R.id.displayTypeUnsignedInteger, Uuids.GATTDisplayType.UnsignedInteger);

@@ -8,7 +8,6 @@ configurations {
 }
 
 android {
-    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 18
@@ -52,16 +51,16 @@ tasks.withType(Test) {
 }
 
 dependencies {
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     implementation project(':library')
 
     testImplementation project(':sweetunit')
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.robolectric:robolectric:4.4'
+    testImplementation 'org.robolectric:robolectric:4.11.1'
 
-    javadocDeps 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    javadocDeps 'io.reactivex.rxjava2:rxjava:2.1.13'
+    javadocDeps 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    javadocDeps 'io.reactivex.rxjava2:rxjava:2.2.21'
 }
 
 // Generate javadocs
@@ -101,6 +100,7 @@ task sbjavadocJar(type: Jar, dependsOn: gendocs) {
 //          Publishing Config               //
 //////////////////////////////////////////////
 android {
+    compileSdk 34
     publishing {
         singleVariant('release') {
             withSourcesJar()

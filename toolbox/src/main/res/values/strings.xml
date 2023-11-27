@@ -153,10 +153,10 @@
 
 
     <!-- Website -->
-    <string name="visit_website_url">http://idevicesinc.com/sweetblue</string>
+    <string name="visit_website_url">https://github.com/HubbellCorp/SweetBlue</string>
 
     <!-- Feedback -->
-    <string name="send_feedback_email_address">SweetBlueTechSupport@idevicesinc.com</string>
+    <string name="send_feedback_email_address">SweetBlue@hubbell.com</string>
     <string name="send_feedback_email_subject">SweetBlue Toolbox feedback</string>
     <string name="send_feedback_email_body"></string>
     <string name="send_feedback_send_mail">Send Mail</string>

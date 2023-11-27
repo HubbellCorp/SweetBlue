@@ -28,7 +28,10 @@ import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanSettings;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
@@ -41,6 +44,11 @@ import java.util.List;
 public class O_Util
 {
 
+
+    public static Intent registerReceiver(Context context, BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, int rec)
+    {
+        return context.registerReceiver(broadcastReceiver, intentFilter, rec);
+    }
 
     public static boolean isHighSpeedSupported(BluetoothAdapter adapter)
     {

@@ -1,0 +1,55 @@
+name: 'SweetBlue Snapshot Deployment'
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    # Using the release environment for this step will force a manual approval in github
+    # before it can proceed
+    environment:
+      name: Release
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Build Library And Sample Apps
+        run: ./gradlew assembleRelease
+
+  Deploy:
+    runs-on: ubuntu-latest
+    # Using the release environment for this step will force a manual approval in github
+    # before it can proceed
+    environment:
+      name: Release
+
+    needs: Build
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # Now build the artifacts, and javadocs jars, and publish to Azure Artifacts
+      - name: Deploy to Azure
+        env:
+          AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: ${{ secrets.AZURE_ARTIFACTS_ENV_ACCESS_TOKEN }}
+        run: ./gradlew assembleRelease sbjavadocJar publish
+
+      - name: Deploy markdown to wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        with:
+          path: "markdown"
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}

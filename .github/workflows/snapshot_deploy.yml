@@ -22,9 +22,10 @@ jobs:
       - name: Write version file
         run: ./gradlew writeVersionFile
 
-      - id: check_snapshot
+      - name: Verify Snapshot
+        id: check_snapshot
         run: |
-          number=cat version.txt | grep -c "\-SNAPSHOT"
+          number=(cat version.txt | grep -c "\-SNAPSHOT")
           if [ "$number" ge 1 ]
           then
             echo true >> "$GITHUB_OUTPUT"

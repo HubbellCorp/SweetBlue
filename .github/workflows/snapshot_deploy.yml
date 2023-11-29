@@ -22,7 +22,7 @@ jobs:
         id: process_version
         env:
           SNAPSHOT: ${{ github.event.inputs.snapshot_version != '' && format('.{0}-SNAPSHOT', github.event.inputs.snapshot_version) || '' }}
-        run: echo "snapshot_version=$SNAPSHOT" >> $GITHUB_OUTPUT
+        run: echo "snapshot_version=$SNAPSHOT" >> "$GITHUB_OUTPUT"
 
   TheTest:
     runs-on: ubuntu-latest

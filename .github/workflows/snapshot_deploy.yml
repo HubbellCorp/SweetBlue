@@ -27,6 +27,8 @@ jobs:
   TheTest:
     runs-on: ubuntu-latest
 
+    needs: PreBuild
+
     steps:
       - uses: actions/checkout@v3
 

@@ -24,8 +24,10 @@ jobs:
           java-version: '17'
 
       - name: Test out things
+        env:
+          SNAPSHOT: fromJSON('["", ".${{ github.event.inputs.snapshot_version }}-SNAPSHOT"]')[${{ github.event.inputs.snapshot_version }} != ""]
         run: |
-          ./gradlew writeVersionFile -PuseSnapshot=".${{ github.event.inputs.snapshot_version }}-SNAPSHOT"
+          ./gradlew writeVersionFile -PuseSnapshot=$SNAPSHOT
           cat version.txt
 
 #  Build:

@@ -25,7 +25,7 @@ jobs:
 
       - name: Test out things
         run: |
-          ./gradlew writeVersionFile -PuseSnapshot=${{ github.events.inputs.snapshot_version }}
+          ./gradlew writeVersionFile -PuseSnapshot=${{ github.event.inputs.snapshot_version }}
           cat version.txt
 #  Build:
 #    runs-on: ubuntu-latest

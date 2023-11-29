@@ -40,7 +40,7 @@ jobs:
         env:
           SNAPSHOT_VERSION: ${{ needs.PreBuild.outputs.snapshot_version }}
         run: |
-          ./gradlew writeVersionFile -PuseSnapshot="$SNAPSHOT_VERSION"
+          ./gradlew --no-daemon writeVersionFile -PuseSnapshot="$SNAPSHOT_VERSION"
           cat version.txt
 
 #  Build:

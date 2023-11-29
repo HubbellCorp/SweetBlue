@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      snapshot_version: ${{ steps.process_version.snapshot_version }}
+      snapshot_version: ${{ steps.process_version.outputs.snapshot_version }}
 
     steps:
       - name: Process snapshot version parameter

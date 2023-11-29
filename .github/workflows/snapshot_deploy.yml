@@ -11,12 +11,21 @@ on:
         default: ''
 
 jobs:
-  Build:
+  PreBuild:
     runs-on: ubuntu-latest
-    # Using the release environment for this step will force a manual approval in github
-    # before it can proceed
-    environment:
-      name: Snapshot
+
+    outputs:
+      snapshot_version: ${{ steps.process_version.snapshot_version }}
+
+    steps:
+      - name: Process snapshot version parameter
+        id: process_version
+        env:
+          SNAPSHOT: ${{ github.event.inputs.snapshot_version != '' && format('.{0}-SNAPSHOT', github.event.inputs.snapshot_version) || '' }}
+        run: echo snapshot_version=$SNAPSHOT >> $GITHUB_OUTPUT
+
+  TheTest:
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -29,28 +38,53 @@ jobs:
 
       - name: Build Library And Sample Apps
         env:
-          SNAPSHOT: ${{ github.event.inputs.snapshot_version != '' && format('.{0}-SNAPSHOT', github.event.inputs.snapshot_version) || '' }}
-        run: ./gradlew assembleRelease -PuseSnapshot="$SNAPSHOT"
+          SNAPSHOT_VERSION: ${{ needs.PreBuild.outputs.snapshot_version }}
+        run: |
+          ./gradlew writeVersionFile -PuseSnapshot="$SNAPSHOT_VERSION"
+          cat version.txt
 
-  Deploy:
-    runs-on: ubuntu-latest
-    # Using the release environment for this step will force a manual approval in github
-    # before it can proceed
-    environment:
-      name: Snapshot
-
-    needs: Build
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Java 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-
-      # Now build the artifacts, and javadocs jars, and publish to Azure Artifacts
-      - name: Deploy to Azure
-        env:
-          AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: ${{ secrets.AZURE_ARTIFACTS_ENV_ACCESS_TOKEN }}
-        run: ./gradlew assembleRelease sbjavadocJar publish
+#  Build:
+#    runs-on: ubuntu-latest
+#    # Using the release environment for this step will force a manual approval in github
+#    # before it can proceed
+#    environment:
+#      name: Snapshot
+#
+#    needs: PreBuild
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Install Java 17
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'zulu'
+#          java-version: '17'
+#
+#      - name: Build Library And Sample Apps
+#        env:
+#          SNAPSHOT_VERSION: ${{ needs.PreBuild.outputs.snapshot_version }}
+#        run: ./gradlew assembleRelease -PuseSnapshot="$SNAPSHOT_VERSION"
+#
+#  Deploy:
+#    runs-on: ubuntu-latest
+#    # Using the release environment for this step will force a manual approval in github
+#    # before it can proceed
+#    environment:
+#      name: Snapshot
+#
+#    needs: Build
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Install Java 17
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'zulu'
+#          java-version: '17'
+#
+#      # Now build the artifacts, and javadocs jars, and publish to Azure Artifacts
+#      - name: Deploy to Azure
+#        env:
+#          AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: ${{ secrets.AZURE_ARTIFACTS_ENV_ACCESS_TOKEN }}
+#        run: ./gradlew assembleRelease sbjavadocJar publish

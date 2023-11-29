@@ -26,7 +26,7 @@ jobs:
       - name: Test out things
         env:
           VERSION: ${{ github.event.inputs.snapshot_version }}
-          SNAPSHOT: ${{ github.event.inputs.snapshot_version != '' && ".$github.event.inputs.snapshot_version-SNAPSHOT" || "" }}
+          SNAPSHOT: ${{ github.event.inputs.snapshot_version != '' && '.' + github.event.inputs.snapshot_version + '-SNAPSHOT' || '' }}
         run: |
           ./gradlew writeVersionFile -PuseSnapshot="$SNAPSHOT"
           cat version.txt

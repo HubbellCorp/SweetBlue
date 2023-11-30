@@ -61,6 +61,8 @@ afterEvaluate {
     // So, update the gendocs task classpath with the value here
     tasks.gendocs.classpath += files(project.android.getBootClasspath())
     tasks.gendocs.classpath += project(':library').tasks.sourcesJar.outputs.getFiles()
+    // It also seems that aar dependencies don't get properly added to the classpath, so we have
+    // to pull the classes.jar out of them manually and add them to the classpath
     def tmpDir = new File(project.buildDir, "tmpAar")
     if (tmpDir.exists()) tmpDir.delete()
     tmpDir.mkdirs()

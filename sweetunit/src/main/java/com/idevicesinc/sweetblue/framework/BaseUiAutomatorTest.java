@@ -3,9 +3,7 @@ package com.idevicesinc.sweetblue.framework;
 import android.app.Activity;
 import android.widget.EditText;
 
-import androidx.test.core.app.ActivityScenario;
 import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.rule.ActivityTestRule;
 import androidx.test.uiautomator.UiDevice;
 import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObjectNotFoundException;

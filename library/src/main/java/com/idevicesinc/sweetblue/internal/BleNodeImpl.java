@@ -326,7 +326,7 @@ abstract class BleNodeImpl implements IBleNode, UsesCustomNull
     }
 
     /**
-     * Safer version of {@link #cast()} that will return {@link BleDevice#NULL} or {@link BleServer#NULL}
+     * Safer version of {@link BleNodeImpl#cast()} that will return {@link BleDevice#NULL} or {@link BleServer#NULL}
      * if the cast cannot be made.
      */
     public @Nullable(Nullable.Prevalence.NEVER) <T extends BleNodeImpl> T cast(final Class<T> type)

@@ -6,24 +6,11 @@ on:
     inputs:
       snapshot_version:
         name: Snapshot Version
-        description: 'Additional version number to tack onto the snapshot version (eg 4.0.1 version, if you supply the snapshot version of 3, the version will end up as 4.0.1.3-SNAPSHOT'
+        description: 'Version number to concat to the snapshot version (eg 4.0.1 version, if you supply the snapshot version of 3, the version will end up as 4.0.1.3-SNAPSHOT'
         required: false
         default: ''
 
 jobs:
-  PreBuild:
-    runs-on: ubuntu-latest
-
-    outputs:
-      snapshot_version: ${{ steps.process_version.outputs.snapshot_version }}
-
-    steps:
-      - name: Process snapshot version parameter
-        id: process_version
-        env:
-          SNAPSHOT: ${{ github.event.inputs.snapshot_version != '' && format('.{0}-SNAPSHOT', github.event.inputs.snapshot_version) || '' }}
-        run: echo "snapshot_version=$SNAPSHOT" >> "$GITHUB_OUTPUT"
-
   Deploy:
     runs-on: ubuntu-latest
     # Using the release environment for this step will force a manual approval in github
@@ -31,7 +18,6 @@ jobs:
     environment:
       name: Snapshot
 
-    needs: PreBuild
     steps:
       - uses: actions/checkout@v3
 
@@ -45,5 +31,5 @@ jobs:
       - name: Deploy to Azure
         env:
           AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: ${{ secrets.AZURE_ARTIFACTS_ENV_ACCESS_TOKEN }}
-          SNAPSHOT_VERSION: ${{ needs.PreBuild.outputs.snapshot_version }}
+          SNAPSHOT_VERSION: ${{ github.event.inputs.snapshot_version != '' && format('.{0}-SNAPSHOT', github.event.inputs.snapshot_version) || '' }}
         run: ./gradlew assembleRelease sbjavadocJar publish -PuseSnapshot="$SNAPSHOT_VERSION"

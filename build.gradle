@@ -5,18 +5,30 @@ import java.util.regex.Pattern
 //  Standard top-level stuff (plugins/deps)  //
 // ========================================= //
 buildscript {
+    ext {
+        agp_version = '8.1.4'
+    }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.4'
+        classpath "com.android.tools.build:gradle:$agp_version"
     }
 }
 
 
 allprojects {
     ext.appVersionName = "4.0.1"
+    if (project.hasProperty("useSnapshot")) {
+        def supplied = project.property("useSnapshot")
+        if (supplied.toString().trim().length() > 0) {
+            ext.appVersionName += supplied
+        } else {
+            ext.appVersionName += '-SNAPSHOT'
+        }
+    }
+
     repositories {
         google()
         mavenCentral()
@@ -105,7 +117,7 @@ task bumpVersionName() {
     group = "sweetblue"
     description = "Bumps up the release version of the current version, set in ext.appVersionName"
     doLast {
-        // This will find a string of the form a.b.c.d..... where there can be any number of version extensions following the first number
+        // This will find a string of the form 1.2.3.4..... where there can be any number of version extensions following the first number
         String regex = "([0-9]+(\\.[0-9]+)*)"
         String version = appVersionName
         Pattern pattern = Pattern.compile(regex)

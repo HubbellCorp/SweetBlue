@@ -96,7 +96,6 @@ public class Utils
 		return isAndroidVersion(Build.VERSION_CODES.UPSIDE_DOWN_CAKE);
 	}
 
-	@androidx.annotation.ChecksSdkIntAtLeast(parameter = 0)
 	private static boolean isAndroidVersion(int apiVersion)
     {
         return Build.VERSION.SDK_INT >= apiVersion;

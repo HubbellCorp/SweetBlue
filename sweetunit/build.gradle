@@ -1,3 +1,6 @@
+import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
+
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
@@ -53,30 +56,49 @@ dependencies {
     javadocDeps 'androidx.test.uiautomator:uiautomator:2.2.0'
 }
 
+afterEvaluate {
+    // Need to pull the boot classpath from project.android, and it needs to be in afterEvaluate
+    // So, update the gendocs task classpath with the value here
+    tasks.gendocs.classpath += files(project.android.getBootClasspath())
+    tasks.gendocs.classpath += project(':library').tasks.sourcesJar.outputs.getFiles()
+    // It also seems that aar dependencies don't get properly added to the classpath, so we have
+    // to pull the classes.jar out of them manually and add them to the classpath
+    def tmpDir = new File(project.buildDir, "tmpAar")
+    if (tmpDir.exists()) tmpDir.delete()
+    tmpDir.mkdirs()
+    configurations.javadocDeps.forEach {
+        if (it.name.endsWith(".aar")) {
+            extractClassesJar(it, tmpDir)
+        } else {
+            tasks.gendocs.classpath += fileTree(it)
+        }
+    }
+    tasks.gendocs.classpath += fileTree(tmpDir)
+    tasks.gendocs.classpath += files(configurations.javadocDeps)
+}
+
 // Generate javadocs
-task gendocs(type: Javadoc) {
+tasks.register('gendocs', Javadoc) {
     failOnError false
     String path = rootProject.projectDir.absolutePath + "/scripts/assets/v3_style.css"
     options.stylesheetFile = new File(path)
     options.windowTitle = "SweetUnit"
     options.memberLevel = JavadocMemberLevel.PROTECTED
     options.author = true
-    options.links('http://d.android.com/reference')
+    options.links('https://developer.android.com/reference')
     exclude '**/BuildConfig.java'
     exclude '**/R.java'
     String v = "${SEMVER}"
     version = v.replace("_", '.')
     options.setDocTitle("SweetUnit " + version + " API")
     destinationDir = file("${rootDir.absolutePath}/javadocs/sweetunit/api")
-    source = android.sourceSets.main.java.srcDirs
-    classpath += files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += files(rootProject.projectDir.absolutePath + "/library/build/intermediates/aar_main_jar/release/classes.jar")
-    classpath += configurations.javadocDeps
+    source = android.sourceSets.main.java.sourceFiles
     group = "sweetunit"
 }
 
 // Create javadoc jar file
-task sbjavadocJar(type: Jar, dependsOn: gendocs) {
+tasks.register('sbjavadocJar', Jar) {
+    dependsOn gendocs
     from gendocs.destinationDir
     archiveFileName = getJavadocJarName("sweetunit")
     archiveClassifier.set("javadoc")
@@ -120,4 +142,25 @@ publishing {
             }
         }
     }
+}
+
+
+def static extractClassesJar(File archive, File tmpDir) {
+    byte[] buffer = new byte[1024]
+    ZipInputStream zis = new ZipInputStream(new FileInputStream(archive.absolutePath))
+    ZipEntry zipEntry = zis.getNextEntry()
+    while (zipEntry != null) {
+        if (zipEntry.name.equalsIgnoreCase("classes.jar")) {
+            def classFile = new File(tmpDir, archive.name.replace(".aar", ".jar"))
+            FileOutputStream fos = new FileOutputStream(classFile)
+            int len
+            while ((len = zis.read(buffer)) > 0) {
+                fos.write(buffer, 0, len)
+            }
+            fos.close()
+        }
+        zipEntry = zis.getNextEntry()
+    }
+    zis.closeEntry()
+    zis.close()
 }

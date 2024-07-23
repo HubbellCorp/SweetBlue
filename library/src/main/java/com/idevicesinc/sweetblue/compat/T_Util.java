@@ -14,6 +14,6 @@ public final class T_Util
 
     public static Intent registerReceiver(Context context, BroadcastReceiver broadcastReceiver, IntentFilter intentFilter)
     {
-        return O_Util.registerReceiver(context, broadcastReceiver, intentFilter, Context.RECEIVER_NOT_EXPORTED);
+        return O_Util.registerReceiver(context, broadcastReceiver, intentFilter, Context.RECEIVER_EXPORTED);
     }
 }
